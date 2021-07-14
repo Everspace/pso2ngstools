@@ -96,10 +96,13 @@ const StatItem = ({ statName, value }: StatItemProps) => {
 export const AugmentStatDisplay = ({ stat }: AugmentStatDisplayProps) => {
   return (
     <List>
-      {Object.keys(stat).map((k) => {
-        const key = k as keyof AugmentStat
-        return <StatItem key={key} statName={key} value={stat[key]!} />
-      })}
+      {allStat
+        .map((k) => {
+          const value = stat[k]
+          if (!value) return
+          return <StatItem key={k} statName={k} value={value} />
+        })
+        .filter((x) => x)}
     </List>
   )
 }
