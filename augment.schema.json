@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "PSO2NGS Capsule",
+  "type": "array",
+  "items": {
+    "required": [
+      "name",
+      "category",
+      "rate",
+      "icon"
+    ],
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "The capsule in question"
+      },
+      "drop": {
+        "type": "string",
+        "description": "Where it comes from"
+      },
+      "tier": {
+        "type": "number",
+        "description": "The I/II/II",
+        "minimum": 1,
+        "maximum": 6,
+        "multipleOf": 1
+      },
+      "baseName": {
+        "type": "string",
+        "description": "The series the capsule is from (Precision of Precision I/II/II)"
+      },
+      "icon": {
+        "type": "string",
+        "description": "The icon to use",
+        "enum": [
+          "hp",
+          "pp",
+          "might",
+          "precision",
+          "technique",
+          "ward",
+          "special"
+        ]
+      },
+      "category": {
+        "type": "string",
+        "description": "The unique category it occupies",
+        "enum": [
+          "soul",
+          "ward",
+          "basic",
+          "note",
+          "secreta",
+          "dread",
+          "gigas",
+          "element"
+        ]
+      },
+      "rate": {
+        "type": "number",
+        "description": "The % chance of success",
+        "minimum": 1,
+        "maximum": 10,
+        "multipleOf": 1
+      },
+      "stat": {
+        "type": "object",
+        "properties": {
+          "hp": {
+            "type": "number"
+          },
+          "pp": {
+            "type": "number"
+          },
+          "potency": {
+            "type": "number",
+            "description": "Potency +#%"
+          },
+          "floorPotency": {
+            "type": "number",
+            "description": "Potency Floor Increase +#%"
+          },
+          "meleePotency": {
+            "type": "number"
+          },
+          "rangePotency": {
+            "type": "number"
+          },
+          "techPotency": {
+            "type": "number"
+          },
+          "damageResist": {
+            "type": "number",
+            "description": "Damage Resistance +/-#%"
+          }
+        }
+      },
+      "exchange": {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+[
+  {
+    "name": "Forms Soul II",
+    "category": "soul",
+    "baseName": "Forms Soul",
+    "tier": 2,
+    "drop": "Formers",
+    "icon": "might",
+    "rate": 8,
+    "stat": {
+      "meleePotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Dolz Soul II",
+    "category": "soul",
+    "baseName": "Dolz Soul",
+    "tier": 2,
+    "icon": "pp",
+    "drop": "Dolls",
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Daityl Soul I",
+    "baseName": "Daityl Soul",
+    "icon": "might",
+    "tier": 1,
+    "category": "soul",
+    "rate": 9,
+    "stat": {
+      "pp": 5,
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Daityl Soul II",
+    "icon": "might",
+    "baseName": "Daityl Soul",
+    "tier": 2,
+    "category": "soul",
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "meleePotency": 2
+    },
+    "exchange": {
+      "Daityl Soul I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  },
+  {
+    "name": "Pettas Soul I",
+    "category": "soul",
+    "baseName": "Pettas Soul",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "pp": 5,
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Pettas Soul II",
+    "category": "soul",
+    "baseName": "Pettas Soul",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "rangedPotency": 2
+    },
+    "exchange": {
+      "Pettas Soul I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  },
+  {
+    "name": "Nex Soul I",
+    "category": "soul",
+    "baseName": "Nex Soul",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "pp": 5,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Nex Soul II",
+    "category": "soul",
+    "baseName": "Nex Soul",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "techPotency": 2
+    },
+    "exchange": {
+      "Nex Soul I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  }
+]

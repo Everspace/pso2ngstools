@@ -1,0 +1,5 @@
+export { default as DualomiteImage } from "./NGSUIItemDualomite.png"
+export { default as MonotiteImage } from "./NGSUIItemMonotite.png"
+export { default as PhotonChunkImage } from "./NGSUIItemPhotonChunk.png"
+export { default as PhotonQuartzImage } from "./NGSUIItemPhotonQuartz.png"
+export { default as TriniteImage } from "./NGSUIItemTrinite.png"

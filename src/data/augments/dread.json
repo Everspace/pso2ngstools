@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Dread Keeper I",
+    "icon": "hp",
+    "category": "dread",
+    "drop": "Vetrain/Dread enemies",
+    "rate": 9,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "floorPotency": 1,
+      "damageResist": 1
+    }
+  },
+  {
+    "name": "Dread Keeper II",
+    "icon": "hp",
+    "category": "dread",
+    "drop": "Vetrain/Dread enemies",
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 4,
+      "floorPotency": 1.5,
+      "damageResist": 1.5
+    },
+    "exchange": {
+      "Dread Keeper I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  }
+]

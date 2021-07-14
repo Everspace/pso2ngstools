@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Ael Note A",
+    "icon": "hp",
+    "category": "note",
+    "drop": "Central Aelio",
+    "rate": 9,
+    "stat": {
+      "hp": 5,
+      "pp": 3
+    }
+  },
+  {
+    "name": "Ael Note B",
+    "icon": "special",
+    "category": "note",
+    "drop": "West Aelio",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 1,
+      "rangePotency": 1
+    }
+  },
+  {
+    "name": "Ael Note C",
+    "icon": "special",
+    "category": "note",
+    "drop": "South Aelio",
+    "rate": 9,
+    "stat": {
+      "techPotency": 1,
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Ael Note D",
+    "icon": "special",
+    "category": "note",
+    "drop": "North Aelio",
+    "rate": 9,
+    "stat": {
+      "techPotency": 1,
+      "rangePotency": 1
+    }
+  },
+  {
+    "name": "Ael Domina",
+    "icon": "special",
+    "category": "note",
+    "drop": "Central Aelio",
+    "rate": 9,
+    "stat": {
+      "hp": 5,
+      "pp": 3,
+      "potency": 1.5
+    }
+  },
+  {
+    "name": "Magnus Note",
+    "icon": "might",
+    "category": "note",
+    "drop": "Mt. Magnus",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 1.5
+    }
+  },
+  {
+    "name": "Lab Note",
+    "icon": "precision",
+    "category": "note",
+    "drop": "Vanford Laboratory Ruins",
+    "rate": 9,
+    "stat": {
+      "rangePotency": 1.5
+    }
+  },
+  {
+    "name": "Resola Note",
+    "icon": "technique",
+    "category": "note",
+    "drop": "Resola Forest",
+    "rate": 9,
+    "stat": {
+      "techPotency": 1.5
+    }
+  }
+]

@@ -1,0 +1,286 @@
+[
+  {
+    "name": "Stamina I",
+    "category": "basic",
+    "icon": "hp",
+    "tier": 2,
+    "baseName": "Stamina",
+    "rate": 10,
+    "stat": {
+      "hp": 5
+    }
+  },
+  {
+    "name": "Stamina II",
+    "category": "basic",
+    "icon": "hp",
+    "tier": 2,
+    "baseName": "Stamina",
+    "rate": 10,
+    "stat": {
+      "hp": 10
+    },
+    "exchange": {
+      "Stamina I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Stamina III",
+    "category": "basic",
+    "icon": "hp",
+    "tier": 3,
+    "baseName": "Stamina",
+    "rate": 9,
+    "stat": {
+      "hp": 15
+    }
+  },
+  {
+    "name": "Spirit I",
+    "category": "basic",
+    "icon": "pp",
+    "tier": 1,
+    "baseName": "Spirit",
+    "rate": 10,
+    "stat": {
+      "pp": 3
+    }
+  },
+  {
+    "name": "Spirit II",
+    "category": "basic",
+    "icon": "pp",
+    "tier": 2,
+    "baseName": "Spirit",
+    "rate": 10,
+    "stat": {
+      "pp": 4
+    },
+    "exchange": {
+      "Spirit I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Spirit III",
+    "category": "basic",
+    "icon": "pp",
+    "tier": 3,
+    "baseName": "Spirit",
+    "rate": 9,
+    "stat": {
+      "pp": 5
+    }
+  },
+  {
+    "name": "Might I",
+    "category": "basic",
+    "icon": "might",
+    "tier": 1,
+    "baseName": "Might",
+    "rate": 10,
+    "stat": {
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Might II",
+    "category": "basic",
+    "icon": "might",
+    "tier": 2,
+    "baseName": "Might",
+    "rate": 10,
+    "stat": {
+      "meleePotency": 1.5
+    },
+    "exchange": {
+      "Might I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Might III",
+    "category": "basic",
+    "icon": "might",
+    "tier": 3,
+    "baseName": "Might",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Technique I",
+    "category": "basic",
+    "icon": "technique",
+    "tier": 1,
+    "baseName": "Technique",
+    "rate": 10,
+    "stat": {
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Technique II",
+    "category": "basic",
+    "icon": "technique",
+    "tier": 2,
+    "baseName": "Technique",
+    "rate": 10,
+    "stat": {
+      "techPotency": 1.5
+    },
+    "exchange": {
+      "Technique I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Technique III",
+    "category": "basic",
+    "icon": "technique",
+    "tier": 3,
+    "baseName": "Technique",
+    "rate": 9,
+    "stat": {
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Precision I",
+    "category": "basic",
+    "icon": "precision",
+    "tier": 1,
+    "baseName": "Precision",
+    "rate": 10,
+    "stat": {
+      "rangePotency": 1
+    }
+  },
+  {
+    "name": "Precision II",
+    "category": "basic",
+    "icon": "precision",
+    "tier": 2,
+    "baseName": "Precision",
+    "rate": 10,
+    "stat": {
+      "rangePotency": 1.5
+    },
+    "exchange": {
+      "Precision I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Precision III",
+    "category": "basic",
+    "icon": "precision",
+    "tier": 3,
+    "baseName": "Precision",
+    "rate": 9,
+    "stat": {
+      "rangePotency": 2
+    }
+  },
+  {
+    "name": "Deftness I",
+    "category": "basic",
+    "icon": "special",
+    "tier": 1,
+    "baseName": "Deftness",
+    "rate": 10,
+    "stat": {
+      "floorPotency": 1
+    }
+  },
+  {
+    "name": "Deftness II",
+    "category": "basic",
+    "icon": "special",
+    "tier": 2,
+    "baseName": "Deftness",
+    "rate": 10,
+    "stat": {
+      "floorPotency": 1.5
+    },
+    "exchange": {
+      "Deftness I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Deftness III",
+    "category": "basic",
+    "icon": "special",
+    "tier": 3,
+    "baseName": "Deftness",
+    "rate": 9,
+    "stat": {
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Mastery I",
+    "category": "basic",
+    "icon": "special",
+    "tier": 1,
+    "baseName": "Mastery",
+    "rate": 10,
+    "stat": {
+      "potency": 0.5,
+      "floorPotency": 0.5,
+      "damageResist": 0.5
+    },
+    "exchange": {
+      "Might I": 5,
+      "Precision I": 5,
+      "Technique I": 5,
+      "Photon Quartz": 5,
+      "Trinite": 5
+    }
+  },
+  {
+    "name": "Mastery II",
+    "category": "basic",
+    "icon": "special",
+    "tier": 2,
+    "baseName": "Mastery",
+    "rate": 10,
+    "stat": {
+      "potency": 1.0,
+      "floorPotency": 1.0,
+      "damageResist": 1.0
+    },
+    "exchange": {
+      "Mastery I": 10,
+      "Photon Quartz": 5,
+      "Trinite": 5
+    }
+  },
+  {
+    "name": "Mastery III",
+    "category": "basic",
+    "icon": "special",
+    "tier": 3,
+    "baseName": "Mastery",
+    "rate": 9,
+    "stat": {
+      "potency": 1.5,
+      "floorPotency": 1.5,
+      "damageResist": 0.5
+    },
+    "exchange": {
+      "Mastery II": 10,
+      "Photon Quartz": 10,
+      "Trinite": 10
+    }
+  }
+]
