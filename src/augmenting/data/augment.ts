@@ -4,6 +4,7 @@ import dread from "./augments/dread.json"
 import note from "./augments/note.json"
 import secreta from "./augments/secreta.json"
 import soul from "./augments/soul.json"
+import gigas from "./augments/gigas.json"
 
 export interface AugmentStat {
   hp?: number
@@ -20,14 +21,14 @@ export interface AugmentStat {
 }
 
 export const allAugmentCategories = [
-  "soul",
-  "ward",
   "basic",
+  // "ward", TODO
+  "soul",
   "note",
   "secreta",
   "dread",
   "gigas",
-  "element",
+  // "element", TODO
 ] as const
 
 export type AugmentCategory = typeof allAugmentCategories[number]
@@ -59,6 +60,7 @@ export const allAugments = [
   ...note,
   ...secreta,
   ...soul,
+  ...gigas,
 ] as Array<Augment>
 
 export const sumAugmentStats = (augments: Augment[]) =>

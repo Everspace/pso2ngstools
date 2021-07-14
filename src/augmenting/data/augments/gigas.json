@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Gigas Might I",
+    "baseName": "Gigas Might",
+    "icon": "might",
+    "tier": 1,
+    "category": "gigas",
+    "rate": 9,
+    "stat": {
+      "hp": 5,
+      "meleePotency": 1.5
+    }
+  },
+  {
+    "name": "Gigas Might II",
+    "icon": "might",
+    "baseName": "Gigas Might",
+    "tier": 2,
+    "category": "gigas",
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "meleePotency": 2
+    },
+    "exchange": {
+      "Gigas Might I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  },
+  {
+    "name": "Gigas Precision I",
+    "category": "gigas",
+    "baseName": "Gigas Precision",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "hp": 5,
+      "rangedPotency": 1.5
+    }
+  },
+  {
+    "name": "Gigas Precision II",
+    "category": "gigas",
+    "baseName": "Gigas Precision",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "rangedPotency": 2
+    },
+    "exchange": {
+      "Gigas Precision I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  },
+  {
+    "name": "Gigas Technique I",
+    "category": "gigas",
+    "baseName": "Gigas Technique",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "hp": 5,
+      "techPotency": 1.5
+    }
+  },
+  {
+    "name": "Gigas Technique II",
+    "category": "gigas",
+    "baseName": "Gigas Technique",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "techPotency": 2
+    },
+    "exchange": {
+      "Gigas Technique I": 10,
+      "Photon Quartz": 10,
+      "Dualomite": 10
+    }
+  }
+]
