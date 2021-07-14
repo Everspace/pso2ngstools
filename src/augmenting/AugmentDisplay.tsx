@@ -10,10 +10,10 @@ import {
   addWeaponAugmentAtom,
 } from "./state"
 
-interface AugmentDisplay {
+interface AugmentDisplayProps {
   augment: Augment
 }
-export const AugmentDisplay = ({ augment }: AugmentDisplay) => {
+export const AugmentDisplay = ({ augment }: AugmentDisplayProps) => {
   const [, addToWeapon] = useAtom(addWeaponAugmentAtom)
   const [, addToUnit1] = useAtom(addUnit1AugmentAtom)
   const [, addToUnit2] = useAtom(addUnit2AugmentAtom)

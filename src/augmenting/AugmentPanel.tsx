@@ -1,11 +1,11 @@
 import { useAtom } from "jotai"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useHistory, useParams } from "react-router"
 import { Card, Divider, Header } from "semantic-ui-react"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { allAugments, Augment, AugmentStat } from "./data/augment"
+import { allAugments, Augment, simplifyAugmentStat } from "./data/augment"
 import {
   removeUnit1AugmentAtom,
   removeUnit2AugmentAtom,
@@ -57,7 +57,13 @@ export const AugmentPanel = () => {
     setunit1Augments(revivify(unit1))
     setunit2Augments(revivify(unit2))
     setunit3Augments(revivify(unit3))
-  }, [data])
+  }, [
+    data,
+    setweaponAugments,
+    setunit1Augments,
+    setunit2Augments,
+    setunit3Augments,
+  ])
 
   //
   useEffect(() => {
@@ -68,7 +74,7 @@ export const AugmentPanel = () => {
       "3": unit3.map((x) => x.name),
     })
     if (seralized !== emptyState) hist.push(`/augment/${seralized}`)
-  }, [weapon, unit1, unit2, unit3])
+  }, [hist, weapon, unit1, unit2, unit3])
 
   return (
     <div>

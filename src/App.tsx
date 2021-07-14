@@ -1,5 +1,5 @@
 import "semantic-ui-css/semantic.min.css"
-import { Container, Header, Menu } from "semantic-ui-react"
+import { Container, Menu } from "semantic-ui-react"
 import PanelRouter from "PanelRouter"
 import { useHistory } from "react-router"
 

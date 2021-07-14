@@ -1,4 +1,4 @@
-import { Image, List } from "semantic-ui-react"
+import { List } from "semantic-ui-react"
 import { AugmentStat } from "./data/augment"
 import {
   AllAttackIcons,
@@ -99,7 +99,7 @@ export const AugmentStatDisplay = ({ stat }: AugmentStatDisplayProps) => {
       {allStat
         .map((k) => {
           const value = stat[k]
-          if (!value) return
+          if (!value) return false
           return <StatItem key={k} statName={k} value={value} />
         })
         .filter((x) => x)}
