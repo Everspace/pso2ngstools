@@ -30,7 +30,7 @@ export const AugmentDisplay = ({ augment }: AugmentDisplay) => {
           <AugmentStatDisplay stat={augment.stat} />
         </Item.Description>
         <Item.Extra>
-          <ButtonGroup>
+          <ButtonGroup compact>
             <Button onClick={() => addToWeapon(augment)}>Weapon</Button>
             <Button onClick={() => addToUnit1(augment)}>Unit1</Button>
             <Button onClick={() => addToUnit2(augment)}>Unit2</Button>

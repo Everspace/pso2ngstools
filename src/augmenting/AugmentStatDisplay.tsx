@@ -55,7 +55,7 @@ const StatItem = ({ statName, value }: StatItemProps) => {
     case "floorPotency":
       return (
         <List.Item>
-          <AllAttackIcons /> Floor Potency Increase: {symbol}
+          <ATKOutlineIcon /> Floor Potency Increase: {symbol}
           {value}%
         </List.Item>
       )
