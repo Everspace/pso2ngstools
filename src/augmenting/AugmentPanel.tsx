@@ -5,7 +5,7 @@ import { Card, Divider, Header } from "semantic-ui-react"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { allAugments, Augment } from "./data/augment"
+import { allAugments, Augment, AugmentStat } from "./data/augment"
 import {
   removeUnit1AugmentAtom,
   removeUnit2AugmentAtom,
@@ -41,6 +41,22 @@ const revivify = (names: string[]): Augment[] => {
     .filter((x) => x) as Augment[]
 }
 
+const simplifyStat = (stats: AugmentStat): AugmentStat => {
+  const potency = stats?.potency ?? 0
+  let meleePotency = (stats?.meleePotency ?? 0) + potency
+  let rangePotency = (stats?.rangePotency ?? 0) + potency
+  let techPotency = (stats?.techPotency ?? 0) + potency
+
+  const compoundStat: AugmentStat = {
+    ...stats,
+    meleePotency,
+    rangePotency,
+    techPotency,
+  }
+  delete compoundStat.potency
+  return compoundStat
+}
+
 export const AugmentPanel = () => {
   const [stats] = useAtom(statTotalAtom)
   const { data } = useParams<{ data?: string }>()
@@ -49,8 +65,6 @@ export const AugmentPanel = () => {
   const [unit3, setunit3Augments] = useAtom(unit3AugmentsAtom)
   const [weapon, setweaponAugments] = useAtom(weaponAugmentsAtom)
   const hist = useHistory()
-  const [firstPaint] = useState(true)
-
   // Rehydrate from url changes
   useEffect(() => {
     if (!data) return
@@ -100,7 +114,7 @@ export const AugmentPanel = () => {
       <Divider />
       <div>
         <Header size="medium">Total</Header>
-        <AugmentStatDisplay stat={stats} />
+        <AugmentStatDisplay stat={simplifyStat(stats)} />
       </div>
       <Divider />
       <AugmentCategoryDisplay />
