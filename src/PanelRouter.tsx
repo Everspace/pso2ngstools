@@ -1,4 +1,5 @@
 import { AugmentPanel } from "augmenting/AugmentPanel"
+import { HomePage } from "HomePage"
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 type RouteDefinition = {
@@ -23,6 +24,7 @@ export default function PanelRouter() {
       {routes.map((def) => (
         <Route key={def.path} path={def.path} component={def.component} />
       ))}
+      <Route path="/" component={HomePage} />
     </Switch>
   )
 }

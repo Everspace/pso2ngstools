@@ -9,9 +9,11 @@ function App() {
     <>
       <Menu fixed="top" inverted>
         <Container>
-          <Menu.Item header>PSO2:NGS Tools</Menu.Item>
+          <Menu.Item link onClick={() => history.push("/")} header>
+            PSO2:NGS Tools
+          </Menu.Item>
           <Menu.Item as="a" link onClick={() => history.push("/augment")}>
-            Augments
+            Augment
           </Menu.Item>
         </Container>
       </Menu>

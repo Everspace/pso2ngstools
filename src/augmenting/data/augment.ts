@@ -28,7 +28,7 @@ export const allAugmentCategories = [
   "secreta",
   "dread",
   "gigas",
-  // "element", TODO
+  // "element", TODO: They use the Special icon
 ] as const
 
 export type AugmentCategory = typeof allAugmentCategories[number]
