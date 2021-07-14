@@ -18,15 +18,12 @@ export const AugmentPanel = () => {
   const [stats] = useAtom(statTotalAtom)
   return (
     <div>
-      <Card.Group>
+      <Card.Group stackable doubling itemsPerRow="4">
         <AugmentibleDisplay
           label="Weapon"
           stateAtom={weaponAugmentsAtom}
           removeAtom={removeWeaponAugmentAtom}
         />
-      </Card.Group>
-
-      <Card.Group>
         <AugmentibleDisplay
           label="Unit 1"
           stateAtom={unit1AugmentsAtom}

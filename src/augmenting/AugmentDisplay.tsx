@@ -22,7 +22,7 @@ export const AugmentDisplay = ({ augment }: AugmentDisplay) => {
 
   return (
     <Item>
-      <Item.Image size="tiny" src={icon} />
+      <Item.Image wrapped size="tiny" src={icon} />
       <Item.Content>
         <Item.Header>{augment.name}</Item.Header>
         <Item.Description>
