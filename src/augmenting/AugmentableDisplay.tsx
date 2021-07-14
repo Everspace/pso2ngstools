@@ -1,10 +1,11 @@
 import { Atom, useAtom, WritableAtom } from "jotai"
-import { Button, Card } from "semantic-ui-react"
+import { Button, Card, Header, Icon, List } from "semantic-ui-react"
+import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { Augment, sumAugmentStats } from "./data/augment"
 
 export interface AugmentibleDisplayProps {
   label: string
-  stateAtom: Atom<Augment[]>
+  stateAtom: WritableAtom<Augment[], Augment[]>
   removeAtom: WritableAtom<unknown, Augment>
 }
 
@@ -13,33 +14,39 @@ export const AugmentibleDisplay = ({
   stateAtom,
   removeAtom,
 }: AugmentibleDisplayProps) => {
-  const [augments] = useAtom(stateAtom)
+  const [augments, setAugments] = useAtom(stateAtom)
   const [, remove] = useAtom(removeAtom)
   const sum = sumAugmentStats(augments)
 
   return (
     <Card>
       <Card.Content>
-        <Card.Header>{label}</Card.Header>
+        <Card.Header>
+          {label}
+          <Button onClick={() => setAugments([])} floated="right">
+            Clear
+          </Button>
+        </Card.Header>
       </Card.Content>
       <Card.Content>
-        <ol>
+        <List>
           {augments.map((c) => (
-            <li key={c.name}>
-              <Button
-                icon={() => "x"}
-                compact
-                size="tiny"
-                onClick={() => remove(c)}
+            <List.Item key={c.name}>
+              <Icon
+                link
+                inline
                 color="red"
+                name="x"
+                onClick={() => remove(c)}
               />
               {c.rate * 10}% - {c.name}
-            </li>
+            </List.Item>
           ))}
-        </ol>
+        </List>
       </Card.Content>
-      <Card.Content extra>
-        <pre>{JSON.stringify(sum)}</pre>
+      <Card.Content>
+        <Header size="medium">Total</Header>
+        <AugmentStatDisplay stat={sum} />
       </Card.Content>
     </Card>
   )

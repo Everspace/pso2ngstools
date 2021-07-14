@@ -1,7 +1,8 @@
 import { useAtom } from "jotai"
-import { Card, Divider } from "semantic-ui-react"
+import { Card, Divider, Header } from "semantic-ui-react"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
+import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import {
   removeUnit1AugmentAtom,
   removeUnit2AugmentAtom,
@@ -42,7 +43,8 @@ export const AugmentPanel = () => {
       </Card.Group>
       <Divider />
       <div>
-        <pre>{JSON.stringify(stats)}</pre>
+        <Header size="medium">Total</Header>
+        <AugmentStatDisplay stat={stats} />
       </div>
       <Divider />
       <AugmentCategoryDisplay />

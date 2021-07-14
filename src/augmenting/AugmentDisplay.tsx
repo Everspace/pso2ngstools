@@ -1,5 +1,6 @@
 import { useAtom } from "jotai"
 import { Button, ButtonGroup, Item } from "semantic-ui-react"
+import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { Augment } from "./data/augment"
 import { augmentImageFromType } from "./images/augment"
 import {
@@ -26,7 +27,7 @@ export const AugmentDisplay = ({ augment }: AugmentDisplay) => {
       <Item.Content>
         <Item.Header>{augment.name}</Item.Header>
         <Item.Description>
-          <pre>{JSON.stringify(augment.stat)}</pre>
+          <AugmentStatDisplay stat={augment.stat} />
         </Item.Description>
         <Item.Extra>
           <ButtonGroup>
