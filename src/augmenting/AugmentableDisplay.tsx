@@ -45,7 +45,7 @@ export const AugmentibleDisplay = ({
         </List>
       </Card.Content>
       <Card.Content>
-        <Header size="medium">Total</Header>
+        <Header size="medium">Stats</Header>
         <AugmentStatDisplay stat={simplifyAugmentStat(sum)} />
       </Card.Content>
     </Card>
