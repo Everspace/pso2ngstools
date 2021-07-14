@@ -37,7 +37,7 @@
     "rate": 9,
     "stat": {
       "hp": 5,
-      "rangedPotency": 1.5
+      "rangePotency": 1.5
     }
   },
   {
@@ -49,7 +49,7 @@
     "rate": 8,
     "stat": {
       "hp": 10,
-      "rangedPotency": 2
+      "rangePotency": 2
     },
     "exchange": {
       "Gigas Precision I": 10,
