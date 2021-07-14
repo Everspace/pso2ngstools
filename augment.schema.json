@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "PSO2NGS Capsule",
+  "$id": "PSO2NGS Augment augment",
   "type": "array",
   "items": {
     "required": [
@@ -12,7 +12,7 @@
     "properties": {
       "name": {
         "type": "string",
-        "description": "The capsule in question"
+        "description": "The augment in question"
       },
       "drop": {
         "type": "string",
@@ -27,7 +27,7 @@
       },
       "baseName": {
         "type": "string",
-        "description": "The series the capsule is from (Precision of Precision I/II/II)"
+        "description": "The series the augment is from (Precision of Precision I/II/II)"
       },
       "icon": {
         "type": "string",
