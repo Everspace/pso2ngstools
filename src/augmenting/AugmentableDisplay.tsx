@@ -1,7 +1,7 @@
-import { Atom, useAtom, WritableAtom } from "jotai"
+import { useAtom, WritableAtom } from "jotai"
 import { Button, Card, Header, Icon, List } from "semantic-ui-react"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { Augment, sumAugmentStats } from "./data/augment"
+import { Augment, simplifyAugmentStat, sumAugmentStats } from "./data/augment"
 
 export interface AugmentibleDisplayProps {
   label: string
@@ -46,7 +46,7 @@ export const AugmentibleDisplay = ({
       </Card.Content>
       <Card.Content>
         <Header size="medium">Total</Header>
-        <AugmentStatDisplay stat={sum} />
+        <AugmentStatDisplay stat={simplifyAugmentStat(sum)} />
       </Card.Content>
     </Card>
   )

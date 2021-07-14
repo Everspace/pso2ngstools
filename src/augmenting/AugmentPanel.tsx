@@ -41,22 +41,6 @@ const revivify = (names: string[]): Augment[] => {
     .filter((x) => x) as Augment[]
 }
 
-const simplifyStat = (stats: AugmentStat): AugmentStat => {
-  const potency = stats?.potency ?? 0
-  let meleePotency = (stats?.meleePotency ?? 0) + potency
-  let rangePotency = (stats?.rangePotency ?? 0) + potency
-  let techPotency = (stats?.techPotency ?? 0) + potency
-
-  const compoundStat: AugmentStat = {
-    ...stats,
-    meleePotency,
-    rangePotency,
-    techPotency,
-  }
-  delete compoundStat.potency
-  return compoundStat
-}
-
 export const AugmentPanel = () => {
   const [stats] = useAtom(statTotalAtom)
   const { data } = useParams<{ data?: string }>()
@@ -114,7 +98,7 @@ export const AugmentPanel = () => {
       <Divider />
       <div>
         <Header size="medium">Total</Header>
-        <AugmentStatDisplay stat={simplifyStat(stats)} />
+        <AugmentStatDisplay stat={simplifyAugmentStat(stats)} />
       </div>
       <Divider />
       <AugmentCategoryDisplay />

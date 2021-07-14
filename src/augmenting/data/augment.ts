@@ -73,3 +73,19 @@ export const sumAugmentStats = (augments: Augment[]) =>
     })
     return memory
   }, {})
+
+export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
+  const potency = stats?.potency ?? 0
+  let meleePotency = (stats?.meleePotency ?? 0) + potency
+  let rangePotency = (stats?.rangePotency ?? 0) + potency
+  let techPotency = (stats?.techPotency ?? 0) + potency
+
+  const compoundStat: AugmentStat = {
+    ...stats,
+    meleePotency,
+    rangePotency,
+    techPotency,
+  }
+  delete compoundStat.potency
+  return compoundStat
+}
