@@ -63,7 +63,7 @@
     "rate": 9,
     "stat": {
       "pp": 5,
-      "rangedPotency": 1
+      "rangePotency": 1
     }
   },
   {
@@ -75,7 +75,7 @@
     "rate": 8,
     "stat": {
       "pp": 5,
-      "rangedPotency": 2
+      "rangePotency": 2
     },
     "exchange": {
       "Pettas Soul I": 10,
