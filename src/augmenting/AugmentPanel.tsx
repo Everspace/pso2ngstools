@@ -1,5 +1,5 @@
 import { useAtom } from "jotai"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useHistory, useParams } from "react-router"
 import { Card, Divider, Header } from "semantic-ui-react"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
@@ -49,32 +49,42 @@ export const AugmentPanel = () => {
   const [unit3, setunit3Augments] = useAtom(unit3AugmentsAtom)
   const [weapon, setweaponAugments] = useAtom(weaponAugmentsAtom)
   const hist = useHistory()
-  // Rehydrate from url changes
+  // Skip seralizing back to the URL until after the first pass
+  const [readUrl, setReadUrl] = useState(false)
+
   useEffect(() => {
-    if (!data) return
-    const { w, "1": unit1, "2": unit2, "3": unit3 } = fromId(data) as Serialized
+    setReadUrl(true)
+    const {
+      w,
+      "1": unit1,
+      "2": unit2,
+      "3": unit3,
+    } = fromId(data ?? emptyState) as Serialized
     setweaponAugments(revivify(w))
     setunit1Augments(revivify(unit1))
     setunit2Augments(revivify(unit2))
     setunit3Augments(revivify(unit3))
   }, [
+    hist,
     data,
+    setReadUrl,
     setweaponAugments,
     setunit1Augments,
     setunit2Augments,
     setunit3Augments,
   ])
 
-  //
   useEffect(() => {
+    if (!readUrl) return
     const seralized = toId({
       w: weapon.map((x) => x.name),
       "1": unit1.map((x) => x.name),
       "2": unit2.map((x) => x.name),
       "3": unit3.map((x) => x.name),
     })
-    if (seralized !== emptyState) hist.push(`/augment/${seralized}`)
-  }, [hist, weapon, unit1, unit2, unit3])
+    const path = `/augment/${seralized}`
+    if (path !== hist.location.pathname) hist.push(path)
+  }, [hist, readUrl, weapon, unit1, unit2, unit3])
 
   return (
     <div>

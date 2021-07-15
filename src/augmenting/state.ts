@@ -18,10 +18,12 @@ const addAugment =
 
 const removeAugment =
   (target: WritableAtom<Augment[], Augment[]>) =>
-  (get: Getter, set: Setter, augment: Augment) =>
-    set(target, [
-      ...get(weaponAugmentsAtom).filter((c) => c.name !== augment.name),
-    ])
+  (get: Getter, set: Setter, augment: Augment) => {
+    set(
+      target,
+      get(target).filter((c) => c.name !== augment.name),
+    )
+  }
 
 export const weaponAugmentsAtom = atom([] as Augment[])
 export const addWeaponAugmentAtom = atom<unknown, Augment>(
