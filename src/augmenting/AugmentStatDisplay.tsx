@@ -13,7 +13,7 @@ export interface AugmentStatDisplayProps {
   stat: AugmentStat
 }
 
-const allStat: (keyof AugmentStat)[] = [
+const statOrder: (keyof AugmentStat)[] = [
   "hp",
   "pp",
   "potency",
@@ -96,7 +96,13 @@ const StatItem = ({ statName, value }: StatItemProps) => {
 export const AugmentStatDisplay = ({ stat }: AugmentStatDisplayProps) => {
   return (
     <List>
-      {allStat
+      {(Object.keys(stat) as (keyof AugmentStat)[])
+        .sort((a, b) => {
+          // Push keys I haven't decided the order of "down"
+          const indexA = statOrder.indexOf(a)
+          const indexB = statOrder.indexOf(b)
+          return (indexA > -1 ? indexA : 999) - (indexB > -1 ? indexB : 999)
+        })
         .map((k) => {
           const value = stat[k]
           if (!value) return false
