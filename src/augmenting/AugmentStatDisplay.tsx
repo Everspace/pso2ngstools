@@ -19,7 +19,7 @@ const statOrder: (keyof AugmentStat)[] = [
   "potency",
   "floorPotency",
   "meleePotency",
-  "rangePotency",
+  "rangedPotency",
   "techPotency",
 ]
 
@@ -73,10 +73,10 @@ const StatItem = ({ statName, value }: StatItemProps) => {
           {value}%
         </List.Item>
       )
-    case "rangePotency":
+    case "rangedPotency":
       return (
         <List.Item>
-          <RangeIcon /> Precision Potency: {symbol}
+          <RangeIcon /> Ranged Potency: {symbol}
           {value}%
         </List.Item>
       )

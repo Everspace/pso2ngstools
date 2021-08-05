@@ -18,7 +18,7 @@
     "rate": 9,
     "stat": {
       "meleePotency": 1,
-      "rangePotency": 1
+      "rangedPotency": 1
     }
   },
   {
@@ -40,7 +40,7 @@
     "rate": 9,
     "stat": {
       "techPotency": 1,
-      "rangePotency": 1
+      "rangedPotency": 1
     }
   },
   {
@@ -72,7 +72,7 @@
     "drop": "Vanford Laboratory Ruins",
     "rate": 9,
     "stat": {
-      "rangePotency": 1.5
+      "rangedPotency": 1.5
     }
   },
   {

@@ -14,7 +14,7 @@ export interface AugmentStat {
   /** "Potency Floor Increase +#%" */
   floorPotency?: number
   meleePotency?: number
-  rangePotency?: number
+  rangedPotency?: number
   techPotency?: number
   /** "Damage Resistance +/-#%" */
   damageResist?: number
@@ -77,13 +77,13 @@ export const sumAugmentStats = (augments: Augment[]) =>
 export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   const potency = stats?.potency ?? 0
   let meleePotency = (stats?.meleePotency ?? 0) + potency
-  let rangePotency = (stats?.rangePotency ?? 0) + potency
+  let rangedPotency = (stats?.rangedPotency ?? 0) + potency
   let techPotency = (stats?.techPotency ?? 0) + potency
 
   const compoundStat: AugmentStat = {
     ...stats,
     meleePotency,
-    rangePotency,
+    rangedPotency,
     techPotency,
   }
   delete compoundStat.potency

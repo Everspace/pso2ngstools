@@ -83,7 +83,7 @@
           "meleePotency": {
             "type": "number"
           },
-          "rangePotency": {
+          "rangedPotency": {
             "type": "number"
           },
           "techPotency": {

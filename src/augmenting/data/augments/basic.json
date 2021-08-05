@@ -159,7 +159,7 @@
     "baseName": "Precision",
     "rate": 10,
     "stat": {
-      "rangePotency": 1
+      "rangedPotency": 1
     }
   },
   {
@@ -170,7 +170,7 @@
     "baseName": "Precision",
     "rate": 10,
     "stat": {
-      "rangePotency": 1.5
+      "rangedPotency": 1.5
     },
     "exchange": {
       "Precision I": 10,
@@ -186,7 +186,7 @@
     "baseName": "Precision",
     "rate": 9,
     "stat": {
-      "rangePotency": 2
+      "rangedPotency": 2
     }
   },
   {
