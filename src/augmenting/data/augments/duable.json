@@ -27,5 +27,17 @@
       "Photon Quartz": 5,
       "Monotite": 5
     }
+  },
+  {
+    "name": "Melra Dualble III",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 3,
+    "baseName": "Melra Dualble",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 1.75,
+      "rangedPotency": 1.75
+    }
   }
 ]
