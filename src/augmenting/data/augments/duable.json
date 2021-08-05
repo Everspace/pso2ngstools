@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Melra Dualble I",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 1,
+    "baseName": "Melra Dualble",
+    "rate": 10,
+    "stat": {
+      "meleePotency": 1,
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Melra Dualble II",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "baseName": "Melra Dualble",
+    "rate": 10,
+    "stat": {
+      "meleePotency": 1.25,
+      "rangedPotency": 1.25
+    },
+    "exchange": {
+      "Melra Dualble I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  }
+]

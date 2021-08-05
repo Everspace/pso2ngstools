@@ -26,6 +26,19 @@
     }
   },
   {
+    "name": "Dolz Soul III",
+    "category": "soul",
+    "baseName": "Dolz Soul",
+    "tier": 2,
+    "icon": "pp",
+    "drop": "Dolls",
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "floorPotency": 2.5
+    }
+  },
+  {
     "name": "Daityl Soul I",
     "baseName": "Daityl Soul",
     "icon": "might",

@@ -5,6 +5,7 @@ import note from "./augments/note.json"
 import secreta from "./augments/secreta.json"
 import soul from "./augments/soul.json"
 import gigas from "./augments/gigas.json"
+import duable from "./augments/duable.json"
 
 export interface AugmentStat {
   hp?: number
@@ -29,6 +30,7 @@ export const allAugmentCategories = [
   "dread",
   "gigas",
   // "element", TODO: They use the Special icon
+  "dualble",
 ] as const
 
 export type AugmentCategory = typeof allAugmentCategories[number]
@@ -61,6 +63,7 @@ export const allAugments = [
   ...secreta,
   ...soul,
   ...gigas,
+  ...duable,
 ] as Array<Augment>
 
 export const sumAugmentStats = (augments: Augment[]) =>

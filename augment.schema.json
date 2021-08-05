@@ -46,14 +46,15 @@
         "type": "string",
         "description": "The unique category it occupies",
         "enum": [
-          "soul",
-          "ward",
           "basic",
+          "dread",
+          "dualble",
+          "element",
+          "gigas",
           "note",
           "secreta",
-          "dread",
-          "gigas",
-          "element"
+          "soul",
+          "ward"
         ]
       },
       "rate": {
