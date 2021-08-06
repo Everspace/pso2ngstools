@@ -5,7 +5,7 @@ import note from "./augments/note.json"
 import secreta from "./augments/secreta.json"
 import soul from "./augments/soul.json"
 import gigas from "./augments/gigas.json"
-import duable from "./augments/duable.json"
+import dualble from "./augments/dualble.json"
 
 export interface AugmentStat {
   hp?: number
@@ -63,7 +63,7 @@ export const allAugments = [
   ...secreta,
   ...soul,
   ...gigas,
-  ...duable,
+  ...dualble,
 ] as Array<Augment>
 
 export const sumAugmentStats = (augments: Augment[]) =>
