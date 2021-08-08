@@ -75,6 +75,11 @@ export const augmentByCategory = groupBy(
   (augment) => augment.category,
 ) as Record<AugmentCategory, Augment[]>
 
+export const augmentByBasename = groupBy(
+  allAugments,
+  (augment) => augment.baseName,
+)
+
 export const sumAugmentStats = (augments: Augment[]) =>
   augments.reduce<AugmentStat>((memory, { stat }) => {
     Object.keys(stat).forEach((statName) => {

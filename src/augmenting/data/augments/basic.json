@@ -3,7 +3,7 @@
     "name": "Stamina I",
     "category": "basic",
     "icon": "hp",
-    "tier": 2,
+    "tier": 1,
     "baseName": "Stamina",
     "rate": 10,
     "stat": {
