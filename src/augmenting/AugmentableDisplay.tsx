@@ -1,6 +1,5 @@
 import { Button, Card, Header, Icon, List } from "semantic-ui-react"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { simplifyAugmentStat, sumAugmentStats } from "./data/augment"
 import { AugmentableSlot, useAugmentable } from "./state"
 
 export interface AugmentibleDisplayProps {
@@ -13,8 +12,6 @@ export const AugmentibleDisplay = ({
   slot,
 }: AugmentibleDisplayProps) => {
   const { augments, clearAugments, removeAugment } = useAugmentable(slot)
-
-  const sum = sumAugmentStats(augments)
 
   return (
     <Card>
@@ -44,7 +41,7 @@ export const AugmentibleDisplay = ({
       </Card.Content>
       <Card.Content>
         <Header size="medium">Stats</Header>
-        <AugmentStatDisplay stat={simplifyAugmentStat(sum)} />
+        <AugmentStatDisplay simple stat={augments} />
       </Card.Content>
     </Card>
   )

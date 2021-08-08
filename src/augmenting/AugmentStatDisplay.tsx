@@ -1,5 +1,10 @@
 import { List } from "semantic-ui-react"
-import { AugmentStat } from "./data/augment"
+import {
+  Augment,
+  AugmentStat,
+  simplifyAugmentStat,
+  sumAugmentStats,
+} from "./data/augment"
 import {
   AllAttackIcons,
   ATKOutlineIcon,
@@ -10,7 +15,8 @@ import {
 } from "./images/icon"
 
 export interface AugmentStatDisplayProps {
-  stat: AugmentStat
+  stat: AugmentStat | Augment[]
+  simple?: boolean
 }
 
 const statOrder: (keyof AugmentStat)[] = [
@@ -93,10 +99,23 @@ const StatItem = ({ statName, value }: StatItemProps) => {
   }
 }
 
-export const AugmentStatDisplay = ({ stat }: AugmentStatDisplayProps) => {
+export const AugmentStatDisplay = ({
+  stat,
+  simple = false,
+}: AugmentStatDisplayProps) => {
+  let finalStat: AugmentStat | null = null
+
+  if (stat instanceof Array) {
+    finalStat = sumAugmentStats(stat)
+  } else {
+    finalStat = stat
+  }
+
+  if (simple) finalStat = simplifyAugmentStat(finalStat)
+
   return (
     <List>
-      {(Object.keys(stat) as (keyof AugmentStat)[])
+      {(Object.keys(finalStat) as (keyof AugmentStat)[])
         .sort((a, b) => {
           // Push keys I haven't decided the order of "down"
           const indexA = statOrder.indexOf(a)
@@ -104,7 +123,7 @@ export const AugmentStatDisplay = ({ stat }: AugmentStatDisplayProps) => {
           return (indexA > -1 ? indexA : 999) - (indexB > -1 ? indexB : 999)
         })
         .map((k) => {
-          const value = stat[k]
+          const value = finalStat![k]
           if (!value) return false
           return <StatItem key={k} statName={k} value={value} />
         })
