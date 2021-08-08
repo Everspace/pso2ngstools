@@ -15,19 +15,23 @@ export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
   unit3: "Unit 3",
 }
 
-export const augmentableFamily = atomFamily((id: AugmentableSlot) =>
+const augmentableFamily = atomFamily((id: AugmentableSlot) =>
   atom([] as Augment[]),
 )
 
 export const useAugmentable = (id: AugmentableSlot) => {
   const [max] = useAtom(maxAugmentAtom)
-  const [augments, setAugments] = useAtom(augmentableFamily(id))
-  const updateAugments = useUpdateAtom(augmentableFamily(id))
+
+  const augmentableAtom = augmentableFamily(id)
+  const [augments, setAugments] = useAtom(augmentableAtom)
+  const updateAugments = useUpdateAtom(augmentableAtom)
+
   const removeAugment = useCallback(
     (augment: Augment) =>
       updateAugments((prior) => prior.filter((c) => c.name !== augment.name)),
     [updateAugments],
   )
+
   const addAugment = useCallback(
     (augment: Augment) => {
       updateAugments((prior) => {
@@ -42,6 +46,7 @@ export const useAugmentable = (id: AugmentableSlot) => {
     },
     [updateAugments, max],
   )
+
   const clearAugments = useCallback(
     () => updateAugments(() => []),
     [updateAugments],
