@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Ael Domina",
+    "icon": "special",
+    "category": "domina",
+    "rate": 9,
+    "stat": {
+      "hp": 5,
+      "pp": 3,
+      "potency": 1.5
+    }
+  }
+]

@@ -44,18 +44,6 @@
     }
   },
   {
-    "name": "Ael Domina",
-    "icon": "special",
-    "category": "note",
-    "drop": "Central Aelio",
-    "rate": 9,
-    "stat": {
-      "hp": 5,
-      "pp": 3,
-      "potency": 1.5
-    }
-  },
-  {
     "name": "Magnus Note",
     "icon": "might",
     "category": "note",

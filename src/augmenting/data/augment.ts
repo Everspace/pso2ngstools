@@ -1,11 +1,13 @@
 import { AugmentImageType } from "../images/augment"
 import basic from "./augments/basic.json"
 import dread from "./augments/dread.json"
+import domina from "./augments/domina.json"
 import note from "./augments/note.json"
 import secreta from "./augments/secreta.json"
 import soul from "./augments/soul.json"
 import gigas from "./augments/gigas.json"
 import dualble from "./augments/dualble.json"
+import { groupBy } from "lodash"
 
 export interface AugmentStat {
   hp?: number
@@ -24,6 +26,7 @@ export interface AugmentStat {
 export const allAugmentCategories = [
   "basic",
   // "ward", TODO
+  "domina",
   "soul",
   "note",
   "secreta",
@@ -59,12 +62,18 @@ export const resourceNames = [
 export const allAugments = [
   ...basic,
   ...dread,
+  ...domina,
   ...note,
   ...secreta,
   ...soul,
   ...gigas,
   ...dualble,
 ] as Array<Augment>
+
+export const augmentByCategory = groupBy(
+  allAugments,
+  (augment) => augment.category,
+) as Record<AugmentCategory, Augment[]>
 
 export const sumAugmentStats = (augments: Augment[]) =>
   augments.reduce<AugmentStat>((memory, { stat }) => {
