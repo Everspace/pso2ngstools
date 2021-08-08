@@ -1,23 +1,18 @@
-import { useAtom } from "jotai"
 import { Button, ButtonGroup, Item } from "semantic-ui-react"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { Augment } from "./data/augment"
 import { augmentImageFromType } from "./images/augment"
-import {
-  addUnit1AugmentAtom,
-  addUnit2AugmentAtom,
-  addUnit3AugmentAtom,
-  addWeaponAugmentAtom,
-} from "./state"
+import { useAugmentable } from "./state"
 
 interface AugmentDisplayProps {
   augment: Augment
 }
+
 export const AugmentDisplay = ({ augment }: AugmentDisplayProps) => {
-  const [, addToWeapon] = useAtom(addWeaponAugmentAtom)
-  const [, addToUnit1] = useAtom(addUnit1AugmentAtom)
-  const [, addToUnit2] = useAtom(addUnit2AugmentAtom)
-  const [, addToUnit3] = useAtom(addUnit3AugmentAtom)
+  const { addAugment: addToWeapon } = useAugmentable("weapon")
+  const { addAugment: addToUnit1 } = useAugmentable("unit1")
+  const { addAugment: addToUnit2 } = useAugmentable("unit2")
+  const { addAugment: addToUnit3 } = useAugmentable("unit3")
 
   const icon = augmentImageFromType[augment.icon]
 

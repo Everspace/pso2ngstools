@@ -6,17 +6,7 @@ import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { allAugments, Augment, simplifyAugmentStat } from "./data/augment"
-import {
-  removeUnit1AugmentAtom,
-  removeUnit2AugmentAtom,
-  removeUnit3AugmentAtom,
-  removeWeaponAugmentAtom,
-  statTotalAtom,
-  unit1AugmentsAtom,
-  unit2AugmentsAtom,
-  unit3AugmentsAtom,
-  weaponAugmentsAtom,
-} from "./state"
+import { statTotalAtom, useAugmentable } from "./state"
 
 type Serialized = {
   w: string[]
@@ -42,12 +32,17 @@ const revivify = (names: string[]): Augment[] => {
 }
 
 export const AugmentPanel = () => {
-  const [stats] = useAtom(statTotalAtom)
   const { data } = useParams<{ data?: string }>()
-  const [unit1, setunit1Augments] = useAtom(unit1AugmentsAtom)
-  const [unit2, setunit2Augments] = useAtom(unit2AugmentsAtom)
-  const [unit3, setunit3Augments] = useAtom(unit3AugmentsAtom)
-  const [weapon, setweaponAugments] = useAtom(weaponAugmentsAtom)
+
+  const { augments: unit1, setAugments: setunit1Augments } =
+    useAugmentable("unit1")
+  const { augments: unit2, setAugments: setunit2Augments } =
+    useAugmentable("unit2")
+  const { augments: unit3, setAugments: setunit3Augments } =
+    useAugmentable("unit3")
+  const { augments: weapon, setAugments: setweaponAugments } =
+    useAugmentable("weapon")
+
   const hist = useHistory()
   // Skip seralizing back to the URL until after the first pass
   const [readUrl, setReadUrl] = useState(false)
@@ -90,26 +85,10 @@ export const AugmentPanel = () => {
     <div>
       <Header as="h1">Augmenting</Header>
       <Card.Group stackable doubling itemsPerRow="4">
-        <AugmentibleDisplay
-          label="Weapon"
-          stateAtom={weaponAugmentsAtom}
-          removeAtom={removeWeaponAugmentAtom}
-        />
-        <AugmentibleDisplay
-          label="Unit 1"
-          stateAtom={unit1AugmentsAtom}
-          removeAtom={removeUnit1AugmentAtom}
-        />
-        <AugmentibleDisplay
-          label="Unit 2"
-          stateAtom={unit2AugmentsAtom}
-          removeAtom={removeUnit2AugmentAtom}
-        />
-        <AugmentibleDisplay
-          label="Unit 3"
-          stateAtom={unit3AugmentsAtom}
-          removeAtom={removeUnit3AugmentAtom}
-        />
+        <AugmentibleDisplay label="Weapon" slot="weapon" />
+        <AugmentibleDisplay label="Unit 1" slot="unit1" />
+        <AugmentibleDisplay label="Unit 2" slot="unit2" />
+        <AugmentibleDisplay label="Unit 3" slot="unit3" />
       </Card.Group>
       <Divider />
       <div>

@@ -1,21 +1,19 @@
-import { useAtom, WritableAtom } from "jotai"
 import { Button, Card, Header, Icon, List } from "semantic-ui-react"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { Augment, simplifyAugmentStat, sumAugmentStats } from "./data/augment"
+import { simplifyAugmentStat, sumAugmentStats } from "./data/augment"
+import { AugmentableSlot, useAugmentable } from "./state"
 
 export interface AugmentibleDisplayProps {
   label: string
-  stateAtom: WritableAtom<Augment[], Augment[]>
-  removeAtom: WritableAtom<unknown, Augment>
+  slot: AugmentableSlot
 }
 
 export const AugmentibleDisplay = ({
   label,
-  stateAtom,
-  removeAtom,
+  slot,
 }: AugmentibleDisplayProps) => {
-  const [augments, setAugments] = useAtom(stateAtom)
-  const [, remove] = useAtom(removeAtom)
+  const { augments, clearAugments, removeAugment } = useAugmentable(slot)
+
   const sum = sumAugmentStats(augments)
 
   return (
@@ -23,7 +21,7 @@ export const AugmentibleDisplay = ({
       <Card.Content>
         <Card.Header>
           {label}
-          <Button onClick={() => setAugments([])} floated="right">
+          <Button onClick={clearAugments} floated="right">
             Clear
           </Button>
         </Card.Header>
@@ -37,7 +35,7 @@ export const AugmentibleDisplay = ({
                 inline
                 color="red"
                 name="x"
-                onClick={() => remove(c)}
+                onClick={() => removeAugment(c)}
               />
               {c.rate * 10}% - {c.name}
             </List.Item>

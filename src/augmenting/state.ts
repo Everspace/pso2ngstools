@@ -1,77 +1,61 @@
-import { WritableAtom, Getter, Setter, atom } from "jotai"
+import { atom, useAtom } from "jotai"
 import { Augment, AugmentStat, sumAugmentStats } from "./data/augment"
+import { atomFamily, useUpdateAtom } from "jotai/utils"
+import { useCallback } from "react"
 
 export const maxAugmentAtom = atom(4)
 
-const addAugment =
-  (target: WritableAtom<Augment[], Augment[]>) =>
-  (get: Getter, set: Setter, augment: Augment) => {
-    const max = get(maxAugmentAtom)
-    const oldState = get(target)
-    const newState = [
-      ...oldState.filter((a) => a.category !== augment.category),
-      augment,
-    ].sort((a, b) => a.name.localeCompare(b.name))
-    if (newState.length > max) return
-    set(target, newState)
+export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
+
+export type AugmentableSlot = typeof augmentSlots[number]
+export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
+  weapon: "Weapon",
+  unit1: "Unit 1",
+  unit2: "Unit 2",
+  unit3: "Unit 3",
+}
+
+export const augmentableFamily = atomFamily((id: AugmentableSlot) =>
+  atom([] as Augment[]),
+)
+
+export const useAugmentable = (id: AugmentableSlot) => {
+  const [max] = useAtom(maxAugmentAtom)
+  const [augments, setAugments] = useAtom(augmentableFamily(id))
+  const updateAugments = useUpdateAtom(augmentableFamily(id))
+  const removeAugment = useCallback(
+    (augment: Augment) =>
+      updateAugments((prior) => prior.filter((c) => c.name !== augment.name)),
+    [updateAugments],
+  )
+  const addAugment = useCallback(
+    (augment: Augment) => {
+      updateAugments((prior) => {
+        const copy = [...prior]
+        const newState = [
+          ...copy.filter((a) => a.category !== augment.category),
+          augment,
+        ].sort((a, b) => a.name.localeCompare(b.name))
+        if (newState.length > max) return prior
+        return newState
+      })
+    },
+    [updateAugments, max],
+  )
+  const clearAugments = useCallback(
+    () => updateAugments(() => []),
+    [updateAugments],
+  )
+
+  return {
+    augments,
+    setAugments,
+    addAugment,
+    removeAugment,
+    clearAugments,
   }
-
-const removeAugment =
-  (target: WritableAtom<Augment[], Augment[]>) =>
-  (get: Getter, set: Setter, augment: Augment) => {
-    set(
-      target,
-      get(target).filter((c) => c.name !== augment.name),
-    )
-  }
-
-export const weaponAugmentsAtom = atom([] as Augment[])
-export const addWeaponAugmentAtom = atom<unknown, Augment>(
-  null,
-  addAugment(weaponAugmentsAtom),
-)
-export const removeWeaponAugmentAtom = atom<unknown, Augment>(
-  null,
-  removeAugment(weaponAugmentsAtom),
-)
-
-export const unit1AugmentsAtom = atom([] as Augment[])
-export const addUnit1AugmentAtom = atom<unknown, Augment>(
-  null,
-  addAugment(unit1AugmentsAtom),
-)
-export const removeUnit1AugmentAtom = atom<unknown, Augment>(
-  null,
-  removeAugment(unit1AugmentsAtom),
-)
-
-export const unit2AugmentsAtom = atom([] as Augment[])
-export const addUnit2AugmentAtom = atom<unknown, Augment>(
-  null,
-  addAugment(unit2AugmentsAtom),
-)
-export const removeUnit2AugmentAtom = atom<unknown, Augment>(
-  null,
-  removeAugment(unit2AugmentsAtom),
-)
-
-export const unit3AugmentsAtom = atom([] as Augment[])
-export const addUnit3AugmentAtom = atom<unknown, Augment>(
-  null,
-  addAugment(unit3AugmentsAtom),
-)
-export const removeUnit3AugmentAtom = atom<unknown, Augment>(
-  null,
-  removeAugment(unit3AugmentsAtom),
-)
-
-const allAugmentibles = [
-  weaponAugmentsAtom,
-  unit1AugmentsAtom,
-  unit2AugmentsAtom,
-  unit3AugmentsAtom,
-]
+}
 
 export const statTotalAtom = atom<AugmentStat>((get) =>
-  sumAugmentStats(allAugmentibles.flatMap((a) => get(a))),
+  sumAugmentStats(augmentSlots.flatMap((n) => get(augmentableFamily(n)))),
 )
