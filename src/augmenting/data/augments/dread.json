@@ -5,6 +5,7 @@
     "icon": "hp",
     "category": "dread",
     "drop": "Vetrain/Dread enemies",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "hp": 10,
@@ -19,6 +20,7 @@
     "icon": "hp",
     "category": "dread",
     "drop": "Vetrain/Dread enemies",
+    "tier": 2,
     "rate": 8,
     "stat": {
       "hp": 15,

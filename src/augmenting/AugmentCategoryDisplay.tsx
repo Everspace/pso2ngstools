@@ -8,6 +8,7 @@ import {
   augmentByCategory,
   AugmentCategory,
 } from "./data/augment"
+import { MultiAugmentDisplay } from "./MultiAugmentDisplay"
 
 type Pane = {
   menuItem?: any
@@ -53,6 +54,13 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
       </Container>
       <Container>
         <Item.Group relaxed="very" unstackable>
+          {Object.entries(baseGroups).map(([group, augments]) => (
+            <MultiAugmentDisplay
+              key={group}
+              group={group}
+              augments={augments}
+            />
+          ))}
           {noBase
             ? noBase
                 .filter(filterate)
