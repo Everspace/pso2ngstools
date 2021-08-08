@@ -1,23 +1,19 @@
 import { Button, Card, Header, Icon, List } from "semantic-ui-react"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { AugmentableSlot, useAugmentable } from "./state"
+import { AugmentableSlot, augmentSlotNiceName, useAugmentable } from "./state"
 
 export interface AugmentibleDisplayProps {
-  label: string
   slot: AugmentableSlot
 }
 
-export const AugmentibleDisplay = ({
-  label,
-  slot,
-}: AugmentibleDisplayProps) => {
+export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
   const { augments, clearAugments, removeAugment } = useAugmentable(slot)
 
   return (
     <Card>
       <Card.Content>
         <Card.Header>
-          {label}
+          {augmentSlotNiceName[slot]}
           <Button onClick={clearAugments} floated="right">
             Clear
           </Button>

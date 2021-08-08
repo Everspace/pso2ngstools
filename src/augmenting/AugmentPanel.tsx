@@ -3,7 +3,7 @@ import { Card, Divider, Header } from "semantic-ui-react"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { statTotalAtom } from "./state"
+import { augmentSlots, statTotalAtom } from "./state"
 import { useUrlStorage } from "./useUrlStorage"
 
 export const AugmentPanel = () => {
@@ -14,10 +14,9 @@ export const AugmentPanel = () => {
     <div>
       <Header as="h1">Augmenting</Header>
       <Card.Group stackable doubling itemsPerRow="4">
-        <AugmentibleDisplay label="Weapon" slot="weapon" />
-        <AugmentibleDisplay label="Unit 1" slot="unit1" />
-        <AugmentibleDisplay label="Unit 2" slot="unit2" />
-        <AugmentibleDisplay label="Unit 3" slot="unit3" />
+        {augmentSlots.map((slot) => (
+          <AugmentibleDisplay key={slot} slot={slot} />
+        ))}
       </Card.Group>
       <Divider />
       <div>
