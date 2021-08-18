@@ -124,5 +124,41 @@
       "Photon Quartz": 10,
       "Dualomite": 10
     }
+  },
+  {
+    "name": "Ragras Soul I",
+    "baseName": "Ragras Soul",
+    "icon": "precision",
+    "tier": 1,
+    "category": "soul",
+    "rate": 9,
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 1.5
+    }
+  },
+  {
+    "name": "Ragras Soul II",
+    "baseName": "Ragras Soul",
+    "icon": "precision",
+    "tier": 2,
+    "category": "soul",
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Ragras Soul III",
+    "icon": "precision",
+    "baseName": "Ragras Soul",
+    "tier": 3,
+    "category": "soul",
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2.5
+    }
   }
 ]
