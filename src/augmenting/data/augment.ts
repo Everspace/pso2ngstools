@@ -84,19 +84,28 @@ export const sumAugmentStats = (augments: Augment[]) =>
   augments.reduce<AugmentStat>((memory, { stat }) => {
     Object.keys(stat).forEach((statName) => {
       const key = statName as keyof AugmentStat
-      let value = memory[key]
-      if (!value) memory[key] = 0
-      memory[key] = memory[key]! + stat[key]!
+      switch (key) {
+        case "hp":
+        case "pp":
+          memory[key] = (memory[key] ?? 0) + stat[key]!
+          break
+        default:
+          memory[key] = (memory[key] ?? 1) * stat[key]!
+      }
     })
     return memory
   }, {})
 
 export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   const potency = stats?.potency ?? 0
-  let meleePotency = (stats?.meleePotency ?? 0) + potency
-  let rangedPotency = (stats?.rangedPotency ?? 0) + potency
-  let techPotency = (stats?.techPotency ?? 0) + potency
-
+  let meleePotency = stats?.meleePotency ?? 0
+  let rangedPotency = stats?.rangedPotency ?? 0
+  let techPotency = stats?.techPotency ?? 0
+  if (potency > 0) {
+    meleePotency = (meleePotency > 0 ? meleePotency : 1) * potency
+    rangedPotency = (rangedPotency > 0 ? rangedPotency : 1) * potency
+    techPotency = (techPotency > 0 ? techPotency : 1) * potency
+  }
   const compoundStat: AugmentStat = {
     ...stats,
     meleePotency,

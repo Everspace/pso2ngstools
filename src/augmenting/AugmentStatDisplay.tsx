@@ -36,61 +36,70 @@ interface StatItemProps {
 
 const StatItem = ({ statName, value }: StatItemProps) => {
   const symbol = value > 0 ? "+" : ""
+  let valueString: string
+  switch (statName) {
+    case "hp":
+    case "pp":
+      valueString = value.toString()
+      break
+    default:
+      valueString = value.toFixed(2)
+  }
   switch (statName) {
     case "hp":
       return (
         <List.Item>
           HP: {symbol}
-          {value}
+          {valueString}
         </List.Item>
       )
     case "pp":
       return (
         <List.Item>
           PP: {symbol}
-          {value}
+          {valueString}
         </List.Item>
       )
     case "potency":
       return (
         <List.Item>
           <AllAttackIcons /> Potency: {symbol}
-          {value}%
+          {valueString}%
         </List.Item>
       )
     case "floorPotency":
       return (
         <List.Item>
           <ATKOutlineIcon /> Floor Potency Increase: {symbol}
-          {value}%
+          {valueString}%
         </List.Item>
       )
     case "damageResist":
       return (
         <List.Item>
           <DEFOutlineIcon /> Damage Resist Increase: {symbol}
-          {value}%
+          {valueString}%
         </List.Item>
       )
     case "meleePotency":
       return (
         <List.Item>
           <MeleeIcon /> Melee Potency: {symbol}
-          {value}%
+          {valueString}%
         </List.Item>
       )
     case "rangedPotency":
       return (
         <List.Item>
           <RangeIcon /> Ranged Potency: {symbol}
-          {value}%
+          {valueString}%
         </List.Item>
       )
     case "techPotency":
       return (
         <List.Item>
           <TechIcon /> Technique Potency: {symbol}
-          {value}%
+          {valueString}%
         </List.Item>
       )
 
