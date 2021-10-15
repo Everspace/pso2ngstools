@@ -39,5 +39,87 @@
       "meleePotency": 1.75,
       "rangedPotency": 1.75
     }
+  },
+  {
+    "name": "Meltech Dualble I",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 1,
+    "baseName": "Meltech Dualble",
+    "rate": 10,
+    "stat": {
+      "meleePotency": 1,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Meltech Dualble II",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "baseName": "Meltech Dualble",
+    "rate": 10,
+    "stat": {
+      "meleePotency": 1.25,
+      "techPotency": 1.25
+    },
+    "exchange": {
+      "Meltech Dualble I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Meltech Dualble III",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 3,
+    "baseName": "Meltech Dualble",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 1.75,
+      "techPotency": 1.75
+    }
+  },
+  {
+    "name": "Ratech Dualble I",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 1,
+    "baseName": "Ratech Dualble",
+    "rate": 10,
+    "stat": {
+      "rangedPotency": 1,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Ratech Dualble II",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "baseName": "Ratech Dualble",
+    "rate": 10,
+    "stat": {
+      "rangedPotency": 1.25,
+      "techPotency": 1.25
+    },
+    "exchange": {
+      "Ratech Dualble I": 10,
+      "Photon Quartz": 5,
+      "Monotite": 5
+    }
+  },
+  {
+    "name": "Ratech Dualble III",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 3,
+    "baseName": "Ratech Dualble",
+    "rate": 9,
+    "stat": {
+      "rangedPotency": 1.75,
+      "techPotency": 1.75
+    }
   }
 ]
