@@ -51,6 +51,26 @@ export interface Augment {
   exchange?: Record<string, number>
 }
 
+/**
+ * Mutates augment to turn "percents" into actual numbers
+ */
+export const toAugmentReal = (augment: Augment): Augment => {
+  const newAug: AugmentStat = { ...augment.stat }
+  Object.keys(augment.stat).forEach((statName) => {
+    const key = statName as keyof AugmentStat
+    switch (key) {
+      case "hp":
+      case "pp":
+        newAug[key] = augment.stat[key]!
+        break
+      default:
+        newAug[key] = 1 + augment.stat[key]! / 100
+    }
+  })
+  augment.stat = newAug
+  return augment
+}
+
 export const resourceNames = [
   "Photon Quartz",
   "Photon Chunk",
@@ -59,16 +79,18 @@ export const resourceNames = [
   "Trinite",
 ]
 
-export const allAugments = [
-  ...basic,
-  ...dread,
-  ...domina,
-  ...note,
-  ...secreta,
-  ...soul,
-  ...gigas,
-  ...dualble,
-] as Array<Augment>
+export const allAugments = (
+  [
+    ...basic,
+    ...dread,
+    ...domina,
+    ...note,
+    ...secreta,
+    ...soul,
+    ...gigas,
+    ...dualble,
+  ] as Array<Augment>
+).flatMap(toAugmentReal)
 
 export const augmentByCategory = groupBy(
   allAugments,
@@ -90,7 +112,11 @@ export const sumAugmentStats = (augments: Augment[]) =>
           memory[key] = (memory[key] ?? 0) + stat[key]!
           break
         default:
-          memory[key] = (memory[key] ?? 1) * stat[key]!
+          if (memory[key] === undefined) {
+            memory[key] = stat[key]
+            return
+          }
+          memory[key] = memory[key]! * stat[key]!
       }
     })
     return memory
@@ -102,9 +128,9 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   let rangedPotency = stats?.rangedPotency ?? 0
   let techPotency = stats?.techPotency ?? 0
   if (potency > 0) {
-    meleePotency = (meleePotency > 0 ? meleePotency : 1) * potency
-    rangedPotency = (rangedPotency > 0 ? rangedPotency : 1) * potency
-    techPotency = (techPotency > 0 ? techPotency : 1) * potency
+    meleePotency = meleePotency > 0 ? meleePotency * potency : potency
+    rangedPotency = rangedPotency > 0 ? rangedPotency * potency : potency
+    techPotency = techPotency > 0 ? techPotency * potency : potency
   }
   const compoundStat: AugmentStat = {
     ...stats,

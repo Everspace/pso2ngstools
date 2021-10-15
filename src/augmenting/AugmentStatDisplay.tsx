@@ -1,3 +1,4 @@
+import { round } from "lodash"
 import { List } from "semantic-ui-react"
 import {
   Augment,
@@ -43,7 +44,7 @@ const StatItem = ({ statName, value }: StatItemProps) => {
       valueString = value.toString()
       break
     default:
-      valueString = value.toFixed(2)
+      valueString = round((value - 1) * 100, 2).toString()
   }
   switch (statName) {
     case "hp":
