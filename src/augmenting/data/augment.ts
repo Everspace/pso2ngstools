@@ -64,7 +64,9 @@ export const toAugmentReal = (augment: Augment): Augment => {
         newAug[key] = augment.stat[key]!
         break
       default:
-        newAug[key] = 1 + augment.stat[key]! / 100
+        const value = augment.stat[key]!
+        const transformValue = 1 + value / 100
+        newAug[key] = transformValue
     }
   })
   augment.stat = newAug
@@ -140,4 +142,28 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   }
   delete compoundStat.potency
   return compoundStat
+}
+
+export function augmentValueToString(
+  statName: keyof AugmentStat,
+  value: number,
+): string {
+  switch (statName) {
+    case "hp":
+    case "pp":
+      return value.toString()
+    default:
+      // > 1 since all - effects are from 1
+      const symbol = value >= 1 ? "+" : "-"
+      // Handle negative
+      let transformValue = 0
+      if (value >= 1) {
+        transformValue = value - 1
+      } else {
+        transformValue = 1 - value
+      }
+      transformValue *= 100
+      return symbol + transformValue.toFixed(1)
+    // return symbol + round(transformValue, 2).toString()
+  }
 }

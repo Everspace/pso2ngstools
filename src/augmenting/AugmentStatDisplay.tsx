@@ -1,8 +1,8 @@
-import { round } from "lodash"
 import { List } from "semantic-ui-react"
 import {
   Augment,
   AugmentStat,
+  augmentValueToString,
   simplifyAugmentStat,
   sumAugmentStats,
 } from "./data/augment"
@@ -36,71 +36,46 @@ interface StatItemProps {
 }
 
 const StatItem = ({ statName, value }: StatItemProps) => {
-  const symbol = value > 0 ? "+" : ""
-  let valueString: string
+  const valueString = augmentValueToString(statName, value)
   switch (statName) {
     case "hp":
+      return <List.Item>HP: {valueString}</List.Item>
     case "pp":
-      valueString = value.toString()
-      break
-    default:
-      valueString = round((value - 1) * 100, 2).toString()
-  }
-  switch (statName) {
-    case "hp":
-      return (
-        <List.Item>
-          HP: {symbol}
-          {valueString}
-        </List.Item>
-      )
-    case "pp":
-      return (
-        <List.Item>
-          PP: {symbol}
-          {valueString}
-        </List.Item>
-      )
+      return <List.Item>PP: {valueString}</List.Item>
     case "potency":
       return (
         <List.Item>
-          <AllAttackIcons /> Potency: {symbol}
-          {valueString}%
+          <AllAttackIcons /> Potency: {valueString}%
         </List.Item>
       )
     case "floorPotency":
       return (
         <List.Item>
-          <ATKOutlineIcon /> Floor Potency Increase: {symbol}
-          {valueString}%
+          <ATKOutlineIcon /> Floor Potency Increase: {valueString}%
         </List.Item>
       )
     case "damageResist":
       return (
         <List.Item>
-          <DEFOutlineIcon /> Damage Resist Increase: {symbol}
-          {valueString}%
+          <DEFOutlineIcon /> Damage Resist Increase: {valueString}%
         </List.Item>
       )
     case "meleePotency":
       return (
         <List.Item>
-          <MeleeIcon /> Melee Potency: {symbol}
-          {valueString}%
+          <MeleeIcon /> Melee Potency: {valueString}%
         </List.Item>
       )
     case "rangedPotency":
       return (
         <List.Item>
-          <RangeIcon /> Ranged Potency: {symbol}
-          {valueString}%
+          <RangeIcon /> Ranged Potency: {valueString}%
         </List.Item>
       )
     case "techPotency":
       return (
         <List.Item>
-          <TechIcon /> Technique Potency: {symbol}
-          {valueString}%
+          <TechIcon /> Technique Potency: {valueString}%
         </List.Item>
       )
 
