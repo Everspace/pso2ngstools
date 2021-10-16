@@ -51,13 +51,13 @@ const StatItem = ({ statName, value }: StatItemProps) => {
     case "floorPotency":
       return (
         <List.Item>
-          <ATKOutlineIcon /> Floor Potency Increase: {valueString}%
+          <ATKOutlineIcon /> Potency Floor Increase: {valueString}%
         </List.Item>
       )
     case "damageResist":
       return (
         <List.Item>
-          <DEFOutlineIcon /> Damage Resist Increase: {valueString}%
+          <DEFOutlineIcon /> Damage Resistance: {valueString}%
         </List.Item>
       )
     case "meleePotency":
