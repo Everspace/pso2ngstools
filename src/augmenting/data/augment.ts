@@ -97,7 +97,8 @@ export const allAugments = (
 export const augmentByCategory = groupBy(
   allAugments,
   (augment) => augment.category,
-) as Record<AugmentCategory, Augment[]>
+)
+//  as Record<AugmentCategory, Augment[]>
 
 export const augmentByBasename = groupBy(
   allAugments,

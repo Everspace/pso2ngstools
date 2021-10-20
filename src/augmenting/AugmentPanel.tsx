@@ -1,8 +1,8 @@
+import { Stack, Box, Typography, Grid, Divider } from "@mui/material"
 import { useAtom } from "jotai"
-import { Card, Divider, Header } from "semantic-ui-react"
-import { AugmentibleDisplay } from "./AugmentableDisplay"
-import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
-import { AugmentStatDisplay } from "./AugmentStatDisplay"
+// import { AugmentibleDisplay } from "./AugmentableDisplay"
+// import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
+// import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { augmentSlots, statTotalAtom } from "./state"
 import { useUrlStorage } from "./useUrlStorage"
 
@@ -11,20 +11,25 @@ export const AugmentPanel = () => {
   const [stats] = useAtom(statTotalAtom)
 
   return (
-    <div>
-      <Header as="h1">Augmenting</Header>
-      <Card.Group stackable doubling itemsPerRow="4">
+    <Stack>
+      <Box>
+        <Typography variant="h3">Augmenting</Typography>
+      </Box>
+      <Grid>
         {augmentSlots.map((slot) => (
-          <AugmentibleDisplay key={slot} slot={slot} />
+          <Grid item key={slot}>
+            Hello
+            {/* <AugmentibleDisplay slot={slot} /> */}
+          </Grid>
         ))}
-      </Card.Group>
+      </Grid>
       <Divider />
-      <div>
-        <Header size="medium">Total</Header>
-        <AugmentStatDisplay simple stat={stats} />
-      </div>
+      <Box>
+        <Typography variant="h5">Total</Typography>
+        {/* <AugmentStatDisplay simple stat={stats} /> */}
+      </Box>
       <Divider />
-      <AugmentCategoryDisplay />
-    </div>
+      {/* <AugmentCategoryDisplay /> */}
+    </Stack>
   )
 }

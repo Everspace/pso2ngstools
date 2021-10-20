@@ -53,6 +53,7 @@ export const useAugmentable = (id: AugmentableSlot) => {
   )
 
   return {
+    max,
     augments,
     setAugments,
     addAugment,

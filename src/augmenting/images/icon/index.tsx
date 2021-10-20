@@ -1,5 +1,3 @@
-import { Image, ImageProps } from "semantic-ui-react"
-
 import NMesetaIconRaw from "./NGSUIMSTIcon.png"
 
 import RATKIconRaw from "./NGSUIStatRATK.png"
@@ -8,19 +6,19 @@ import TATKIconRaw from "./NGSUIStatTATK.png"
 import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
 import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
 
-export const MesetaIcon = (props: ImageProps) => (
-  <Image src={NMesetaIconRaw} centered inline {...props} />
+export const MesetaIcon = (props: JSX.IntrinsicElements["img"]) => (
+  <img src={NMesetaIconRaw} style={{ display: "inline" }} {...props} />
 )
 
-export const MeleeIcon = (props: ImageProps) => (
-  <Image src={SATKIconRaw} centered inline {...props} />
+export const MeleeIcon = (props: JSX.IntrinsicElements["img"]) => (
+  <img src={SATKIconRaw} style={{ display: "inline" }} {...props} />
 )
 
-export const TechIcon = (props: ImageProps) => (
-  <Image src={TATKIconRaw} centered inline {...props} />
+export const TechIcon = (props: JSX.IntrinsicElements["img"]) => (
+  <img src={TATKIconRaw} style={{ display: "inline" }} {...props} />
 )
 
-export const AllAttackIcons = (props: ImageProps) => (
+export const AllAttackIcons = (props: JSX.IntrinsicElements["img"]) => (
   <>
     <MeleeIcon {...props} />
     <RangeIcon {...props} />
@@ -28,14 +26,14 @@ export const AllAttackIcons = (props: ImageProps) => (
   </>
 )
 
-export const RangeIcon = (props: ImageProps) => (
-  <Image src={RATKIconRaw} centered inline {...props} />
+export const RangeIcon = (props: JSX.IntrinsicElements["img"]) => (
+  <img src={RATKIconRaw} style={{ display: "inline" }} {...props} />
 )
 
-export const ATKOutlineIcon = (props: ImageProps) => (
-  <Image src={ATKOutlineIconRaw} centered inline {...props} />
+export const ATKOutlineIcon = (props: JSX.IntrinsicElements["img"]) => (
+  <img src={ATKOutlineIconRaw} style={{ display: "inline" }} {...props} />
 )
 
-export const DEFOutlineIcon = (props: ImageProps) => (
-  <Image src={DEFOutlineIconRaw} centered inline {...props} />
+export const DEFOutlineIcon = (props: JSX.IntrinsicElements["img"]) => (
+  <img src={DEFOutlineIconRaw} style={{ display: "inline" }} {...props} />
 )

@@ -1,6 +1,5 @@
 import { groupBy } from "lodash"
 import { useState } from "react"
-import { Button, Container, Icon, Input, Item, Tab } from "semantic-ui-react"
 import { SingleAugmentDisplay } from "./SingleAugmentDisplay"
 import {
   allAugmentCategories,
@@ -9,6 +8,7 @@ import {
   AugmentCategory,
 } from "./data/augment"
 import { MultiAugmentDisplay } from "./MultiAugmentDisplay"
+import { Box, Stack } from "@mui/material"
 
 type Pane = {
   menuItem?: any
@@ -32,9 +32,9 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
   }
 
   return (
-    <Tab.Pane>
-      <Container>
-        <Input
+    <Box>
+      <Box>
+        {/* <Input
           action
           value={search ?? ""}
           icon="search"
@@ -50,10 +50,10 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
               setSearch(null)
             }}
           />
-        </Input>
-      </Container>
-      <Container>
-        <Item.Group relaxed="very" unstackable>
+        </Input> */}
+      </Box>
+      <Box>
+        <Stack>
           {Object.entries(baseGroups).map(([group, augments]) => (
             <MultiAugmentDisplay
               key={group}
@@ -66,9 +66,9 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
                 .filter(filterate)
                 .map((a) => <SingleAugmentDisplay key={a.name} augment={a} />)
             : null}
-        </Item.Group>
-      </Container>
-    </Tab.Pane>
+        </Stack>
+      </Box>
+    </Box>
   )
 }
 
@@ -78,5 +78,6 @@ const panes: Pane[] = allAugmentCategories.map((category) => ({
 }))
 
 export const AugmentCategoryDisplay = () => {
-  return <Tab panes={panes} />
+  // return <Tab panes={panes} />
+  return "Tab Shit"
 }

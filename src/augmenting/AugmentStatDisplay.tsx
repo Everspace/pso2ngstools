@@ -1,5 +1,5 @@
+import { List, ListItem } from "@mui/material"
 import { BigNumber } from "mathjs"
-import { List } from "semantic-ui-react"
 import {
   Augment,
   AugmentStat,
@@ -43,44 +43,44 @@ const StatItem = ({ statName, value }: StatItemProps) => {
   const valueString = augmentValueToString(statName, value)
   switch (statName) {
     case "hp":
-      return <List.Item>HP: {valueString}</List.Item>
+      return <ListItem>HP: {valueString}</ListItem>
     case "pp":
-      return <List.Item>PP: {valueString}</List.Item>
+      return <ListItem>PP: {valueString}</ListItem>
     case "potency":
       return (
-        <List.Item>
+        <ListItem>
           <AllAttackIcons /> Potency: {valueString}%
-        </List.Item>
+        </ListItem>
       )
     case "floorPotency":
       return (
-        <List.Item>
+        <ListItem>
           <ATKOutlineIcon /> Potency Floor Increase: {valueString}%
-        </List.Item>
+        </ListItem>
       )
     case "damageResist":
       return (
-        <List.Item>
+        <ListItem>
           <DEFOutlineIcon /> Damage Resistance: {valueString}%
-        </List.Item>
+        </ListItem>
       )
     case "meleePotency":
       return (
-        <List.Item>
+        <ListItem>
           <MeleeIcon /> Melee Potency: {valueString}%
-        </List.Item>
+        </ListItem>
       )
     case "rangedPotency":
       return (
-        <List.Item>
+        <ListItem>
           <RangeIcon /> Ranged Potency: {valueString}%
-        </List.Item>
+        </ListItem>
       )
     case "techPotency":
       return (
-        <List.Item>
+        <ListItem>
           <TechIcon /> Technique Potency: {valueString}%
-        </List.Item>
+        </ListItem>
       )
 
     default:

@@ -1,3 +1,4 @@
+import { Button, ButtonGroup } from "@mui/material"
 import { Augment } from "augmenting/data/augment"
 import {
   AugmentableSlot,
@@ -7,7 +8,6 @@ import {
 } from "augmenting/state"
 import { flatten, includes } from "lodash"
 import { useMemo } from "react"
-import { Button, ButtonGroup } from "semantic-ui-react"
 
 interface WithAugment {
   augment: Augment
@@ -26,11 +26,7 @@ const AddToAllButton = ({ augment }: WithAugment) => {
     addToUnit3(augment)
   }
 
-  return (
-    <Button color="blue" onClick={addToAll}>
-      Add All
-    </Button>
-  )
+  return <Button onClick={addToAll}>Add All</Button>
 }
 
 const RemoveAllButton = ({ augment }: WithAugment) => {
@@ -56,7 +52,7 @@ const RemoveAllButton = ({ augment }: WithAugment) => {
   )
 
   return (
-    <Button disabled={!isExsitant} color="red" onClick={removeToAll}>
+    <Button disabled={!isExsitant} onClick={removeToAll}>
       Clear
     </Button>
   )
@@ -76,7 +72,7 @@ const AugmentToggleButton = ({ augment, slot }: AugmentToggleButtonProps) => {
 
   return (
     <Button
-      color={isExsitant ? "blue" : undefined}
+      disabled={isExsitant}
       onClick={() => {
         isExsitant ? removeAugment(augment) : addAugment(augment)
       }}
@@ -88,7 +84,7 @@ const AugmentToggleButton = ({ augment, slot }: AugmentToggleButtonProps) => {
 
 export const UnitAddBar = ({ augment }: WithAugment) => {
   return (
-    <ButtonGroup compact>
+    <ButtonGroup>
       {augmentSlots.map((slot) => (
         <AugmentToggleButton key={slot} augment={augment} slot={slot} />
       ))}

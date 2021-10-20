@@ -1,4 +1,13 @@
-import { Button, Card, Header, Icon, List } from "semantic-ui-react"
+import { Circle, Delete } from "@mui/icons-material"
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  List,
+  ListItem,
+  Typography,
+} from "@mui/material"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { AugmentableSlot, augmentSlotNiceName, useAugmentable } from "./state"
 
@@ -7,38 +16,44 @@ export interface AugmentibleDisplayProps {
 }
 
 export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
-  const { augments, clearAugments, removeAugment } = useAugmentable(slot)
+  const { augments, clearAugments, removeAugment, max } = useAugmentable(slot)
+  const leftSlots = max - augments.length
+  const leftover = Array(leftSlots).map((_, index) => index)
 
   return (
     <Card>
-      <Card.Content>
-        <Card.Header>
+      <CardContent>
+        <CardHeader>
           {augmentSlotNiceName[slot]}
-          <Button onClick={clearAugments} floated="right">
-            Clear
-          </Button>
-        </Card.Header>
-      </Card.Content>
-      <Card.Content>
+          <Button onClick={clearAugments}>Clear</Button>
+        </CardHeader>
+      </CardContent>
+      <CardContent>
         <List>
           {augments.map((c) => (
-            <List.Item key={c.name}>
-              <Icon
+            <ListItem key={c.name}>
+              <Delete />
+              {/* <Icon
                 link
                 inline
-                color="red"
+                // color="red"
                 name="x"
                 onClick={() => removeAugment(c)}
-              />
+              /> */}
               {c.rate * 10}% - {c.name}
-            </List.Item>
+            </ListItem>
+          ))}
+          {leftover.map((i) => (
+            <ListItem>
+              <Circle /> Empty Slot {i}
+            </ListItem>
           ))}
         </List>
-      </Card.Content>
-      <Card.Content>
-        <Header size="medium">Stats</Header>
+      </CardContent>
+      <CardContent>
+        <Typography>Stats</Typography>
         <AugmentStatDisplay simple stat={augments} />
-      </Card.Content>
+      </CardContent>
     </Card>
   )
 }
