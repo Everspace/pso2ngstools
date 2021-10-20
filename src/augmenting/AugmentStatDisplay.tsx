@@ -103,7 +103,7 @@ export const AugmentStatDisplay = ({
   if (simple) finalStat = simplifyAugmentStat(finalStat)
 
   return (
-    <List>
+    <List dense>
       {(Object.keys(finalStat) as (keyof AugmentStat)[])
         .sort((a, b) => {
           // Push keys I haven't decided the order of "down"

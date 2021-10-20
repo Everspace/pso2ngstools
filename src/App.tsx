@@ -3,25 +3,43 @@ import { useHistory } from "react-router"
 import {
   AppBar,
   Button,
+  Toolbar,
   Container,
-  CssBaseline,
   Typography,
+  Box,
 } from "@mui/material"
 
 function App() {
   const history = useHistory()
   return (
     <>
-      <CssBaseline />
-      <AppBar>
-        <Typography>PSO2:NGS Tools</Typography>
-        <Button href="/augment" onClick={() => history.push("/")}>
-          Augment
-        </Button>
+      <AppBar position="absolute">
+        <Toolbar>
+          <Typography variant="h6" component="div">
+            PSO2:NGS Tools
+          </Typography>
+          <Button
+            color="inherit"
+            href="/augment"
+            onClick={() => history.push("/")}
+          >
+            Augment
+          </Button>
+        </Toolbar>
       </AppBar>
-      <Container>
-        <PanelRouter />
-      </Container>
+      <main>
+        <Box
+          sx={{
+            bgcolor: "background.paper",
+            pt: 10,
+            pb: 6,
+          }}
+        >
+          <Container maxWidth="xl">
+            <PanelRouter />
+          </Container>
+        </Box>
+      </main>
     </>
   )
 }

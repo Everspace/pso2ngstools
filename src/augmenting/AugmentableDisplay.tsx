@@ -4,6 +4,7 @@ import {
   Card,
   CardContent,
   CardHeader,
+  IconButton,
   List,
   ListItem,
   Typography,
@@ -22,24 +23,21 @@ export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
 
   return (
     <Card>
+      <CardHeader
+        title={augmentSlotNiceName[slot]}
+        action={<Button onClick={clearAugments}>Clear</Button>}
+      />
       <CardContent>
-        <CardHeader>
-          {augmentSlotNiceName[slot]}
-          <Button onClick={clearAugments}>Clear</Button>
-        </CardHeader>
-      </CardContent>
-      <CardContent>
-        <List>
+        <List dense>
           {augments.map((c) => (
             <ListItem key={c.name}>
-              <Delete />
-              {/* <Icon
-                link
-                inline
-                // color="red"
-                name="x"
+              <IconButton
+                size="small"
+                color="error"
                 onClick={() => removeAugment(c)}
-              /> */}
+              >
+                <Delete />
+              </IconButton>
               {c.rate * 10}% - {c.name}
             </ListItem>
           ))}
