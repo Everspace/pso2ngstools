@@ -1,14 +1,12 @@
 import { Stack, Box, Typography, Grid, Divider, Button } from "@mui/material"
 import { useAtom } from "jotai"
-import * as math from "mathjs"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { augmentByCategory, AugmentCategory } from "./data/augment"
 // import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
-// import { AugmentStatDisplay } from "./AugmentStatDisplay"
+import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { augmentSlots, statTotalAtom, useAugmentable } from "./state"
-import { useUrlStorage } from "./useUrlStorage"
 import _ from "lodash"
-import { useCallback, useEffect } from "react"
+import { useCallback } from "react"
 
 function useRandomAugments() {
   const { setAugments: setunit1Augments } = useAugmentable("unit1")
@@ -32,10 +30,8 @@ function useRandomAugments() {
 }
 
 export const AugmentPanel = () => {
-  // useUrlStorage()
   const func = useRandomAugments()
   const [stats] = useAtom(statTotalAtom)
-  useEffect(() => func(), [func])
   return (
     <Stack spacing={1}>
       <Box>
@@ -52,7 +48,7 @@ export const AugmentPanel = () => {
       <Divider />
       <Box>
         <Typography variant="h5">Total</Typography>
-        {/* <AugmentStatDisplay simple stat={stats} /> */}
+        <AugmentStatDisplay simple stat={stats} />
       </Box>
       <Divider />
       {/* <AugmentCategoryDisplay /> */}
