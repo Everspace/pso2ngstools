@@ -1,3 +1,4 @@
+import { BigNumber } from "mathjs"
 import { List } from "semantic-ui-react"
 import {
   Augment,
@@ -32,10 +33,13 @@ const statOrder: (keyof AugmentStat)[] = [
 
 interface StatItemProps {
   statName: keyof AugmentStat
-  value: number
+  value: BigNumber
 }
 
 const StatItem = ({ statName, value }: StatItemProps) => {
+  if (value.eq(0)) {
+    return null
+  }
   const valueString = augmentValueToString(statName, value)
   switch (statName) {
     case "hp":

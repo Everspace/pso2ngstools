@@ -8,19 +8,21 @@ import soul from "./augments/soul.json"
 import gigas from "./augments/gigas.json"
 import dualble from "./augments/dualble.json"
 import { groupBy } from "lodash"
+import * as math from "mathjs"
+import { one, zero } from "MathConstants"
 
 export interface AugmentStat {
-  hp?: number
-  pp?: number
+  hp?: math.BigNumber
+  pp?: math.BigNumber
   /** "Potency +#%" */
-  potency?: number
+  potency?: math.BigNumber
   /** "Potency Floor Increase +#%" */
-  floorPotency?: number
-  meleePotency?: number
-  rangedPotency?: number
-  techPotency?: number
+  floorPotency?: math.BigNumber
+  meleePotency?: math.BigNumber
+  rangedPotency?: math.BigNumber
+  techPotency?: math.BigNumber
   /** "Damage Resistance +/-#%" */
-  damageResist?: number
+  damageResist?: math.BigNumber
 }
 
 export const allAugmentCategories = [
@@ -61,12 +63,10 @@ export const toAugmentReal = (augment: Augment): Augment => {
     switch (key) {
       case "hp":
       case "pp":
-        newAug[key] = augment.stat[key]!
+        newAug[key] = math.bignumber(augment.stat[key]!)
         break
       default:
-        const value = augment.stat[key]!
-        const transformValue = 1 + value / 100
-        newAug[key] = transformValue
+        newAug[key] = math.bignumber(augment.stat[key]!).dividedBy(100).add(1)
     }
   })
   augment.stat = newAug
@@ -91,7 +91,7 @@ export const allAugments = (
     ...soul,
     ...gigas,
     ...dualble,
-  ] as Array<Augment>
+  ] as unknown as Augment[]
 ).flatMap(toAugmentReal)
 
 export const augmentByCategory = groupBy(
@@ -111,28 +111,34 @@ export const sumAugmentStats = (augments: Augment[]) =>
       switch (key) {
         case "hp":
         case "pp":
-          memory[key] = (memory[key] ?? 0) + stat[key]!
+          memory[key] = (memory[key] ?? zero).add(stat[key]!)
           break
         default:
           if (memory[key] === undefined) {
-            memory[key] = stat[key]
+            memory[key] = math.bignumber(stat[key])
             return
           }
-          memory[key] = memory[key]! * stat[key]!
+          memory[key] = memory[key]!.mul(stat[key]!)
       }
     })
     return memory
   }, {})
 
 export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
-  const potency = stats?.potency ?? 0
-  let meleePotency = stats?.meleePotency ?? 0
-  let rangedPotency = stats?.rangedPotency ?? 0
-  let techPotency = stats?.techPotency ?? 0
-  if (potency > 0) {
-    meleePotency = meleePotency > 0 ? meleePotency * potency : potency
-    rangedPotency = rangedPotency > 0 ? rangedPotency * potency : potency
-    techPotency = techPotency > 0 ? techPotency * potency : potency
+  const potency = stats?.potency ?? zero
+  let meleePotency = stats?.meleePotency ?? zero
+  let rangedPotency = stats?.rangedPotency ?? zero
+  let techPotency = stats?.techPotency ?? zero
+  if (potency.greaterThan(zero)) {
+    meleePotency = meleePotency.greaterThan(zero)
+      ? meleePotency.mul(potency)
+      : potency
+    rangedPotency = rangedPotency.greaterThan(zero)
+      ? rangedPotency.mul(potency)
+      : potency
+    techPotency = techPotency.greaterThan(zero)
+      ? techPotency.mul(potency)
+      : potency
   }
   const compoundStat: AugmentStat = {
     ...stats,
@@ -146,7 +152,7 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
 
 export function augmentValueToString(
   statName: keyof AugmentStat,
-  value: number,
+  value: math.BigNumber,
 ): string {
   switch (statName) {
     case "hp":
@@ -154,16 +160,17 @@ export function augmentValueToString(
       return value.toString()
     default:
       // > 1 since all - effects are from 1
-      const symbol = value >= 1 ? "+" : "-"
+      const symbol = value.greaterThanOrEqualTo(1) ? "+" : "-"
       // Handle negative
-      let transformValue = 0
-      if (value >= 1) {
-        transformValue = value - 1
+      let transformValue: math.BigNumber = zero
+      if (value.greaterThanOrEqualTo(1)) {
+        transformValue = value.minus(1)
       } else {
-        transformValue = 1 - value
+        transformValue = one.minus(value)
       }
-      transformValue *= 100
-      return symbol + transformValue.toFixed(1)
+
+      return symbol + transformValue.mul(100).toFixed(2)
+
     // return symbol + round(transformValue, 2).toString()
   }
 }

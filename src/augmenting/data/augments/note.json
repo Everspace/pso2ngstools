@@ -17,8 +17,8 @@
     "drop": "West Aelio",
     "rate": 9,
     "stat": {
-      "meleePotency": 1,
-      "rangedPotency": 1
+      "meleePotency": "1",
+      "rangedPotency": "1"
     }
   },
   {
@@ -28,8 +28,8 @@
     "drop": "South Aelio",
     "rate": 9,
     "stat": {
-      "techPotency": 1,
-      "meleePotency": 1
+      "techPotency": "1",
+      "meleePotency": "1"
     }
   },
   {
@@ -39,8 +39,8 @@
     "drop": "North Aelio",
     "rate": 9,
     "stat": {
-      "techPotency": 1,
-      "rangedPotency": 1
+      "techPotency": "1",
+      "rangedPotency": "1"
     }
   },
   {
@@ -50,7 +50,7 @@
     "drop": "Mt. Magnus",
     "rate": 9,
     "stat": {
-      "meleePotency": 1.5
+      "meleePotency": "1.5"
     }
   },
   {
@@ -60,7 +60,7 @@
     "drop": "Vanford Laboratory Ruins",
     "rate": 9,
     "stat": {
-      "rangedPotency": 1.5
+      "rangedPotency": "1.5"
     }
   },
   {
@@ -70,7 +70,7 @@
     "drop": "Resola Forest",
     "rate": 9,
     "stat": {
-      "techPotency": 1.5
+      "techPotency": "1.5"
     }
   }
 ]

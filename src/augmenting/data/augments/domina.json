@@ -7,7 +7,7 @@
     "stat": {
       "hp": 5,
       "pp": 3,
-      "potency": 1.5
+      "potency": "1.5"
     }
   }
 ]

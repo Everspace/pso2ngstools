@@ -10,7 +10,7 @@
     "stat": {
       "hp": 10,
       "pp": 3,
-      "floorPotency": 1,
+      "floorPotency": "1",
       "damageResist": 1
     }
   },
@@ -25,7 +25,7 @@
     "stat": {
       "hp": 15,
       "pp": 4,
-      "floorPotency": 1.5,
+      "floorPotency": "1.5",
       "damageResist": 1.5
     },
     "exchange": {

@@ -83,7 +83,7 @@
     "baseName": "Might",
     "rate": 10,
     "stat": {
-      "meleePotency": 1
+      "meleePotency": "1"
     }
   },
   {
@@ -94,7 +94,7 @@
     "baseName": "Might",
     "rate": 10,
     "stat": {
-      "meleePotency": 1.5
+      "meleePotency": "1.5"
     },
     "exchange": {
       "Might I": 10,
@@ -110,7 +110,7 @@
     "baseName": "Might",
     "rate": 9,
     "stat": {
-      "meleePotency": 2
+      "meleePotency": "2"
     }
   },
   {
@@ -121,7 +121,7 @@
     "baseName": "Technique",
     "rate": 10,
     "stat": {
-      "techPotency": 1
+      "techPotency": "1"
     }
   },
   {
@@ -132,7 +132,7 @@
     "baseName": "Technique",
     "rate": 10,
     "stat": {
-      "techPotency": 1.5
+      "techPotency": "1.5"
     },
     "exchange": {
       "Technique I": 10,
@@ -148,7 +148,7 @@
     "baseName": "Technique",
     "rate": 9,
     "stat": {
-      "techPotency": 2
+      "techPotency": "2"
     }
   },
   {
@@ -159,7 +159,7 @@
     "baseName": "Precision",
     "rate": 10,
     "stat": {
-      "rangedPotency": 1
+      "rangedPotency": "1"
     }
   },
   {
@@ -170,7 +170,7 @@
     "baseName": "Precision",
     "rate": 10,
     "stat": {
-      "rangedPotency": 1.5
+      "rangedPotency": "1.5"
     },
     "exchange": {
       "Precision I": 10,
@@ -186,7 +186,7 @@
     "baseName": "Precision",
     "rate": 9,
     "stat": {
-      "rangedPotency": 2
+      "rangedPotency": "2"
     }
   },
   {
@@ -197,7 +197,7 @@
     "baseName": "Deftness",
     "rate": 10,
     "stat": {
-      "floorPotency": 1
+      "floorPotency": "1"
     }
   },
   {
@@ -208,7 +208,7 @@
     "baseName": "Deftness",
     "rate": 10,
     "stat": {
-      "floorPotency": 1.5
+      "floorPotency": "1.5"
     },
     "exchange": {
       "Deftness I": 10,
@@ -224,7 +224,7 @@
     "baseName": "Deftness",
     "rate": 9,
     "stat": {
-      "floorPotency": 2
+      "floorPotency": "2"
     }
   },
   {
@@ -235,8 +235,8 @@
     "baseName": "Mastery",
     "rate": 10,
     "stat": {
-      "potency": 0.5,
-      "floorPotency": 0.5,
+      "potency": "0.5",
+      "floorPotency": "0.5",
       "damageResist": 0.5
     },
     "exchange": {
@@ -255,8 +255,8 @@
     "baseName": "Mastery",
     "rate": 10,
     "stat": {
-      "potency": 1.0,
-      "floorPotency": 1.0,
+      "potency": "1.0",
+      "floorPotency": "1.0",
       "damageResist": 1.0
     },
     "exchange": {
@@ -273,8 +273,8 @@
     "baseName": "Mastery",
     "rate": 9,
     "stat": {
-      "potency": 1.5,
-      "floorPotency": 1.5,
+      "potency": "1.5",
+      "floorPotency": "1.5",
       "damageResist": 0.5
     },
     "exchange": {
