@@ -18,8 +18,7 @@ export interface AugmentibleDisplayProps {
 
 export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
   const { augments, clearAugments, removeAugment, max } = useAugmentable(slot)
-  const leftSlots = max - augments.length
-  const leftover = Array(leftSlots).map((_, index) => index)
+  const allSlots = Array.from(Array(max).keys())
 
   return (
     <Card>
@@ -29,23 +28,31 @@ export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
       />
       <CardContent>
         <List dense>
-          {augments.map((c) => (
-            <ListItem key={c.name}>
-              <IconButton
-                size="small"
-                color="error"
-                onClick={() => removeAugment(c)}
-              >
-                <Delete />
-              </IconButton>
-              {c.rate * 10}% - {c.name}
-            </ListItem>
-          ))}
-          {leftover.map((i) => (
-            <ListItem>
-              <Circle /> Empty Slot {i}
-            </ListItem>
-          ))}
+          {allSlots.map((_, index) => {
+            const aug = augments[index]
+            if (!aug) {
+              return (
+                <ListItem key={`empty ${index}`}>
+                  <IconButton size="small">
+                    <Delete />
+                  </IconButton>
+                  Empty Slot
+                </ListItem>
+              )
+            }
+            return (
+              <ListItem key={aug.name}>
+                <IconButton
+                  size="small"
+                  color="error"
+                  onClick={() => removeAugment(aug)}
+                >
+                  <Delete />
+                </IconButton>
+                {aug.rate * 10}% - {aug.name}
+              </ListItem>
+            )
+          })}
         </List>
       </CardContent>
       <CardContent>

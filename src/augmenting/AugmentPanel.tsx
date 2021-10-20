@@ -35,7 +35,7 @@ export const AugmentPanel = () => {
   // useUrlStorage()
   const func = useRandomAugments()
   const [stats] = useAtom(statTotalAtom)
-  useEffect(() => func(), [])
+  useEffect(() => func(), [func])
   return (
     <Stack spacing={1}>
       <Box>
