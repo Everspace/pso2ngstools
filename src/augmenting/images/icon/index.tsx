@@ -5,17 +5,24 @@ import SATKIconRaw from "./NGSUIStatSATK.png"
 import TATKIconRaw from "./NGSUIStatTATK.png"
 import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
 import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
+import { styled } from "@mui/material/styles"
+
+const ImageIcon = styled("img", { name: "ImageIcon" })({
+  display: "inline",
+  marginRight: 4,
+  marginLeft: 4,
+})
 
 export const MesetaIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <img src={NMesetaIconRaw} style={{ display: "inline" }} {...props} />
+  <ImageIcon src={NMesetaIconRaw} {...props} />
 )
 
 export const MeleeIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <img src={SATKIconRaw} style={{ display: "inline" }} {...props} />
+  <ImageIcon src={SATKIconRaw} {...props} />
 )
 
 export const TechIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <img src={TATKIconRaw} style={{ display: "inline" }} {...props} />
+  <ImageIcon src={TATKIconRaw} {...props} />
 )
 
 export const AllAttackIcons = (props: JSX.IntrinsicElements["img"]) => (
@@ -27,13 +34,13 @@ export const AllAttackIcons = (props: JSX.IntrinsicElements["img"]) => (
 )
 
 export const RangeIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <img src={RATKIconRaw} style={{ display: "inline" }} {...props} />
+  <ImageIcon src={RATKIconRaw} {...props} />
 )
 
 export const ATKOutlineIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <img src={ATKOutlineIconRaw} style={{ display: "inline" }} {...props} />
+  <ImageIcon src={ATKOutlineIconRaw} {...props} />
 )
 
 export const DEFOutlineIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <img src={DEFOutlineIconRaw} style={{ display: "inline" }} {...props} />
+  <ImageIcon src={DEFOutlineIconRaw} {...props} />
 )
