@@ -8,10 +8,29 @@ import {
   AugmentCategory,
 } from "./data/augment"
 import { MultiAugmentDisplay } from "./MultiAugmentDisplay"
-import { Box, Stack, Tab, Tabs } from "@mui/material"
+import { Box, IconButton, Stack, Tab, Tabs, TextField } from "@mui/material"
+import { Clear, Search } from "@mui/icons-material"
 
 const CategoryPane = ({ category }: { category: AugmentCategory }) => {
-  const [search, setSearch] = useState<null | string>(null)
+  const [searchRaw, setSearch] = useState<string>("")
+  const search = searchRaw.toLocaleLowerCase()
+
+  const handleSearchInput = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setSearch(e.target.value),
+    [setSearch],
+  )
+
+  const filterateGroupname = (entry: [string, Augment[]]) => {
+    if (search === "") return true
+    return entry[0].toLocaleLowerCase().indexOf(search) > -1
+  }
+
+  const filterateGroupless = (a: Augment) => {
+    if (search === "") return true
+    return a.name.toLocaleLowerCase().indexOf(search) > -1
+  }
+
   const groups = groupBy(augmentByCategory[category], (a) =>
     a.baseName ? "base" : "noBase",
   )
@@ -21,44 +40,43 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
 
   const baseGroups = groupBy(base, (a) => a.baseName)
 
-  const filterate = (a: Augment) => {
-    if (!search) return true
-    return a.name.indexOf(search) > -1
-  }
-
   return (
     <Box>
       <Box>
-        {/* <Input
-          action
-          value={search ?? ""}
-          icon="search"
-          iconPosition="left"
-          placeholder="Search..."
-          onChange={(e) => setSearch(e.target.value)}
-        >
-          <Icon name="search" />
-          <input />
-          <Button
-            icon="cancel"
-            onClick={() => {
-              setSearch(null)
-            }}
+        <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <Search sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+          <TextField
+            value={search}
+            InputLabelProps={{ shrink: search !== "" }}
+            onChange={handleSearchInput}
+            label="Search"
+            variant="standard"
           />
-        </Input> */}
+          {search !== "" ? (
+            <IconButton
+              color="error"
+              onClick={() => setSearch("")}
+              size="small"
+            >
+              <Clear />
+            </IconButton>
+          ) : null}
+        </Box>
       </Box>
       <Box>
         <Stack>
-          {Object.entries(baseGroups).map(([group, augments]) => (
-            <MultiAugmentDisplay
-              key={group}
-              group={group}
-              augments={augments}
-            />
-          ))}
+          {Object.entries(baseGroups)
+            .filter(filterateGroupname)
+            .map(([group, augments]) => (
+              <MultiAugmentDisplay
+                key={group}
+                group={group}
+                augments={augments}
+              />
+            ))}
           {noBase
             ? noBase
-                .filter(filterate)
+                .filter(filterateGroupless)
                 .map((a) => <SingleAugmentDisplay key={a.name} augment={a} />)
             : null}
         </Stack>
