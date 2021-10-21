@@ -1,7 +1,9 @@
+import { Grid, Stack } from "@mui/material"
+import { Box } from "@mui/system"
 import { UnitAddBar } from "./AugmentDisplay/UnitAddBar"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { Augment } from "./data/augment"
-import { augmentImageFromType } from "./images/augment"
+import { AugmentCapsuleImage } from "./MultiAugmentDisplay"
 
 interface SingleAugmentDisplayProps {
   augment: Augment
@@ -10,19 +12,24 @@ interface SingleAugmentDisplayProps {
 export const SingleAugmentDisplay = ({
   augment,
 }: SingleAugmentDisplayProps) => {
-  const icon = augmentImageFromType[augment.icon]
-
-  return <>"Single Augment Display"</>
-  // <Item>
-  //   <Item.Image wrapped size="tiny" src={icon} />
-  //   <Item.Content>
-  //     <Item.Header>{augment.name}</Item.Header>
-  //     <Item.Description>
-  //       <AugmentStatDisplay stat={augment.stat} />
-  //     </Item.Description>
-  //     <Item.Extra>
-  //       <UnitAddBar augment={augment} />
-  //     </Item.Extra>
-  //   </Item.Content>
-  // </Item>
+  return (
+    <Box sx={{ borderColor: "divider" }} borderBottom={1} py={2} px={1}>
+      <Grid container spacing={1}>
+        <Grid xs={1} maxWidth={256} item>
+          <AugmentCapsuleImage augment={augment} />
+        </Grid>
+        <Grid xs item>
+          <Stack>
+            <Box>{augment.name}</Box>
+            <Box>
+              <AugmentStatDisplay stat={augment.stat} />
+            </Box>
+            <Box>
+              <UnitAddBar augment={augment} />
+            </Box>
+          </Stack>
+        </Grid>
+      </Grid>
+    </Box>
+  )
 }

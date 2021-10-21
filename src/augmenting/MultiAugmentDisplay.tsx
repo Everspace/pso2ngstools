@@ -28,6 +28,44 @@ const tierToRoman = [
   "X",
 ]
 
+interface WithAugment {
+  augment: Augment
+}
+
+export const AugmentCapsuleImage = ({ augment }: WithAugment) => {
+  const icon = augmentImageFromType[augment.icon]
+
+  return (
+    <img
+      alt={`${augment.icon} icon`}
+      style={{ display: "block", width: "100%", height: "auto" }}
+      src={icon}
+    />
+  )
+}
+
+interface SelectTiersProps {
+  tiers: number[]
+  selected: number
+  onClick: (n: number) => void
+}
+
+const SelectTiers = ({ tiers, onClick, selected }: SelectTiersProps) => {
+  return (
+    <ButtonGroup size="small">
+      {tiers.map((tier, index) => (
+        <Button
+          key={tier}
+          variant={selected === index ? "contained" : "outlined"}
+          onClick={() => onClick(index)}
+        >
+          {tierToRoman[tier - 1]}
+        </Button>
+      ))}
+    </ButtonGroup>
+  )
+}
+
 export const MultiAugmentDisplay = ({
   group,
   augments,
@@ -35,35 +73,21 @@ export const MultiAugmentDisplay = ({
   const [selectedAugment, setSelected] = useAtom(groupAugmentFamilyAtom(group))
   const augment = augments[selectedAugment]
 
-  const icon = augmentImageFromType[augment.icon]
-
   return (
     <Box sx={{ borderColor: "divider" }} borderBottom={1} py={2} px={1}>
       <Grid container spacing={1}>
         <Grid xs={1} maxWidth={256} item>
-          <img
-            alt={`${augment.icon} icon`}
-            style={{ display: "block", width: "100%", height: "auto" }}
-            src={icon}
-          />
+          <AugmentCapsuleImage augment={augment} />
         </Grid>
         <Grid xs item>
           <Stack>
             <Box>
               {group}{" "}
-              <ButtonGroup size="small">
-                {augments.map((augment, index) => (
-                  <Button
-                    key={augment.tier!}
-                    variant={
-                      selectedAugment === index ? "contained" : "outlined"
-                    }
-                    onClick={() => setSelected(index)}
-                  >
-                    {tierToRoman[augment.tier! - 1]}
-                  </Button>
-                ))}
-              </ButtonGroup>
+              <SelectTiers
+                selected={selectedAugment}
+                onClick={setSelected}
+                tiers={augments.map((v) => v.tier!)}
+              />
             </Box>
             <Box>
               <AugmentStatDisplay stat={augment.stat} />
