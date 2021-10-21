@@ -2,7 +2,7 @@ import { Stack, Box, Typography, Grid, Divider, Button } from "@mui/material"
 import { useAtom } from "jotai"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { augmentByCategory, AugmentCategory } from "./data/augment"
-// import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
+import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import { augmentSlots, statTotalAtom, useAugmentable } from "./state"
 import _ from "lodash"
@@ -51,7 +51,7 @@ export const AugmentPanel = () => {
         <AugmentStatDisplay simple stat={stats} />
       </Box>
       <Divider />
-      {/* <AugmentCategoryDisplay /> */}
+      <AugmentCategoryDisplay />
     </Stack>
   )
 }

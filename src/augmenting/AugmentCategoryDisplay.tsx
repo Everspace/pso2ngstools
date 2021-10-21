@@ -1,5 +1,5 @@
 import { groupBy } from "lodash"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { SingleAugmentDisplay } from "./SingleAugmentDisplay"
 import {
   allAugmentCategories,
@@ -8,12 +8,7 @@ import {
   AugmentCategory,
 } from "./data/augment"
 import { MultiAugmentDisplay } from "./MultiAugmentDisplay"
-import { Box, Stack } from "@mui/material"
-
-type Pane = {
-  menuItem?: any
-  render?: (() => React.ReactNode) | undefined
-}
+import { Box, Stack, Tab, Tabs } from "@mui/material"
 
 const CategoryPane = ({ category }: { category: AugmentCategory }) => {
   const [search, setSearch] = useState<null | string>(null)
@@ -72,12 +67,28 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
   )
 }
 
-const panes: Pane[] = allAugmentCategories.map((category) => ({
-  menuItem: category,
-  render: () => <CategoryPane category={category} />,
-}))
-
 export const AugmentCategoryDisplay = () => {
-  // return <Tab panes={panes} />
-  return "Tab Shit"
+  const [category, setCategory] = useState<AugmentCategory>(
+    allAugmentCategories[0],
+  )
+
+  const handleChange = useCallback(
+    (event, newValue: AugmentCategory) => {
+      setCategory(newValue)
+    },
+    [setCategory],
+  )
+
+  return (
+    <>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs value={category} onChange={handleChange}>
+          {allAugmentCategories.map((c) => (
+            <Tab key={c} label={c} value={c} />
+          ))}
+        </Tabs>
+        <CategoryPane category={category} />
+      </Box>
+    </>
+  )
 }

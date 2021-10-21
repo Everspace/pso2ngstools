@@ -1,4 +1,4 @@
-import { Circle, Delete } from "@mui/icons-material"
+import { Delete } from "@mui/icons-material"
 import {
   Button,
   Card,
@@ -33,7 +33,7 @@ export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
             if (!aug) {
               return (
                 <ListItem key={`empty ${index}`}>
-                  <IconButton size="small">
+                  <IconButton disabled size="small">
                     <Delete />
                   </IconButton>
                   Empty Slot
