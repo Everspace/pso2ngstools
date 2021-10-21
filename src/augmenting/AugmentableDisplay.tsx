@@ -24,7 +24,11 @@ export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
     <Card>
       <CardHeader
         title={augmentSlotNiceName[slot]}
-        action={<Button onClick={clearAugments}>Clear</Button>}
+        action={
+          <Button color="error" onClick={clearAugments}>
+            Clear
+          </Button>
+        }
       />
       <CardContent>
         <List dense>
@@ -55,10 +59,12 @@ export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
           })}
         </List>
       </CardContent>
-      <CardContent>
-        <Typography>Stats</Typography>
-        <AugmentStatDisplay simple stat={augments} />
-      </CardContent>
+      {augments.length > 0 ? (
+        <CardContent>
+          <Typography>Stats</Typography>
+          <AugmentStatDisplay simple stat={augments} />
+        </CardContent>
+      ) : null}
     </Card>
   )
 }
