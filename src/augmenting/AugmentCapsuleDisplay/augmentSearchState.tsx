@@ -1,13 +1,13 @@
 import {
+  AugmentCategory,
   allAugmentCategories,
+  AugmentStat,
   allAugmentStats,
+  augmentStatToDisplayInfo,
   Augment,
   augmentByCategory,
-  AugmentCategory,
   augmentFufillsRequirement,
-  AugmentStat,
-  augmentStatToDisplayInfo,
-} from "./data/augment"
+} from "augmenting/data/augment"
 import { atom, WritableAtom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
 import * as math from "mathjs"

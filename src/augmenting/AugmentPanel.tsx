@@ -14,7 +14,7 @@ import {
 import { useAtom } from "jotai"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { Augment, augmentByCategory, AugmentCategory } from "./data/augment"
-import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
+import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import {
   augmentSlots,

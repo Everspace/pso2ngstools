@@ -3,7 +3,7 @@ import {
   AugmentCategory,
   AugmentStat,
   augmentStatToDisplayInfo,
-} from "./data/augment"
+} from "../data/augment"
 import { Box, Paper, Tab, Tabs, TextField } from "@mui/material"
 import { SearchInput } from "components/SearchInput"
 import {

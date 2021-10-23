@@ -1,12 +1,12 @@
 import { groupBy } from "lodash"
-import { SingleAugmentDisplay } from "./AugmentDisplay/SingleAugmentLine"
-import { MultiAugmentDisplay } from "./AugmentDisplay/MultiAugmentLine"
+import { SingleAugmentDisplay } from "./AugmentCapsuleDisplay/SingleAugmentLine"
+import { MultiAugmentDisplay } from "./AugmentCapsuleDisplay/MultiAugmentLine"
 import { Stack } from "@mui/material"
 import { useAtom } from "jotai"
-import { availableAugments } from "./augmentSearchState"
-import { AugmentSearch } from "./AugmentSearch"
+import { AugmentSearch } from "./AugmentCapsuleDisplay/AugmentSearch"
+import { availableAugments } from "./AugmentCapsuleDisplay/augmentSearchState"
 
-const CategoryPane = () => {
+const CapsuleList = () => {
   const [augments] = useAtom(availableAugments)
 
   const groups = groupBy(augments, (a) => (a.baseName ? a.baseName : a.name))
@@ -30,7 +30,7 @@ export const AugmentCategoryDisplay = () => {
   return (
     <>
       <AugmentSearch />
-      <CategoryPane />
+      <CapsuleList />
     </>
   )
 }
