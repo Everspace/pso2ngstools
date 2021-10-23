@@ -1,16 +1,10 @@
 import { groupBy } from "lodash"
-import { useCallback } from "react"
 import { SingleAugmentDisplay } from "./SingleAugmentDisplay"
-import { allAugmentCategories, AugmentCategory } from "./data/augment"
 import { MultiAugmentDisplay } from "./MultiAugmentDisplay"
-import { Box, Paper, Stack, Tab, Tabs } from "@mui/material"
-import { SearchInput } from "components/SearchInput"
+import { Box, Stack } from "@mui/material"
 import { useAtom } from "jotai"
-import {
-  availableAugments,
-  augmentCategoryStateAtom,
-  searchNameAtom,
-} from "./augmentSearchState"
+import { availableAugments } from "./augmentSearchState"
+import { AugmentSearch } from "./AugmentSearch"
 
 const CategoryPane = () => {
   const [augments] = useAtom(availableAugments)
@@ -37,27 +31,9 @@ const CategoryPane = () => {
 }
 
 export const AugmentCategoryDisplay = () => {
-  const [category, setCategory] = useAtom(augmentCategoryStateAtom)
-
-  const handleChange = useCallback(
-    (event, newValue: AugmentCategory) => {
-      setCategory(newValue)
-    },
-    [setCategory],
-  )
-
   return (
     <>
-      <Paper>
-        <Box px={1}>
-          <SearchInput atom={searchNameAtom} />
-        </Box>
-        <Tabs value={category} onChange={handleChange}>
-          {allAugmentCategories.map((c) => (
-            <Tab key={c} label={c} value={c} />
-          ))}
-        </Tabs>
-      </Paper>
+      <AugmentSearch />
       <CategoryPane />
     </>
   )

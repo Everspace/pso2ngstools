@@ -10,6 +10,14 @@ import dualble from "./augments/dualble.json"
 import { groupBy } from "lodash"
 import * as math from "mathjs"
 import { one, zero } from "MathConstants"
+import {
+  AllAttackIcons,
+  ATKOutlineIcon,
+  DEFOutlineIcon,
+  MeleeIcon,
+  RangeIcon,
+  TechIcon,
+} from "augmenting/images/icon"
 
 export interface AugmentStat {
   hp?: math.BigNumber
@@ -151,29 +159,74 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   return compoundStat
 }
 
+type AugmentDisplayInfo = {
+  name: string
+  percent?: boolean
+  Glyph?: React.ElementType
+}
+
+export const augmentStatToDisplayInfo: Record<
+  keyof AugmentStat,
+  AugmentDisplayInfo
+> = {
+  hp: {
+    name: "HP",
+  },
+  pp: {
+    name: "PP",
+  },
+  potency: {
+    name: "Potency",
+    percent: true,
+    Glyph: AllAttackIcons,
+  },
+  floorPotency: {
+    name: "Potency Floor Increase",
+    percent: true,
+    Glyph: ATKOutlineIcon,
+  },
+  damageResist: {
+    name: "Damage Resistance",
+    percent: true,
+    Glyph: DEFOutlineIcon,
+  },
+  meleePotency: {
+    name: "Melee Potency",
+    percent: true,
+    Glyph: MeleeIcon,
+  },
+  rangedPotency: {
+    name: "Ranged Potency",
+    percent: true,
+    Glyph: RangeIcon,
+  },
+  techPotency: {
+    name: "Technique Potency",
+    percent: true,
+    Glyph: TechIcon,
+  },
+}
+
 export function augmentValueToString(
   statName: keyof AugmentStat,
   value: math.BigNumber,
 ): string {
-  switch (statName) {
-    case "hp":
-    case "pp":
-      return value.toString()
-    default:
-      // > 1 since all - effects are from 1
-      const symbol = value.greaterThanOrEqualTo(1) ? "+" : "-"
-      // Handle negative
-      let transformValue: math.BigNumber = zero
-      if (value.greaterThanOrEqualTo(1)) {
-        transformValue = value.minus(1)
-      } else {
-        transformValue = one.minus(value)
-      }
+  const { percent } = augmentStatToDisplayInfo[statName]
 
-      return symbol + transformValue.mul(100).toFixed(2)
-
-    // return symbol + round(transformValue, 2).toString()
+  if (!percent) {
+    return value.toString()
   }
+
+  // > 1 since all - effects are from 1
+  const symbol = value.greaterThanOrEqualTo(1) ? "+" : "-"
+  // Handle negative
+  let transformValue: math.BigNumber = zero
+  if (value.greaterThanOrEqualTo(1)) {
+    transformValue = value.minus(1)
+  } else {
+    transformValue = one.minus(value)
+  }
+  return `${symbol}${transformValue.mul(100).toFixed(2)}%`
 }
 
 export function augmentFufillsRequirement(

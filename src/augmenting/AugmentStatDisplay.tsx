@@ -3,18 +3,11 @@ import { BigNumber } from "mathjs"
 import {
   Augment,
   AugmentStat,
+  augmentStatToDisplayInfo,
   augmentValueToString,
   simplifyAugmentStat,
   sumAugmentStats,
 } from "./data/augment"
-import {
-  AllAttackIcons,
-  ATKOutlineIcon,
-  DEFOutlineIcon,
-  MeleeIcon,
-  RangeIcon,
-  TechIcon,
-} from "./images/icon"
 
 export interface AugmentStatDisplayProps {
   stat: AugmentStat | Augment[]
@@ -40,52 +33,14 @@ const StatItem = ({ statName, value }: StatItemProps) => {
   if (value.eq(0)) {
     return null
   }
+  const { Glyph, name } = augmentStatToDisplayInfo[statName]
   const valueString = augmentValueToString(statName, value)
-  switch (statName) {
-    case "hp":
-      return <ListItem>HP: {valueString}</ListItem>
-    case "pp":
-      return <ListItem>PP: {valueString}</ListItem>
-    case "potency":
-      return (
-        <ListItem>
-          <AllAttackIcons /> Potency: {valueString}%
-        </ListItem>
-      )
-    case "floorPotency":
-      return (
-        <ListItem>
-          <ATKOutlineIcon /> Potency Floor Increase: {valueString}%
-        </ListItem>
-      )
-    case "damageResist":
-      return (
-        <ListItem>
-          <DEFOutlineIcon /> Damage Resistance: {valueString}%
-        </ListItem>
-      )
-    case "meleePotency":
-      return (
-        <ListItem>
-          <MeleeIcon /> Melee Potency: {valueString}%
-        </ListItem>
-      )
-    case "rangedPotency":
-      return (
-        <ListItem>
-          <RangeIcon /> Ranged Potency: {valueString}%
-        </ListItem>
-      )
-    case "techPotency":
-      return (
-        <ListItem>
-          <TechIcon /> Technique Potency: {valueString}%
-        </ListItem>
-      )
-
-    default:
-      return <></>
-  }
+  return (
+    <ListItem>
+      {Glyph ? <Glyph /> : null}
+      {name} {valueString}
+    </ListItem>
+  )
 }
 
 export const AugmentStatDisplay = ({
