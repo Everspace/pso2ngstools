@@ -6,10 +6,15 @@ import { RESET } from "jotai/utils"
 
 interface SearchInputProps {
   Icon?: React.ElementType
+  label?: string
   atom: WritableAtom<string, string | typeof RESET>
 }
 
-export function SearchInput({ Icon = Search, atom }: SearchInputProps) {
+export function SearchInput({
+  Icon = Search,
+  label = "Search",
+  atom,
+}: SearchInputProps) {
   const [state, onChange] = useAtom(atom)
 
   const handleSearchInput = useCallback(
@@ -27,7 +32,7 @@ export function SearchInput({ Icon = Search, atom }: SearchInputProps) {
         value={state}
         InputLabelProps={{ shrink: state !== "" }}
         onChange={handleSearchInput}
-        label="Search"
+        label={label}
         variant="standard"
       />
       {state !== "" ? (

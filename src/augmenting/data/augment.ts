@@ -33,6 +33,17 @@ export interface AugmentStat {
   damageResist?: math.BigNumber
 }
 
+export const allAugmentStats: (keyof AugmentStat)[] = [
+  "hp",
+  "pp",
+  "potency",
+  "floorPotency",
+  "meleePotency",
+  "rangedPotency",
+  "techPotency",
+  "damageResist",
+]
+
 export const allAugmentCategories = [
   "basic",
   // "ward", TODO
