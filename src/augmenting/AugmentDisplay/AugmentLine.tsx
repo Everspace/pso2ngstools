@@ -1,17 +1,21 @@
-import { Grid, Stack } from "@mui/material"
-import { Box } from "@mui/system"
-import { UnitAddBar } from "./AugmentDisplay/UnitAddBar"
-import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { Augment } from "./data/augment"
-import { AugmentCapsuleImage } from "./MultiAugmentDisplay"
+import { Box, Grid, Stack } from "@mui/material"
+import { UnitAddBar } from "./UnitAddBar"
+import { AugmentStatDisplay } from "../AugmentStatDisplay"
+import { AugmentCapsuleImage } from "./MultiAugmentLine"
+import { Augment } from "augmenting/data/augment"
 
-interface SingleAugmentDisplayProps {
+export function AugmentLineHeader({ children }: React.PropsWithChildren<{}>) {
+  return <Box>{children}</Box>
+}
+
+interface AugmentLineProps {
   augment: Augment
 }
 
-export const SingleAugmentDisplay = ({
+export function AugmentLine({
   augment,
-}: SingleAugmentDisplayProps) => {
+  children,
+}: React.PropsWithChildren<AugmentLineProps>) {
   return (
     <Box sx={{ borderColor: "divider" }} borderBottom={1} py={2} px={1}>
       <Grid container spacing={1}>
@@ -20,7 +24,7 @@ export const SingleAugmentDisplay = ({
         </Grid>
         <Grid xs item>
           <Stack>
-            <Box>{augment.name}</Box>
+            {children}
             <Box>
               <AugmentStatDisplay stat={augment.stat} />
             </Box>

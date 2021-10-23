@@ -1,10 +1,9 @@
-import { Box, Button, ButtonGroup, Grid, Stack } from "@mui/material"
+import { Button, ButtonGroup } from "@mui/material"
 import { atom, useAtom } from "jotai"
 import { atomFamily } from "jotai/utils"
-import { UnitAddBar } from "./AugmentDisplay/UnitAddBar"
-import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { Augment, augmentByBasename } from "./data/augment"
-import { augmentImageFromType } from "./images/augment"
+import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
+import { Augment, augmentByBasename } from "../data/augment"
+import { augmentImageFromType } from "../images/augment"
 
 interface MultiAugmentDisplayProps {
   augments: [Augment, ...Augment[]]
@@ -27,11 +26,11 @@ const tierToRoman = [
   "X",
 ]
 
-interface WithAugment {
+interface AugmentCapsuleImageProps {
   augment: Augment
 }
 
-export const AugmentCapsuleImage = ({ augment }: WithAugment) => {
+export const AugmentCapsuleImage = ({ augment }: AugmentCapsuleImageProps) => {
   const icon = augmentImageFromType[augment.icon]
 
   return (
@@ -72,30 +71,15 @@ export const MultiAugmentDisplay = ({ augments }: MultiAugmentDisplayProps) => {
   const augment = augments[selectedAugment]
 
   return (
-    <Box sx={{ borderColor: "divider" }} borderBottom={1} py={2} px={1}>
-      <Grid container spacing={1}>
-        <Grid xs={1} maxWidth={256} item>
-          <AugmentCapsuleImage augment={augment} />
-        </Grid>
-        <Grid xs item>
-          <Stack>
-            <Box>
-              {group}{" "}
-              <SelectTiers
-                selected={selectedAugment}
-                onClick={setSelected}
-                tiers={augments.map((v) => v.tier!)}
-              />
-            </Box>
-            <Box>
-              <AugmentStatDisplay stat={augment.stat} />
-            </Box>
-            <Box>
-              <UnitAddBar augment={augment} />
-            </Box>
-          </Stack>
-        </Grid>
-      </Grid>
-    </Box>
+    <AugmentLine augment={augment}>
+      <AugmentLineHeader>
+        {group}{" "}
+        <SelectTiers
+          selected={selectedAugment}
+          onClick={setSelected}
+          tiers={augments.map((v) => v.tier!)}
+        />
+      </AugmentLineHeader>
+    </AugmentLine>
   )
 }
