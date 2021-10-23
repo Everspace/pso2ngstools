@@ -75,13 +75,15 @@ export const useAugmentable = (id: AugmentableSlot) => {
   const addAugment = useCallback(
     (augment: Augment) => {
       updateAugments((prior) => {
-        const copy = [...prior]
-        const newState = [
-          ...copy.filter((a) => a.category !== augment.category),
-          augment,
-        ].sort((a, b) => a.name.localeCompare(b.name))
+        let newState: Augment[] = [...prior]
+
+        if (augment.category !== "basic") {
+          newState = newState.filter((a) => a.category !== augment.category)
+        }
+        newState.push(augment)
+
         if (newState.length > max) return prior
-        return newState
+        return newState.sort((a, b) => a.name.localeCompare(b.name))
       })
     },
     [updateAugments, max],
