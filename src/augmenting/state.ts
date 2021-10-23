@@ -18,6 +18,9 @@ export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
   unit3: "Unit 3",
 }
 
+const atob = (str: string) => Buffer.from(str, "base64").toString("binary")
+const btoa = (str: string) => Buffer.from(str, "binary").toString("base64")
+
 const fromId = (val: string): any => {
   return JSON.parse(atob(val))
 }
