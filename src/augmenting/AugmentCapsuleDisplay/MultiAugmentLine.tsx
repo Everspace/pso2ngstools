@@ -1,17 +1,12 @@
 import { Button, ButtonGroup } from "@mui/material"
-import { atom, useAtom } from "jotai"
-import { atomFamily } from "jotai/utils"
 import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
-import { Augment, augmentByBasename } from "../data/augment"
+import { Augment } from "../data/augment"
 import { augmentImageFromType } from "../images/augment"
+import { useState, useEffect } from "react"
 
 interface MultiAugmentDisplayProps {
   augments: [Augment, ...Augment[]]
 }
-
-const groupAugmentFamilyAtom = atomFamily((baseName: string) =>
-  atom(augmentByBasename[baseName].length - 1),
-)
 
 const tierToRoman = [
   "I",
@@ -30,7 +25,7 @@ interface AugmentCapsuleImageProps {
   augment: Augment
 }
 
-export const AugmentCapsuleImage = ({ augment }: AugmentCapsuleImageProps) => {
+export function AugmentCapsuleImage({ augment }: AugmentCapsuleImageProps) {
   const icon = augmentImageFromType[augment.icon]
 
   return (
@@ -48,7 +43,7 @@ interface SelectTiersProps {
   onClick: (n: number) => void
 }
 
-const SelectTiers = ({ tiers, onClick, selected }: SelectTiersProps) => {
+function SelectTiers({ tiers, onClick, selected }: SelectTiersProps) {
   return (
     <ButtonGroup size="small">
       {tiers.map((tier, index) => (
@@ -64,11 +59,21 @@ const SelectTiers = ({ tiers, onClick, selected }: SelectTiersProps) => {
   )
 }
 
-export const MultiAugmentDisplay = ({ augments }: MultiAugmentDisplayProps) => {
-  const group = augments[0].baseName!
+export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
+  const [selectedAugment, setSelected] = useState(augments.length - 1)
+  useEffect(() => {
+    setSelected(augments.length - 1)
+  }, [setSelected, augments.length])
 
-  const [selectedAugment, setSelected] = useAtom(groupAugmentFamilyAtom(group))
-  const augment = augments[selectedAugment]
+  const group = augments[0].baseName!
+  let augment = augments[selectedAugment]
+
+  // When augments changes length
+  // react fails to catch the change and invalidate
+  // so will end up with a bad time
+  if (!augment) {
+    augment = augments[augments.length - 1]
+  }
 
   return (
     <AugmentLine augment={augment}>
