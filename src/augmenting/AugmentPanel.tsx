@@ -1,13 +1,33 @@
-import { Stack, Box, Typography, Grid, Button, Paper } from "@mui/material"
+import {
+  Stack,
+  Box,
+  Typography,
+  Grid,
+  Button,
+  Paper,
+  Select,
+  MenuItem,
+  SelectChangeEvent,
+  FormControl,
+  InputLabel,
+} from "@mui/material"
 import { useAtom } from "jotai"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
-import { augmentByCategory, AugmentCategory } from "./data/augment"
+import { Augment, augmentByCategory, AugmentCategory } from "./data/augment"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { augmentSlots, statTotalAtom, useAugmentable } from "./augmentableState"
+import {
+  augmentSlots,
+  augmentsPerSlotAtom,
+  MAX_AUGMENTS_PER_SLOT,
+  statTotalAtom,
+  useAugmentable,
+} from "./augmentableState"
 import _ from "lodash"
 import { useCallback } from "react"
 
+const maxLengthify = (count: number) => (prior: Augment[]) =>
+  prior.length > count ? prior.slice(0, count) : prior
 function useAllAugments() {
   const { setAugments: setunit1Augments } = useAugmentable("unit1")
   const { setAugments: setunit2Augments } = useAugmentable("unit2")
@@ -35,15 +55,40 @@ function useAllAugments() {
     setweaponAugments([])
   }, [setunit1Augments, setunit2Augments, setunit3Augments, setweaponAugments])
 
+  const truncateAllAugments = useCallback(
+    (count: number) => {
+      const func = maxLengthify(count)
+      setunit1Augments(func)
+      setunit2Augments(func)
+      setunit3Augments(func)
+      setweaponAugments(func)
+    },
+    [setunit1Augments, setunit2Augments, setunit3Augments, setweaponAugments],
+  )
+
   return {
     randomizeAllAugments,
     clearAllAugments,
+    truncateAllAugments,
   }
 }
 
+const numbers = _.range(MAX_AUGMENTS_PER_SLOT)
 export const AugmentPanel = () => {
-  const { clearAllAugments, randomizeAllAugments } = useAllAugments()
+  const { clearAllAugments, randomizeAllAugments, truncateAllAugments } =
+    useAllAugments()
   const [stats] = useAtom(statTotalAtom)
+  const [augmentsPerSlot, setAugmentsPerSlot] = useAtom(augmentsPerSlotAtom)
+  const handleSetAugmentSlots = useCallback(
+    (e: SelectChangeEvent) => {
+      if (typeof e.target.value === "number") {
+        setAugmentsPerSlot(e.target.value)
+        truncateAllAugments(e.target.value)
+      }
+    },
+    [setAugmentsPerSlot, truncateAllAugments],
+  )
+
   return (
     <Stack spacing={1}>
       <Box>
@@ -52,6 +97,23 @@ export const AugmentPanel = () => {
         <Button color="error" onClick={clearAllAugments}>
           Clear All
         </Button>
+      </Box>
+      <Box>
+        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <InputLabel>Augments #</InputLabel>
+          <Select
+            label="Augment"
+            variant="standard"
+            onChange={handleSetAugmentSlots}
+            value={augmentsPerSlot.toString()}
+          >
+            {numbers.map((i) => (
+              <MenuItem key={i} value={i}>
+                {i}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </Box>
       <Box>
         <Grid

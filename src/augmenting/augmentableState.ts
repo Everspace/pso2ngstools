@@ -5,7 +5,12 @@ import {
   AugmentStat,
   sumAugmentStats,
 } from "./data/augment"
-import { atomFamily, useUpdateAtom, atomWithHash } from "jotai/utils"
+import {
+  atomFamily,
+  useUpdateAtom,
+  atomWithHash,
+  atomWithStorage,
+} from "jotai/utils"
 import { useCallback } from "react"
 import { atob, btoa } from "utils"
 
@@ -33,7 +38,8 @@ const revivify = (names: string[]): Augment[] => {
     .filter((x) => x) as Augment[]
 }
 
-export const maxAugmentAtom = atom(4)
+export const MAX_AUGMENTS_PER_SLOT = 8
+export const augmentsPerSlotAtom = atomWithStorage("augmentPerSlot", 4)
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1Aug",
@@ -54,7 +60,7 @@ const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
 })
 
 export const useAugmentable = (id: AugmentableSlot) => {
-  const [max] = useAtom(maxAugmentAtom)
+  const [max] = useAtom(augmentsPerSlotAtom)
 
   const augmentableAtom = augmentableFamily(id)
   const [augments, setAugments] = useAtom(augmentableAtom)
