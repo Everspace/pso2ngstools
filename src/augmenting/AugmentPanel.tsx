@@ -4,7 +4,7 @@ import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { augmentByCategory, AugmentCategory } from "./data/augment"
 import { AugmentCategoryDisplay } from "./AugmentCategoryDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { augmentSlots, statTotalAtom, useAugmentable } from "./state"
+import { augmentSlots, statTotalAtom, useAugmentable } from "./augmentableState"
 import _ from "lodash"
 import { useCallback } from "react"
 

@@ -7,6 +7,7 @@ import {
 } from "./data/augment"
 import { atomFamily, useUpdateAtom, atomWithHash } from "jotai/utils"
 import { useCallback } from "react"
+import { atob, btoa } from "utils"
 
 export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
 
@@ -17,9 +18,6 @@ export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
   unit2: "Unit 2",
   unit3: "Unit 3",
 }
-
-const atob = (str: string) => Buffer.from(str, "base64").toString("binary")
-const btoa = (str: string) => Buffer.from(str, "binary").toString("base64")
 
 const fromId = (val: string): any => {
   return JSON.parse(atob(val))

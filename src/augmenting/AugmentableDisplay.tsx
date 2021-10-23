@@ -10,7 +10,11 @@ import {
   Typography,
 } from "@mui/material"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { AugmentableSlot, augmentSlotNiceName, useAugmentable } from "./state"
+import {
+  AugmentableSlot,
+  augmentSlotNiceName,
+  useAugmentable,
+} from "./augmentableState"
 
 export interface AugmentibleDisplayProps {
   slot: AugmentableSlot
