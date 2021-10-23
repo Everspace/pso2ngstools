@@ -172,6 +172,7 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
 
 type AugmentDisplayInfo = {
   name: string
+  shortName?: string
   percent?: boolean
   Glyph?: React.ElementType
 }
@@ -203,16 +204,19 @@ export const augmentStatToDisplayInfo: Record<
   },
   meleePotency: {
     name: "Melee Potency",
+    shortName: "MATK",
     percent: true,
     Glyph: MeleeIcon,
   },
   rangedPotency: {
     name: "Ranged Potency",
+    shortName: "RATK",
     percent: true,
     Glyph: RangeIcon,
   },
   techPotency: {
     name: "Technique Potency",
+    shortName: "TATK",
     percent: true,
     Glyph: TechIcon,
   },

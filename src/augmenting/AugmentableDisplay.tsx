@@ -20,7 +20,7 @@ export interface AugmentibleDisplayProps {
   slot: AugmentableSlot
 }
 
-export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
+export function AugmentibleDisplay({ slot }: AugmentibleDisplayProps) {
   const { augments, clearAugments, removeAugment, max } = useAugmentable(slot)
   const allSlots = Array.from(Array(max).keys())
 
