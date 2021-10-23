@@ -61,16 +61,14 @@ export function AugmentSearch() {
 
   return (
     <Paper>
-      <Box px={1}>
-        <Grid px={1} container spacing={2}>
-          <SearchInput label="Name" atom={searchNameAtom} />
-          {searchables.map((s) => (
-            <Grid item xs={2} lg={1} key={s}>
-              <AugmentStatFieldSearch stat={s} />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <Grid px={3} container spacing={2}>
+        <SearchInput label="Name" atom={searchNameAtom} />
+        {searchables.map((s) => (
+          <Grid item xs={2} lg={1} key={s}>
+            <AugmentStatFieldSearch stat={s} />
+          </Grid>
+        ))}
+      </Grid>
 
       <Tabs value={category} onChange={handleChange}>
         {allAugmentCategories.map((c) => (
