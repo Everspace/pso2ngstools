@@ -34,9 +34,10 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
         })
         .map((entry) => {
           const [key, value] = entry
-          let newValue = math.bignumber(value)
+          let newValue = math.bignumber(value.trim())
           if (augmentStatToDisplayInfo[key].percent) {
-            newValue = newValue.dividedBy(100)
+            // Convert into multiplier form
+            newValue = newValue.dividedBy(100).add(1)
           }
           return [key, newValue] as const
         }),
