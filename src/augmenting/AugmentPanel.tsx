@@ -73,7 +73,7 @@ function useAllAugments() {
   }
 }
 
-const numbers = _.range(MAX_AUGMENTS_PER_SLOT)
+const numbers = _.range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments, truncateAllAugments } =
     useAllAugments()
@@ -99,11 +99,10 @@ export function AugmentPanel() {
         </Button>
       </Box>
       <Box>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel>Augments #</InputLabel>
+        <FormControl size="small" variant="standard" sx={{ m: 1 }}>
+          <InputLabel>Aug #</InputLabel>
           <Select
             label="Augment"
-            variant="standard"
             onChange={handleSetAugmentSlots}
             value={augmentsPerSlot.toString()}
           >
