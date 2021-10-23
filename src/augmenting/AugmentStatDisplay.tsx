@@ -29,7 +29,7 @@ interface StatItemProps {
   value: BigNumber
 }
 
-const StatItem = ({ statName, value }: StatItemProps) => {
+function StatItem({ statName, value }: StatItemProps) {
   if (value.eq(0)) {
     return null
   }
@@ -43,10 +43,10 @@ const StatItem = ({ statName, value }: StatItemProps) => {
   )
 }
 
-export const AugmentStatDisplay = ({
+export function AugmentStatDisplay({
   stat,
   simple = false,
-}: AugmentStatDisplayProps) => {
+}: AugmentStatDisplayProps) {
   let finalStat: AugmentStat | null = null
 
   if (stat instanceof Array) {

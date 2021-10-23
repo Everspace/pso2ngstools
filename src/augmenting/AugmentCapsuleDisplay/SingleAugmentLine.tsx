@@ -5,9 +5,7 @@ interface SingleAugmentDisplayProps {
   augment: Augment
 }
 
-export const SingleAugmentDisplay = ({
-  augment,
-}: SingleAugmentDisplayProps) => {
+export function SingleAugmentDisplay({ augment }: SingleAugmentDisplayProps) {
   return (
     <AugmentLine augment={augment}>
       <AugmentLineHeader>{augment.name}</AugmentLineHeader>

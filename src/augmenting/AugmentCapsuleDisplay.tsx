@@ -6,10 +6,10 @@ import { useAtom } from "jotai"
 import { AugmentSearch } from "./AugmentCapsuleDisplay/AugmentSearch"
 import { availableAugments } from "./AugmentCapsuleDisplay/augmentSearchState"
 
-const CapsuleList = () => {
-  const [augments] = useAtom(availableAugments)
+function CapsuleList() {
+  const [allAugments] = useAtom(availableAugments)
 
-  const groups = groupBy(augments, (a) => (a.baseName ? a.baseName : a.name))
+  const groups = groupBy(allAugments, (a) => (a.baseName ? a.baseName : a.name))
 
   return (
     <Stack>
@@ -26,7 +26,7 @@ const CapsuleList = () => {
   )
 }
 
-export const AugmentCategoryDisplay = () => {
+export function AugmentCategoryDisplay() {
   return (
     <>
       <AugmentSearch />

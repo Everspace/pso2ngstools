@@ -68,7 +68,7 @@ const useAugmentToggle = (augment: Augment, slot: AugmentableSlot) => {
   }
 }
 
-export const UnitAddBar = ({ augment }: { augment: Augment }) => {
+export function UnitAddBar({ augment }: { augment: Augment }) {
   const addToAll = useAddToAllButton(augment)
   const { hasAny, removeAll } = useRemoveAllButton(augment)
   const { label: unit1Label, ...unit1Props } = useAugmentToggle(

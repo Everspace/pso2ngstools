@@ -74,7 +74,7 @@ function useAllAugments() {
 }
 
 const numbers = _.range(MAX_AUGMENTS_PER_SLOT)
-export const AugmentPanel = () => {
+export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments, truncateAllAugments } =
     useAllAugments()
   const [stats] = useAtom(statTotalAtom)
