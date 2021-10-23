@@ -4,7 +4,7 @@ import {
   AugmentStat,
   augmentStatToDisplayInfo,
 } from "../data/augment"
-import { Box, Paper, Tab, Tabs, TextField } from "@mui/material"
+import { Box, Grid, Paper, Tab, Tabs, TextField } from "@mui/material"
 import { SearchInput } from "components/SearchInput"
 import {
   augmentCategoryStateAtom,
@@ -19,7 +19,7 @@ type AugmentStatFieldSearchProps = {
 }
 
 function AugmentStatFieldSearch({ stat }: AugmentStatFieldSearchProps) {
-  const { Glyph, name } = augmentStatToDisplayInfo[stat]
+  const { Glyph, name, shortName } = augmentStatToDisplayInfo[stat]
   const [value, setSearch] = useAtom(searchStatFamilyAtom(stat))
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ function AugmentStatFieldSearch({ stat }: AugmentStatFieldSearchProps) {
         value={value}
         InputLabelProps={{ shrink: value !== "" }}
         onChange={handleChange}
-        label={name}
+        label={shortName ?? name}
         variant="standard"
       />
     </Box>
@@ -62,10 +62,14 @@ export function AugmentSearch() {
   return (
     <Paper>
       <Box px={1}>
-        <SearchInput label="Name" atom={searchNameAtom} />
-        {searchables.map((s) => (
-          <AugmentStatFieldSearch key={s} stat={s} />
-        ))}
+        <Grid px={1} container spacing={2}>
+          <SearchInput label="Name" atom={searchNameAtom} />
+          {searchables.map((s) => (
+            <Grid item xs={2} lg={1} key={s}>
+              <AugmentStatFieldSearch stat={s} />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
 
       <Tabs value={category} onChange={handleChange}>
