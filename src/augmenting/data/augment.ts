@@ -233,7 +233,7 @@ export function augmentFufillsRequirement(
   aug: Augment,
   atLeast: AugmentStat,
 ): boolean {
-  const stats = aug.stat
+  const stats = simplifyAugmentStat(aug.stat)
   const keys = Object.keys(stats) as (keyof AugmentStat)[]
   const needed = Object.keys(atLeast) as (keyof AugmentStat)[]
 
