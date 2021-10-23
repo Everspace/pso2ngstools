@@ -1,84 +1,59 @@
 import { groupBy } from "lodash"
-import { useState, useCallback } from "react"
+import { useCallback } from "react"
 import { SingleAugmentDisplay } from "./SingleAugmentDisplay"
 import {
   allAugmentCategories,
   Augment,
   augmentByCategory,
   AugmentCategory,
+  augmentFufillsRequirement,
+  AugmentStat,
 } from "./data/augment"
 import { MultiAugmentDisplay } from "./MultiAugmentDisplay"
-import { Box, IconButton, Stack, Tab, Tabs, TextField } from "@mui/material"
-import { Clear, Search } from "@mui/icons-material"
+import { Box, Paper, Stack, Tab, Tabs } from "@mui/material"
+import { SearchInput } from "components/SearchInput"
+import { atom, useAtom } from "jotai"
+import { atomWithReset } from "jotai/utils"
 
-const CategoryPane = ({ category }: { category: AugmentCategory }) => {
-  const [searchRaw, setSearch] = useState<string>("")
-  const search = searchRaw.toLocaleLowerCase()
+const augmentCategoryStateAtom = atom<AugmentCategory>(allAugmentCategories[0])
+const searchStatAtom = atomWithReset<AugmentStat | null>(null)
+const searchNameAtom = atomWithReset("")
 
-  const handleSearchInput = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setSearch(e.target.value),
-    [setSearch],
-  )
-
-  const filterateGroupname = (entry: [string, Augment[]]) => {
-    if (search === "") return true
-    return entry[0].toLocaleLowerCase().indexOf(search) > -1
+const availableAugments = atom<Augment[]>((get) => {
+  const category = get(augmentCategoryStateAtom)
+  const searchStat = get(searchStatAtom)
+  const searchName = get(searchNameAtom).toLocaleLowerCase()
+  let filteredAugments = [...augmentByCategory[category]]
+  if (searchName !== "") {
+    filteredAugments = filteredAugments.filter((a) =>
+      a.name.toLocaleLowerCase().includes(searchName),
+    )
+  }
+  if (searchStat) {
+    filteredAugments.filter((a) => augmentFufillsRequirement(a, searchStat))
   }
 
-  const filterateGroupless = (a: Augment) => {
-    if (search === "") return true
-    return a.name.toLocaleLowerCase().indexOf(search) > -1
-  }
+  return filteredAugments
+})
 
-  const groups = groupBy(augmentByCategory[category], (a) =>
-    a.baseName ? "base" : "noBase",
-  )
+const CategoryPane = () => {
+  const [augments] = useAtom(availableAugments)
 
-  const base = groups["base"]
-  const noBase: Augment[] | undefined = groups["noBase"]
-
-  const baseGroups = groupBy(base, (a) => a.baseName)
+  const groups = groupBy(augments, (a) => (a.baseName ? a.baseName : a.name))
 
   return (
     <Box>
       <Box>
-        <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-          <Search sx={{ color: "action.active", mr: 1, my: 0.5 }} />
-          <TextField
-            value={search}
-            InputLabelProps={{ shrink: search !== "" }}
-            onChange={handleSearchInput}
-            label="Search"
-            variant="standard"
-          />
-          {search !== "" ? (
-            <IconButton
-              color="error"
-              onClick={() => setSearch("")}
-              size="small"
-            >
-              <Clear />
-            </IconButton>
-          ) : null}
-        </Box>
-      </Box>
-      <Box>
         <Stack>
-          {Object.entries(baseGroups)
-            .filter(filterateGroupname)
-            .map(([group, augments]) => (
-              <MultiAugmentDisplay
-                key={group}
-                group={group}
-                augments={augments}
-              />
-            ))}
-          {noBase
-            ? noBase
-                .filter(filterateGroupless)
-                .map((a) => <SingleAugmentDisplay key={a.name} augment={a} />)
-            : null}
+          {Object.entries(groups)
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .map(([group, augments]) =>
+              augments.length === 1 ? (
+                <SingleAugmentDisplay key={group} augment={augments[0]} />
+              ) : (
+                <MultiAugmentDisplay key={group} augments={augments} />
+              ),
+            )}
         </Stack>
       </Box>
     </Box>
@@ -86,9 +61,7 @@ const CategoryPane = ({ category }: { category: AugmentCategory }) => {
 }
 
 export const AugmentCategoryDisplay = () => {
-  const [category, setCategory] = useState<AugmentCategory>(
-    allAugmentCategories[0],
-  )
+  const [category, setCategory] = useAtom(augmentCategoryStateAtom)
 
   const handleChange = useCallback(
     (event, newValue: AugmentCategory) => {
@@ -99,14 +72,17 @@ export const AugmentCategoryDisplay = () => {
 
   return (
     <>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Paper>
+        <Box px={1}>
+          <SearchInput atom={searchNameAtom} />
+        </Box>
         <Tabs value={category} onChange={handleChange}>
           {allAugmentCategories.map((c) => (
             <Tab key={c} label={c} value={c} />
           ))}
         </Tabs>
-        <CategoryPane category={category} />
-      </Box>
+      </Paper>
+      <CategoryPane />
     </>
   )
 }

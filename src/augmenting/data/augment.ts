@@ -175,3 +175,21 @@ export function augmentValueToString(
     // return symbol + round(transformValue, 2).toString()
   }
 }
+
+export function augmentFufillsRequirement(
+  aug: Augment,
+  atLeast: AugmentStat,
+): boolean {
+  const stats = aug.stat
+  const keys = Object.keys(stats) as (keyof AugmentStat)[]
+  const needed = Object.keys(atLeast) as (keyof AugmentStat)[]
+
+  const hasAllKeys = needed.every((need) => keys.includes(need))
+  if (!hasAllKeys) return false
+
+  const hasAllStatMins = needed.every((need) =>
+    stats[need]!.greaterThanOrEqualTo(atLeast[need]!),
+  )
+
+  return hasAllStatMins
+}

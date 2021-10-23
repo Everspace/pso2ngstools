@@ -7,8 +7,7 @@ import { Augment, augmentByBasename } from "./data/augment"
 import { augmentImageFromType } from "./images/augment"
 
 interface MultiAugmentDisplayProps {
-  group: string
-  augments: Augment[]
+  augments: [Augment, ...Augment[]]
 }
 
 const groupAugmentFamilyAtom = atomFamily((baseName: string) =>
@@ -66,10 +65,9 @@ const SelectTiers = ({ tiers, onClick, selected }: SelectTiersProps) => {
   )
 }
 
-export const MultiAugmentDisplay = ({
-  group,
-  augments,
-}: MultiAugmentDisplayProps) => {
+export const MultiAugmentDisplay = ({ augments }: MultiAugmentDisplayProps) => {
+  const group = augments[0].baseName!
+
   const [selectedAugment, setSelected] = useAtom(groupAugmentFamilyAtom(group))
   const augment = augments[selectedAugment]
 
