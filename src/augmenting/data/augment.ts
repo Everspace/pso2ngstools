@@ -10,6 +10,14 @@ import dualble from "./augments/dualble.json"
 import { groupBy } from "lodash"
 import * as math from "mathjs"
 import { one, zero } from "MathConstants"
+import {
+  AllAttackIcons,
+  ATKOutlineIcon,
+  DEFOutlineIcon,
+  MeleeIcon,
+  RangeIcon,
+  TechIcon,
+} from "augmenting/images/icon"
 
 export interface AugmentStat {
   hp?: math.BigNumber
@@ -24,6 +32,17 @@ export interface AugmentStat {
   /** "Damage Resistance +/-#%" */
   damageResist?: math.BigNumber
 }
+
+export const allAugmentStats: (keyof AugmentStat)[] = [
+  "hp",
+  "pp",
+  "potency",
+  "floorPotency",
+  "meleePotency",
+  "rangedPotency",
+  "techPotency",
+  "damageResist",
+]
 
 export const allAugmentCategories = [
   "basic",
@@ -97,7 +116,8 @@ export const allAugments = (
 export const augmentByCategory = groupBy(
   allAugments,
   (augment) => augment.category,
-) as Record<AugmentCategory, Augment[]>
+)
+//  as Record<AugmentCategory, Augment[]>
 
 export const augmentByBasename = groupBy(
   allAugments,
@@ -150,27 +170,94 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   return compoundStat
 }
 
+type AugmentDisplayInfo = {
+  name: string
+  shortName?: string
+  percent?: boolean
+  Glyph?: React.ElementType
+}
+
+export const augmentStatToDisplayInfo: Record<
+  keyof AugmentStat,
+  AugmentDisplayInfo
+> = {
+  hp: {
+    name: "HP",
+  },
+  pp: {
+    name: "PP",
+  },
+  potency: {
+    name: "Potency",
+    percent: true,
+    Glyph: AllAttackIcons,
+  },
+  floorPotency: {
+    name: "Potency Floor Increase",
+    percent: true,
+    Glyph: ATKOutlineIcon,
+  },
+  damageResist: {
+    name: "Damage Resistance",
+    percent: true,
+    Glyph: DEFOutlineIcon,
+  },
+  meleePotency: {
+    name: "Melee Potency",
+    shortName: "MATK",
+    percent: true,
+    Glyph: MeleeIcon,
+  },
+  rangedPotency: {
+    name: "Ranged Potency",
+    shortName: "RATK",
+    percent: true,
+    Glyph: RangeIcon,
+  },
+  techPotency: {
+    name: "Technique Potency",
+    shortName: "TATK",
+    percent: true,
+    Glyph: TechIcon,
+  },
+}
+
 export function augmentValueToString(
   statName: keyof AugmentStat,
   value: math.BigNumber,
 ): string {
-  switch (statName) {
-    case "hp":
-    case "pp":
-      return value.toString()
-    default:
-      // > 1 since all - effects are from 1
-      const symbol = value.greaterThanOrEqualTo(1) ? "+" : "-"
-      // Handle negative
-      let transformValue: math.BigNumber = zero
-      if (value.greaterThanOrEqualTo(1)) {
-        transformValue = value.minus(1)
-      } else {
-        transformValue = one.minus(value)
-      }
+  const { percent } = augmentStatToDisplayInfo[statName]
 
-      return symbol + transformValue.mul(100).toFixed(2)
-
-    // return symbol + round(transformValue, 2).toString()
+  if (!percent) {
+    return value.toString()
   }
+
+  // > 1 since all - effects are from 1
+  const symbol = value.greaterThanOrEqualTo(1) ? "+" : "-"
+  // Handle negative
+  let transformValue: math.BigNumber = zero
+  if (value.greaterThanOrEqualTo(1)) {
+    transformValue = value.minus(1)
+  } else {
+    transformValue = one.minus(value)
+  }
+  return `${symbol}${transformValue.mul(100).toFixed(2)}%`
+}
+
+export function augmentFufillsRequirement(
+  aug: Augment,
+  atLeast: AugmentStat,
+): boolean {
+  const stats = simplifyAugmentStat(aug.stat)
+  const keys = Object.keys(stats) as (keyof AugmentStat)[]
+  const needed = Object.keys(atLeast) as (keyof AugmentStat)[]
+
+  const hasAllKeys = needed.every((need) => keys.includes(need))
+  if (!hasAllKeys) return false
+
+  const hasAllStatMins = needed.every((need) =>
+    stats[need]!.greaterThanOrEqualTo(atLeast[need]!),
+  )
+
+  return hasAllStatMins
 }

@@ -1,20 +1,13 @@
+import { List, ListItem } from "@mui/material"
 import { BigNumber } from "mathjs"
-import { List } from "semantic-ui-react"
 import {
   Augment,
   AugmentStat,
+  augmentStatToDisplayInfo,
   augmentValueToString,
   simplifyAugmentStat,
   sumAugmentStats,
 } from "./data/augment"
-import {
-  AllAttackIcons,
-  ATKOutlineIcon,
-  DEFOutlineIcon,
-  MeleeIcon,
-  RangeIcon,
-  TechIcon,
-} from "./images/icon"
 
 export interface AugmentStatDisplayProps {
   stat: AugmentStat | Augment[]
@@ -36,62 +29,24 @@ interface StatItemProps {
   value: BigNumber
 }
 
-const StatItem = ({ statName, value }: StatItemProps) => {
+function StatItem({ statName, value }: StatItemProps) {
   if (value.eq(0)) {
     return null
   }
+  const { Glyph, name } = augmentStatToDisplayInfo[statName]
   const valueString = augmentValueToString(statName, value)
-  switch (statName) {
-    case "hp":
-      return <List.Item>HP: {valueString}</List.Item>
-    case "pp":
-      return <List.Item>PP: {valueString}</List.Item>
-    case "potency":
-      return (
-        <List.Item>
-          <AllAttackIcons /> Potency: {valueString}%
-        </List.Item>
-      )
-    case "floorPotency":
-      return (
-        <List.Item>
-          <ATKOutlineIcon /> Potency Floor Increase: {valueString}%
-        </List.Item>
-      )
-    case "damageResist":
-      return (
-        <List.Item>
-          <DEFOutlineIcon /> Damage Resistance: {valueString}%
-        </List.Item>
-      )
-    case "meleePotency":
-      return (
-        <List.Item>
-          <MeleeIcon /> Melee Potency: {valueString}%
-        </List.Item>
-      )
-    case "rangedPotency":
-      return (
-        <List.Item>
-          <RangeIcon /> Ranged Potency: {valueString}%
-        </List.Item>
-      )
-    case "techPotency":
-      return (
-        <List.Item>
-          <TechIcon /> Technique Potency: {valueString}%
-        </List.Item>
-      )
-
-    default:
-      return <></>
-  }
+  return (
+    <ListItem>
+      {Glyph ? <Glyph /> : null}
+      {name} {valueString}
+    </ListItem>
+  )
 }
 
-export const AugmentStatDisplay = ({
+export function AugmentStatDisplay({
   stat,
   simple = false,
-}: AugmentStatDisplayProps) => {
+}: AugmentStatDisplayProps) {
   let finalStat: AugmentStat | null = null
 
   if (stat instanceof Array) {
@@ -103,7 +58,7 @@ export const AugmentStatDisplay = ({
   if (simple) finalStat = simplifyAugmentStat(finalStat)
 
   return (
-    <List>
+    <List dense>
       {(Object.keys(finalStat) as (keyof AugmentStat)[])
         .sort((a, b) => {
           // Push keys I haven't decided the order of "down"

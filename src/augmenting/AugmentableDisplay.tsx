@@ -1,44 +1,74 @@
-import { Button, Card, Header, Icon, List } from "semantic-ui-react"
+import { Delete } from "@mui/icons-material"
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  IconButton,
+  List,
+  ListItem,
+  Typography,
+} from "@mui/material"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { AugmentableSlot, augmentSlotNiceName, useAugmentable } from "./state"
+import {
+  AugmentableSlot,
+  augmentSlotNiceName,
+  useAugmentable,
+} from "./augmentableState"
 
 export interface AugmentibleDisplayProps {
   slot: AugmentableSlot
 }
 
-export const AugmentibleDisplay = ({ slot }: AugmentibleDisplayProps) => {
-  const { augments, clearAugments, removeAugment } = useAugmentable(slot)
+export function AugmentibleDisplay({ slot }: AugmentibleDisplayProps) {
+  const { augments, clearAugments, removeAugment, max } = useAugmentable(slot)
+  const allSlots = Array.from(Array(max).keys())
 
   return (
     <Card>
-      <Card.Content>
-        <Card.Header>
-          {augmentSlotNiceName[slot]}
-          <Button onClick={clearAugments} floated="right">
+      <CardHeader
+        title={augmentSlotNiceName[slot]}
+        action={
+          <Button color="error" onClick={clearAugments}>
             Clear
           </Button>
-        </Card.Header>
-      </Card.Content>
-      <Card.Content>
-        <List>
-          {augments.map((c) => (
-            <List.Item key={c.name}>
-              <Icon
-                link
-                inline
-                color="red"
-                name="x"
-                onClick={() => removeAugment(c)}
-              />
-              {c.rate * 10}% - {c.name}
-            </List.Item>
-          ))}
+        }
+      />
+      <CardContent>
+        <List dense>
+          {allSlots.map((_, index) => {
+            const aug = augments[index]
+            if (!aug) {
+              return (
+                <ListItem key={`empty ${index}`}>
+                  <IconButton disabled size="small">
+                    <Delete />
+                  </IconButton>
+                  Empty Slot
+                </ListItem>
+              )
+            }
+            return (
+              <ListItem key={aug.name}>
+                <IconButton
+                  size="small"
+                  color="error"
+                  onClick={() => removeAugment(aug)}
+                >
+                  <Delete />
+                </IconButton>
+                {aug.rate * 10}% - {aug.name}
+              </ListItem>
+            )
+          })}
         </List>
-      </Card.Content>
-      <Card.Content>
-        <Header size="medium">Stats</Header>
-        <AugmentStatDisplay simple stat={augments} />
-      </Card.Content>
+      </CardContent>
+      {augments.length > 0 ? (
+        <CardContent>
+          <Typography>Stats</Typography>
+          <AugmentStatDisplay simple stat={augments} />
+        </CardContent>
+      ) : null}
     </Card>
   )
 }
