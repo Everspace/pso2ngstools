@@ -1,8 +1,8 @@
 import { Button, ButtonGroup } from "@mui/material"
 import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
-import { Augment } from "../data/augment"
 import { augmentImageFromType } from "../images/augment"
 import { useState, useEffect } from "react"
+import { Augment } from "augmenting/types"
 
 interface MultiAugmentDisplayProps {
   augments: [Augment, ...Augment[]]

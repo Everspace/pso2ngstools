@@ -1,11 +1,5 @@
 import { atom, useAtom } from "jotai"
 import {
-  allAugments,
-  Augment,
-  AugmentStat,
-  sumAugmentStats,
-} from "./data/augment"
-import {
   atomFamily,
   useUpdateAtom,
   atomWithHash,
@@ -13,6 +7,9 @@ import {
 } from "jotai/utils"
 import { useCallback } from "react"
 import { atob, btoa } from "utils"
+import { allAugments } from "./data/augments"
+import { sumAugmentStats } from "./tools"
+import { Augment, AugmentStat } from "./types"
 
 export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
 

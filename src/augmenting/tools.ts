@@ -1,14 +1,4 @@
-import { AugmentImageType } from "../images/augment"
-import basic from "./augments/basic.json"
-import dread from "./augments/dread.json"
-import domina from "./augments/domina.json"
-import note from "./augments/note.json"
-import secreta from "./augments/secreta.json"
-import soul from "./augments/soul.json"
-import gigas from "./augments/gigas.json"
-import dualble from "./augments/dualble.json"
-import { groupBy } from "lodash"
-import * as math from "mathjs"
+import { bignumber } from "mathjs"
 import { one, zero } from "MathConstants"
 import {
   AllAttackIcons,
@@ -18,59 +8,7 @@ import {
   RangeIcon,
   TechIcon,
 } from "augmenting/images/icon"
-
-export interface AugmentStat {
-  hp?: math.BigNumber
-  pp?: math.BigNumber
-  /** "Potency +#%" */
-  potency?: math.BigNumber
-  /** "Potency Floor Increase +#%" */
-  floorPotency?: math.BigNumber
-  meleePotency?: math.BigNumber
-  rangedPotency?: math.BigNumber
-  techPotency?: math.BigNumber
-  /** "Damage Resistance +/-#%" */
-  damageResist?: math.BigNumber
-}
-
-export const allAugmentStats: (keyof AugmentStat)[] = [
-  "hp",
-  "pp",
-  "potency",
-  "floorPotency",
-  "meleePotency",
-  "rangedPotency",
-  "techPotency",
-  "damageResist",
-]
-
-export const allAugmentCategories = [
-  "basic",
-  // "ward", TODO
-  "domina",
-  "soul",
-  "note",
-  "secreta",
-  "dread",
-  "gigas",
-  // "element", TODO: They use the Special icon
-  "dualble",
-] as const
-
-export type AugmentCategory = typeof allAugmentCategories[number]
-
-export interface Augment {
-  name: string
-  category: AugmentCategory
-  icon: AugmentImageType
-  tier?: number
-  baseName?: string
-  location?: string
-  rate: number
-  stat: AugmentStat
-
-  exchange?: Record<string, number>
-}
+import { Augment, AugmentDisplayInfo, AugmentStat } from "./types"
 
 /**
  * Mutates augment to turn "percents" into actual numbers
@@ -82,47 +20,15 @@ export const toAugmentReal = (augment: Augment): Augment => {
     switch (key) {
       case "hp":
       case "pp":
-        newAug[key] = math.bignumber(augment.stat[key]!)
+        newAug[key] = bignumber(augment.stat[key]!)
         break
       default:
-        newAug[key] = math.bignumber(augment.stat[key]!).dividedBy(100).add(1)
+        newAug[key] = bignumber(augment.stat[key]!).dividedBy(100).add(1)
     }
   })
   augment.stat = newAug
   return augment
 }
-
-export const resourceNames = [
-  "Photon Quartz",
-  "Photon Chunk",
-  "Monotite",
-  "Dualomite",
-  "Trinite",
-]
-
-export const allAugments = (
-  [
-    ...basic,
-    ...dread,
-    ...domina,
-    ...note,
-    ...secreta,
-    ...soul,
-    ...gigas,
-    ...dualble,
-  ] as unknown as Augment[]
-).flatMap(toAugmentReal)
-
-export const augmentByCategory = groupBy(
-  allAugments,
-  (augment) => augment.category,
-)
-//  as Record<AugmentCategory, Augment[]>
-
-export const augmentByBasename = groupBy(
-  allAugments,
-  (augment) => augment.baseName,
-)
 
 export const sumAugmentStats = (augments: Augment[]) =>
   augments.reduce<AugmentStat>((memory, { stat }) => {
@@ -135,7 +41,7 @@ export const sumAugmentStats = (augments: Augment[]) =>
           break
         default:
           if (memory[key] === undefined) {
-            memory[key] = math.bignumber(stat[key])
+            memory[key] = bignumber(stat[key])
             return
           }
           memory[key] = memory[key]!.mul(stat[key]!)
@@ -168,13 +74,6 @@ export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   }
   delete compoundStat.potency
   return compoundStat
-}
-
-type AugmentDisplayInfo = {
-  name: string
-  shortName?: string
-  percent?: boolean
-  Glyph?: React.ElementType
 }
 
 export const augmentStatToDisplayInfo: Record<

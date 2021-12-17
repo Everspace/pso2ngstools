@@ -1,16 +1,18 @@
+import { augmentByCategory } from "augmenting/data/augments"
 import {
-  AugmentCategory,
-  allAugmentCategories,
-  AugmentStat,
-  allAugmentStats,
-  augmentStatToDisplayInfo,
-  Augment,
-  augmentByCategory,
   augmentFufillsRequirement,
-} from "augmenting/data/augment"
+  augmentStatToDisplayInfo,
+} from "augmenting/tools"
+import {
+  allAugmentCategories,
+  allAugmentStats,
+  Augment,
+  AugmentCategory,
+  AugmentStat,
+} from "augmenting/types"
 import { atom, WritableAtom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
-import * as math from "mathjs"
+import { isNaN, bignumber } from "mathjs"
 
 export const augmentCategoryStateAtom = atom<AugmentCategory>(
   allAugmentCategories[0],
@@ -30,11 +32,11 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
         })
         .filter((entry) => {
           const [, value] = entry
-          return value !== "" && !math.isNaN(Number(value))
+          return value !== "" && !isNaN(Number(value))
         })
         .map((entry) => {
           const [key, value] = entry
-          let newValue = math.bignumber(value.trim())
+          let newValue = bignumber(value.trim())
           if (augmentStatToDisplayInfo[key].percent) {
             // Convert into multiplier form
             newValue = newValue.dividedBy(100).add(1)

@@ -2,7 +2,7 @@ import { Box, Grid, Stack } from "@mui/material"
 import { UnitAddBar } from "./UnitAddBar"
 import { AugmentStatDisplay } from "../AugmentStatDisplay"
 import { AugmentCapsuleImage } from "./MultiAugmentLine"
-import { Augment } from "augmenting/data/augment"
+import { Augment } from "augmenting/types"
 
 export function AugmentLineHeader({ children }: React.PropsWithChildren<{}>) {
   return <Box>{children}</Box>

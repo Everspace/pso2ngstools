@@ -1,5 +1,5 @@
+import { Augment } from "augmenting/types"
 import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
-import { Augment } from "../data/augment"
 
 interface SingleAugmentDisplayProps {
   augment: Augment

@@ -1,13 +1,12 @@
 import { List, ListItem } from "@mui/material"
 import { BigNumber } from "mathjs"
 import {
-  Augment,
-  AugmentStat,
   augmentStatToDisplayInfo,
   augmentValueToString,
-  simplifyAugmentStat,
   sumAugmentStats,
-} from "./data/augment"
+  simplifyAugmentStat,
+} from "./tools"
+import { AugmentStat, Augment } from "./types"
 
 export interface AugmentStatDisplayProps {
   stat: AugmentStat | Augment[]

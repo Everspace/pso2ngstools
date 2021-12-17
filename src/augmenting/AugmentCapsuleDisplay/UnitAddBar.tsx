@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from "@mui/material"
-import { Augment } from "augmenting/data/augment"
+import { Augment } from "augmenting/types"
 import {
   AugmentableSlot,
   augmentSlotNiceName,

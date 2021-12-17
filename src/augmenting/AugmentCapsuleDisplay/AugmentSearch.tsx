@@ -1,9 +1,3 @@
-import {
-  allAugmentCategories,
-  AugmentCategory,
-  AugmentStat,
-  augmentStatToDisplayInfo,
-} from "../data/augment"
 import { Box, Grid, Paper, Tab, Tabs, TextField } from "@mui/material"
 import { SearchInput } from "components/SearchInput"
 import {
@@ -13,6 +7,12 @@ import {
 } from "./augmentSearchState"
 import { useAtom } from "jotai"
 import { useCallback } from "react"
+import { augmentStatToDisplayInfo } from "augmenting/tools"
+import {
+  AugmentStat,
+  AugmentCategory,
+  allAugmentCategories,
+} from "augmenting/types"
 
 type AugmentStatFieldSearchProps = {
   stat: keyof AugmentStat

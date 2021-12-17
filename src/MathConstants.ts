@@ -1,4 +1,4 @@
-import * as math from "mathjs"
+import { bignumber } from "mathjs"
 
-export const zero = math.bignumber("0")
-export const one = math.bignumber("1")
+export const zero = bignumber("0")
+export const one = bignumber("1")

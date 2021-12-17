@@ -13,7 +13,6 @@ import {
 } from "@mui/material"
 import { useAtom } from "jotai"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
-import { Augment, augmentByCategory, AugmentCategory } from "./data/augment"
 import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import {
@@ -23,8 +22,10 @@ import {
   statTotalAtom,
   useAugmentable,
 } from "./augmentableState"
-import _ from "lodash"
+import { sample, sampleSize, range } from "lodash"
 import { useCallback } from "react"
+import { augmentByCategory } from "./data/augments"
+import { Augment, AugmentCategory } from "./types"
 
 const maxLengthify = (count: number) => (prior: Augment[]) =>
   prior.length > count ? prior.slice(0, count) : prior
@@ -34,12 +35,12 @@ function useAllAugments() {
   const { setAugments: setunit3Augments } = useAugmentable("unit3")
   const { setAugments: setweaponAugments } = useAugmentable("weapon")
   const randomizeAllAugments = useCallback(() => {
-    const categories = _.sampleSize(
+    const categories = sampleSize(
       Object.keys(augmentByCategory),
       4,
     ) as AugmentCategory[]
     const augments = categories.map(
-      (category) => _.sample(augmentByCategory[category]!)!,
+      (category) => sample(augmentByCategory[category]!)!,
     )
 
     setunit1Augments(augments)
@@ -73,7 +74,7 @@ function useAllAugments() {
   }
 }
 
-const numbers = _.range(1, MAX_AUGMENTS_PER_SLOT + 1)
+const numbers = range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments, truncateAllAugments } =
     useAllAugments()
