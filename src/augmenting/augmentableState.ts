@@ -21,7 +21,7 @@ export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
 }
 
 const fromId = (val: string): any => {
-  return window.atob(JSON.parse(val))
+  return JSON.parse(window.atob(val))
 }
 
 const toId = (object: any) => {
