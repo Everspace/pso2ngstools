@@ -6,7 +6,6 @@ import {
   atomWithStorage,
 } from "jotai/utils"
 import { useCallback } from "react"
-import { atob, btoa } from "utils"
 import { allAugments } from "./data/augments"
 import { sumAugmentStats } from "./tools"
 import { Augment, AugmentStat } from "./types"
@@ -22,11 +21,11 @@ export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
 }
 
 const fromId = (val: string): any => {
-  return JSON.parse(atob(val))
+  return window.atob(JSON.parse(val))
 }
 
 const toId = (object: any) => {
-  return btoa(JSON.stringify(object))
+  return window.btoa(JSON.stringify(object))
 }
 
 const revivify = (names: string[]): Augment[] => {
@@ -47,6 +46,7 @@ const slotToHash: Record<AugmentableSlot, string> = {
 const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   const id = slotToHash[slot]
   return atomWithHash<Augment[]>(id, [], {
+    replaceState: true,
     serialize(val) {
       return toId(val.map((a) => a.name))
     },
