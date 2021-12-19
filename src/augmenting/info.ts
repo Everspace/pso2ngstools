@@ -72,8 +72,17 @@ export function augmentValueToString(
     return value.toString()
   }
 
+  // Damage and status resist are
+  // actually (1-display) internally (0.98 for 2% resist)
+  switch (statName) {
+    case "damageResist":
+    case "statusResist":
+      return `${one.minus(value).mul(100).toFixed(2)}%`
+  }
+
   // > 1 since all - effects are from 1
   const symbol = value.greaterThanOrEqualTo(1) ? "+" : "-"
+
   // Handle negative
   let transformValue: math.BigNumber = zero
   if (value.greaterThanOrEqualTo(1)) {

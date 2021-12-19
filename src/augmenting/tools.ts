@@ -1,5 +1,5 @@
 import { bignumber } from "mathjs"
-import { zero } from "../MathConstants"
+import { one, zero } from "../MathConstants"
 import { Augment, AugmentStat } from "./types"
 
 export const augmentTierToRoman = [
@@ -26,6 +26,12 @@ export const toAugmentReal = (augment: Augment): Augment => {
       case "hp":
       case "pp":
         newAug[key] = bignumber(augment.stat[key]!)
+        break
+      // Damage and status resist are
+      // actually (1-display) internally (0.98 for 2% resist)
+      case "damageResist":
+      case "statusResist":
+        newAug[key] = one.minus(bignumber(augment.stat[key]!).dividedBy(100))
         break
       default:
         newAug[key] = bignumber(augment.stat[key]!).dividedBy(100).add(1)
