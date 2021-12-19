@@ -32,7 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "data:build": "esbuild src/scripts/convert.ts --bundle --platform=node --target=node16.0 --outdir=build",
+    "data": "node build/convert.js"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +55,8 @@
     ]
   },
   "devDependencies": {
+    "csv-parse": "5.0.3",
+    "esbuild": "0.14.5",
     "prettier": "2.5.1"
   }
 }

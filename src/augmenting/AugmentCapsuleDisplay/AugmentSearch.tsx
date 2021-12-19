@@ -7,7 +7,7 @@ import {
 } from "./augmentSearchState"
 import { useAtom } from "jotai"
 import { useCallback } from "react"
-import { augmentStatToDisplayInfo } from "augmenting/tools"
+import { augmentStatToDisplayInfo } from "augmenting/info"
 import {
   AugmentStat,
   AugmentCategory,

@@ -3,23 +3,11 @@ import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
 import { augmentImageFromType } from "../images/augment"
 import { useState, useEffect } from "react"
 import { Augment } from "augmenting/types"
+import { augmentTierToRoman } from "augmenting/tools"
 
 interface MultiAugmentDisplayProps {
   augments: [Augment, ...Augment[]]
 }
-
-const tierToRoman = [
-  "I",
-  "II",
-  "III",
-  "IV",
-  "V",
-  "VI",
-  "VII",
-  "VIII",
-  "IX",
-  "X",
-]
 
 interface AugmentCapsuleImageProps {
   augment: Augment
@@ -52,7 +40,7 @@ function SelectTiers({ tiers, onClick, selected }: SelectTiersProps) {
           variant={selected === index ? "contained" : "outlined"}
           onClick={() => onClick(index)}
         >
-          {tierToRoman[tier - 1]}
+          {augmentTierToRoman[tier - 1]}
         </Button>
       ))}
     </ButtonGroup>

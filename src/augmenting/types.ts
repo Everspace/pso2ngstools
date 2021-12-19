@@ -11,6 +11,13 @@ export interface AugmentStat {
   meleePotency?: BigNumber
   rangedPotency?: BigNumber
   techPotency?: BigNumber
+
+  /** Like the element exploit */
+  conditionalPotency?: BigNumber
+
+  /** Comprehensive */
+  statusResist?: BigNumber
+
   /** "Damage Resistance +/-#%" */
   damageResist?: BigNumber
 }
@@ -28,14 +35,14 @@ export const allAugmentStats: (keyof AugmentStat)[] = [
 
 export const allAugmentCategories = [
   "basic",
-  // "ward", TODO
+  "ward",
   "domina",
   "soul",
   "note",
   "secreta",
   "dread",
   "gigas",
-  // "element", TODO: They use the Special icon
+  "element",
   "dualble",
 ] as const
 
@@ -45,6 +52,7 @@ export interface Augment {
   name: string
   category: AugmentCategory
   icon: AugmentImageType
+  bp?: number
   tier?: number
   baseName?: string
   location?: string

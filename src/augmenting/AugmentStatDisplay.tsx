@@ -1,11 +1,7 @@
 import { List, ListItem } from "@mui/material"
 import { BigNumber } from "mathjs"
-import {
-  augmentStatToDisplayInfo,
-  augmentValueToString,
-  sumAugmentStats,
-  simplifyAugmentStat,
-} from "./tools"
+import { augmentStatToDisplayInfo, augmentValueToString } from "./info"
+import { sumAugmentStats, simplifyAugmentStat } from "./tools"
 import { AugmentStat, Augment } from "./types"
 
 export interface AugmentStatDisplayProps {

@@ -1,13 +1,11 @@
-import aelio from "./aelio"
-import common from "./common"
-// import retem from "./retem"
-
-import { flattenDeep, groupBy } from "lodash"
+import allTheBeans from "./Augments.json"
+import { groupBy } from "lodash"
 import { toAugmentReal } from "augmenting/tools"
+import { Augment } from "augmenting/types"
 
-const allTheBeans = flattenDeep([aelio, common])
-
-export const allAugments = allTheBeans.flatMap(toAugmentReal)
+export const allAugments = (allTheBeans as unknown as Augment[]).flatMap(
+  toAugmentReal,
+)
 
 export const augmentByCategory = groupBy(
   allAugments,

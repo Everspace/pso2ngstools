@@ -1,8 +1,6 @@
 import { augmentByCategory } from "augmenting/data/augments"
-import {
-  augmentFufillsRequirement,
-  augmentStatToDisplayInfo,
-} from "augmenting/tools"
+import { augmentStatToDisplayInfo } from "augmenting/info"
+import { augmentFufillsRequirement } from "augmenting/tools"
 import {
   allAugmentCategories,
   allAugmentStats,

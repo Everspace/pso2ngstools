@@ -1,0 +1,1508 @@
+[
+  {
+    "name": "Ael Domina",
+    "baseName": "Ael Domina",
+    "category": "domina",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "pp": 3,
+      "potency": 1.5
+    }
+  },
+  {
+    "name": "Ael Note A",
+    "baseName": "Ael Note A",
+    "category": "note",
+    "icon": "hp",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "pp": 3
+    }
+  },
+  {
+    "name": "Ael Note B",
+    "baseName": "Ael Note B",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 1,
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Ael Note C",
+    "baseName": "Ael Note C",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 1,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Ael Note D",
+    "baseName": "Ael Note D",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "rangedPotency": 1,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Alts Secreta I",
+    "baseName": "Alts Secreta",
+    "category": "secreta",
+    "icon": "special",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": -10,
+      "potency": 1,
+      "floorPotency": 1,
+      "damageResist": -1.5
+    }
+  },
+  {
+    "name": "Alts Secreta II",
+    "baseName": "Alts Secreta",
+    "category": "secreta",
+    "icon": "special",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": -10,
+      "potency": 1.5,
+      "floorPotency": 1.5,
+      "damageResist": -1.5
+    }
+  },
+  {
+    "name": "Alts Secreta III",
+    "baseName": "Alts Secreta",
+    "category": "secreta",
+    "icon": "special",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": -10,
+      "potency": 2,
+      "floorPotency": 2,
+      "damageResist": -1.5
+    }
+  },
+  {
+    "name": "Alts Soul I",
+    "baseName": "Alts Soul",
+    "category": "soul",
+    "icon": "hp",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "damageResist": 1
+    }
+  },
+  {
+    "name": "Alts Soul II",
+    "baseName": "Alts Soul",
+    "category": "soul",
+    "icon": "hp",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Alts Soul III",
+    "baseName": "Alts Soul",
+    "category": "soul",
+    "icon": "hp",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Daityl Soul I",
+    "baseName": "Daityl Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Daityl Soul II",
+    "baseName": "Daityl Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Deftness I",
+    "baseName": "Deftness",
+    "category": "basic",
+    "icon": "special",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "floorPotency": 1
+    }
+  },
+  {
+    "name": "Deftness II",
+    "baseName": "Deftness",
+    "category": "basic",
+    "icon": "special",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Deftness III",
+    "baseName": "Deftness",
+    "category": "basic",
+    "icon": "special",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Dolz Soul I",
+    "baseName": "Dolz Soul",
+    "category": "soul",
+    "icon": "pp",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "floorPotency": 1
+    }
+  },
+  {
+    "name": "Dolz Soul II",
+    "baseName": "Dolz Soul",
+    "category": "soul",
+    "icon": "pp",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Dolz Soul III",
+    "baseName": "Dolz Soul",
+    "category": "soul",
+    "icon": "pp",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "floorPotency": 2.5
+    }
+  },
+  {
+    "name": "Dread Keeper I",
+    "baseName": "Dread Keeper",
+    "category": "dread",
+    "icon": "hp",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "floorPotency": 1,
+      "damageResist": 1
+    }
+  },
+  {
+    "name": "Dread Keeper II",
+    "baseName": "Dread Keeper",
+    "category": "dread",
+    "icon": "hp",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "pp": 4,
+      "floorPotency": 1.5,
+      "damageResist": 1.5
+    }
+  },
+  {
+    "name": "Dread Keeper III",
+    "baseName": "Dread Keeper",
+    "category": "dread",
+    "icon": "hp",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 30,
+      "pp": 7,
+      "floorPotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Forms Soul I",
+    "baseName": "Forms Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Forms Soul II",
+    "baseName": "Forms Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "meleePotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Forms Soul III",
+    "baseName": "Forms Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "meleePotency": 2,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Forms Machini Soul I",
+    "baseName": "Forms Machini Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Forms Machini Soul II",
+    "baseName": "Forms Machini Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "rangedPotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Forms Machini Soul III",
+    "baseName": "Forms Machini Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "rangedPotency": 2,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Forms Sand Soul I",
+    "baseName": "Forms Sand Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Forms Sand Soul II",
+    "baseName": "Forms Sand Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "techPotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Forms Sand Soul III",
+    "baseName": "Forms Sand Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "techPotency": 2,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Gigas Casting I",
+    "baseName": "Gigas Casting",
+    "category": "gigas",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "techPotency": 1.5
+    }
+  },
+  {
+    "name": "Gigas Casting II",
+    "baseName": "Gigas Casting",
+    "category": "gigas",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Gigas Casting III",
+    "baseName": "Gigas Casting",
+    "category": "gigas",
+    "icon": "technique",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Gigas Might I",
+    "baseName": "Gigas Might",
+    "category": "gigas",
+    "icon": "might",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "meleePotency": 1.5
+    }
+  },
+  {
+    "name": "Gigas Might II",
+    "baseName": "Gigas Might",
+    "category": "gigas",
+    "icon": "might",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Gigas Might III",
+    "baseName": "Gigas Might",
+    "category": "gigas",
+    "icon": "might",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2.5
+    }
+  },
+  {
+    "name": "Gigas Precision I",
+    "baseName": "Gigas Precision",
+    "category": "gigas",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "rangedPotency": 1.5
+    }
+  },
+  {
+    "name": "Gigas Precision II",
+    "baseName": "Gigas Precision",
+    "category": "gigas",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Gigas Precision III",
+    "baseName": "Gigas Precision",
+    "category": "gigas",
+    "icon": "precision",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Guard I",
+    "baseName": "Guard",
+    "category": "basic",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "damageResist": 1
+    }
+  },
+  {
+    "name": "Guard II",
+    "baseName": "Guard",
+    "category": "basic",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "damageResist": 1.5
+    }
+  },
+  {
+    "name": "Guard III",
+    "baseName": "Guard",
+    "category": "basic",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Lab Note",
+    "baseName": "Lab Note",
+    "category": "note",
+    "icon": "precision",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "rangedPotency": 1.5
+    }
+  },
+  {
+    "name": "Magnus Note",
+    "baseName": "Magnus Note",
+    "category": "note",
+    "icon": "might",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 1.5
+    }
+  },
+  {
+    "name": "Mastery I",
+    "baseName": "Mastery",
+    "category": "basic",
+    "icon": "special",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "potency": 0.5,
+      "floorPotency": 0.5,
+      "damageResist": 0.5
+    }
+  },
+  {
+    "name": "Mastery II",
+    "baseName": "Mastery",
+    "category": "basic",
+    "icon": "special",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "potency": 1,
+      "floorPotency": 1,
+      "damageResist": 1
+    }
+  },
+  {
+    "name": "Mastery III",
+    "baseName": "Mastery",
+    "category": "basic",
+    "icon": "special",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "potency": 1.5,
+      "floorPotency": 1.5,
+      "damageResist": 1.5
+    }
+  },
+  {
+    "name": "Melra Dualble I",
+    "baseName": "Melra Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "meleePotency": 0.75,
+      "rangedPotency": 0.75
+    }
+  },
+  {
+    "name": "Melra Dualble II",
+    "baseName": "Melra Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "meleePotency": 1.25,
+      "rangedPotency": 1.25
+    }
+  },
+  {
+    "name": "Melra Dualble III",
+    "baseName": "Melra Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 1.75,
+      "rangedPotency": 1.75
+    }
+  },
+  {
+    "name": "Meltech Dualble I",
+    "baseName": "Meltech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "meleePotency": 0.75,
+      "techPotency": 0.75
+    }
+  },
+  {
+    "name": "Meltech Dualble II",
+    "baseName": "Meltech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "meleePotency": 1.25,
+      "techPotency": 1.25
+    }
+  },
+  {
+    "name": "Meltech Dualble III",
+    "baseName": "Meltech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 1.75,
+      "techPotency": 1.75
+    }
+  },
+  {
+    "name": "Might I",
+    "baseName": "Might",
+    "category": "basic",
+    "icon": "might",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Might II",
+    "baseName": "Might",
+    "category": "basic",
+    "icon": "might",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "meleePotency": 1.5
+    }
+  },
+  {
+    "name": "Might III",
+    "baseName": "Might",
+    "category": "basic",
+    "icon": "might",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Nex Soul I",
+    "baseName": "Nex Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Nex Soul II",
+    "baseName": "Nex Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Pettas Soul I",
+    "baseName": "Pettas Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Pettas Soul II",
+    "baseName": "Pettas Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "pp": 5,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Precision I",
+    "baseName": "Precision",
+    "category": "basic",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Precision II",
+    "baseName": "Precision",
+    "category": "basic",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "rangedPotency": 1.5
+    }
+  },
+  {
+    "name": "Precision III",
+    "baseName": "Precision",
+    "category": "basic",
+    "icon": "precision",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Ragras Soul I",
+    "baseName": "Ragras Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Ragras Soul II",
+    "baseName": "Ragras Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Ragras Soul III",
+    "baseName": "Ragras Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Ratech Dualble I",
+    "baseName": "Ratech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "rangedPotency": 0.75,
+      "techPotency": 0.75
+    }
+  },
+  {
+    "name": "Ratech Dualble II",
+    "baseName": "Ratech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "rangedPotency": 1.25,
+      "techPotency": 1.25
+    }
+  },
+  {
+    "name": "Ratech Dualble III",
+    "baseName": "Ratech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "rangedPotency": 1.75,
+      "techPotency": 1.75
+    }
+  },
+  {
+    "name": "Resola Note",
+    "baseName": "Resola Note",
+    "category": "note",
+    "icon": "technique",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "techPotency": 1.5
+    }
+  },
+  {
+    "name": "Spirit I",
+    "baseName": "Spirit",
+    "category": "basic",
+    "icon": "pp",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "pp": 3
+    }
+  },
+  {
+    "name": "Spirit II",
+    "baseName": "Spirit",
+    "category": "basic",
+    "icon": "pp",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "pp": 4
+    }
+  },
+  {
+    "name": "Spirit III",
+    "baseName": "Spirit",
+    "category": "basic",
+    "icon": "pp",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "pp": 5
+    }
+  },
+  {
+    "name": "Stamina I",
+    "baseName": "Stamina",
+    "category": "basic",
+    "icon": "hp",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "hp": 5
+    }
+  },
+  {
+    "name": "Stamina II",
+    "baseName": "Stamina",
+    "category": "basic",
+    "icon": "hp",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "hp": 10
+    }
+  },
+  {
+    "name": "Stamina III",
+    "baseName": "Stamina",
+    "category": "basic",
+    "icon": "hp",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 15
+    }
+  },
+  {
+    "name": "Technique I",
+    "baseName": "Technique",
+    "category": "basic",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Technique II",
+    "baseName": "Technique",
+    "category": "basic",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "techPotency": 1.5
+    }
+  },
+  {
+    "name": "Technique III",
+    "baseName": "Technique",
+    "category": "basic",
+    "icon": "technique",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Dustyl Soul I",
+    "baseName": "Dustyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Dustyl Soul II",
+    "baseName": "Dustyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Dustyl Soul III",
+    "baseName": "Dustyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2.5
+    }
+  },
+  {
+    "name": "Maqea Note",
+    "baseName": "Maqea Note",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "potency": 1.25
+    }
+  },
+  {
+    "name": "Alno Note",
+    "baseName": "Alno Note",
+    "category": "note",
+    "icon": "hp",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Renus Soul I",
+    "baseName": "Renus Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Renus Soul II",
+    "baseName": "Renus Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Renus Soul III",
+    "baseName": "Renus Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Ret Note A",
+    "baseName": "Ret Note A",
+    "category": "note",
+    "icon": "hp",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 10
+    }
+  },
+  {
+    "name": "Ret Note B",
+    "baseName": "Ret Note B",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "meleePotency": 0.75,
+      "rangedPotency": 0.75
+    }
+  },
+  {
+    "name": "Ret Note C",
+    "baseName": "Ret Note C",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "meleePotency": 0.75,
+      "techPotency": 0.75
+    }
+  },
+  {
+    "name": "Ret Note D",
+    "baseName": "Ret Note D",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 5,
+      "rangedPotency": 0.75,
+      "techPotency": 0.75
+    }
+  },
+  {
+    "name": "Ret Domina",
+    "baseName": "Ret Domina",
+    "category": "domina",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 15,
+      "potency": 1.5
+    }
+  },
+  {
+    "name": "Sovereign Ward I",
+    "baseName": "Sovereign Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Sovereign Ward II",
+    "baseName": "Sovereign Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Sovereign Ward III",
+    "baseName": "Sovereign Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Burn Ward I",
+    "baseName": "Burn Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Burn Ward II",
+    "baseName": "Burn Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Burn Ward III",
+    "baseName": "Burn Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Freeze Ward I",
+    "baseName": "Freeze Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Freeze Ward II",
+    "baseName": "Freeze Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Freeze Ward III",
+    "baseName": "Freeze Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Shock Ward I",
+    "baseName": "Shock Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Shock Ward II",
+    "baseName": "Shock Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Shock Ward III",
+    "baseName": "Shock Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Blind Ward I",
+    "baseName": "Blind Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Blind Ward II",
+    "baseName": "Blind Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Blind Ward III",
+    "baseName": "Blind Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Panic Ward I",
+    "baseName": "Panic Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Panic Ward II",
+    "baseName": "Panic Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Panic Ward III",
+    "baseName": "Panic Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Poison Ward I",
+    "baseName": "Poison Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Poison Ward II",
+    "baseName": "Poison Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Poison Ward III",
+    "baseName": "Poison Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Pain Ward I",
+    "baseName": "Pain Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Pain Ward II",
+    "baseName": "Pain Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "statusResist": 25
+    }
+  },
+  {
+    "name": "Pain Ward III",
+    "baseName": "Pain Ward",
+    "category": "ward",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "statusResist": 30
+    }
+  },
+  {
+    "name": "Fire Exploit",
+    "baseName": "Fire Exploit",
+    "category": "element",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "conditionalPotency": 2.5
+    }
+  },
+  {
+    "name": "Ice Exploit",
+    "baseName": "Ice Exploit",
+    "category": "element",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "conditionalPotency": 2.5
+    }
+  },
+  {
+    "name": "Lightning Exploit",
+    "baseName": "Lightning Exploit",
+    "category": "element",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "conditionalPotency": 2.5
+    }
+  }
+]
