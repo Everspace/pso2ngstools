@@ -1,8 +1,6 @@
-import { AugmentImageType } from "../augmenting/images/augment"
-import { augmentTierToRoman } from "../augmenting/tools"
-import { Augment, AugmentCategory, AugmentStat } from "../augmenting/types"
-import { parse } from "csv-parse"
-import fs from "fs/promises"
+import { AugmentImageType } from "augmenting/images/augment"
+import { augmentTierToRoman } from "augmenting/tools"
+import { Augment, AugmentCategory, AugmentStat } from "augmenting/types"
 
 interface DataSheetRow {
   baseName: string
@@ -49,7 +47,7 @@ const translationTable: TranslationTable = {
   StatusResist: "statusResist",
 }
 
-function convert(row: DataSheetRow): Augment {
+export function handleAugmentRow(row: DataSheetRow): Augment {
   const { baseName, category, icon, tier, bp, rate, drop, ...stats } = row
 
   let name: string = baseName
@@ -79,20 +77,3 @@ function convert(row: DataSheetRow): Augment {
 
   return data
 }
-
-async function main() {
-  const source = await fs.open("./Affixes - Affixes.csv", "r")
-  const dest = await fs.open("./Augments.json", "w")
-  const parser = parse(await source.readFile(), {
-    columns: true,
-  })
-  const allAugments = []
-  for await (const entry of parser) {
-    allAugments.push(convert(entry))
-  }
-  dest.writeFile(JSON.stringify(allAugments, null, 2))
-  dest.close()
-  source.close()
-}
-
-main()
