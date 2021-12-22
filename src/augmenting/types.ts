@@ -76,3 +76,29 @@ export type AugmentDisplayInfo = {
   percent?: boolean
   Glyph?: React.ElementType
 }
+
+export type Unit = {
+  name: string
+  level: number
+  stars: number
+  defenseBase: number
+  defenseMax: number
+  stat: AugmentStat
+}
+
+export type Weapon = {
+  name: string
+  level: number
+  stars: number
+  attackBase: number
+  attackMax: number
+  element?: string // TODO: add all the valid elements
+  /**
+   * Default 70
+   */
+  varianceLow?: number
+  /**
+   * Default 100
+   */
+  varianceHigh?: number
+}
