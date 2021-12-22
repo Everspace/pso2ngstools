@@ -6,9 +6,9 @@ import {
   atomWithStorage,
 } from "jotai/utils"
 import { useCallback } from "react"
+import { toId, fromId } from "utils"
 import { allAugments } from "./data/augments"
-import { sumAugmentStats } from "./tools"
-import { Augment, AugmentStat } from "./types"
+import { Augment } from "./types"
 
 export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
 
@@ -20,14 +20,6 @@ export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
   unit3: "Unit 3",
 }
 
-const fromId = (val: string): any => {
-  return JSON.parse(window.atob(val))
-}
-
-const toId = (object: any) => {
-  return window.btoa(JSON.stringify(object))
-}
-
 const revivify = (names: string[]): Augment[] => {
   return names
     .map((name) => allAugments.find((a) => a.name === name))
@@ -37,14 +29,15 @@ const revivify = (names: string[]): Augment[] => {
 export const MAX_AUGMENTS_PER_SLOT = 8
 export const augmentsPerSlotAtom = atomWithStorage("augmentPerSlot", 4)
 
-const slotToHash: Record<AugmentableSlot, string> = {
+const augmentSlotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1Aug",
   unit2: "u2Aug",
   unit3: "u3Aug",
   weapon: "wAug",
 }
+
 const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
-  const id = slotToHash[slot]
+  const id = augmentSlotToHash[slot]
   return atomWithHash<Augment[]>(id, [], {
     replaceState: true,
     serialize(val) {
@@ -101,6 +94,10 @@ export const useAugmentable = (id: AugmentableSlot) => {
   }
 }
 
-export const statTotalAtom = atom<AugmentStat>((get) =>
-  sumAugmentStats(augmentSlots.flatMap((n) => get(augmentableFamily(n)))),
+export const allAugmentsAtom = atom<Augment[]>((get) =>
+  augmentSlots.flatMap((n) => get(augmentableFamily(n))),
+)
+
+const hasUnknownBpAug = atom<boolean>((get) =>
+  get(allAugmentsAtom).every((v) => v.bp !== undefined),
 )

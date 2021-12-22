@@ -33,8 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "data:build": "esbuild src/scripts/convert.ts --bundle --platform=node --target=node16.0 --outdir=build",
-    "data": "node build/convert.js"
+    "data:build": "esbuild src/scripts/convertAll.ts --bundle --platform=node --target=node16.0 --outdir=build",
+    "data": "node build/convertAll.js"
   },
   "eslintConfig": {
     "extends": [
