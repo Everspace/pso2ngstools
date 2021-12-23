@@ -46,6 +46,7 @@ export const allAugmentCategories = [
   "gigas",
   "element",
   "dualble",
+  "addi",
 ] as const
 
 export type AugmentCategory = typeof allAugmentCategories[number]
