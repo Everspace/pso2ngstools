@@ -48,7 +48,7 @@ const translationTable: TranslationTable = {
 }
 
 export function handleAugmentRow(row: DataSheetRow): Augment {
-  const { baseName, category, icon, tier, bp, rate, drop, ...stats } = row
+  const { baseName, category, icon, tier, rate, drop, ...stats } = row
 
   let name: string = baseName
   let tierNumber: undefined | number

@@ -7,6 +7,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 5,
       "pp": 3,
       "potency": 1.5
@@ -20,6 +21,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "hp": 5,
       "pp": 3
     }
@@ -32,6 +34,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "meleePotency": 1,
       "rangedPotency": 1
     }
@@ -44,6 +47,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "meleePotency": 1,
       "techPotency": 1
     }
@@ -56,6 +60,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "rangedPotency": 1,
       "techPotency": 1
     }
@@ -69,6 +74,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 3,
       "hp": -10,
       "potency": 1,
       "floorPotency": 1,
@@ -84,6 +90,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 4,
       "hp": -10,
       "potency": 1.5,
       "floorPotency": 1.5,
@@ -114,6 +121,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "hp": 5,
       "damageResist": 1
     }
@@ -127,6 +135,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 7,
       "hp": 10,
       "damageResist": 2
     }
@@ -153,6 +162,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "pp": 5,
       "meleePotency": 1
     }
@@ -166,6 +176,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "pp": 5,
       "meleePotency": 2
     }
@@ -179,6 +190,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 3,
       "floorPotency": 1
     }
   },
@@ -191,6 +203,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "floorPotency": 1.5
     }
   },
@@ -203,6 +216,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "floorPotency": 2
     }
   },
@@ -215,6 +229,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "pp": 5,
       "floorPotency": 1
     }
@@ -228,6 +243,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 6,
       "pp": 5,
       "floorPotency": 2
     }
@@ -241,6 +257,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 7,
       "pp": 5,
       "floorPotency": 2.5
     }
@@ -254,6 +271,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "hp": 10,
       "pp": 3,
       "floorPotency": 1,
@@ -269,6 +287,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 15,
       "pp": 4,
       "floorPotency": 1.5,
@@ -299,6 +318,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "meleePotency": 2
     }
   },
@@ -311,6 +331,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "meleePotency": 2,
       "damageResist": 2
     }
@@ -413,6 +434,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "hp": 5,
       "techPotency": 1.5
     }
@@ -426,6 +448,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 10,
       "techPotency": 2
     }
@@ -452,6 +475,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "hp": 5,
       "meleePotency": 1.5
     }
@@ -465,6 +489,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 10,
       "meleePotency": 2
     }
@@ -491,6 +516,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "hp": 5,
       "rangedPotency": 1.5
     }
@@ -504,6 +530,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 10,
       "rangedPotency": 2
     }
@@ -530,6 +557,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 2,
       "damageResist": 1
     }
   },
@@ -542,6 +570,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 3,
       "damageResist": 1.5
     }
   },
@@ -554,6 +583,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "damageResist": 2
     }
   },
@@ -565,6 +595,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "rangedPotency": 1.5
     }
   },
@@ -576,6 +607,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "meleePotency": 1.5
     }
   },
@@ -588,6 +620,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 6,
       "potency": 0.5,
       "floorPotency": 0.5,
       "damageResist": 0.5
@@ -602,6 +635,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 8,
       "potency": 1,
       "floorPotency": 1,
       "damageResist": 1
@@ -616,6 +650,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 10,
       "potency": 1.5,
       "floorPotency": 1.5,
       "damageResist": 1.5
@@ -630,6 +665,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "meleePotency": 0.75,
       "rangedPotency": 0.75
     }
@@ -643,6 +679,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 6,
       "meleePotency": 1.25,
       "rangedPotency": 1.25
     }
@@ -656,6 +693,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 8,
       "meleePotency": 1.75,
       "rangedPotency": 1.75
     }
@@ -669,6 +707,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "meleePotency": 0.75,
       "techPotency": 0.75
     }
@@ -682,6 +721,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 6,
       "meleePotency": 1.25,
       "techPotency": 1.25
     }
@@ -695,6 +735,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 8,
       "meleePotency": 1.75,
       "techPotency": 1.75
     }
@@ -708,6 +749,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "meleePotency": 1
     }
   },
@@ -720,6 +762,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "meleePotency": 1.5
     }
   },
@@ -732,6 +775,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "meleePotency": 2
     }
   },
@@ -744,6 +788,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "pp": 5,
       "techPotency": 1
     }
@@ -757,6 +802,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "pp": 5,
       "techPotency": 2
     }
@@ -770,6 +816,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "pp": 5,
       "rangedPotency": 1
     }
@@ -783,6 +830,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "pp": 5,
       "rangedPotency": 2
     }
@@ -796,6 +844,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "rangedPotency": 1
     }
   },
@@ -808,6 +857,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "rangedPotency": 1.5
     }
   },
@@ -820,6 +870,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "rangedPotency": 2
     }
   },
@@ -832,6 +883,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "hp": 15,
       "rangedPotency": 1
     }
@@ -845,6 +897,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 15,
       "rangedPotency": 2
     }
@@ -858,6 +911,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 9,
       "hp": 15,
       "rangedPotency": 2.5
     }
@@ -871,6 +925,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "rangedPotency": 0.75,
       "techPotency": 0.75
     }
@@ -884,6 +939,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 6,
       "rangedPotency": 1.25,
       "techPotency": 1.25
     }
@@ -897,6 +953,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 8,
       "rangedPotency": 1.75,
       "techPotency": 1.75
     }
@@ -909,6 +966,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "techPotency": 1.5
     }
   },
@@ -921,6 +979,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 2,
       "pp": 3
     }
   },
@@ -933,6 +992,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 3,
       "pp": 4
     }
   },
@@ -945,6 +1005,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "pp": 5
     }
   },
@@ -957,6 +1018,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 3,
       "hp": 5
     }
   },
@@ -969,6 +1031,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "hp": 10
     }
   },
@@ -981,6 +1044,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "hp": 15
     }
   },
@@ -993,6 +1057,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "techPotency": 1
     }
   },
@@ -1005,6 +1070,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "techPotency": 1.5
     }
   },
@@ -1017,6 +1083,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "techPotency": 2
     }
   },
@@ -1193,6 +1260,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 20
     }
   },
@@ -1217,6 +1285,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 10,
       "statusResist": 30
     }
   },
@@ -1229,6 +1298,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1241,6 +1311,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1253,6 +1324,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1265,6 +1337,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1277,6 +1350,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1289,6 +1363,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1301,6 +1376,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1313,6 +1389,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1325,6 +1402,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1337,6 +1415,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1349,6 +1428,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1361,6 +1441,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1373,6 +1454,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1385,6 +1467,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1397,6 +1480,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1409,6 +1493,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1421,6 +1506,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1433,6 +1519,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1445,6 +1532,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 4,
       "statusResist": 20
     }
   },
@@ -1457,6 +1545,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 5,
       "statusResist": 25
     }
   },
@@ -1469,6 +1558,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "statusResist": 30
     }
   },
@@ -1480,6 +1570,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "conditionalPotency": 2.5
     }
   },
@@ -1491,6 +1582,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "conditionalPotency": 2.5
     }
   },
@@ -1502,6 +1594,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "conditionalPotency": 2.5
     }
   }

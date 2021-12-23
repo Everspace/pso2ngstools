@@ -43,6 +43,7 @@ function AugmentStatFieldSearch({ stat }: AugmentStatFieldSearchProps) {
 }
 
 const searchables: (keyof AugmentStat)[] = [
+  "bp",
   "hp",
   "pp",
   "meleePotency",

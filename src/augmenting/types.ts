@@ -2,6 +2,7 @@ import { AugmentImageType } from "./images/augment"
 import { BigNumber } from "mathjs"
 
 export interface AugmentStat {
+  bp?: BigNumber
   hp?: BigNumber
   pp?: BigNumber
   /** "Potency +#%" */
@@ -23,6 +24,7 @@ export interface AugmentStat {
 }
 
 export const allAugmentStats: (keyof AugmentStat)[] = [
+  "bp",
   "hp",
   "pp",
   "potency",

@@ -13,6 +13,9 @@ export const augmentStatToDisplayInfo: Record<
   keyof AugmentStat,
   AugmentDisplayInfo
 > = {
+  bp: {
+    name: "BP",
+  },
   hp: {
     name: "HP",
   },

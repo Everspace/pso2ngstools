@@ -26,7 +26,7 @@ export const equipableStateFamily = atomFamily((slot: AugmentableSlot) => {
   const id = slotToHash[slot]
   return atomWithHash<EquippableState>(
     id,
-    {},
+    { name: "None" },
     {
       replaceState: true,
       serialize(val) {

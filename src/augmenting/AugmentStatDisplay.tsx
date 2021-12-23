@@ -10,8 +10,6 @@ export interface AugmentStatDisplayProps {
 }
 
 const statOrder: (keyof AugmentStat)[] = [
-  "hp",
-  "pp",
   "potency",
   "floorPotency",
   "meleePotency",
@@ -52,9 +50,20 @@ export function AugmentStatDisplay({
 
   if (simple) finalStat = simplifyAugmentStat(finalStat)
 
+  const { hp, pp, bp, ...listableStats } = finalStat
+  let hpppLine: string[] = []
+  if (hp) {
+    hpppLine.push(`HP: ${hp}`)
+  }
+  if (pp) {
+    hpppLine.push(`PP: ${pp}`)
+  }
+
   return (
     <List dense>
-      {(Object.keys(finalStat) as (keyof AugmentStat)[])
+      <ListItem>BP: {bp ? bp.toString() : "?"}</ListItem>
+      {hpppLine.length > 0 ? <ListItem>{hpppLine.join(", ")}</ListItem> : null}
+      {(Object.keys(listableStats) as (keyof AugmentStat)[])
         .sort((a, b) => {
           // Push keys I haven't decided the order of "down"
           const indexA = statOrder.indexOf(a)

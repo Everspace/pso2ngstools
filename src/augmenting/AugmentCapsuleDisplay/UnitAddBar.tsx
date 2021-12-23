@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from "@mui/material"
+import { Button, ButtonGroup, List, ListItem } from "@mui/material"
 import { Augment } from "augmenting/types"
 import {
   AugmentableSlot,
@@ -20,6 +20,28 @@ const useAddToAllButton = (augment: Augment) => {
     addToUnit2(augment)
     addToUnit3(augment)
   }, [addToUnit1, addToUnit2, addToUnit3, addToWeapon, augment])
+}
+
+const useAddToUnitsButton = (augment: Augment) => {
+  const { addAugment: addToUnit1, augments: unit1 } = useAugmentable("unit1")
+  const { addAugment: addToUnit2, augments: unit2 } = useAugmentable("unit2")
+  const { addAugment: addToUnit3, augments: unit3 } = useAugmentable("unit3")
+
+  const hasAny = useMemo(
+    () => includes(flatten([unit1, unit2, unit3]), augment),
+    [augment, unit1, unit2, unit3],
+  )
+
+  const addToUnits = useCallback(() => {
+    addToUnit1(augment)
+    addToUnit2(augment)
+    addToUnit3(augment)
+  }, [addToUnit1, addToUnit2, addToUnit3, augment])
+
+  return {
+    hasAny,
+    addToUnits,
+  }
 }
 
 const useRemoveAllButton = (augment: Augment) => {
@@ -70,6 +92,7 @@ const useAugmentToggle = (augment: Augment, slot: AugmentableSlot) => {
 
 export function UnitAddBar({ augment }: { augment: Augment }) {
   const addToAll = useAddToAllButton(augment)
+  const { hasAny: hasAnyOnUnits, addToUnits } = useAddToUnitsButton(augment)
   const { hasAny, removeAll } = useRemoveAllButton(augment)
   const { label: unit1Label, ...unit1Props } = useAugmentToggle(
     augment,
@@ -87,23 +110,36 @@ export function UnitAddBar({ augment }: { augment: Augment }) {
     augment,
     "weapon",
   )
+
   return (
-    <ButtonGroup disableElevation size="small">
-      <Button {...weaponProps}>{weaponLabel}</Button>
-      <Button {...unit1Props}>{unit1Label}</Button>
-      <Button {...unit2Props}>{unit2Label}</Button>
-      <Button {...unit3Props}>{unit3Label}</Button>
-      <Button variant="contained" onClick={addToAll}>
-        Add All
-      </Button>
-      <Button
-        color="error"
-        variant="contained"
-        disabled={!hasAny}
-        onClick={removeAll}
-      >
-        Clear
-      </Button>
-    </ButtonGroup>
+    <List dense>
+      <ListItem>
+        <ButtonGroup disableElevation size="small">
+          <Button {...weaponProps}>{weaponLabel}</Button>
+          <Button
+            variant={hasAnyOnUnits ? "contained" : "outlined"}
+            onClick={addToUnits}
+          >
+            All Units
+          </Button>
+          <Button onClick={addToAll}>Add All</Button>
+          <Button
+            color="error"
+            variant="contained"
+            disabled={!hasAny}
+            onClick={removeAll}
+          >
+            Clear All
+          </Button>
+        </ButtonGroup>
+      </ListItem>
+      <ListItem>
+        <ButtonGroup disableElevation size="small">
+          <Button {...unit1Props}>{unit1Label}</Button>
+          <Button {...unit2Props}>{unit2Label}</Button>
+          <Button {...unit3Props}>{unit3Label}</Button>
+        </ButtonGroup>
+      </ListItem>
+    </List>
   )
 }

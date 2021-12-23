@@ -25,6 +25,7 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
     switch (key) {
       case "hp":
       case "pp":
+      case "bp":
         newAug[key] = bignumber(stat[key]!)
         break
       // Damage and status resist are
@@ -55,6 +56,7 @@ export const sumAugmentStats = (augments: Augment[]) =>
     Object.keys(stat).forEach((statName) => {
       const key = statName as keyof AugmentStat
       switch (key) {
+        case "bp":
         case "hp":
         case "pp":
           memory[key] = (memory[key] ?? zero).add(stat[key]!)
