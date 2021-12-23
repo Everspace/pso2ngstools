@@ -106,6 +106,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 5,
       "hp": -10,
       "potency": 2,
       "floorPotency": 2,
@@ -149,6 +150,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 9,
       "hp": 15,
       "damageResist": 2.5
     }
@@ -157,7 +159,7 @@
     "name": "Daityl Soul I",
     "baseName": "Daityl Soul",
     "category": "soul",
-    "icon": "precision",
+    "icon": "might",
     "tier": 1,
     "rate": 9,
     "location": "",
@@ -171,7 +173,7 @@
     "name": "Daityl Soul II",
     "baseName": "Daityl Soul",
     "category": "soul",
-    "icon": "precision",
+    "icon": "might",
     "tier": 2,
     "rate": 8,
     "location": "",
@@ -287,7 +289,7 @@
     "rate": 8,
     "location": "",
     "stat": {
-      "bp": 8,
+      "bp": 7.5,
       "hp": 15,
       "pp": 4,
       "floorPotency": 1.5,
@@ -303,6 +305,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 30,
       "pp": 7,
       "floorPotency": 2,
@@ -345,6 +348,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 9,
       "meleePotency": 2,
       "damageResist": 2.5
     }
@@ -358,6 +362,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "rangedPotency": 2
     }
   },
@@ -370,6 +375,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "rangedPotency": 2,
       "damageResist": 2
     }
@@ -383,6 +389,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 9,
       "rangedPotency": 2,
       "damageResist": 2.5
     }
@@ -396,6 +403,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 6,
       "techPotency": 2
     }
   },
@@ -408,6 +416,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "techPotency": 2,
       "damageResist": 2
     }
@@ -421,6 +430,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 9,
       "techPotency": 2,
       "damageResist": 2.5
     }
@@ -462,6 +472,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 15,
       "techPotency": 2.5
     }
@@ -503,6 +514,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 15,
       "meleePotency": 2.5
     }
@@ -544,6 +556,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 15,
       "rangedPotency": 2.5
     }
@@ -679,7 +692,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 6,
+      "bp": 5,
       "meleePotency": 1.25,
       "rangedPotency": 1.25
     }
@@ -693,7 +706,7 @@
     "rate": 9,
     "location": "",
     "stat": {
-      "bp": 8,
+      "bp": 6,
       "meleePotency": 1.75,
       "rangedPotency": 1.75
     }
@@ -721,7 +734,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 6,
+      "bp": 5,
       "meleePotency": 1.25,
       "techPotency": 1.25
     }
@@ -735,7 +748,7 @@
     "rate": 9,
     "location": "",
     "stat": {
-      "bp": 8,
+      "bp": 6,
       "meleePotency": 1.75,
       "techPotency": 1.75
     }
@@ -939,7 +952,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 6,
+      "bp": 5,
       "rangedPotency": 1.25,
       "techPotency": 1.25
     }
@@ -953,7 +966,7 @@
     "rate": 9,
     "location": "",
     "stat": {
-      "bp": 8,
+      "bp": 6,
       "rangedPotency": 1.75,
       "techPotency": 1.75
     }
@@ -1096,6 +1109,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "hp": 15,
       "meleePotency": 1
     }
@@ -1109,6 +1123,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 15,
       "meleePotency": 2
     }
@@ -1122,6 +1137,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 15,
       "meleePotency": 2.5
     }
@@ -1134,6 +1150,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "potency": 1.25
     }
   },
@@ -1145,6 +1162,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "hp": 10,
       "pp": 3,
       "floorPotency": 2
@@ -1159,6 +1177,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 7,
       "hp": 15,
       "techPotency": 1
     }
@@ -1172,6 +1191,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 15,
       "techPotency": 2
     }
@@ -1185,6 +1205,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 15,
       "techPotency": 2.5
     }
@@ -1197,6 +1218,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 5,
       "hp": 10
     }
   },
@@ -1208,6 +1230,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "hp": 5,
       "meleePotency": 0.75,
       "rangedPotency": 0.75
@@ -1221,6 +1244,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "hp": 5,
       "meleePotency": 0.75,
       "techPotency": 0.75
@@ -1234,6 +1258,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 4,
       "hp": 5,
       "rangedPotency": 0.75,
       "techPotency": 0.75
@@ -1247,6 +1272,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 15,
       "potency": 1.5
     }
@@ -1273,6 +1299,7 @@
     "rate": 10,
     "location": "",
     "stat": {
+      "bp": 8,
       "statusResist": 25
     }
   },
@@ -1596,6 +1623,243 @@
     "stat": {
       "bp": 6,
       "conditionalPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Stamel",
+    "baseName": "Addi Stamel",
+    "category": "addi",
+    "icon": "might",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "hp": 20,
+      "meleePotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Stara",
+    "baseName": "Addi Stara",
+    "category": "addi",
+    "icon": "precision",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "hp": 20,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Statech",
+    "baseName": "Addi Statech",
+    "category": "addi",
+    "icon": "technique",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "hp": 20,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Spimel",
+    "baseName": "Addi Spimel",
+    "category": "addi",
+    "icon": "might",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "pp": 6,
+      "meleePotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Spira",
+    "baseName": "Addi Spira",
+    "category": "addi",
+    "icon": "precision",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "pp": 6,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Spitech",
+    "baseName": "Addi Spitech",
+    "category": "addi",
+    "icon": "technique",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "pp": 6,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Staspimel",
+    "baseName": "Addi Staspimel",
+    "category": "addi",
+    "icon": "might",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Staspira",
+    "baseName": "Addi Staspira",
+    "category": "addi",
+    "icon": "precision",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "hp": 10,
+      "pp": 3,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Staspitech",
+    "baseName": "Addi Staspitech",
+    "category": "addi",
+    "icon": "technique",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "hp": 10,
+      "pp": 3,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Deftmel",
+    "baseName": "Addi Deftmel",
+    "category": "addi",
+    "icon": "might",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "meleePotency": 2.5,
+      "floorPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Deftra",
+    "baseName": "Addi Deftra",
+    "category": "addi",
+    "icon": "precision",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "rangedPotency": 2.5,
+      "floorPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Defttech",
+    "baseName": "Addi Defttech",
+    "category": "addi",
+    "icon": "technique",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "techPotency": 2.5,
+      "floorPotency": 2.5
+    }
+  },
+  {
+    "name": "Addi Guamel",
+    "baseName": "Addi Guamel",
+    "category": "addi",
+    "icon": "might",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "meleePotency": 2.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Addi Guara",
+    "baseName": "Addi Guara",
+    "category": "addi",
+    "icon": "precision",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "rangedPotency": 2.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Addi Guatech",
+    "baseName": "Addi Guatech",
+    "category": "addi",
+    "icon": "technique",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "techPotency": 2.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Addi Wardmel",
+    "baseName": "Addi Wardmel",
+    "category": "addi",
+    "icon": "might",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "meleePotency": 2.5,
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Addi Wardra",
+    "baseName": "Addi Wardra",
+    "category": "addi",
+    "icon": "precision",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "rangedPotency": 2.5,
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Addi Wardtech",
+    "baseName": "Addi Wardtech",
+    "category": "addi",
+    "icon": "technique",
+    "rate": 10,
+    "location": "",
+    "stat": {
+      "bp": 9,
+      "techPotency": 2.5,
+      "statusResist": 20
     }
   }
 ]
