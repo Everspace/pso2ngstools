@@ -98,6 +98,7 @@ export const allAugmentsAtom = atom<Augment[]>((get) =>
   augmentSlots.flatMap((n) => get(augmentableFamily(n))),
 )
 
-const hasUnknownBpAug = atom<boolean>((get) =>
-  get(allAugmentsAtom).every((v) => v.bp !== undefined),
+// TODO: handle displaying that there is missing bp from the calculation
+export const hasUnknownBpAug = atom<boolean>((get) =>
+  get(allAugmentsAtom).every((v) => v.stat.bp !== undefined),
 )
