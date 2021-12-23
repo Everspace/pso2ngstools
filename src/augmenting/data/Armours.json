@@ -1,0 +1,255 @@
+{
+  "None": {
+    "name": "None",
+    "level": 0,
+    "stars": 0,
+    "defenseBase": 0,
+    "defenseMax": 0,
+    "stat": {}
+  },
+  "Primm": {
+    "name": "Primm",
+    "level": 1,
+    "stars": 1,
+    "defenseBase": 8,
+    "defenseMax": 28,
+    "stat": {
+      "hp": 10
+    }
+  },
+  "Tzvia": {
+    "name": "Tzvia",
+    "level": 1,
+    "stars": 2,
+    "defenseBase": 9,
+    "defenseMax": 29,
+    "stat": {
+      "pp": 2
+    }
+  },
+  "Silver Primm": {
+    "name": "Silver Primm",
+    "level": 1,
+    "stars": 2,
+    "defenseBase": 9,
+    "defenseMax": 29,
+    "stat": {
+      "pp": 2
+    }
+  },
+  "Theseus": {
+    "name": "Theseus",
+    "level": 5,
+    "stars": 3,
+    "defenseBase": 10,
+    "defenseMax": 30,
+    "stat": {
+      "hp": 10,
+      "pp": 1
+    }
+  },
+  "Gold Primm": {
+    "name": "Gold Primm",
+    "level": 5,
+    "stars": 3,
+    "defenseBase": 10,
+    "defenseMax": 40,
+    "stat": {
+      "hp": 10,
+      "pp": 1
+    }
+  },
+  "Cattleya": {
+    "name": "Cattleya",
+    "level": 10,
+    "stars": 4,
+    "defenseBase": 12,
+    "defenseMax": 53,
+    "stat": {
+      "hp": 20,
+      "pp": 2
+    }
+  },
+  "Vialto": {
+    "name": "Vialto",
+    "level": 10,
+    "stars": 4,
+    "defenseBase": 14,
+    "defenseMax": 55,
+    "stat": {
+      "hp": 30,
+      "damageResist": 1
+    }
+  },
+  "Qual De": {
+    "name": "Qual De",
+    "level": 10,
+    "stars": 4,
+    "defenseBase": 10,
+    "defenseMax": 49,
+    "stat": {
+      "pp": 6
+    }
+  },
+  "Vialto Arga": {
+    "name": "Vialto Arga",
+    "level": 12,
+    "stars": 4,
+    "defenseBase": 16,
+    "defenseMax": 57,
+    "stat": {
+      "hp": 25,
+      "meleePotency": 0.5,
+      "rangedPotency": 0.5,
+      "damageResist": 1
+    }
+  },
+  "Vialto Belta": {
+    "name": "Vialto Belta",
+    "level": 12,
+    "stars": 4,
+    "defenseBase": 16,
+    "defenseMax": 57,
+    "stat": {
+      "hp": 25,
+      "rangedPotency": 0.5,
+      "techPotency": 0.5,
+      "damageResist": 1
+    }
+  },
+  "Vialto Sheza": {
+    "name": "Vialto Sheza",
+    "level": 12,
+    "stars": 4,
+    "defenseBase": 16,
+    "defenseMax": 57,
+    "stat": {
+      "hp": 25,
+      "meleePotency": 0.5,
+      "techPotency": 0.5,
+      "damageResist": 1
+    }
+  },
+  "Qual De Arga": {
+    "name": "Qual De Arga",
+    "level": 12,
+    "stars": 4,
+    "defenseBase": 13,
+    "defenseMax": 54,
+    "stat": {
+      "pp": 4,
+      "meleePotency": 1,
+      "rangedPotency": 1
+    }
+  },
+  "Qual De Belta": {
+    "name": "Qual De Belta",
+    "level": 12,
+    "stars": 4,
+    "defenseBase": 13,
+    "defenseMax": 54,
+    "stat": {
+      "pp": 4,
+      "rangedPotency": 1,
+      "techPotency": 1
+    }
+  },
+  "Qual De Sheza": {
+    "name": "Qual De Sheza",
+    "level": 12,
+    "stars": 4,
+    "defenseBase": 13,
+    "defenseMax": 54,
+    "stat": {
+      "pp": 4,
+      "meleePotency": 1,
+      "techPotency": 1
+    }
+  },
+  "Geant": {
+    "name": "Geant",
+    "level": 15,
+    "stars": 4,
+    "defenseBase": 15,
+    "defenseMax": 56,
+    "stat": {
+      "hp": -20,
+      "pp": 10,
+      "meleePotency": 2,
+      "rangedPotency": 2,
+      "techPotency": 2,
+      "statusResist": -50
+    }
+  },
+  "Vios": {
+    "name": "Vios",
+    "level": 24,
+    "stars": 5,
+    "defenseBase": 15,
+    "defenseMax": 56,
+    "stat": {
+      "pp": 8,
+      "meleePotency": 1,
+      "rangedPotency": 1,
+      "techPotency": 1
+    }
+  },
+  "Vijf": {
+    "name": "Vijf",
+    "level": 24,
+    "stars": 5,
+    "defenseBase": 17,
+    "defenseMax": 58,
+    "stat": {
+      "hp": 30,
+      "pp": 4
+    }
+  },
+  "Vidal": {
+    "name": "Vidal",
+    "level": 24,
+    "stars": 5,
+    "defenseBase": 22,
+    "defenseMax": 63,
+    "stat": {
+      "hp": 45,
+      "damageResist": 1
+    }
+  },
+  "Viosel": {
+    "name": "Viosel",
+    "level": 26,
+    "stars": 5,
+    "defenseBase": 10,
+    "defenseMax": 51,
+    "stat": {
+      "pp": 14,
+      "statusResist": 20
+    }
+  },
+  "Vidalun": {
+    "name": "Vidalun",
+    "level": 26,
+    "stars": 5,
+    "defenseBase": 20,
+    "defenseMax": 61,
+    "stat": {
+      "hp": 70
+    }
+  },
+  "Greas": {
+    "name": "Greas",
+    "level": 31,
+    "stars": 5,
+    "defenseBase": 21,
+    "defenseMax": 62,
+    "stat": {
+      "hp": -40,
+      "pp": 13,
+      "meleePotency": 2,
+      "rangedPotency": 2,
+      "techPotency": 2,
+      "statusResist": -50
+    }
+  }
+}

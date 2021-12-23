@@ -1,6 +1,9 @@
+import { Unit, Weapon } from "augmenting/types"
 import { Options, parse, Parser } from "csv-parse"
 import fs from "fs/promises"
+import { handleArmorRow } from "./convertArmour"
 import { handleAugmentRow } from "./convertAugment"
+import { handleWeaponRow } from "./convertWeapon"
 
 async function openParse(
   fileSource: string,
@@ -21,7 +24,7 @@ async function main() {
   Promise.all([
     openParse(
       "./Affixes - Affixes.csv",
-      "./Augments.json",
+      "./src/augmenting/data/Augments.json",
       { columns: true },
       async (parser) => {
         const allAugments = []
@@ -29,6 +32,32 @@ async function main() {
           allAugments.push(handleAugmentRow(entry))
         }
         return allAugments
+      },
+    ),
+    openParse(
+      "./Affixes - Armour.csv",
+      "./src/augmenting/data/Armours.json",
+      { columns: true },
+      async (parser) => {
+        const allArmours: Record<string, Unit> = {}
+        for await (const entry of parser) {
+          const armour = handleArmorRow(entry)
+          allArmours[armour.name] = armour
+        }
+        return allArmours
+      },
+    ),
+    openParse(
+      "./Affixes - Weapons.csv",
+      "./src/augmenting/data/Weapons.json",
+      { columns: true },
+      async (parser) => {
+        const allArmours: Record<string, Weapon> = {}
+        for await (const entry of parser) {
+          const weapon = handleWeaponRow(entry)
+          allArmours[weapon.name] = weapon
+        }
+        return allArmours
       },
     ),
   ])

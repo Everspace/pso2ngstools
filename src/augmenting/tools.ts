@@ -1,6 +1,6 @@
 import { bignumber } from "mathjs"
 import { one, zero } from "../MathConstants"
-import { Augment, AugmentStat } from "./types"
+import { Augment, AugmentStat, Unit } from "./types"
 
 export const augmentTierToRoman = [
   "I",
@@ -16,28 +16,37 @@ export const augmentTierToRoman = [
 ]
 
 /**
- * Mutates augment to turn "percents" into actual numbers
+ * Mutates augmentStat to turn "percents" into actual numbers
  */
-export const toAugmentReal = (augment: Augment): Augment => {
-  const newAug: AugmentStat = { ...augment.stat }
-  Object.keys(augment.stat).forEach((statName) => {
+export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
+  const newAug: AugmentStat = {}
+  Object.keys(stat).forEach((statName) => {
     const key = statName as keyof AugmentStat
     switch (key) {
       case "hp":
       case "pp":
-        newAug[key] = bignumber(augment.stat[key]!)
+        newAug[key] = bignumber(stat[key]!)
         break
       // Damage and status resist are
       // actually (1-display) internally (0.98 for 2% resist)
       case "damageResist":
       case "statusResist":
-        newAug[key] = one.minus(bignumber(augment.stat[key]!).dividedBy(100))
+        newAug[key] = one.minus(bignumber(stat[key]!).dividedBy(100))
         break
       default:
-        newAug[key] = bignumber(augment.stat[key]!).dividedBy(100).add(1)
+        newAug[key] = bignumber(stat[key]!).dividedBy(100).add(1)
     }
   })
-  augment.stat = newAug
+  return newAug
+}
+
+export const toUnitReal = (unit: Unit): Unit => {
+  unit.stat = toAugmentStatReal(unit.stat)
+  return unit
+}
+
+export const toAugmentReal = (augment: Augment): Augment => {
+  augment.stat = toAugmentStatReal(augment.stat)
   return augment
 }
 
