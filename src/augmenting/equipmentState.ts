@@ -1,14 +1,17 @@
 import { atomFamily, atomWithHash } from "jotai/utils"
 import { toId, fromId, flipTable, translateKeys } from "utils"
-import { AugmentableSlot } from "./augmentableState"
+import { AugmentableSlot, UnitSlot } from "./augmentableState"
+import { allUnits } from "./data/armours"
+import { allWeapons } from "./data/weapons"
+import { Unit, Weapon } from "./types"
 
-export type EquippableState = {
+type SerializedEquippableState = {
   name?: string
   potential?: number
   fullyGround?: boolean
 }
 
-const shrinkTable: Record<keyof EquippableState, string> = {
+const shrinkTable: Record<keyof SerializedEquippableState, string> = {
   name: "n",
   potential: "p",
   fullyGround: "fg",
@@ -22,19 +25,72 @@ const slotToHash: Record<AugmentableSlot, string> = {
   weapon: "w",
 }
 
-export const equipableStateFamily = atomFamily((slot: AugmentableSlot) => {
+export type UnitEquipState = {
+  unit: Unit
+  fullyGround: boolean
+}
+
+export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
-  return atomWithHash<EquippableState>(
+  return atomWithHash<UnitEquipState>(
     id,
-    { name: "None" },
+    { unit: allUnits["None"], fullyGround: true },
     {
       replaceState: true,
-      serialize(val) {
-        return toId(translateKeys(shrinkTable, val))
+      serialize({ unit, fullyGround }) {
+        return toId(
+          translateKeys(shrinkTable, {
+            name: unit.name,
+            fullyGround,
+          }),
+        )
       },
       deserialize(id) {
-        return translateKeys(expandTable, fromId(id)) as EquippableState
+        const state = translateKeys(
+          expandTable,
+          fromId(id),
+        ) as SerializedEquippableState
+
+        return {
+          unit: allUnits[state?.name ?? "None"],
+          fullyGround: state.fullyGround ?? true,
+        }
       },
     },
   )
 })
+
+export type WeaponEquipState = {
+  weapon: Weapon
+  potential: number
+  fullyGround: boolean
+}
+
+export const weaponState = atomWithHash<WeaponEquipState>(
+  slotToHash["weapon"],
+  { weapon: allWeapons["None"], potential: 0, fullyGround: true },
+  {
+    replaceState: true,
+    serialize({ weapon, potential, fullyGround }) {
+      return toId(
+        translateKeys(shrinkTable, {
+          name: weapon.name,
+          potential,
+          fullyGround,
+        }),
+      )
+    },
+    deserialize(id) {
+      const state = translateKeys(
+        expandTable,
+        fromId(id),
+      ) as SerializedEquippableState
+
+      return {
+        weapon: allWeapons[state?.name ?? "None"],
+        potential: state.potential ?? 0,
+        fullyGround: state.fullyGround ?? true,
+      }
+    },
+  },
+)

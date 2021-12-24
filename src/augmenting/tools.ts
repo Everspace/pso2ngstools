@@ -1,6 +1,6 @@
 import { bignumber } from "mathjs"
 import { one, zero } from "../MathConstants"
-import { Augment, AugmentStat, Unit } from "./types"
+import { Augment, AugmentStat, Unit, Weapon } from "./types"
 
 export const augmentTierToRoman = [
   "I",
@@ -42,8 +42,24 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
 }
 
 export const toUnitReal = (unit: Unit): Unit => {
-  unit.stat = toAugmentStatReal(unit.stat)
-  return unit
+  const { stat, defenseBase, defenseMax } = unit
+  return {
+    ...unit,
+    defenseBase: bignumber(defenseBase),
+    defenseMax: bignumber(defenseMax),
+    stat: toAugmentStatReal(stat),
+  }
+}
+
+export const toWeaponReal = (weapon: Weapon): Weapon => {
+  const { attackBase, attackMax, varianceHigh, varianceLow } = weapon
+  return {
+    ...weapon,
+    attackBase: bignumber(attackBase),
+    attackMax: bignumber(attackMax),
+    varianceHigh: bignumber(varianceHigh ?? 70).dividedBy(100),
+    varianceLow: bignumber(varianceLow ?? 100).dividedBy(100),
+  }
 }
 
 export const toAugmentReal = (augment: Augment): Augment => {

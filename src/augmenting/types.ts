@@ -83,8 +83,8 @@ export type Unit = {
   name: string
   level: number
   stars: number
-  defenseBase: number
-  defenseMax: number
+  defenseBase: BigNumber
+  defenseMax: BigNumber
   stat: AugmentStat
 }
 
@@ -92,15 +92,34 @@ export type Weapon = {
   name: string
   level: number
   stars: number
-  attackBase: number
-  attackMax: number
+  attackBase: BigNumber
+  attackMax: BigNumber
   element?: string // TODO: add all the valid elements
   /**
    * Default 70
    */
-  varianceLow?: number
+  varianceLow: BigNumber
   /**
    * Default 100
    */
-  varianceHigh?: number
+  varianceHigh: BigNumber
+}
+
+export const allClasses = [
+  "Hu",
+  "Fi",
+  "Ra",
+  "Gu",
+  "Fo",
+  "Te",
+  "Br",
+  "Bo",
+] as const
+
+export type ClassAbbreviation = typeof allClasses[number]
+
+export type ClassLevel = {
+  hp?: number
+  attack?: number
+  defense?: number
 }

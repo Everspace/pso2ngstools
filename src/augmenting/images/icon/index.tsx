@@ -1,31 +1,19 @@
-import NMesetaIconRaw from "./NGSUIMSTIcon.png"
-
 import RATKIconRaw from "./NGSUIStatRATK.png"
 import SATKIconRaw from "./NGSUIStatSATK.png"
 import TATKIconRaw from "./NGSUIStatTATK.png"
 import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
 import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
-import { styled } from "@mui/material/styles"
+import { ImageIcon, Icon } from "components/Icon"
 
-const ImageIcon = styled("img", { name: "ImageIcon" })({
-  display: "inline",
-  marginRight: 4,
-  marginLeft: 4,
-})
-
-export const MesetaIcon = (props: JSX.IntrinsicElements["img"]) => (
-  <ImageIcon src={NMesetaIconRaw} {...props} />
-)
-
-export const MeleeIcon = (props: JSX.IntrinsicElements["img"]) => (
+export const MeleeIcon: Icon = (props) => (
   <ImageIcon src={SATKIconRaw} {...props} />
 )
 
-export const TechIcon = (props: JSX.IntrinsicElements["img"]) => (
+export const TechIcon: Icon = (props) => (
   <ImageIcon src={TATKIconRaw} {...props} />
 )
 
-export const AllAttackIcons = (props: JSX.IntrinsicElements["img"]) => (
+export const AllAttackIcons: Icon = (props) => (
   <>
     <MeleeIcon {...props} />
     <RangeIcon {...props} />
@@ -33,14 +21,14 @@ export const AllAttackIcons = (props: JSX.IntrinsicElements["img"]) => (
   </>
 )
 
-export const RangeIcon = (props: JSX.IntrinsicElements["img"]) => (
+export const RangeIcon: Icon = (props) => (
   <ImageIcon src={RATKIconRaw} {...props} />
 )
 
-export const ATKOutlineIcon = (props: JSX.IntrinsicElements["img"]) => (
+export const ATKOutlineIcon: Icon = (props) => (
   <ImageIcon src={ATKOutlineIconRaw} {...props} />
 )
 
-export const DEFOutlineIcon = (props: JSX.IntrinsicElements["img"]) => (
+export const DEFOutlineIcon: Icon = (props) => (
   <ImageIcon src={DEFOutlineIconRaw} {...props} />
 )
