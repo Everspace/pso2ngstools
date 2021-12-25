@@ -14,6 +14,8 @@ import { sumAugmentStats } from "./tools"
 import { useAllAugments } from "./useAllAugments"
 import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
 import { CharacterDisplay } from "./CharacterDisplay"
+import { ChangeLevelDropdown } from "./ChangeLevelDropdown"
+import { ChangeClassDropdown } from "./ChangeClassDropdown"
 
 const statTotalAtom = atom<AugmentStat>((get) =>
   sumAugmentStats(get(allAugmentsAtom)),
@@ -35,6 +37,8 @@ export function AugmentPanel() {
       </Box>
       <Box>
         <ChangeAugmentSlotsDropdown />
+        <ChangeLevelDropdown />
+        <ChangeClassDropdown />
       </Box>
       <Box>
         <CharacterDisplay />
