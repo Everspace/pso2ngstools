@@ -29,10 +29,10 @@ export function handleWeaponRow(row: DataSheetRow): Weapon {
     stars: Number(Stars),
     attackBase: Number(Base),
     attackMax: Number(GrindMax),
-    varianceLow: Number(VarianceLow),
-    varianceHigh: Number(VarianceHigh),
   }
 
+  if (VarianceLow !== "") data.varianceLow = Number(VarianceLow)
+  if (VarianceHigh !== "") data.varianceHigh = Number(VarianceHigh)
   if (Element !== "") data.element = Element
 
   return data as Weapon

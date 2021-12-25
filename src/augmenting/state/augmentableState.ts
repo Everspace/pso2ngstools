@@ -7,8 +7,8 @@ import {
 } from "jotai/utils"
 import { useCallback } from "react"
 import { toId, fromId } from "utils"
-import { allAugments } from "./data/augments"
-import { Augment } from "./types"
+import { allAugments } from "../data/augments"
+import { Augment } from "../types"
 
 export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
 export type AugmentableSlot = typeof augmentSlots[number]

@@ -6,7 +6,7 @@ import {
   InputLabel,
 } from "@mui/material"
 import { useAtom } from "jotai"
-import { augmentsPerSlotAtom } from "./augmentableState"
+import { augmentsPerSlotAtom } from "./state/augmentableState"
 import { useCallback } from "react"
 import { useAllAugments } from "./useAllAugments"
 import { numbers } from "./AugmentPanel"

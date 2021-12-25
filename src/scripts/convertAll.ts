@@ -1,3 +1,4 @@
+import { MAX_LEVEL } from "augmenting/state/characterState"
 import { allClasses, ClassData, Unit, Weapon } from "augmenting/types"
 import { Options, parse, Parser } from "csv-parse"
 import fs from "fs/promises"
@@ -73,7 +74,7 @@ async function main() {
         for await (const entry of parser) {
           const classResult = handleClassStatRow(entry)
           classResult.forEach(([level, c, stat]) => {
-            if (level > 35) return
+            if (level > MAX_LEVEL) return
             classes[c][level] = stat
           })
         }

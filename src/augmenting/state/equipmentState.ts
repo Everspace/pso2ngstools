@@ -1,9 +1,9 @@
 import { atomFamily, atomWithHash } from "jotai/utils"
 import { toId, fromId, flipTable, translateKeys } from "utils"
 import { AugmentableSlot, UnitSlot } from "./augmentableState"
-import { allUnits } from "./data/armours"
-import { allWeapons } from "./data/weapons"
-import { Unit, Weapon } from "./types"
+import { allUnits } from "../data/armours"
+import { allWeapons } from "../data/weapons"
+import { Unit, Weapon } from "../types"
 
 type SerializedEquippableState = {
   name?: string
@@ -66,9 +66,9 @@ export type WeaponEquipState = {
   fullyGround: boolean
 }
 
-export const weaponState = atomWithHash<WeaponEquipState>(
+export const weaponStateAtom = atomWithHash<WeaponEquipState>(
   slotToHash["weapon"],
-  { weapon: allWeapons["None"], potential: 0, fullyGround: true },
+  { weapon: allWeapons["Fivla"], potential: 0, fullyGround: true },
   {
     replaceState: true,
     serialize({ weapon, potential, fullyGround }) {

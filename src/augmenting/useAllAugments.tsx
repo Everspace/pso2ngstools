@@ -1,4 +1,4 @@
-import { useAugmentable } from "./augmentableState"
+import { useAugmentable } from "./state/augmentableState"
 import { sample, sampleSize } from "lodash"
 import { useCallback } from "react"
 import { augmentByCategory } from "./data/augments"

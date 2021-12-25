@@ -4,7 +4,7 @@ import {
   AugmentableSlot,
   augmentSlotNiceName,
   useAugmentable,
-} from "augmenting/augmentableState"
+} from "augmenting/state/augmentableState"
 import { flatten, includes } from "lodash"
 import { useMemo, useCallback } from "react"
 

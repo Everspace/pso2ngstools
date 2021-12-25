@@ -14,7 +14,7 @@ import {
   AugmentableSlot,
   augmentSlotNiceName,
   useAugmentable,
-} from "./augmentableState"
+} from "./state/augmentableState"
 
 export interface AugmentibleDisplayProps {
   slot: AugmentableSlot

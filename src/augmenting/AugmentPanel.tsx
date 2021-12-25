@@ -7,12 +7,13 @@ import {
   allAugmentsAtom,
   augmentSlots,
   MAX_AUGMENTS_PER_SLOT,
-} from "./augmentableState"
+} from "./state/augmentableState"
 import { range } from "lodash"
 import { AugmentStat } from "./types"
 import { sumAugmentStats } from "./tools"
 import { useAllAugments } from "./useAllAugments"
 import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
+import { CharacterDisplay } from "./CharacterDisplay"
 
 const statTotalAtom = atom<AugmentStat>((get) =>
   sumAugmentStats(get(allAugmentsAtom)),
@@ -34,6 +35,9 @@ export function AugmentPanel() {
       </Box>
       <Box>
         <ChangeAugmentSlotsDropdown />
+      </Box>
+      <Box>
+        <CharacterDisplay />
       </Box>
       <Box>
         <Grid
