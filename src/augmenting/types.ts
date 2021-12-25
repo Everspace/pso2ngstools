@@ -120,6 +120,8 @@ export type ClassAbbreviation = typeof allClasses[number]
 
 export type ClassLevel = {
   hp?: number
-  attack?: number
-  defense?: number
+  attack: number
+  defense: number
 }
+
+export type ClassData = Record<ClassAbbreviation, ClassLevel[]>

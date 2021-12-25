@@ -23,7 +23,7 @@ export function handleWeaponRow(row: DataSheetRow): Weapon {
     VarianceHigh,
   } = row
 
-  const data: Weapon = {
+  const data: Partial<Record<keyof Weapon, any>> = {
     name: Series,
     level: Number(Lv),
     stars: Number(Stars),
@@ -35,5 +35,5 @@ export function handleWeaponRow(row: DataSheetRow): Weapon {
 
   if (Element !== "") data.element = Element
 
-  return data
+  return data as Weapon
 }
