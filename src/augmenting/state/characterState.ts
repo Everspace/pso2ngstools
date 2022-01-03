@@ -40,9 +40,6 @@ export const classInfoAtom = atom((get) => {
 })
 
 export const MAX_SKILLPOINTS = 30
-export const skillpointAtom = minMaxResetAtom(
-  1,
-  MAX_SKILLPOINTS,
-  MAX_SKILLPOINTS,
-  atomWithHash("sp", MAX_SKILLPOINTS),
-)
+export const skillpointAtom = atomWithHash("sp", MAX_SKILLPOINTS, {
+  replaceState: true,
+})
