@@ -71,7 +71,7 @@ const searchables: (keyof AugmentStat)[] = [
 export function AugmentSearch() {
   return (
     <Paper>
-      <Grid container p={2} rowSpacing={1}>
+      <Grid container px={2} pb={2} rowSpacing={1}>
         <Grid item container spacing={2}>
           <Grid item>
             <SearchInput label="Name" atom={searchNameAtom} />

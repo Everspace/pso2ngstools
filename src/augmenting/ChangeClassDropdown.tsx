@@ -21,7 +21,7 @@ export function ChangeClassDropdown() {
   )
 
   return (
-    <FormControl size="small" sx={{ m: 1 }}>
+    <FormControl size="small">
       <InputLabel>Class</InputLabel>
       <Select label="Class" onChange={handleClassName} value={className}>
         {allClasses.map((i) => (

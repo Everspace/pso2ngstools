@@ -22,7 +22,7 @@ export function AugmentPanel() {
   const [bp] = useAtom(bpTotalAtom)
 
   return (
-    <Stack spacing={1}>
+    <Stack spacing={2}>
       <Box>
         <Typography variant="h3">Augmenting</Typography>
         <Button onClick={randomizeAllAugments}>Randomize</Button>
@@ -33,7 +33,7 @@ export function AugmentPanel() {
       <Box>
         <ChangeAugmentSlotsDropdown />
       </Box>
-      <Box>
+      <Box pb={1}>
         <CharacterBPDisplay />
       </Box>
       <Box>
@@ -41,9 +41,10 @@ export function AugmentPanel() {
           container
           justifyItems="center"
           alignItems="flex-start"
-          spacing={2}
+          rowSpacing={2}
+          columnSpacing={1}
         >
-          <Grid xs={12} md={6} spacing={4} item container direction="column">
+          <Grid xs={12} md={6} spacing={3} item container direction="column">
             <Grid item>
               <WeaponDisplay />
             </Grid>
@@ -51,7 +52,7 @@ export function AugmentPanel() {
               <UnitDisplay slot="unit3" />
             </Grid>
           </Grid>
-          <Grid xs={12} md={6} spacing={4} item container direction="column">
+          <Grid xs={12} md={6} spacing={3} item container direction="column">
             <Grid item>
               <UnitDisplay slot="unit1" />
             </Grid>
@@ -62,7 +63,7 @@ export function AugmentPanel() {
         </Grid>
       </Box>
       <Paper sx={{ m: 2, p: 2 }}>
-        <Typography variant="h5">Total - {bp} BP</Typography>
+        <Typography variant="h5">Total: {bp} BP</Typography>
         <AugmentStatDisplay simple stat={stats} />
       </Paper>
       <AugmentCategoryDisplay />

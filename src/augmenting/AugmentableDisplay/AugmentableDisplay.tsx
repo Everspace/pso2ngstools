@@ -39,7 +39,7 @@ export function AugmentibleDisplay({
       <Grid container px={2} spacing={2}>
         <Grid item xs={12}>
           <Typography>
-            {augmentSlotNiceName[slot]} - {bp} BP
+            {augmentSlotNiceName[slot]}: {bp} BP
           </Typography>
         </Grid>
         <Grid item xs={12}>

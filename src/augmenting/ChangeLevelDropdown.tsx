@@ -23,7 +23,7 @@ export function ChangeLevelDropdown() {
   )
 
   return (
-    <FormControl size="small" sx={{ m: 1 }}>
+    <FormControl size="small">
       <InputLabel>Lv</InputLabel>
       <Select
         label="Level"

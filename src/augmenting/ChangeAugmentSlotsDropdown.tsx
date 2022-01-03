@@ -26,7 +26,7 @@ export function ChangeAugmentSlotsDropdown() {
   )
 
   return (
-    <FormControl size="small" sx={{ m: 1, minWidth: 100 }}>
+    <FormControl size="small" sx={{ minWidth: 100 }}>
       <InputLabel>Aug # Max</InputLabel>
       <Select
         label="Augment"
