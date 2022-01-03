@@ -83,6 +83,7 @@ function ChangePotentialDropdown() {
       <Select
         label="Potential"
         typeof="number"
+        size="small"
         onChange={handleSetAugmentSlots}
         value={potential}
       >
@@ -111,7 +112,6 @@ function WeaponConfig() {
     <Grid container>
       <Grid item>
         <FormControlLabel
-          sx={{ mt: 1 }}
           control={
             <Checkbox
               size="small"

@@ -2,9 +2,10 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Box,
   Button,
-  Grid,
   Paper,
+  Stack,
   Typography,
 } from "@mui/material"
 import { ExpandMore } from "@mui/icons-material"
@@ -36,33 +37,29 @@ export function AugmentibleDisplay({
 
   return (
     <Paper>
-      <Grid container px={2} spacing={2}>
-        <Grid item xs={12}>
+      <Stack p={2} spacing={2}>
+        <Box>
           <Typography>
             {augmentSlotNiceName[slot]}: {bp} BP
           </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          {autocomplete}
-        </Grid>
-        <Grid item xs={12}>
+        </Box>
+        <Box>{autocomplete}</Box>
+        <Box>
           <Typography>Config:</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          {configure}
-        </Grid>
-        <Grid item xs={12}>
+        </Box>
+        <Box sx={{ height: "3em" }}>{configure}</Box>
+        <Box>
           <Typography>Augments:</Typography>
-        </Grid>
-        <Grid item xs={12}>
+        </Box>
+        <Box>
           <AugmentSlotList slot={slot} />
-        </Grid>
-        <Grid item xs={12}>
+        </Box>
+        <Box>
           <Button sx={{ float: "right" }} color="error" onClick={clearAugments}>
             Clear Augments
           </Button>
-        </Grid>
-      </Grid>
+        </Box>
+      </Stack>
       <Accordion
         disabled={augments.length === 0}
         TransitionProps={{ unmountOnExit: true }}

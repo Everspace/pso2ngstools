@@ -1,4 +1,4 @@
-import { Stack, Box, Typography, Grid, Button, Paper } from "@mui/material"
+import { Stack, Box, Typography, Button, Paper } from "@mui/material"
 import { atom, useAtom } from "jotai"
 import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
@@ -22,8 +22,8 @@ export function AugmentPanel() {
   const [bp] = useAtom(bpTotalAtom)
 
   return (
-    <Stack spacing={2}>
-      <Box>
+    <Stack>
+      <Box mb={1}>
         <Typography variant="h3">Augmenting</Typography>
         <Button onClick={randomizeAllAugments}>Randomize</Button>
         <Button color="error" onClick={clearAllAugments}>
@@ -33,36 +33,45 @@ export function AugmentPanel() {
       <Box>
         <ChangeAugmentSlotsDropdown />
       </Box>
-      <Box pb={1}>
+      <Box mt={2} mb={3} pb={1}>
         <CharacterBPDisplay />
       </Box>
-      <Box>
-        <Grid
-          container
-          justifyItems="center"
-          alignItems="flex-start"
-          rowSpacing={2}
-          columnSpacing={1}
-        >
-          <Grid xs={12} md={6} spacing={3} item container direction="column">
-            <Grid item>
-              <WeaponDisplay />
-            </Grid>
-            <Grid item>
-              <UnitDisplay slot="unit3" />
-            </Grid>
-          </Grid>
-          <Grid xs={12} md={6} spacing={3} item container direction="column">
-            <Grid item>
-              <UnitDisplay slot="unit1" />
-            </Grid>
-            <Grid item>
-              <UnitDisplay slot="unit2" />
-            </Grid>
-          </Grid>
-        </Grid>
+      <Box
+        mb={-1}
+        sx={(theme) => ({
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          gridTemplateRows: "auto",
+          gap: 1,
+          gridTemplateAreas: `
+            "weapon unit1"
+            "unit2 unit3"
+          `,
+          [theme.breakpoints.down("md")]: {
+            gridTemplateColumns: "1fr",
+            gridTemplateAreas: `
+              "weapon"
+              "unit1"
+              "unit2"
+              "unit3"
+            `,
+          },
+        })}
+      >
+        <Box sx={{ gridArea: "weapon" }}>
+          <WeaponDisplay />
+        </Box>
+        <Box sx={{ gridArea: "unit1" }}>
+          <UnitDisplay slot="unit1" />
+        </Box>
+        <Box sx={{ gridArea: "unit2" }}>
+          <UnitDisplay slot="unit2" />
+        </Box>
+        <Box sx={{ gridArea: "unit3" }}>
+          <UnitDisplay slot="unit3" />
+        </Box>
       </Box>
-      <Paper sx={{ m: 2, p: 2 }}>
+      <Paper sx={{ p: 2 }}>
         <Typography variant="h5">Total: {bp} BP</Typography>
         <AugmentStatDisplay simple stat={stats} />
       </Paper>
