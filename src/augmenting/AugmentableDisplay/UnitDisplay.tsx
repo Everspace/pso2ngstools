@@ -1,4 +1,9 @@
-import { Autocomplete, Box, TextField } from "@mui/material"
+import {
+  Autocomplete,
+  Box,
+  createFilterOptions,
+  TextField,
+} from "@mui/material"
 import { useAtom } from "jotai"
 import {
   augmentSlotNiceName,
@@ -15,13 +20,17 @@ const unitSelections: Unit[] = Object.keys(allUnits)
   .map((key) => allUnits[key])
   .reverse()
 
-function unitToName(w: Unit) {
-  return `${w.stars}⭐ ${w.name}`
+function unitToName(u: Unit) {
+  return `${u.stars}⭐ ${u.name} - Lv.${u.level}`
 }
 
 function unitEqual(a: Unit, b: Unit) {
   return a.name === b.name
 }
+
+const filteropts = createFilterOptions<Unit>({
+  stringify: unitToName,
+})
 
 type UnitAutocompleteProps = {
   slot: UnitSlot
@@ -45,6 +54,7 @@ function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
       filterSelectedOptions
       options={unitSelections}
       value={unit}
+      filterOptions={filteropts}
       onChange={handleAutocompleteChange}
       isOptionEqualToValue={unitEqual}
       renderOption={(props, option) => (

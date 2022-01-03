@@ -1,4 +1,9 @@
-import { Autocomplete, Box, TextField } from "@mui/material"
+import {
+  Autocomplete,
+  Box,
+  createFilterOptions,
+  TextField,
+} from "@mui/material"
 import { useAtom } from "jotai"
 import { augmentSlotNiceName } from "augmenting/state/augmentableState"
 import { weaponStateAtom } from "augmenting/state/equipmentState"
@@ -13,8 +18,12 @@ const weaponSelections = Object.keys(allWeapons)
   .reverse()
 
 function weaponToName(w: Weapon) {
-  return `${w.stars}⭐ ${w.name}`
+  return `${w.stars}⭐ ${w.name} - Lv.${w.level}`
 }
+
+const filteropts = createFilterOptions<Weapon>({
+  stringify: weaponToName,
+})
 
 function WeaponAutocomplete() {
   const [{ weapon, fullyGround, potential }, setWeaponState] =
@@ -34,6 +43,7 @@ function WeaponAutocomplete() {
       disableClearable
       options={weaponSelections}
       value={weapon}
+      filterOptions={filteropts}
       onChange={handleAutocompleteChange}
       renderOption={(props, option) => (
         <Box component="li" {...props}>
