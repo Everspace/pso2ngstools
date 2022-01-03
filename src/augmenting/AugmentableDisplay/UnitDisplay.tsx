@@ -1,19 +1,17 @@
 import {
   Autocomplete,
   Box,
+  Button,
   createFilterOptions,
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
-import {
-  augmentSlotNiceName,
-  UnitSlot,
-} from "augmenting/state/augmentableState"
 import { unitStateFamily } from "augmenting/state/equipmentState"
 import { useCallback } from "react"
-import { Unit } from "augmenting/types"
+import { Unit, UnitSlot } from "augmenting/types"
 import { allUnits } from "augmenting/data/armours"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
+import { augmentSlotNiceName } from "augmenting/info"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -70,6 +68,29 @@ function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
   )
 }
 
+type UnitConfigProps = {
+  slot: UnitSlot
+}
+function UnitConfig({ slot }: UnitConfigProps) {
+  const [{ fullyGround }, setUnitState] = useAtom(unitStateFamily(slot))
+  const toggleGrind = useCallback(
+    () =>
+      setUnitState((prior) => ({ ...prior, fullyGround: !prior.fullyGround })),
+    [setUnitState],
+  )
+  return (
+    <>
+      <Button
+        variant={fullyGround ? "contained" : "outlined"}
+        size="small"
+        onClick={toggleGrind}
+      >
+        Full Grind
+      </Button>
+    </>
+  )
+}
+
 type UnitDisplayProps = {
   slot: UnitSlot
 }
@@ -77,7 +98,8 @@ export function UnitDisplay({ slot }: UnitDisplayProps) {
   return (
     <AugmentibleDisplay
       slot={slot}
-      autocomplete={() => <UnitAutocomplete slot={slot} />}
+      autocomplete={<UnitAutocomplete slot={slot} />}
+      configure={UnitConfig}
     />
   )
 }

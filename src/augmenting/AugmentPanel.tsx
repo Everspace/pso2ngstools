@@ -2,11 +2,7 @@ import { Stack, Box, Typography, Grid, Button, Paper } from "@mui/material"
 import { atom, useAtom } from "jotai"
 import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import {
-  allAugmentsAtom,
-  MAX_AUGMENTS_PER_SLOT,
-} from "./state/augmentableState"
-import { range } from "lodash"
+import { allAugmentsAtom } from "./state/augmentableState"
 import { AugmentStat } from "./types"
 import { sumAugmentStats } from "./tools"
 import { useAllAugments } from "./useAllAugments"
@@ -21,7 +17,6 @@ const statTotalAtom = atom<AugmentStat>((get) =>
   sumAugmentStats(get(allAugmentsAtom)),
 )
 
-export const numbers = range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
   const [stats] = useAtom(statTotalAtom)

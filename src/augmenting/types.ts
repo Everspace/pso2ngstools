@@ -1,6 +1,12 @@
 import { AugmentImageType } from "./images/augment"
 import { BigNumber } from "mathjs"
 
+export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
+export type AugmentableSlot = typeof augmentSlots[number]
+
+export type UnitSlot = Exclude<AugmentableSlot, "weapon">
+export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
+
 export interface AugmentStat {
   bp?: BigNumber
   hp?: BigNumber

@@ -6,11 +6,15 @@ import {
   InputLabel,
 } from "@mui/material"
 import { useAtom } from "jotai"
-import { augmentsPerSlotAtom } from "./state/augmentableState"
+import { range } from "lodash"
 import { useCallback } from "react"
+import {
+  augmentsPerSlotAtom,
+  MAX_AUGMENTS_PER_SLOT,
+} from "./state/equipmentState"
 import { useAllAugments } from "./useAllAugments"
-import { numbers } from "./AugmentPanel"
 
+const augmentSlotNumberArray = range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function ChangeAugmentSlotsDropdown() {
   const [augmentsPerSlot, setAugmentsPerSlot] = useAtom(augmentsPerSlotAtom)
   const { truncateAllAugments } = useAllAugments()
@@ -32,7 +36,7 @@ export function ChangeAugmentSlotsDropdown() {
         onChange={handleSetAugmentSlots}
         value={augmentsPerSlot.toString()}
       >
-        {numbers.map((i) => (
+        {augmentSlotNumberArray.map((i) => (
           <MenuItem key={i} value={i}>
             {i}
           </MenuItem>

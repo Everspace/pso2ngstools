@@ -5,12 +5,12 @@ import {
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
-import { augmentSlotNiceName } from "augmenting/state/augmentableState"
 import { weaponStateAtom } from "augmenting/state/equipmentState"
 import { allWeapons } from "augmenting/data/weapons"
 import { useCallback } from "react"
 import { Weapon } from "augmenting/types"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
+import { augmentSlotNiceName } from "augmenting/info"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)

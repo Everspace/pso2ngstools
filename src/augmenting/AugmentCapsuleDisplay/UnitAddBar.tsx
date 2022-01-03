@@ -1,12 +1,9 @@
 import { Button, ButtonGroup, List, ListItem } from "@mui/material"
-import { Augment } from "augmenting/types"
-import {
-  AugmentableSlot,
-  augmentSlotNiceName,
-  useAugmentable,
-} from "augmenting/state/augmentableState"
+import { Augment, AugmentableSlot } from "augmenting/types"
+import { useAugmentable } from "augmenting/state/augmentableState"
 import { flatten, includes } from "lodash"
 import { useMemo, useCallback } from "react"
+import { augmentSlotNiceName } from "augmenting/info"
 
 const useAddToAllButton = (augment: Augment) => {
   const { addAugment: addToWeapon } = useAugmentable("weapon")

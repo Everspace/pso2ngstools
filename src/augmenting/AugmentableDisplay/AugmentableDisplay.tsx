@@ -9,17 +9,20 @@ import {
 } from "@mui/material"
 import { ExpandMore } from "@mui/icons-material"
 import { AugmentStatDisplay } from "../AugmentStatDisplay"
-import { AugmentableSlot, useAugmentable } from "../state/augmentableState"
+import { useAugmentable } from "../state/augmentableState"
+import { AugmentableSlot } from "augmenting/types"
 import { AugmentSlotList } from "./AugmentSlotList"
 
 interface AugmentibleDisplayProps {
   slot: AugmentableSlot
-  autocomplete: () => React.ReactNode
+  autocomplete: React.ReactNode
+  configure?: React.ReactNode
 }
 
 export function AugmentibleDisplay({
   slot,
   autocomplete,
+  configure,
 }: AugmentibleDisplayProps) {
   const { augments, clearAugments } = useAugmentable(slot)
 
@@ -27,7 +30,10 @@ export function AugmentibleDisplay({
     <Paper>
       <Grid container p={2} rowSpacing={1}>
         <Grid item xs={12}>
-          {autocomplete()}
+          {autocomplete}
+        </Grid>
+        <Grid item xs={12}>
+          {configure}
         </Grid>
         <Grid item xs={12}>
           <AugmentSlotList slot={slot} />

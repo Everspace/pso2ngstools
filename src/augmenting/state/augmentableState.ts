@@ -1,36 +1,16 @@
 import { atom, useAtom } from "jotai"
-import {
-  atomFamily,
-  useUpdateAtom,
-  atomWithHash,
-  atomWithStorage,
-} from "jotai/utils"
+import { atomFamily, useUpdateAtom, atomWithHash } from "jotai/utils"
 import { useCallback } from "react"
 import { toId, fromId } from "utils"
 import { allAugments } from "../data/augments"
-import { Augment } from "../types"
-
-export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
-export type AugmentableSlot = typeof augmentSlots[number]
-
-export type UnitSlot = Exclude<AugmentableSlot, "weapon">
-export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
-
-export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
-  weapon: "Weapon",
-  unit1: "Unit 1",
-  unit2: "Unit 2",
-  unit3: "Unit 3",
-}
+import { Augment, AugmentableSlot, augmentSlots } from "../types"
+import { augmentsPerSlotAtom } from "./equipmentState"
 
 const revivify = (names: string[]): Augment[] => {
   return names
     .map((name) => allAugments.find((a) => a.name === name))
     .filter((x) => x) as Augment[]
 }
-
-export const MAX_AUGMENTS_PER_SLOT = 8
-export const augmentsPerSlotAtom = atomWithStorage("augmentPerSlot", 4)
 
 const augmentSlotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1Aug",

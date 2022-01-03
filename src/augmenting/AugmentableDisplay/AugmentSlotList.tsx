@@ -7,11 +7,8 @@ import {
   TextField,
 } from "@mui/material"
 import { allAugments } from "augmenting/data/augments"
-import {
-  AugmentableSlot,
-  useAugmentable,
-} from "augmenting/state/augmentableState"
-import { Augment } from "augmenting/types"
+import { useAugmentable } from "augmenting/state/augmentableState"
+import { Augment, AugmentableSlot } from "augmenting/types"
 import { useCallback } from "react"
 
 type AugmentLineProps = {
@@ -78,6 +75,8 @@ type AugmentSlotListProps = {
   slot: AugmentableSlot
 }
 
+const slotListSize = 6
+
 export function AugmentSlotList({ slot }: AugmentSlotListProps) {
   const { augments, max } = useAugmentable(slot)
 
@@ -86,12 +85,12 @@ export function AugmentSlotList({ slot }: AugmentSlotListProps) {
   return (
     <Grid container spacing={2}>
       {augments.map((aug, index) => (
-        <Grid key={`${slot}aug${index}`} item xs={12}>
+        <Grid key={`${slot}aug${index}`} item xs={slotListSize}>
           <AugmentLine slot={slot} number={index} augment={aug} />
         </Grid>
       ))}
       {displayEmpty ? (
-        <Grid item xs={12}>
+        <Grid item xs={slotListSize}>
           <AugmentLine
             slot={slot}
             number={augments.length}

@@ -1,9 +1,8 @@
-import { atomFamily, atomWithHash } from "jotai/utils"
+import { atomFamily, atomWithHash, atomWithStorage } from "jotai/utils"
 import { toId, fromId, flipTable, translateKeys } from "utils"
-import { AugmentableSlot, UnitSlot } from "./augmentableState"
 import { allUnits } from "../data/armours"
 import { allWeapons } from "../data/weapons"
-import { Unit, Weapon } from "../types"
+import { AugmentableSlot, Unit, UnitSlot, Weapon } from "../types"
 
 type SerializedEquippableState = {
   name?: string
@@ -24,6 +23,9 @@ const slotToHash: Record<AugmentableSlot, string> = {
   unit3: "u3",
   weapon: "w",
 }
+
+export const MAX_AUGMENTS_PER_SLOT = 8
+export const augmentsPerSlotAtom = atomWithStorage("augmentPerSlot", 4)
 
 export type UnitEquipState = {
   unit: Unit
