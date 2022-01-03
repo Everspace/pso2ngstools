@@ -1,4 +1,4 @@
-import { Box, List, ListItem } from "@mui/material"
+import { List, ListItem } from "@mui/material"
 import { ClassIcon } from "icons"
 import { useAtom } from "jotai"
 import { zero } from "MathConstants"

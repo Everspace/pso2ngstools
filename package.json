@@ -32,7 +32,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "lint": "eslint src",
     "data:build": "esbuild src/scripts/convertAll.ts --bundle --platform=node --target=node16.0 --outdir=build",
     "data": "node build/convertAll.js"
   },
