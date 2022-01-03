@@ -1,4 +1,4 @@
-import { augmentByCategory } from "augmenting/data/augments"
+import { allAugments, augmentByCategory } from "augmenting/data/augments"
 import { augmentStatToDisplayInfo } from "augmenting/info"
 import { augmentFufillsRequirement } from "augmenting/tools"
 import {
@@ -12,9 +12,13 @@ import { atom, WritableAtom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
 import { isNaN, bignumber } from "mathjs"
 
-export const augmentCategoryStateAtom = atom<AugmentCategory>(
-  allAugmentCategories[0],
-)
+export type SearchAugmentCategory = AugmentCategory | "all"
+export const augmentSearchCategories = [
+  "all",
+  ...[...allAugmentCategories].sort(),
+] as SearchAugmentCategory[]
+
+export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("basic")
 
 export const searchStatFamilyAtom = atomFamily<
   keyof AugmentStat,
@@ -63,6 +67,9 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
 export const searchNameAtom = atomWithReset("")
 export const availableAugments = atom<Augment[]>((get) => {
   const category = get(augmentCategoryStateAtom)
+
+  if (category === "all") return allAugments
+
   const searchStat = get(searchStatAtom)
   const searchName = get(searchNameAtom).toLocaleLowerCase()
   let filteredAugments = [...augmentByCategory[category]]
