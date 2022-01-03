@@ -54,7 +54,6 @@ export interface Augment {
   name: string
   category: AugmentCategory
   icon: AugmentImageType
-  bp?: number
   tier?: number
   baseName?: string
   location?: string
