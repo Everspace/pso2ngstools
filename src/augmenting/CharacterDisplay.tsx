@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography } from "@mui/material"
+import { Box, Grid, Paper, Typography } from "@mui/material"
 import { useAtomValue } from "jotai/utils"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
 import { ChangeLevelDropdown } from "./ChangeLevelDropdown"
@@ -13,30 +13,34 @@ export function CharacterBPDisplay() {
   const skillBp = skillpoint * 2 * 3
   return (
     <Paper>
-      <Grid
-        container
-        p={1}
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={1}
-      >
-        <Grid item>
-          <ChangeLevelDropdown />
+      <Box p={2}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="center"
+          rowSpacing={2}
+          columnSpacing={1}
+        >
+          <Grid item xs={12}>
+            <Typography>Class: {classBp + skillBp} BP</Typography>
+          </Grid>
+          <Grid item>
+            <ChangeLevelDropdown />
+          </Grid>
+          <Grid item>
+            <ChangeClassDropdown />
+          </Grid>
+          <Grid item>
+            <ChangeSkillpoints />
+          </Grid>
+          <Grid item>
+            <Typography>
+              (Class: {classBp} BP + Skill: {skillBp} BP)
+            </Typography>
+          </Grid>
         </Grid>
-        <Grid item>
-          <ChangeClassDropdown />
-        </Grid>
-        <Grid item>
-          <ChangeSkillpoints />
-        </Grid>
-        <Grid item>
-          <Typography>
-            Base: {classBp + skillBp} BP (Class: {classBp} BP + Skill: {skillBp}{" "}
-            BP)
-          </Typography>
-        </Grid>
-      </Grid>
+      </Box>
     </Paper>
   )
 }

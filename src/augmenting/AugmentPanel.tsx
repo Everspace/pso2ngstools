@@ -22,8 +22,8 @@ export function AugmentPanel() {
   const [bp] = useAtom(bpTotalAtom)
 
   return (
-    <Stack>
-      <Box mb={1}>
+    <Stack spacing={1}>
+      <Box>
         <Typography variant="h3">Augmenting</Typography>
         <Button onClick={randomizeAllAugments}>Randomize</Button>
         <Button color="error" onClick={clearAllAugments}>
@@ -33,11 +33,10 @@ export function AugmentPanel() {
       <Box>
         <ChangeAugmentSlotsDropdown />
       </Box>
-      <Box mt={2} mb={3} pb={1}>
+      <Box>
         <CharacterBPDisplay />
       </Box>
       <Box
-        mb={-1}
         sx={(theme) => ({
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
