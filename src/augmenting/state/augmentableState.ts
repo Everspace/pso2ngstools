@@ -1,6 +1,5 @@
-import { atom, useAtom } from "jotai"
-import { atomFamily, useUpdateAtom, atomWithHash } from "jotai/utils"
-import { useCallback } from "react"
+import { atom } from "jotai"
+import { atomFamily, atomWithHash } from "jotai/utils"
 import { toId, fromId } from "utils"
 import { allAugments } from "../data/augments"
 import { Augment, AugmentableSlot, augmentSlots } from "../types"
@@ -32,50 +31,42 @@ export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   })
 })
 
-export const useAugmentable = (id: AugmentableSlot) => {
-  const [max] = useAtom(augmentsPerSlotAtom)
+export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
+  const targetAtom = augmentableFamily(slot)
+  return atom<undefined, Augment>(undefined, (get, set, augment) => {
+    const max = get(augmentsPerSlotAtom)
+    const prior = get(targetAtom)
+    let newState: Augment[] = [...prior]
 
-  const augmentableAtom = augmentableFamily(id)
-  const [augments, setAugments] = useAtom(augmentableAtom)
-  const updateAugments = useUpdateAtom(augmentableAtom)
+    if (augment.category !== "basic") {
+      newState = newState.filter((a) => a.category !== augment.category)
+    }
+    newState.push(augment)
 
-  const removeAugment = useCallback(
-    (augment: Augment) =>
-      updateAugments((prior) => prior.filter((c) => c.name !== augment.name)),
-    [updateAugments],
-  )
+    if (newState.length > max) {
+      set(targetAtom, prior)
+      return prior
+    }
 
-  const addAugment = useCallback(
-    (augment: Augment) => {
-      updateAugments((prior) => {
-        let newState: Augment[] = [...prior]
+    newState = newState.sort((a, b) => a.name.localeCompare(b.name))
+    set(targetAtom, newState)
+    return newState
+  })
+})
 
-        if (augment.category !== "basic") {
-          newState = newState.filter((a) => a.category !== augment.category)
-        }
-        newState.push(augment)
+export const removeAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
+  const targetAtom = augmentableFamily(slot)
+  return atom<undefined, Augment>(undefined, (_, set, augment) => {
+    set(targetAtom, (prior) => prior.filter((c) => c.name !== augment.name))
+  })
+})
 
-        if (newState.length > max) return prior
-        return newState.sort((a, b) => a.name.localeCompare(b.name))
-      })
-    },
-    [updateAugments, max],
-  )
-
-  const clearAugments = useCallback(
-    () => updateAugments(() => []),
-    [updateAugments],
-  )
-
-  return {
-    max,
-    augments,
-    setAugments,
-    addAugment,
-    removeAugment,
-    clearAugments,
-  }
-}
+export const clearAugmentFamily = atomFamily((slot: AugmentableSlot) => {
+  const targetAtom = augmentableFamily(slot)
+  return atom<undefined, any>(undefined, (_, set) => {
+    set(targetAtom, () => [])
+  })
+})
 
 export const allAugmentsAtom = atom<Augment[]>((get) =>
   augmentSlots.flatMap((n) => get(augmentableFamily(n))),

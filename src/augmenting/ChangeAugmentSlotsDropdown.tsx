@@ -12,20 +12,17 @@ import {
   augmentsPerSlotAtom,
   MAX_AUGMENTS_PER_SLOT,
 } from "./state/equipmentState"
-import { useAllAugments } from "./useAllAugments"
 
 const augmentSlotNumberArray = range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function ChangeAugmentSlotsDropdown() {
   const [augmentsPerSlot, setAugmentsPerSlot] = useAtom(augmentsPerSlotAtom)
-  const { truncateAllAugments } = useAllAugments()
   const handleSetAugmentSlots = useCallback(
     (e: SelectChangeEvent) => {
       if (typeof e.target.value === "number") {
         setAugmentsPerSlot(e.target.value)
-        truncateAllAugments(e.target.value)
       }
     },
-    [setAugmentsPerSlot, truncateAllAugments],
+    [setAugmentsPerSlot],
   )
 
   return (

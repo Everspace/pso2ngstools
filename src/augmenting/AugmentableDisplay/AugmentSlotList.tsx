@@ -7,8 +7,14 @@ import {
   TextField,
 } from "@mui/material"
 import { allAugments } from "augmenting/data/augments"
-import { useAugmentable } from "augmenting/state/augmentableState"
+import {
+  addAugmentAtomFamily,
+  augmentableFamily,
+  removeAugmentAtomFamily,
+} from "augmenting/state/augmentableState"
+import { augmentsPerSlotAtom } from "augmenting/state/equipmentState"
 import { Augment, AugmentableSlot } from "augmenting/types"
+import { useAtomValue, useUpdateAtom } from "jotai/utils"
 import { useCallback } from "react"
 
 type AugmentLineProps = {
@@ -30,7 +36,9 @@ const filteropts = createFilterOptions<Augment>({
 })
 
 function AugmentLine({ augment, number, slot }: AugmentLineProps) {
-  const { augments, removeAugment, addAugment } = useAugmentable(slot)
+  const augments = useAtomValue(augmentableFamily(slot))
+  const removeAugment = useUpdateAtom(removeAugmentAtomFamily(slot))
+  const addAugment = useUpdateAtom(addAugmentAtomFamily(slot))
 
   const handleAutocompleteChange = useCallback(
     (_, v: Augment | null, reason: AutocompleteChangeReason) => {
@@ -78,7 +86,8 @@ type AugmentSlotListProps = {
 const slotListSize = 6
 
 export function AugmentSlotList({ slot }: AugmentSlotListProps) {
-  const { augments, max } = useAugmentable(slot)
+  const augments = useAtomValue(augmentableFamily(slot))
+  const max = useAtomValue(augmentsPerSlotAtom)
 
   const displayEmpty = augments.length < max
 

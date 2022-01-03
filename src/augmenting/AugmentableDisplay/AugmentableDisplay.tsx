@@ -9,12 +9,15 @@ import {
 } from "@mui/material"
 import { ExpandMore } from "@mui/icons-material"
 import { AugmentStatDisplay } from "../AugmentStatDisplay"
-import { useAugmentable } from "../state/augmentableState"
 import { AugmentableSlot } from "augmenting/types"
 import { AugmentSlotList } from "./AugmentSlotList"
 import { augmentSlotNiceName } from "augmenting/info"
 import { equipBpFamily } from "augmenting/state/bpState"
-import { useAtom } from "jotai"
+import {
+  augmentableFamily,
+  clearAugmentFamily,
+} from "augmenting/state/augmentableState"
+import { useUpdateAtom, useAtomValue } from "jotai/utils"
 
 interface AugmentibleDisplayProps {
   slot: AugmentableSlot
@@ -27,8 +30,9 @@ export function AugmentibleDisplay({
   autocomplete,
   configure,
 }: AugmentibleDisplayProps) {
-  const { augments, clearAugments } = useAugmentable(slot)
-  const [bp] = useAtom(equipBpFamily(slot))
+  const augments = useAtomValue(augmentableFamily(slot))
+  const clearAugments = useUpdateAtom(clearAugmentFamily(slot))
+  const bp = useAtomValue(equipBpFamily(slot))
 
   return (
     <Paper>
