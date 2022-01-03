@@ -1,8 +1,14 @@
-import { ClassLevel, unitSlots } from "augmenting/types"
+import {
+  Augment,
+  AugmentableSlot,
+  ClassLevel,
+  unitSlots,
+} from "augmenting/types"
 import { atom } from "jotai"
+import { atomFamily } from "jotai/utils"
 import { zero } from "MathConstants"
 import { BigNumber, bignumber } from "mathjs"
-import { allAugmentsAtom } from "./augmentableState"
+import { allAugmentsAtom, augmentableFamily } from "./augmentableState"
 import { classInfoAtom, skillpointAtom } from "./characterState"
 import {
   UnitEquipState,
@@ -28,7 +34,7 @@ export function getWeaponBp({
   weapon,
   potential,
   fullyGround,
-}: WeaponEquipState) {
+}: WeaponEquipState): BigNumber {
   const { attackBase, attackMax, varianceHigh, varianceLow } = weapon
   const weaponAtt = fullyGround ? attackMax : attackBase
 
@@ -41,11 +47,23 @@ export function getClassBp({ defense, attack }: ClassLevel): BigNumber {
   return bignumber(defense).div(2).floor().add(attack)
 }
 
+export function getAugmentBp(augs: Augment[]): BigNumber {
+  return augs.reduce((mem, aug) => mem.add(aug.stat.bp ?? zero), zero)
+}
+
+export const equipBpFamily = atomFamily((slot: AugmentableSlot) =>
+  atom((get) => {
+    const augAtom = augmentableFamily(slot)
+    const augbp = getAugmentBp(get(augAtom))
+    if (slot === "weapon")
+      return getWeaponBp(get(weaponStateAtom)).add(augbp).toNumber()
+    const equipAtom = unitStateFamily(slot)
+    return getUnitBp(get(equipAtom)).add(augbp).toNumber()
+  }),
+)
+
 export const bpTotalAtom = atom((get) => {
-  const augmentBp = get(allAugmentsAtom).reduce(
-    (mem, aug) => mem.add(aug.stat.bp ?? zero),
-    zero,
-  )
+  const augmentBp = getAugmentBp(get(allAugmentsAtom))
 
   const unitBp = unitSlots
     .map((s) => get(unitStateFamily(s)))

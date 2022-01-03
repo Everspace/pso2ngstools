@@ -61,7 +61,6 @@ export function AugmentStatDisplay({
 
   return (
     <List dense>
-      <ListItem>BP: {bp ? bp.toString() : "?"}</ListItem>
       {hpppLine.length > 0 ? <ListItem>{hpppLine.join(", ")}</ListItem> : null}
       {(Object.keys(listableStats) as (keyof AugmentStat)[])
         .sort((a, b) => {

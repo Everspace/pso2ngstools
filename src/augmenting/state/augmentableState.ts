@@ -19,7 +19,7 @@ const augmentSlotToHash: Record<AugmentableSlot, string> = {
   weapon: "wAug",
 }
 
-const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
+export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   const id = augmentSlotToHash[slot]
   return atomWithHash<Augment[]>(id, [], {
     replaceState: true,

@@ -7,11 +7,10 @@ import { AugmentStat } from "./types"
 import { sumAugmentStats } from "./tools"
 import { useAllAugments } from "./useAllAugments"
 import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
-import { CharacterDisplay } from "./CharacterDisplay"
-import { ChangeLevelDropdown } from "./ChangeLevelDropdown"
-import { ChangeClassDropdown } from "./ChangeClassDropdown"
+import { CharacterBPDisplay } from "./CharacterDisplay"
 import { WeaponDisplay } from "./AugmentableDisplay/WeaponDisplay"
 import { UnitDisplay } from "./AugmentableDisplay/UnitDisplay"
+import { bpTotalAtom } from "./state/bpState"
 
 const statTotalAtom = atom<AugmentStat>((get) =>
   sumAugmentStats(get(allAugmentsAtom)),
@@ -20,6 +19,7 @@ const statTotalAtom = atom<AugmentStat>((get) =>
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
   const [stats] = useAtom(statTotalAtom)
+  const [bp] = useAtom(bpTotalAtom)
 
   return (
     <Stack spacing={1}>
@@ -32,11 +32,9 @@ export function AugmentPanel() {
       </Box>
       <Box>
         <ChangeAugmentSlotsDropdown />
-        <ChangeLevelDropdown />
-        <ChangeClassDropdown />
       </Box>
       <Box>
-        <CharacterDisplay />
+        <CharacterBPDisplay />
       </Box>
       <Box>
         <Grid
@@ -64,7 +62,7 @@ export function AugmentPanel() {
         </Grid>
       </Box>
       <Paper sx={{ m: 2, p: 2 }}>
-        <Typography variant="h5">Total</Typography>
+        <Typography variant="h5">Total - {bp} BP</Typography>
         <AugmentStatDisplay simple stat={stats} />
       </Paper>
       <AugmentCategoryDisplay />

@@ -13,6 +13,8 @@ import { useAugmentable } from "../state/augmentableState"
 import { AugmentableSlot } from "augmenting/types"
 import { AugmentSlotList } from "./AugmentSlotList"
 import { augmentSlotNiceName } from "augmenting/info"
+import { equipBpFamily } from "augmenting/state/bpState"
+import { useAtom } from "jotai"
 
 interface AugmentibleDisplayProps {
   slot: AugmentableSlot
@@ -26,12 +28,15 @@ export function AugmentibleDisplay({
   configure,
 }: AugmentibleDisplayProps) {
   const { augments, clearAugments } = useAugmentable(slot)
+  const [bp] = useAtom(equipBpFamily(slot))
 
   return (
     <Paper>
       <Grid container px={2} spacing={2}>
         <Grid item xs={12}>
-          <Typography>{augmentSlotNiceName[slot]}</Typography>
+          <Typography>
+            {augmentSlotNiceName[slot]} - {bp} BP
+          </Typography>
         </Grid>
         <Grid item xs={12}>
           {autocomplete}
