@@ -2,6 +2,7 @@ import {
   Autocomplete,
   AutocompleteChangeReason,
   Box,
+  createFilterOptions,
   Grid,
   TextField,
 } from "@mui/material"
@@ -20,12 +21,16 @@ type AugmentLineProps = {
 }
 
 function augmentToName(augment: Augment) {
-  return augment.name
+  return `${augment.name} - ${augment.stat.bp ?? "??"} BP `
 }
 
 function augmentEqual(a: Augment, b: Augment) {
   return a.name === b.name
 }
+
+const filteropts = createFilterOptions<Augment>({
+  stringify: augmentToName,
+})
 
 function AugmentLine({ augment, number, slot }: AugmentLineProps) {
   const { augments, removeAugment, addAugment } = useAugmentable(slot)
@@ -53,6 +58,7 @@ function AugmentLine({ augment, number, slot }: AugmentLineProps) {
       filterSelectedOptions
       options={allAugments}
       value={augment || null}
+      filterOptions={filteropts}
       isOptionEqualToValue={augmentEqual}
       onChange={handleAutocompleteChange}
       renderOption={(props, option) => (
