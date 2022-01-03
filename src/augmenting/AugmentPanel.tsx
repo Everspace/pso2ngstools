@@ -1,11 +1,9 @@
 import { Stack, Box, Typography, Grid, Button, Paper } from "@mui/material"
 import { atom, useAtom } from "jotai"
-import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import {
   allAugmentsAtom,
-  augmentSlots,
   MAX_AUGMENTS_PER_SLOT,
 } from "./state/augmentableState"
 import { range } from "lodash"
@@ -16,6 +14,8 @@ import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
 import { CharacterDisplay } from "./CharacterDisplay"
 import { ChangeLevelDropdown } from "./ChangeLevelDropdown"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
+import { WeaponDisplay } from "./AugmentableDisplay/WeaponDisplay"
+import { UnitDisplay } from "./AugmentableDisplay/UnitDisplay"
 
 const statTotalAtom = atom<AugmentStat>((get) =>
   sumAugmentStats(get(allAugmentsAtom)),
@@ -51,11 +51,18 @@ export function AugmentPanel() {
           alignItems="baseline"
           spacing={2}
         >
-          {augmentSlots.map((slot) => (
-            <Grid xs={6} md={3} item key={slot}>
-              <AugmentibleDisplay slot={slot} />
-            </Grid>
-          ))}
+          <Grid xs={12} md={6} item>
+            <WeaponDisplay />
+          </Grid>
+          <Grid xs={12} md={6} item>
+            <UnitDisplay slot="unit1" />
+          </Grid>
+          <Grid xs={12} md={6} item>
+            <UnitDisplay slot="unit2" />
+          </Grid>
+          <Grid xs={12} md={6} item>
+            <UnitDisplay slot="unit3" />
+          </Grid>
         </Grid>
       </Box>
       <Paper sx={{ m: 2, p: 2 }}>

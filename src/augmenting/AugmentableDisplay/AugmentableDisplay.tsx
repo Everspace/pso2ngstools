@@ -9,13 +9,12 @@ import {
   ListItem,
   Typography,
 } from "@mui/material"
-import { AugmentStatDisplay } from "./AugmentStatDisplay"
+import { AugmentStatDisplay } from "../AugmentStatDisplay"
 import {
   AugmentableSlot,
-  augmentSlotNiceName,
   useAugmentable,
-} from "./state/augmentableState"
-
+  augmentSlotNiceName,
+} from "../state/augmentableState"
 export interface AugmentibleDisplayProps {
   slot: AugmentableSlot
 }
