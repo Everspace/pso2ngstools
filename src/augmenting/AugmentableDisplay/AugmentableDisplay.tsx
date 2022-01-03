@@ -12,6 +12,7 @@ import { AugmentStatDisplay } from "../AugmentStatDisplay"
 import { useAugmentable } from "../state/augmentableState"
 import { AugmentableSlot } from "augmenting/types"
 import { AugmentSlotList } from "./AugmentSlotList"
+import { augmentSlotNiceName } from "augmenting/info"
 
 interface AugmentibleDisplayProps {
   slot: AugmentableSlot
@@ -28,12 +29,21 @@ export function AugmentibleDisplay({
 
   return (
     <Paper>
-      <Grid container p={2} rowSpacing={1}>
+      <Grid container px={2} spacing={2}>
+        <Grid item xs={12}>
+          <Typography>{augmentSlotNiceName[slot]}</Typography>
+        </Grid>
         <Grid item xs={12}>
           {autocomplete}
         </Grid>
         <Grid item xs={12}>
+          <Typography>Config:</Typography>
+        </Grid>
+        <Grid item xs={12}>
           {configure}
+        </Grid>
+        <Grid item xs={12}>
+          <Typography>Augments:</Typography>
         </Grid>
         <Grid item xs={12}>
           <AugmentSlotList slot={slot} />

@@ -41,22 +41,25 @@ export function AugmentPanel() {
       <Box>
         <Grid
           container
-          direction="row"
-          justifyContent="space-evenly"
-          alignItems="baseline"
+          justifyItems="center"
+          alignItems="flex-start"
           spacing={2}
         >
-          <Grid xs={12} md={6} item>
-            <WeaponDisplay />
+          <Grid xs={12} md={6} spacing={4} item container direction="column">
+            <Grid item>
+              <WeaponDisplay />
+            </Grid>
+            <Grid item>
+              <UnitDisplay slot="unit3" />
+            </Grid>
           </Grid>
-          <Grid xs={12} md={6} item>
-            <UnitDisplay slot="unit1" />
-          </Grid>
-          <Grid xs={12} md={6} item>
-            <UnitDisplay slot="unit2" />
-          </Grid>
-          <Grid xs={12} md={6} item>
-            <UnitDisplay slot="unit3" />
+          <Grid xs={12} md={6} spacing={4} item container direction="column">
+            <Grid item>
+              <UnitDisplay slot="unit1" />
+            </Grid>
+            <Grid item>
+              <UnitDisplay slot="unit2" />
+            </Grid>
           </Grid>
         </Grid>
       </Box>

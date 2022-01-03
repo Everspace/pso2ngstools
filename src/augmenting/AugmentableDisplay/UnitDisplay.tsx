@@ -1,8 +1,9 @@
 import {
   Autocomplete,
   Box,
-  Button,
+  Checkbox,
   createFilterOptions,
+  FormControlLabel,
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
@@ -11,7 +12,6 @@ import { useCallback } from "react"
 import { Unit, UnitSlot } from "augmenting/types"
 import { allUnits } from "augmenting/data/armours"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
-import { augmentSlotNiceName } from "augmenting/info"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -61,9 +61,7 @@ function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
         </Box>
       )}
       getOptionLabel={unitToName}
-      renderInput={(params) => (
-        <TextField {...params} label={augmentSlotNiceName[slot]} />
-      )}
+      renderInput={(params) => <TextField {...params} label="Name" />}
     />
   )
 }
@@ -80,13 +78,12 @@ function UnitConfig({ slot }: UnitConfigProps) {
   )
   return (
     <>
-      <Button
-        variant={fullyGround ? "contained" : "outlined"}
-        size="small"
-        onClick={toggleGrind}
-      >
-        Full Grind
-      </Button>
+      <FormControlLabel
+        control={
+          <Checkbox size="small" checked={fullyGround} onClick={toggleGrind} />
+        }
+        label="Full Grind"
+      />
     </>
   )
 }
@@ -99,7 +96,7 @@ export function UnitDisplay({ slot }: UnitDisplayProps) {
     <AugmentibleDisplay
       slot={slot}
       autocomplete={<UnitAutocomplete slot={slot} />}
-      configure={UnitConfig}
+      configure={<UnitConfig slot={slot} />}
     />
   )
 }

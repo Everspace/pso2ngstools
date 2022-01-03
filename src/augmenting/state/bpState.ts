@@ -1,8 +1,8 @@
-import { ClassLevel } from "augmenting/types"
+import { ClassLevel, unitSlots } from "augmenting/types"
 import { atom } from "jotai"
 import { zero } from "MathConstants"
 import { BigNumber, bignumber } from "mathjs"
-import { allAugmentsAtom, unitSlots } from "./augmentableState"
+import { allAugmentsAtom } from "./augmentableState"
 import { classInfoAtom, skillpointAtom } from "./characterState"
 import {
   UnitEquipState,

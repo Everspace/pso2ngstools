@@ -1,7 +1,15 @@
 import {
   Autocomplete,
   Box,
+  Checkbox,
   createFilterOptions,
+  FormControl,
+  FormControlLabel,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
@@ -10,7 +18,7 @@ import { allWeapons } from "augmenting/data/weapons"
 import { useCallback } from "react"
 import { Weapon } from "augmenting/types"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
-import { augmentSlotNiceName } from "augmenting/info"
+import { range } from "lodash"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)
@@ -51,10 +59,73 @@ function WeaponAutocomplete() {
         </Box>
       )}
       getOptionLabel={weaponToName}
-      renderInput={(params) => (
-        <TextField {...params} label={augmentSlotNiceName["weapon"]} />
-      )}
+      renderInput={(params) => <TextField {...params} label="Name" />}
     />
+  )
+}
+
+const potentialLevels = range(0, 5)
+function ChangePotentialDropdown() {
+  const [{ potential }, setWeaponState] = useAtom(weaponStateAtom)
+  const handleSetAugmentSlots = useCallback(
+    (e: SelectChangeEvent<number>) => {
+      const value = e.target.value
+      if (typeof value === "number") {
+        setWeaponState((prior) => ({ ...prior, potential: value }))
+      }
+    },
+    [setWeaponState],
+  )
+
+  return (
+    <FormControl fullWidth>
+      <InputLabel>Potential</InputLabel>
+      <Select
+        label="Potential"
+        typeof="number"
+        onChange={handleSetAugmentSlots}
+        value={potential}
+      >
+        {potentialLevels.map((i) => (
+          <MenuItem key={i} value={i}>
+            {i}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  )
+}
+
+function WeaponConfig() {
+  const [{ fullyGround }, setWeaponState] = useAtom(weaponStateAtom)
+  const toggleGrind = useCallback(
+    () =>
+      setWeaponState((prior) => ({
+        ...prior,
+        fullyGround: !prior.fullyGround,
+      })),
+    [setWeaponState],
+  )
+
+  return (
+    <Grid container>
+      <Grid item>
+        <FormControlLabel
+          sx={{ mt: 1 }}
+          control={
+            <Checkbox
+              size="small"
+              checked={fullyGround}
+              onClick={toggleGrind}
+            />
+          }
+          label="Full Grind"
+        />
+      </Grid>
+      <Grid item xs={3} lg={2}>
+        <ChangePotentialDropdown />
+      </Grid>
+    </Grid>
   )
 }
 
@@ -62,7 +133,8 @@ export function WeaponDisplay() {
   return (
     <AugmentibleDisplay
       slot="weapon"
-      autocomplete={() => <WeaponAutocomplete />}
+      autocomplete={<WeaponAutocomplete />}
+      configure={<WeaponConfig />}
     />
   )
 }
