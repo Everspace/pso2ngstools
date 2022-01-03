@@ -1,24 +1,11 @@
-import {
-  Autocomplete,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  TextField,
-  Typography,
-} from "@mui/material"
+import { Autocomplete, Box, TextField } from "@mui/material"
 import { useAtom } from "jotai"
-import { AugmentStatDisplay } from "../AugmentStatDisplay"
-import {
-  augmentSlotNiceName,
-  useAugmentable,
-} from "augmenting/state/augmentableState"
+import { augmentSlotNiceName } from "augmenting/state/augmentableState"
 import { weaponStateAtom } from "augmenting/state/equipmentState"
 import { allWeapons } from "augmenting/data/weapons"
 import { useCallback } from "react"
 import { Weapon } from "augmenting/types"
-import { AugmentSlotList } from "./AugmentSlotList"
+import { AugmentibleDisplay } from "./AugmentableDisplay"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)
@@ -62,27 +49,10 @@ function WeaponAutocomplete() {
 }
 
 export function WeaponDisplay() {
-  const { augments, clearAugments } = useAugmentable("weapon")
-
   return (
-    <Card>
-      <CardHeader
-        title={<WeaponAutocomplete />}
-        action={
-          <Button color="error" onClick={clearAugments}>
-            Clear
-          </Button>
-        }
-      />
-      <CardContent>
-        <AugmentSlotList slot="weapon" />
-      </CardContent>
-      {augments.length > 0 ? (
-        <CardContent>
-          <Typography>Stats</Typography>
-          <AugmentStatDisplay simple stat={augments} />
-        </CardContent>
-      ) : null}
-    </Card>
+    <AugmentibleDisplay
+      slot="weapon"
+      autocomplete={() => <WeaponAutocomplete />}
+    />
   )
 }

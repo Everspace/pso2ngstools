@@ -1,25 +1,14 @@
-import {
-  Autocomplete,
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  TextField,
-  Typography,
-} from "@mui/material"
+import { Autocomplete, Box, TextField } from "@mui/material"
 import { useAtom } from "jotai"
-import { AugmentStatDisplay } from "../AugmentStatDisplay"
 import {
   augmentSlotNiceName,
   UnitSlot,
-  useAugmentable,
 } from "augmenting/state/augmentableState"
 import { unitStateFamily } from "augmenting/state/equipmentState"
 import { useCallback } from "react"
 import { Unit } from "augmenting/types"
-import { AugmentSlotList } from "./AugmentSlotList"
 import { allUnits } from "augmenting/data/armours"
+import { AugmentibleDisplay } from "./AugmentableDisplay"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -30,9 +19,14 @@ function unitToName(w: Unit) {
   return `${w.stars}⭐ ${w.name}`
 }
 
+function unitEqual(a: Unit, b: Unit) {
+  return a.name === b.name
+}
+
 type UnitAutocompleteProps = {
   slot: UnitSlot
 }
+
 function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
   const [{ unit, fullyGround }, setUnitState] = useAtom(unitStateFamily(slot))
   const handleAutocompleteChange = useCallback(
@@ -48,9 +42,11 @@ function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
       autoComplete={false}
       disablePortal
       disableClearable
+      filterSelectedOptions
       options={unitSelections}
       value={unit}
       onChange={handleAutocompleteChange}
+      isOptionEqualToValue={unitEqual}
       renderOption={(props, option) => (
         <Box component="li" {...props}>
           {unitToName(option)}
@@ -68,27 +64,10 @@ type UnitDisplayProps = {
   slot: UnitSlot
 }
 export function UnitDisplay({ slot }: UnitDisplayProps) {
-  const { augments, clearAugments } = useAugmentable(slot)
-
   return (
-    <Card>
-      <CardHeader
-        title={<UnitAutocomplete slot={slot} />}
-        action={
-          <Button color="error" onClick={clearAugments}>
-            Clear
-          </Button>
-        }
-      />
-      <CardContent>
-        <AugmentSlotList slot="weapon" />
-      </CardContent>
-      {augments.length > 0 ? (
-        <CardContent>
-          <Typography>Stats</Typography>
-          <AugmentStatDisplay simple stat={augments} />
-        </CardContent>
-      ) : null}
-    </Card>
+    <AugmentibleDisplay
+      slot={slot}
+      autocomplete={() => <UnitAutocomplete slot={slot} />}
+    />
   )
 }

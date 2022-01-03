@@ -1,73 +1,56 @@
-import { Delete } from "@mui/icons-material"
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Button,
-  Card,
-  CardContent,
-  CardHeader,
-  IconButton,
-  List,
-  ListItem,
+  Grid,
+  Paper,
   Typography,
 } from "@mui/material"
+import { ExpandMore } from "@mui/icons-material"
 import { AugmentStatDisplay } from "../AugmentStatDisplay"
-import {
-  AugmentableSlot,
-  useAugmentable,
-  augmentSlotNiceName,
-} from "../state/augmentableState"
-export interface AugmentibleDisplayProps {
+import { AugmentableSlot, useAugmentable } from "../state/augmentableState"
+import { AugmentSlotList } from "./AugmentSlotList"
+
+interface AugmentibleDisplayProps {
   slot: AugmentableSlot
+  autocomplete: () => React.ReactNode
 }
 
-export function AugmentibleDisplay({ slot }: AugmentibleDisplayProps) {
-  const { augments, clearAugments, removeAugment, max } = useAugmentable(slot)
-  const allSlots = Array.from(Array(max).keys())
+export function AugmentibleDisplay({
+  slot,
+  autocomplete,
+}: AugmentibleDisplayProps) {
+  const { augments, clearAugments } = useAugmentable(slot)
 
   return (
-    <Card>
-      <CardHeader
-        title={augmentSlotNiceName[slot]}
-        action={
-          <Button color="error" onClick={clearAugments}>
-            Clear
+    <Paper>
+      <Grid container p={2} rowSpacing={1}>
+        <Grid item xs={12}>
+          {autocomplete()}
+        </Grid>
+        <Grid item xs={12}>
+          <AugmentSlotList slot={slot} />
+        </Grid>
+        <Grid item xs={12}>
+          <Button sx={{ float: "right" }} color="error" onClick={clearAugments}>
+            Clear Augments
           </Button>
-        }
-      />
-      <CardContent>
-        <List dense>
-          {allSlots.map((_, index) => {
-            const aug = augments[index]
-            if (!aug) {
-              return (
-                <ListItem key={`empty ${index}`}>
-                  <IconButton disabled size="small">
-                    <Delete />
-                  </IconButton>
-                  Empty Slot
-                </ListItem>
-              )
-            }
-            return (
-              <ListItem key={aug.name}>
-                <IconButton
-                  size="small"
-                  color="error"
-                  onClick={() => removeAugment(aug)}
-                >
-                  <Delete />
-                </IconButton>
-                {aug.rate * 10}% - {aug.name}
-              </ListItem>
-            )
-          })}
-        </List>
-      </CardContent>
-      {augments.length > 0 ? (
-        <CardContent>
-          <Typography>Stats</Typography>
-          <AugmentStatDisplay simple stat={augments} />
-        </CardContent>
-      ) : null}
-    </Card>
+        </Grid>
+      </Grid>
+      <Accordion
+        disabled={augments.length === 0}
+        TransitionProps={{ unmountOnExit: true }}
+      >
+        <AccordionSummary expandIcon={<ExpandMore />}>
+          <Typography>Stat total</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {augments.length > 0 ? (
+            <AugmentStatDisplay simple stat={augments} />
+          ) : null}
+        </AccordionDetails>
+      </Accordion>
+    </Paper>
   )
 }
