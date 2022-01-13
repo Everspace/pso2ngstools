@@ -10,7 +10,7 @@ import { atomFamily } from "jotai/utils"
 import { zero } from "MathConstants"
 import { BigNumber, bignumber } from "mathjs"
 import { allAugmentsAtom, augmentableFamily } from "./augmentableState"
-import { classNameAtom, levelAtom, skillpointAtom } from "./characterState"
+import { classInfoAtom, skillpointAtom } from "./characterState"
 import {
   UnitEquipState,
   unitStateFamily,
@@ -18,17 +18,27 @@ import {
   weaponStateAtom,
 } from "./equipmentState"
 
-export function getUnitBp({ unit, fullyGround }: UnitEquipState) {
+function getDefenseBp(def: BigNumber | number): BigNumber {
+  let d
+  if (typeof def == "number") d = bignumber(def)
+  else d = def
+  return d.div(2)
+}
+
+function getUnitBp({ unit, fullyGround }: UnitEquipState) {
   const {
     defenseBase,
     defenseMax,
     stat: { hp, pp },
   } = unit
 
-  return zero
-    .add((fullyGround ? defenseMax : defenseBase).div(2).floor())
-    .add((hp ?? zero).div(10).floor())
-    .add(pp ?? 0)
+  const def = fullyGround ? defenseMax : defenseBase
+
+  const hpBp = (hp ?? zero).div(10)
+  const ppBp = pp ?? 0
+  const defBp = getDefenseBp(def)
+
+  return { defBp, statBp: zero.add(hpBp).add(ppBp) }
 }
 
 export function getWeaponBp({
@@ -39,13 +49,15 @@ export function getWeaponBp({
   const { attackBase, attackMax, varianceHigh, varianceLow } = weapon
   const weaponAtt = fullyGround ? attackMax : attackBase
 
-  return zero
-    .add(potential * 10)
-    .add(weaponAtt.mul(varianceLow.add(varianceHigh).div(2)).floor())
+  const medianDamage = varianceLow.add(varianceHigh).div(2)
+  const attBp = weaponAtt.mul(medianDamage).floor()
+  const potentialBp = potential * 10
+
+  return zero.add(attBp).add(potentialBp)
 }
 
 export function getClassBp({ defense, attack }: ClassLevel): BigNumber {
-  return bignumber(defense).div(2).floor().add(attack)
+  return getDefenseBp(defense).add(attack)
 }
 
 export function getAugmentBp(augs: Augment[]): BigNumber {
@@ -59,38 +71,47 @@ export const equipBpFamily = atomFamily((slot: AugmentableSlot) =>
     if (slot === "weapon")
       return getWeaponBp(get(weaponStateAtom)).add(augbp).toNumber()
     const equipAtom = unitStateFamily(slot)
-    return getUnitBp(get(equipAtom)).add(augbp).toNumber()
+    const { defBp, statBp } = getUnitBp(get(equipAtom))
+    return zero.add(defBp).add(statBp).add(augbp).toNumber()
   }),
 )
 
 export const classBpAtom = atom((get) => {
-  const className = get(classNameAtom)
-  const classLevel = get(levelAtom)
-  const classInfo = allClassData[className][classLevel]
+  const classInfo = get(classInfoAtom)
   return getClassBp(classInfo)
 })
 
+function getUnitDefense({ unit, fullyGround }: UnitEquipState): BigNumber {
+  return fullyGround ? unit.defenseMax : unit.defenseBase
+}
+
 export const bpTotalAtom = atom((get) => {
   const augmentBp = getAugmentBp(get(allAugmentsAtom))
+  const unitStates = unitSlots.map((s) => get(unitStateFamily(s)))
 
-  const unitBp = unitSlots
-    .map((s) => get(unitStateFamily(s)))
-    .reduce((memory, state) => {
-      return memory.add(getUnitBp(state))
-    }, zero)
+  const unitDefenseBp = unitStates
+    .map(getUnitDefense)
+    .map(getDefenseBp)
+    .reduce((mem, bp) => mem.add(bp), zero)
+
+  const classBp = get(classBpAtom)
+
+  const unitStatBp = unitStates
+    .map(getUnitBp)
+    .reduce((memory, unitBp) => memory.add(unitBp.statBp), zero)
 
   // TODO: Special correction value by special ability?
 
   const weaponBp = getWeaponBp(get(weaponStateAtom))
-  const classBp = get(classBpAtom)
-
   const skillpointBp = get(skillpointAtom) * 3 * 2 // points x3 for class and sub
 
   return zero
     .add(augmentBp)
-    .add(unitBp)
     .add(weaponBp)
     .add(classBp)
     .add(skillpointBp)
+    .add(unitDefenseBp)
+    .add(unitStatBp)
+    .floor()
     .toNumber()
 })

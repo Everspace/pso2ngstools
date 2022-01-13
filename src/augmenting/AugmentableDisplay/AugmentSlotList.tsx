@@ -24,7 +24,7 @@ type AugmentLineProps = {
 }
 
 function augmentToName(augment: Augment) {
-  return `${augment.name} - ${augment.stat.bp ?? "??"} BP `
+  return `${augment.name} - ${augment.stat.bp?.toNumber() ?? "??"} BP`
 }
 
 function augmentEqual(a: Augment, b: Augment) {
@@ -71,7 +71,11 @@ function AugmentLine({ augment, number, slot }: AugmentLineProps) {
           {augmentToName(option)}
         </Box>
       )}
-      getOptionLabel={(aug) => `${aug.name} - ${aug.rate * 10}%`}
+      getOptionLabel={(aug) =>
+        `${aug.name} (${aug.stat.bp?.toNumber() ?? "??"} BP) - ${
+          aug.rate * 10
+        }%`
+      }
       renderInput={(params) => (
         <TextField {...params} label={`Augment #${number + 1}`} />
       )}
