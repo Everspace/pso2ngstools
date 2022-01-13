@@ -1,4 +1,3 @@
-import { allClassData } from "augmenting/data/class"
 import {
   Augment,
   AugmentableSlot,
