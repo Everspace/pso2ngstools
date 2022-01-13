@@ -1,6 +1,12 @@
 import { AugmentImageType } from "./images/augment"
 import { BigNumber } from "mathjs"
 
+export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
+export type AugmentableSlot = typeof augmentSlots[number]
+
+export type UnitSlot = Exclude<AugmentableSlot, "weapon">
+export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
+
 export interface AugmentStat {
   bp?: BigNumber
   hp?: BigNumber
@@ -55,7 +61,6 @@ export interface Augment {
   name: string
   category: AugmentCategory
   icon: AugmentImageType
-  bp?: number
   tier?: number
   baseName?: string
   location?: string
@@ -84,8 +89,8 @@ export type Unit = {
   name: string
   level: number
   stars: number
-  defenseBase: number
-  defenseMax: number
+  defenseBase: BigNumber
+  defenseMax: BigNumber
   stat: AugmentStat
 }
 
@@ -93,15 +98,36 @@ export type Weapon = {
   name: string
   level: number
   stars: number
-  attackBase: number
-  attackMax: number
+  attackBase: BigNumber
+  attackMax: BigNumber
   element?: string // TODO: add all the valid elements
   /**
    * Default 70
    */
-  varianceLow?: number
+  varianceLow: BigNumber
   /**
    * Default 100
    */
-  varianceHigh?: number
+  varianceHigh: BigNumber
 }
+
+export const allClasses = [
+  "Hu",
+  "Fi",
+  "Ra",
+  "Gu",
+  "Fo",
+  "Te",
+  "Br",
+  "Bo",
+] as const
+
+export type ClassAbbreviation = typeof allClasses[number]
+
+export type ClassLevel = {
+  hp?: number
+  attack: number
+  defense: number
+}
+
+export type ClassData = Record<ClassAbbreviation, ClassLevel[]>

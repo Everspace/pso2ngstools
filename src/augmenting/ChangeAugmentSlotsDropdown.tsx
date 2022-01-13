@@ -6,33 +6,34 @@ import {
   InputLabel,
 } from "@mui/material"
 import { useAtom } from "jotai"
-import { augmentsPerSlotAtom } from "./augmentableState"
+import { range } from "lodash"
 import { useCallback } from "react"
-import { useAllAugments } from "./useAllAugments"
-import { numbers } from "./AugmentPanel"
+import {
+  augmentsPerSlotAtom,
+  MAX_AUGMENTS_PER_SLOT,
+} from "./state/equipmentState"
 
+const augmentSlotNumberArray = range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function ChangeAugmentSlotsDropdown() {
   const [augmentsPerSlot, setAugmentsPerSlot] = useAtom(augmentsPerSlotAtom)
-  const { truncateAllAugments } = useAllAugments()
   const handleSetAugmentSlots = useCallback(
     (e: SelectChangeEvent) => {
       if (typeof e.target.value === "number") {
         setAugmentsPerSlot(e.target.value)
-        truncateAllAugments(e.target.value)
       }
     },
-    [setAugmentsPerSlot, truncateAllAugments],
+    [setAugmentsPerSlot],
   )
 
   return (
-    <FormControl size="small" variant="standard" sx={{ m: 1 }}>
-      <InputLabel>Aug #</InputLabel>
+    <FormControl size="small" sx={{ minWidth: 100 }}>
+      <InputLabel>Aug # Max</InputLabel>
       <Select
         label="Augment"
         onChange={handleSetAugmentSlots}
         value={augmentsPerSlot.toString()}
       >
-        {numbers.map((i) => (
+        {augmentSlotNumberArray.map((i) => (
           <MenuItem key={i} value={i}>
             {i}
           </MenuItem>

@@ -1,6 +1,6 @@
-import { bignumber } from "mathjs"
+import { BigNumber, bignumber } from "mathjs"
 import { one, zero } from "../MathConstants"
-import { Augment, AugmentStat, Unit } from "./types"
+import { Augment, AugmentStat, Unit, Weapon } from "./types"
 
 export const augmentTierToRoman = [
   "I",
@@ -42,8 +42,57 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
 }
 
 export const toUnitReal = (unit: Unit): Unit => {
-  unit.stat = toAugmentStatReal(unit.stat)
-  return unit
+  const { stat, defenseBase, defenseMax } = unit
+  return {
+    ...unit,
+    defenseBase: bignumber(defenseBase),
+    defenseMax: bignumber(defenseMax),
+    stat: toAugmentStatReal(stat),
+  }
+}
+
+export function augmentifyUnit(unit: Unit): Augment {
+  return {
+    name: unit.name,
+    icon: "special",
+    rate: 10,
+    category: "basic",
+    stat: unit.stat,
+  }
+}
+
+export type WeaponRange = {
+  min: BigNumber
+  max: BigNumber
+}
+
+export function rangeFromWeaponAugments(
+  weapon: Weapon,
+  augment?: AugmentStat | null,
+): WeaponRange {
+  let min = weapon.varianceLow
+  let max = weapon.varianceHigh
+
+  if (augment) {
+    min = min.mul(augment.floorPotency ?? one)
+    // TODO max = max.mul(augment.ceilingPotency ?? one) perhaps eventually?
+  }
+
+  return {
+    min,
+    max,
+  }
+}
+
+export const toWeaponReal = (weapon: Weapon): Weapon => {
+  const { attackBase, attackMax, varianceHigh, varianceLow } = weapon
+  return {
+    ...weapon,
+    attackBase: bignumber(attackBase),
+    attackMax: bignumber(attackMax),
+    varianceHigh: bignumber(varianceHigh ?? 100).dividedBy(100),
+    varianceLow: bignumber(varianceLow ?? 70).dividedBy(100),
+  }
 }
 
 export const toAugmentReal = (augment: Augment): Augment => {

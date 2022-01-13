@@ -7,7 +7,7 @@ import {
   RangeIcon,
   TechIcon,
 } from "./images/icon"
-import { AugmentStat, AugmentDisplayInfo } from "./types"
+import { AugmentStat, AugmentDisplayInfo, AugmentableSlot } from "./types"
 
 export const augmentStatToDisplayInfo: Record<
   keyof AugmentStat,
@@ -63,6 +63,13 @@ export const augmentStatToDisplayInfo: Record<
     percent: true,
     Glyph: TechIcon,
   },
+}
+
+export const augmentSlotNiceName: Record<AugmentableSlot, string> = {
+  weapon: "Weapon",
+  unit1: "Unit 1",
+  unit2: "Unit 2",
+  unit3: "Unit 3",
 }
 
 export function augmentValueToString(

@@ -1,18 +1,20 @@
 import { Button, ButtonGroup, List, ListItem } from "@mui/material"
-import { Augment } from "augmenting/types"
-import {
-  AugmentableSlot,
-  augmentSlotNiceName,
-  useAugmentable,
-} from "augmenting/augmentableState"
+import { Augment, AugmentableSlot } from "augmenting/types"
 import { flatten, includes } from "lodash"
 import { useMemo, useCallback } from "react"
+import { augmentSlotNiceName } from "augmenting/info"
+import {
+  addAugmentAtomFamily,
+  augmentableFamily,
+  removeAugmentAtomFamily,
+} from "augmenting/state/augmentableState"
+import { useAtomValue, useUpdateAtom } from "jotai/utils"
 
 const useAddToAllButton = (augment: Augment) => {
-  const { addAugment: addToWeapon } = useAugmentable("weapon")
-  const { addAugment: addToUnit1 } = useAugmentable("unit1")
-  const { addAugment: addToUnit2 } = useAugmentable("unit2")
-  const { addAugment: addToUnit3 } = useAugmentable("unit3")
+  const addToWeapon = useUpdateAtom(addAugmentAtomFamily("weapon"))
+  const addToUnit1 = useUpdateAtom(addAugmentAtomFamily("unit1"))
+  const addToUnit2 = useUpdateAtom(addAugmentAtomFamily("unit2"))
+  const addToUnit3 = useUpdateAtom(addAugmentAtomFamily("unit3"))
 
   return useCallback(() => {
     addToWeapon(augment)
@@ -23,9 +25,12 @@ const useAddToAllButton = (augment: Augment) => {
 }
 
 const useAddToUnitsButton = (augment: Augment) => {
-  const { addAugment: addToUnit1, augments: unit1 } = useAugmentable("unit1")
-  const { addAugment: addToUnit2, augments: unit2 } = useAugmentable("unit2")
-  const { addAugment: addToUnit3, augments: unit3 } = useAugmentable("unit3")
+  const addToUnit1 = useUpdateAtom(addAugmentAtomFamily("unit1"))
+  const addToUnit2 = useUpdateAtom(addAugmentAtomFamily("unit2"))
+  const addToUnit3 = useUpdateAtom(addAugmentAtomFamily("unit3"))
+  const unit1 = useAtomValue(augmentableFamily("unit1"))
+  const unit2 = useAtomValue(augmentableFamily("unit2"))
+  const unit3 = useAtomValue(augmentableFamily("unit3"))
 
   const hasAny = useMemo(
     () => includes(flatten([unit1, unit2, unit3]), augment),
@@ -45,14 +50,14 @@ const useAddToUnitsButton = (augment: Augment) => {
 }
 
 const useRemoveAllButton = (augment: Augment) => {
-  const { augments: weapon, removeAugment: removeToWeapon } =
-    useAugmentable("weapon")
-  const { augments: unit1, removeAugment: removeToUnit1 } =
-    useAugmentable("unit1")
-  const { augments: unit2, removeAugment: removeToUnit2 } =
-    useAugmentable("unit2")
-  const { augments: unit3, removeAugment: removeToUnit3 } =
-    useAugmentable("unit3")
+  const removeToWeapon = useUpdateAtom(removeAugmentAtomFamily("weapon"))
+  const removeToUnit1 = useUpdateAtom(removeAugmentAtomFamily("unit1"))
+  const removeToUnit2 = useUpdateAtom(removeAugmentAtomFamily("unit2"))
+  const removeToUnit3 = useUpdateAtom(removeAugmentAtomFamily("unit3"))
+  const weapon = useAtomValue(augmentableFamily("weapon"))
+  const unit1 = useAtomValue(augmentableFamily("unit1"))
+  const unit2 = useAtomValue(augmentableFamily("unit2"))
+  const unit3 = useAtomValue(augmentableFamily("unit3"))
 
   const removeAll = useCallback(() => {
     removeToWeapon(augment)
@@ -69,7 +74,9 @@ const useRemoveAllButton = (augment: Augment) => {
 }
 
 const useAugmentToggle = (augment: Augment, slot: AugmentableSlot) => {
-  const { augments, removeAugment, addAugment } = useAugmentable(slot)
+  const augments = useAtomValue(augmentableFamily(slot))
+  const addAugment = useUpdateAtom(addAugmentAtomFamily(slot))
+  const removeAugment = useUpdateAtom(removeAugmentAtomFamily(slot))
 
   const isExsitant = useMemo(
     () => includes(augments, augment),

@@ -1,8 +1,10 @@
-import { Unit, Weapon } from "augmenting/types"
+import { MAX_LEVEL } from "augmenting/state/characterState"
+import { allClasses, ClassData, Unit, Weapon } from "augmenting/types"
 import { Options, parse, Parser } from "csv-parse"
 import fs from "fs/promises"
 import { handleArmorRow } from "./convertArmour"
 import { handleAugmentRow } from "./convertAugment"
+import { handleClassStatRow } from "./convertClassStat"
 import { handleWeaponRow } from "./convertWeapon"
 
 async function openParse(
@@ -58,6 +60,25 @@ async function main() {
           allArmours[weapon.name] = weapon
         }
         return allArmours
+      },
+    ),
+    openParse(
+      "./Affixes - StatTable.csv",
+      "./src/augmenting/data/Class.json",
+      { columns: true },
+      async (parser) => {
+        const classes: ClassData = allClasses.reduce(
+          (mem, cname) => ({ ...mem, [cname]: [{ attack: 0, defense: 0 }] }),
+          {} as any,
+        )
+        for await (const entry of parser) {
+          const classResult = handleClassStatRow(entry)
+          classResult.forEach(([level, c, stat]) => {
+            if (level > MAX_LEVEL) return
+            classes[c][level] = stat
+          })
+        }
+        return classes
       },
     ),
   ])

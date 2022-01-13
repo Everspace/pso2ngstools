@@ -30,7 +30,7 @@ const translationTable: TranslationTable = {
 export function handleArmorRow(row: DataSheetRow): Unit {
   const { Series, Lv, DEF, DEFMax, Stars, ...stats } = row
 
-  const data: Unit = {
+  const data: Partial<Record<keyof Unit, any>> = {
     name: Series,
     level: Number(Lv),
     stars: Number(Stars),
@@ -46,5 +46,5 @@ export function handleArmorRow(row: DataSheetRow): Unit {
   )
   data.stat = processedStats
 
-  return data
+  return data as Unit
 }

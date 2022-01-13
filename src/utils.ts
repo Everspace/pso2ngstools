@@ -35,6 +35,8 @@ export function transformValues<T>(
 /**
  * Turns a table of k,v to a table of v,k
  */
-export const flipTable = <T extends Record<string, ValidKeyType>>(table: T) => {
-  return Object.fromEntries(Object.entries(table).map(([k, v]) => [v, k]))
+export function flipTable<T extends Record<string, ValidKeyType>>(table: T) {
+  return Object.fromEntries(
+    Object.entries(table).map(([k, v]) => [v, k]),
+  ) as Record<ValidKeyType, keyof T>
 }

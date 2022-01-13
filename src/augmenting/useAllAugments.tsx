@@ -1,17 +1,16 @@
-import { useAugmentable } from "./augmentableState"
+import { useUpdateAtom } from "jotai/utils"
 import { sample, sampleSize } from "lodash"
 import { useCallback } from "react"
 import { augmentByCategory } from "./data/augments"
-import { Augment, AugmentCategory } from "./types"
-
-const maxLengthify = (count: number) => (prior: Augment[]) =>
-  prior.length > count ? prior.slice(0, count) : prior
+import { augmentableFamily } from "./state/augmentableState"
+import { AugmentCategory } from "./types"
 
 export function useAllAugments() {
-  const { setAugments: setunit1Augments } = useAugmentable("unit1")
-  const { setAugments: setunit2Augments } = useAugmentable("unit2")
-  const { setAugments: setunit3Augments } = useAugmentable("unit3")
-  const { setAugments: setweaponAugments } = useAugmentable("weapon")
+  const setunit1Augments = useUpdateAtom(augmentableFamily("unit1"))
+  const setunit2Augments = useUpdateAtom(augmentableFamily("unit2"))
+  const setunit3Augments = useUpdateAtom(augmentableFamily("unit3"))
+  const setweaponAugments = useUpdateAtom(augmentableFamily("weapon"))
+
   const randomizeAllAugments = useCallback(() => {
     const categories = sampleSize(
       Object.keys(augmentByCategory),
@@ -34,20 +33,8 @@ export function useAllAugments() {
     setweaponAugments([])
   }, [setunit1Augments, setunit2Augments, setunit3Augments, setweaponAugments])
 
-  const truncateAllAugments = useCallback(
-    (count: number) => {
-      const func = maxLengthify(count)
-      setunit1Augments(func)
-      setunit2Augments(func)
-      setunit3Augments(func)
-      setweaponAugments(func)
-    },
-    [setunit1Augments, setunit2Augments, setunit3Augments, setweaponAugments],
-  )
-
   return {
     randomizeAllAugments,
     clearAllAugments,
-    truncateAllAugments,
   }
 }

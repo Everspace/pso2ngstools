@@ -13,26 +13,24 @@ function App() {
   const history = useHistory()
   return (
     <>
-      <AppBar position="absolute">
+      <AppBar position="static" sx={{ mb: 2 }}>
         <Toolbar>
           <Typography variant="h6" component="div">
-            PSO2:NGS Tools
+            <Button
+              size="large"
+              color="inherit"
+              href="/"
+              onClick={() => history.push("/")}
+            >
+              PSO2:NGS Tools
+            </Button>
           </Typography>
-          <Button
-            color="inherit"
-            href="/augment"
-            onClick={() => history.push("/")}
-          >
-            Augment
-          </Button>
         </Toolbar>
       </AppBar>
       <main>
         <Box
           sx={{
             bgcolor: "background.paper",
-            pt: 10,
-            pb: 6,
           }}
         >
           <Container maxWidth="xl">

@@ -4,7 +4,7 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { BrowserRouter } from "react-router-dom"
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material"
-const theme = createTheme()
+const theme = createTheme({ palette: { mode: "dark" } })
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

@@ -1,30 +1,31 @@
 {
+  "None": {
+    "name": "None",
+    "level": 0,
+    "stars": 0,
+    "attackBase": 0,
+    "attackMax": 0
+  },
   "Primm": {
     "name": "Primm",
     "level": 1,
     "stars": 1,
     "attackBase": 177,
-    "attackMax": 259,
-    "varianceLow": 0,
-    "varianceHigh": 0
+    "attackMax": 259
   },
   "Tzvia": {
     "name": "Tzvia",
     "level": 4,
     "stars": 2,
     "attackBase": 195,
-    "attackMax": 264,
-    "varianceLow": 0,
-    "varianceHigh": 0
+    "attackMax": 264
   },
   "Theseus": {
     "name": "Theseus",
     "level": 8,
     "stars": 3,
     "attackBase": 223,
-    "attackMax": 270,
-    "varianceLow": 0,
-    "varianceHigh": 0
+    "attackMax": 270
   },
   "Frostel": {
     "name": "Frostel",
@@ -32,8 +33,6 @@
     "stars": 3,
     "attackBase": 225,
     "attackMax": 272,
-    "varianceLow": 0,
-    "varianceHigh": 0,
     "element": "Ice"
   },
   "Glissen": {
@@ -42,8 +41,6 @@
     "stars": 3,
     "attackBase": 225,
     "attackMax": 272,
-    "varianceLow": 0,
-    "varianceHigh": 0,
     "element": "Lightning"
   },
   "Resurgir": {
@@ -52,8 +49,7 @@
     "stars": 4,
     "attackBase": 240,
     "attackMax": 280,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Cattleya": {
     "name": "Cattleya",
@@ -61,8 +57,7 @@
     "stars": 4,
     "attackBase": 242,
     "attackMax": 282,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Vialto": {
     "name": "Vialto",
@@ -70,8 +65,7 @@
     "stars": 4,
     "attackBase": 242,
     "attackMax": 282,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Foursis": {
     "name": "Foursis",
@@ -79,8 +73,7 @@
     "stars": 4,
     "attackBase": 242,
     "attackMax": 282,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Straga": {
     "name": "Straga",
@@ -88,8 +81,7 @@
     "stars": 4,
     "attackBase": 243,
     "attackMax": 283,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Evolcoat": {
     "name": "Evolcoat",
@@ -97,8 +89,7 @@
     "stars": 4,
     "attackBase": 242,
     "attackMax": 282,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Flamel": {
     "name": "Flamel",
@@ -106,8 +97,6 @@
     "stars": 4,
     "attackBase": 240,
     "attackMax": 280,
-    "varianceLow": 0,
-    "varianceHigh": 0,
     "element": "Fire"
   },
   "Gothica": {
@@ -116,8 +105,7 @@
     "stars": 5,
     "attackBase": 277,
     "attackMax": 317,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Fivla": {
     "name": "Fivla",
@@ -125,8 +113,7 @@
     "stars": 5,
     "attackBase": 277,
     "attackMax": 317,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Quintel": {
     "name": "Quintel",
@@ -134,8 +121,15 @@
     "stars": 5,
     "attackBase": 277,
     "attackMax": 317,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
+  },
+  "Tempesta": {
+    "name": "Tempesta",
+    "level": 25,
+    "stars": 5,
+    "attackBase": 263,
+    "attackMax": 303,
+    "varianceLow": 70
   },
   "Greaga": {
     "name": "Greaga",
@@ -143,8 +137,7 @@
     "stars": 5,
     "attackBase": 280,
     "attackMax": 320,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   },
   "Relik": {
     "name": "Relik",
@@ -152,7 +145,6 @@
     "stars": 5,
     "attackBase": 284,
     "attackMax": 324,
-    "varianceLow": 75,
-    "varianceHigh": 0
+    "varianceLow": 75
   }
 }
