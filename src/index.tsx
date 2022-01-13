@@ -2,16 +2,19 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import { HelmetProvider } from "react-helmet-async"
 import { BrowserRouter } from "react-router-dom"
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material"
 const theme = createTheme({ palette: { mode: "dark" } })
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </HelmetProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root"),

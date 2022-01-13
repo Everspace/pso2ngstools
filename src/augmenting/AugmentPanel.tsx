@@ -11,6 +11,7 @@ import { bpTotalAtom } from "./state/bpState"
 import { useAtomValue } from "jotai/utils"
 import { weaponStateAtom } from "./state/equipmentState"
 import { rangeFromWeaponAugments, WeaponRange } from "./tools"
+import { AugmentPanelHelm } from "./AugmentPanelHelm"
 
 function rangeToLine({ min, max }: WeaponRange): string {
   return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
@@ -37,61 +38,64 @@ export function AugmentPanel() {
   const bp = useAtomValue(bpTotalAtom)
 
   return (
-    <Stack spacing={1}>
-      <Box>
-        <Typography variant="h3">Augmenting</Typography>
-        <Typography variant="subtitle1">Total: {bp} BP</Typography>
-        <Button onClick={randomizeAllAugments}>Randomize</Button>
-        <Button color="error" onClick={clearAllAugments}>
-          Clear All
-        </Button>
-      </Box>
-      <Box>
-        <ChangeAugmentSlotsDropdown />
-      </Box>
-      <Box>
-        <CharacterBPDisplay />
-      </Box>
-      <Box
-        sx={(theme) => ({
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gridTemplateRows: "auto",
-          gap: 1,
-          gridTemplateAreas: `
-            "weapon unit1"
-            "unit2 unit3"
-          `,
-          [theme.breakpoints.down("md")]: {
-            gridTemplateColumns: "1fr",
+    <>
+      <AugmentPanelHelm />
+      <Stack spacing={1}>
+        <Box>
+          <Typography variant="h3">Augmenting</Typography>
+          <Typography variant="subtitle1">Total: {bp} BP</Typography>
+          <Button onClick={randomizeAllAugments}>Randomize</Button>
+          <Button color="error" onClick={clearAllAugments}>
+            Clear All
+          </Button>
+        </Box>
+        <Box>
+          <ChangeAugmentSlotsDropdown />
+        </Box>
+        <Box>
+          <CharacterBPDisplay />
+        </Box>
+        <Box
+          sx={(theme) => ({
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateRows: "auto",
+            gap: 1,
             gridTemplateAreas: `
-              "weapon"
-              "unit1"
-              "unit2"
-              "unit3"
-            `,
-          },
-        })}
-      >
-        <Box sx={{ gridArea: "weapon" }}>
-          <WeaponDisplay />
+          "weapon unit1"
+          "unit2 unit3"
+        `,
+            [theme.breakpoints.down("md")]: {
+              gridTemplateColumns: "1fr",
+              gridTemplateAreas: `
+            "weapon"
+            "unit1"
+            "unit2"
+            "unit3"
+          `,
+            },
+          })}
+        >
+          <Box sx={{ gridArea: "weapon" }}>
+            <WeaponDisplay />
+          </Box>
+          <Box sx={{ gridArea: "unit1" }}>
+            <UnitDisplay slot="unit1" />
+          </Box>
+          <Box sx={{ gridArea: "unit2" }}>
+            <UnitDisplay slot="unit2" />
+          </Box>
+          <Box sx={{ gridArea: "unit3" }}>
+            <UnitDisplay slot="unit3" />
+          </Box>
         </Box>
-        <Box sx={{ gridArea: "unit1" }}>
-          <UnitDisplay slot="unit1" />
-        </Box>
-        <Box sx={{ gridArea: "unit2" }}>
-          <UnitDisplay slot="unit2" />
-        </Box>
-        <Box sx={{ gridArea: "unit3" }}>
-          <UnitDisplay slot="unit3" />
-        </Box>
-      </Box>
-      <Paper sx={{ p: 2 }}>
-        <Typography variant="h4">Total: {bp} BP</Typography>
-        <WeaponRangeLine />
-        {stats && <AugmentStatDisplay simple stat={stats} />}
-      </Paper>
-      <AugmentCategoryDisplay />
-    </Stack>
+        <Paper sx={{ p: 2 }}>
+          <Typography variant="h4">Total: {bp} BP</Typography>
+          <WeaponRangeLine />
+          {stats && <AugmentStatDisplay simple stat={stats} />}
+        </Paper>
+        <AugmentCategoryDisplay />
+      </Stack>
+    </>
   )
 }
