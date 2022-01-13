@@ -1,9 +1,10 @@
-import { atom } from "jotai"
+import { sumAugmentStats, augmentifyUnit } from "augmenting/tools"
+import { Atom, atom } from "jotai"
 import { atomFamily, atomWithHash } from "jotai/utils"
 import { toId, fromId } from "utils"
 import { allAugments } from "../data/augments"
-import { Augment, AugmentableSlot, augmentSlots } from "../types"
-import { augmentsPerSlotAtom } from "./equipmentState"
+import { Augment, AugmentableSlot, augmentSlots, AugmentStat } from "../types"
+import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
 
 const revivify = (names: string[]): Augment[] => {
   return names
@@ -71,6 +72,34 @@ export const clearAugmentFamily = atomFamily((slot: AugmentableSlot) => {
 export const allAugmentsAtom = atom<Augment[]>((get) =>
   augmentSlots.flatMap((n) => get(augmentableFamily(n))),
 )
+
+export const augmentableSlotStatSum = atomFamily<
+  AugmentableSlot | "all",
+  Atom<AugmentStat | null>
+>((slot) => {
+  switch (slot) {
+    case "all":
+      return atom((get) => {
+        return sumAugmentStats(get(allAugmentsAtom))
+      })
+  }
+
+  const augmentsAtom = augmentableFamily(slot)
+  if (slot === "weapon") {
+    return atom((get) => {
+      const augments = get(augmentsAtom)
+      if (augments.length === 0) return null
+      return sumAugmentStats(augments)
+    })
+  }
+  const unitAtom = unitStateFamily(slot)
+  return atom((get) => {
+    const augments = get(augmentsAtom)
+    const { unit } = get(unitAtom)
+    if (augments.length === 0 && unit.name === "None") return null
+    return sumAugmentStats([...augments, augmentifyUnit(unit)])
+  })
+})
 
 // TODO: handle displaying that there is missing bp from the calculation
 export const hasUnknownBpAug = atom<boolean>((get) =>

@@ -68,16 +68,22 @@ export const searchNameAtom = atomWithReset("")
 export const availableAugments = atom<Augment[]>((get) => {
   const category = get(augmentCategoryStateAtom)
 
-  if (category === "all") return allAugments
-
   const searchStat = get(searchStatAtom)
   const searchName = get(searchNameAtom).toLocaleLowerCase()
-  let filteredAugments = [...augmentByCategory[category]]
+  let filteredAugments: Augment[]
+
+  if (category === "all") {
+    filteredAugments = [...allAugments]
+  } else {
+    filteredAugments = [...augmentByCategory[category]]
+  }
+
   if (searchName !== "") {
     filteredAugments = filteredAugments.filter((a) =>
       a.name.toLocaleLowerCase().includes(searchName),
     )
   }
+
   if (searchStat) {
     filteredAugments = filteredAugments.filter((a) =>
       augmentFufillsRequirement(a, searchStat),

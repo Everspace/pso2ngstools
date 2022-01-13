@@ -1,4 +1,4 @@
-import { atom } from "jotai"
+import { atom, PrimitiveAtom } from "jotai"
 import { atomFamily, atomWithHash } from "jotai/utils"
 import { toId, fromId, flipTable, translateKeys } from "utils"
 import { allUnits } from "../data/armours"
@@ -108,3 +108,11 @@ export const weaponStateAtom = atomWithHash<WeaponEquipState>(
     },
   },
 )
+
+export const equipStateFamily = atomFamily<
+  AugmentableSlot,
+  PrimitiveAtom<WeaponEquipState> | PrimitiveAtom<UnitEquipState>
+>((slot: AugmentableSlot) => {
+  if (slot === "weapon") return weaponStateAtom
+  return unitStateFamily(slot)
+})

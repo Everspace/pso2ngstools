@@ -15,7 +15,7 @@ import { AugmentSlotList } from "./AugmentSlotList"
 import { augmentSlotNiceName } from "augmenting/info"
 import { equipBpFamily } from "augmenting/state/bpState"
 import {
-  augmentableFamily,
+  augmentableSlotStatSum,
   clearAugmentFamily,
 } from "augmenting/state/augmentableState"
 import { useUpdateAtom, useAtomValue } from "jotai/utils"
@@ -31,7 +31,7 @@ export function AugmentibleDisplay({
   autocomplete,
   configure,
 }: AugmentibleDisplayProps) {
-  const augments = useAtomValue(augmentableFamily(slot))
+  const stat = useAtomValue(augmentableSlotStatSum(slot))
   const clearAugments = useUpdateAtom(clearAugmentFamily(slot))
   const bp = useAtomValue(equipBpFamily(slot))
 
@@ -61,16 +61,14 @@ export function AugmentibleDisplay({
         </Box>
       </Stack>
       <Accordion
-        disabled={augments.length === 0}
+        disabled={stat === null}
         TransitionProps={{ unmountOnExit: true }}
       >
         <AccordionSummary expandIcon={<ExpandMore />}>
           <Typography>Stat total</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {augments.length > 0 ? (
-            <AugmentStatDisplay simple stat={augments} />
-          ) : null}
+          {stat && <AugmentStatDisplay simple stat={stat} />}
         </AccordionDetails>
       </Accordion>
     </Paper>
