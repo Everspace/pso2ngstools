@@ -1,4 +1,4 @@
-import { bignumber } from "mathjs"
+import { BigNumber, bignumber } from "mathjs"
 import { one, zero } from "../MathConstants"
 import { Augment, AugmentStat, Unit, Weapon } from "./types"
 
@@ -48,6 +48,31 @@ export const toUnitReal = (unit: Unit): Unit => {
     defenseBase: bignumber(defenseBase),
     defenseMax: bignumber(defenseMax),
     stat: toAugmentStatReal(stat),
+  }
+}
+
+export function augmentifyUnit(unit: Unit): Augment {
+  return {
+    name: unit.name,
+    icon: "special",
+    rate: 10,
+    category: "basic",
+    stat: unit.stat,
+  }
+}
+
+export type WeaponRange = {
+  min: BigNumber
+  max: BigNumber
+}
+
+export function rangeFromWeaponAugments(
+  weapon: Weapon,
+  augment: AugmentStat,
+): WeaponRange {
+  return {
+    min: weapon.varianceLow.mul(augment.floorPotency ?? one),
+    max: weapon.varianceHigh, //TODO: is there ceilingPotency eventually?
   }
 }
 
