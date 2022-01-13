@@ -82,8 +82,8 @@ export const toWeaponReal = (weapon: Weapon): Weapon => {
     ...weapon,
     attackBase: bignumber(attackBase),
     attackMax: bignumber(attackMax),
-    varianceHigh: bignumber(varianceHigh ?? 70).dividedBy(100),
-    varianceLow: bignumber(varianceLow ?? 100).dividedBy(100),
+    varianceHigh: bignumber(varianceHigh ?? 100).dividedBy(100),
+    varianceLow: bignumber(varianceLow ?? 70).dividedBy(100),
   }
 }
 
