@@ -68,11 +68,19 @@ export type WeaponRange = {
 
 export function rangeFromWeaponAugments(
   weapon: Weapon,
-  augment: AugmentStat,
+  augment?: AugmentStat | null,
 ): WeaponRange {
+  let min = weapon.varianceLow
+  let max = weapon.varianceHigh
+
+  if (augment) {
+    min = min.mul(augment.floorPotency ?? one)
+    // TODO max = max.mul(augment.ceilingPotency ?? one) perhaps eventually?
+  }
+
   return {
-    min: weapon.varianceLow.mul(augment.floorPotency ?? one),
-    max: weapon.varianceHigh, //TODO: is there ceilingPotency eventually?
+    min,
+    max,
   }
 }
 

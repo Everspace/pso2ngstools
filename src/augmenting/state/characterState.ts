@@ -22,7 +22,7 @@ function minMaxResetAtom(
   )
 }
 
-export const classNameAtom = atomWithHash<ClassAbbreviation>("cls", "Gu")
+export const classNameAtom = atomWithHash<ClassAbbreviation>("cls", "Hu")
 
 export const MAX_LEVEL = 35
 

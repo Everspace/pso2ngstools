@@ -1,30 +1,46 @@
 import { Stack, Box, Typography, Button, Paper } from "@mui/material"
-import { atom, useAtom } from "jotai"
 import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { allAugmentsAtom } from "./state/augmentableState"
-import { AugmentStat } from "./types"
-import { sumAugmentStats } from "./tools"
+import { augmentableSlotStatSum } from "./state/augmentableState"
 import { useAllAugments } from "./useAllAugments"
 import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
 import { CharacterBPDisplay } from "./CharacterDisplay"
 import { WeaponDisplay } from "./AugmentableDisplay/WeaponDisplay"
 import { UnitDisplay } from "./AugmentableDisplay/UnitDisplay"
 import { bpTotalAtom } from "./state/bpState"
+import { useAtomValue } from "jotai/utils"
+import { weaponStateAtom } from "./state/equipmentState"
+import { rangeFromWeaponAugments, WeaponRange } from "./tools"
 
-const statTotalAtom = atom<AugmentStat>((get) =>
-  sumAugmentStats(get(allAugmentsAtom)),
-)
+function rangeToLine({ min, max }: WeaponRange): string {
+  return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
+}
+
+function WeaponRangeLine() {
+  const { weapon } = useAtomValue(weaponStateAtom)
+  const weaponStats = useAtomValue(augmentableSlotStatSum("weapon"))
+  const realStats = useAtomValue(augmentableSlotStatSum("all"))
+  const weaponRange = rangeFromWeaponAugments(weapon, weaponStats)
+  const realRange = rangeFromWeaponAugments(weapon, realStats)
+
+  return (
+    <Typography>
+      Weapon Range: {rangeToLine(realRange)} (displayed:{" "}
+      {rangeToLine(weaponRange)})
+    </Typography>
+  )
+}
 
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
-  const [stats] = useAtom(statTotalAtom)
-  const [bp] = useAtom(bpTotalAtom)
+  const stats = useAtomValue(augmentableSlotStatSum("all"))
+  const bp = useAtomValue(bpTotalAtom)
 
   return (
     <Stack spacing={1}>
       <Box>
         <Typography variant="h3">Augmenting</Typography>
+        <Typography variant="subtitle1">Total: {bp} BP</Typography>
         <Button onClick={randomizeAllAugments}>Randomize</Button>
         <Button color="error" onClick={clearAllAugments}>
           Clear All
@@ -71,8 +87,9 @@ export function AugmentPanel() {
         </Box>
       </Box>
       <Paper sx={{ p: 2 }}>
-        <Typography variant="h5">Total: {bp} BP</Typography>
-        <AugmentStatDisplay simple stat={stats} />
+        <Typography variant="h4">Total: {bp} BP</Typography>
+        <WeaponRangeLine />
+        {stats && <AugmentStatDisplay simple stat={stats} />}
       </Paper>
       <AugmentCategoryDisplay />
     </Stack>
