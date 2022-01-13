@@ -1,3 +1,4 @@
+import { allClassData } from "augmenting/data/class"
 import {
   Augment,
   AugmentableSlot,
@@ -9,7 +10,7 @@ import { atomFamily } from "jotai/utils"
 import { zero } from "MathConstants"
 import { BigNumber, bignumber } from "mathjs"
 import { allAugmentsAtom, augmentableFamily } from "./augmentableState"
-import { classInfoAtom, skillpointAtom } from "./characterState"
+import { classNameAtom, levelAtom, skillpointAtom } from "./characterState"
 import {
   UnitEquipState,
   unitStateFamily,
@@ -62,6 +63,13 @@ export const equipBpFamily = atomFamily((slot: AugmentableSlot) =>
   }),
 )
 
+export const classBpAtom = atom((get) => {
+  const className = get(classNameAtom)
+  const classLevel = get(levelAtom)
+  const classInfo = allClassData[className][classLevel]
+  return getClassBp(classInfo)
+})
+
 export const bpTotalAtom = atom((get) => {
   const augmentBp = getAugmentBp(get(allAugmentsAtom))
 
@@ -74,9 +82,7 @@ export const bpTotalAtom = atom((get) => {
   // TODO: Special correction value by special ability?
 
   const weaponBp = getWeaponBp(get(weaponStateAtom))
-
-  const classInfo = get(classInfoAtom)
-  const classBp = getClassBp(classInfo)
+  const classBp = get(classBpAtom)
 
   const skillpointBp = get(skillpointAtom) * 3 * 2 // points x3 for class and sub
 

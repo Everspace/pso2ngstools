@@ -18,9 +18,7 @@ export function ChangeAugmentSlotsDropdown() {
   const [augmentsPerSlot, setAugmentsPerSlot] = useAtom(augmentsPerSlotAtom)
   const handleSetAugmentSlots = useCallback(
     (e: SelectChangeEvent) => {
-      if (typeof e.target.value === "number") {
-        setAugmentsPerSlot(e.target.value)
-      }
+      setAugmentsPerSlot(Number(e.target.value))
     },
     [setAugmentsPerSlot],
   )
@@ -34,7 +32,7 @@ export function ChangeAugmentSlotsDropdown() {
         value={augmentsPerSlot.toString()}
       >
         {augmentSlotNumberArray.map((i) => (
-          <MenuItem key={i} value={i}>
+          <MenuItem key={i} value={i.toString()}>
             {i}
           </MenuItem>
         ))}

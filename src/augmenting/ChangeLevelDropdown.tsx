@@ -15,9 +15,7 @@ export function ChangeLevelDropdown() {
   const [level, setLevel] = useAtom(levelAtom)
   const handleChangeLevel = useCallback(
     (e: SelectChangeEvent) => {
-      if (typeof e.target.value === "number") {
-        setLevel(e.target.value)
-      }
+      setLevel(Number(e.target.value))
     },
     [setLevel],
   )

@@ -27,7 +27,10 @@ const slotToHash: Record<AugmentableSlot, string> = {
 }
 
 export const MAX_AUGMENTS_PER_SLOT = 8
-const augmentsPerSlotRawAtom = atomWithHash("slots", 4)
+const augmentsPerSlotRawAtom = atomWithHash("slots", 4, {
+  replaceState: true,
+})
+
 export const augmentsPerSlotAtom = atom<number, number>(
   (get) => get(augmentsPerSlotRawAtom),
   (get, set, update) => {

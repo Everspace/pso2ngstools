@@ -3,13 +3,13 @@ import { useAtomValue } from "jotai/utils"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
 import { ChangeLevelDropdown } from "./ChangeLevelDropdown"
 import { ChangeSkillpoints } from "./ChangeSkillpoints"
-import { getClassBp } from "./state/bpState"
-import { classInfoAtom, skillpointAtom } from "./state/characterState"
-
+import { classBpAtom } from "./state/bpState"
+import { skillpointAtom } from "./state/characterState"
 export function CharacterBPDisplay() {
-  const classInfo = useAtomValue(classInfoAtom)
   const skillpoint = useAtomValue(skillpointAtom)
-  const classBp = getClassBp(classInfo).toNumber()
+  const classBpRaw = useAtomValue(classBpAtom)
+
+  const classBp = classBpRaw.toNumber()
   const skillBp = skillpoint * 2 * 3
   return (
     <Paper>
