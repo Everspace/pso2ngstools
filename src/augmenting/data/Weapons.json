@@ -123,6 +123,14 @@
     "attackMax": 317,
     "varianceLow": 75
   },
+  "Tempesta": {
+    "name": "Tempesta",
+    "level": 25,
+    "stars": 5,
+    "attackBase": 263,
+    "attackMax": 303,
+    "varianceLow": 70
+  },
   "Greaga": {
     "name": "Greaga",
     "level": 27,
