@@ -1,4 +1,5 @@
 import { List, ListItem } from "@mui/material"
+import { zero } from "MathConstants"
 import { BigNumber } from "mathjs"
 import { augmentStatToDisplayInfo, augmentValueToString } from "./info"
 import { sumAugmentStats, simplifyAugmentStat } from "./tools"
@@ -52,10 +53,10 @@ export function AugmentStatDisplay({
 
   const { hp, pp, bp, ...listableStats } = finalStat
   let hpppLine: string[] = []
-  if (hp) {
+  if (hp && !hp.equals(zero)) {
     hpppLine.push(`HP: ${hp}`)
   }
-  if (pp) {
+  if (pp && !pp.equals(zero)) {
     hpppLine.push(`PP: ${pp}`)
   }
 
