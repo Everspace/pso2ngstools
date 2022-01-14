@@ -1,7 +1,10 @@
 import { Stack, Box, Typography, Button, Paper } from "@mui/material"
 import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
-import { augmentableSlotStatSum } from "./state/augmentableState"
+import {
+  allAugmentableSlotStatSum,
+  augmentableSlotStatSum,
+} from "./state/augmentableState"
 import { useAllAugments } from "./useAllAugments"
 import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
 import { CharacterBPDisplay } from "./CharacterDisplay"
@@ -20,7 +23,7 @@ function rangeToLine({ min, max }: WeaponRange): string {
 function WeaponRangeLine() {
   const { weapon } = useAtomValue(weaponStateAtom)
   const weaponStats = useAtomValue(augmentableSlotStatSum("weapon"))
-  const realStats = useAtomValue(augmentableSlotStatSum("all"))
+  const realStats = useAtomValue(allAugmentableSlotStatSum)
   const weaponRange = rangeFromWeaponAugments(weapon, weaponStats)
   const realRange = rangeFromWeaponAugments(weapon, realStats)
 
@@ -34,7 +37,7 @@ function WeaponRangeLine() {
 
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
-  const stats = useAtomValue(augmentableSlotStatSum("all"))
+  const stats = useAtomValue(allAugmentableSlotStatSum)
   const bp = useAtomValue(bpTotalAtom)
 
   return (

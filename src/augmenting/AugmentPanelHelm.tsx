@@ -1,4 +1,4 @@
-import { augmentableSlotStatSum } from "./state/augmentableState"
+import { allAugmentableSlotStatSum } from "./state/augmentableState"
 import { useAtomValue } from "jotai/utils"
 import { Helmet } from "react-helmet-async"
 import { augmentStatToDisplayInfo, augmentValueToString } from "./info"
@@ -18,7 +18,7 @@ export function AugmentPanelHelm() {
     bp: _, // pluck out this one
     pp,
     ...listableStats
-  } = useAtomValue(augmentableSlotStatSum("all")) ?? {}
+  } = useAtomValue(allAugmentableSlotStatSum)
   const statLines = []
   const stats = simplifyAugmentStat(listableStats)
 
