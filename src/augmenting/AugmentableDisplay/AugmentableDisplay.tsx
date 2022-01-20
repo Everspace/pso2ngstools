@@ -48,18 +48,26 @@ export function AugmentibleDisplay({
           <Typography>Config:</Typography>
         </Box>
         <Box sx={{ height: "3em" }}>{configure}</Box>
-        <Box>
-          <Typography>Augments:</Typography>
-        </Box>
-        <Box>
-          <AugmentSlotList slot={slot} />
-        </Box>
-        <Box>
-          <Button sx={{ float: "right" }} color="error" onClick={clearAugments}>
-            Clear Augments
-          </Button>
-        </Box>
       </Stack>
+      <Accordion defaultExpanded TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary expandIcon={<ExpandMore />}>
+          <Typography>Augments</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box>
+            <AugmentSlotList slot={slot} />
+          </Box>
+          <Box>
+            <Button
+              sx={{ float: "right" }}
+              color="error"
+              onClick={clearAugments}
+            >
+              Clear Augments
+            </Button>
+          </Box>
+        </AccordionDetails>
+      </Accordion>
       <Accordion
         disabled={stat === null}
         TransitionProps={{ unmountOnExit: true }}

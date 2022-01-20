@@ -87,8 +87,6 @@ type AugmentSlotListProps = {
   slot: AugmentableSlot
 }
 
-const slotListSize = 6
-
 export function AugmentSlotList({ slot }: AugmentSlotListProps) {
   const augments = useAtomValue(augmentableFamily(slot))
   const max = useAtomValue(augmentsPerSlotAtom)
@@ -98,12 +96,12 @@ export function AugmentSlotList({ slot }: AugmentSlotListProps) {
   return (
     <Grid container spacing={2}>
       {augments.map((aug, index) => (
-        <Grid key={`${slot}aug${index}`} item xs={slotListSize}>
+        <Grid key={`${slot}aug${index}`} item xs={12}>
           <AugmentLine slot={slot} number={index} augment={aug} />
         </Grid>
       ))}
       {displayEmpty ? (
-        <Grid item xs={slotListSize}>
+        <Grid item xs={12}>
           <AugmentLine
             slot={slot}
             number={augments.length}

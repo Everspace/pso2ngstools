@@ -15,6 +15,7 @@ import { useAtomValue } from "jotai/utils"
 import { weaponStateAtom } from "./state/equipmentState"
 import { rangeFromWeaponAugments, WeaponRange } from "./tools"
 import { AugmentPanelHelm } from "./AugmentPanelHelm"
+import { SxProps, Theme } from "@mui/system"
 
 function rangeToLine({ min, max }: WeaponRange): string {
   return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
@@ -34,6 +35,30 @@ function WeaponRangeLine() {
     </Typography>
   )
 }
+
+const augmentableDisplayGrid: SxProps<Theme> = (theme) => ({
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gridTemplateRows: "auto",
+  gap: 1,
+  gridTemplateAreas: `"weapon unit1 unit2 unit3"`,
+  [theme.breakpoints.down("lg")]: {
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gridTemplateAreas: `
+      "weapon unit1"
+      "unit2 unit3"
+    `,
+  },
+  [theme.breakpoints.down("sm")]: {
+    gridTemplateColumns: "1fr",
+    gridTemplateAreas: `
+      "weapon"
+      "unit1"
+      "unit2"
+      "unit3"
+    `,
+  },
+})
 
 export function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
@@ -58,27 +83,7 @@ export function AugmentPanel() {
         <Box>
           <CharacterBPDisplay />
         </Box>
-        <Box
-          sx={(theme) => ({
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gridTemplateRows: "auto",
-            gap: 1,
-            gridTemplateAreas: `
-          "weapon unit1"
-          "unit2 unit3"
-        `,
-            [theme.breakpoints.down("md")]: {
-              gridTemplateColumns: "1fr",
-              gridTemplateAreas: `
-            "weapon"
-            "unit1"
-            "unit2"
-            "unit3"
-          `,
-            },
-          })}
-        >
+        <Box sx={augmentableDisplayGrid}>
           <Box sx={{ gridArea: "weapon" }}>
             <WeaponDisplay />
           </Box>

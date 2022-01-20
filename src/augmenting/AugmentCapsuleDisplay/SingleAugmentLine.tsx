@@ -8,7 +8,9 @@ interface SingleAugmentDisplayProps {
 export function SingleAugmentDisplay({ augment }: SingleAugmentDisplayProps) {
   return (
     <AugmentLine augment={augment}>
-      <AugmentLineHeader>{augment.name}</AugmentLineHeader>
+      <AugmentLineHeader>
+        {augment.name} ({augment.stat.bp?.toNumber() ?? "??"} BP)
+      </AugmentLineHeader>
     </AugmentLine>
   )
 }

@@ -30,7 +30,7 @@ function StatItem({ statName, value }: StatItemProps) {
   const { Glyph, name } = augmentStatToDisplayInfo[statName]
   const valueString = augmentValueToString(statName, value)
   return (
-    <ListItem>
+    <ListItem disableGutters>
       {Glyph ? <Glyph /> : null}
       {name} {valueString}
     </ListItem>
@@ -62,7 +62,9 @@ export function AugmentStatDisplay({
 
   return (
     <List dense>
-      {hpppLine.length > 0 ? <ListItem>{hpppLine.join(", ")}</ListItem> : null}
+      {hpppLine.length > 0 ? (
+        <ListItem disableGutters>{hpppLine.join(", ")}</ListItem>
+      ) : null}
       {(Object.keys(listableStats) as (keyof AugmentStat)[])
         .sort((a, b) => {
           // Push keys I haven't decided the order of "down"

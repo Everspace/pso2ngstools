@@ -1,11 +1,15 @@
-import { Box, Grid, Stack } from "@mui/material"
+import { Box, Grid } from "@mui/material"
 import { UnitAddBar } from "./UnitAddBar"
 import { AugmentStatDisplay } from "../AugmentStatDisplay"
 import { AugmentCapsuleImage } from "./MultiAugmentLine"
 import { Augment } from "augmenting/types"
 
 export function AugmentLineHeader({ children }: React.PropsWithChildren<{}>) {
-  return <Box>{children}</Box>
+  return (
+    <Grid item xs={12}>
+      {children}
+    </Grid>
+  )
 }
 
 interface AugmentLineProps {
@@ -18,20 +22,20 @@ export function AugmentLine({
 }: React.PropsWithChildren<AugmentLineProps>) {
   return (
     <Box sx={{ borderColor: "divider" }} borderBottom={1} py={2} px={1}>
-      <Grid container spacing={1}>
-        <Grid xs={1} maxWidth={256} item>
+      <Grid container spacing={2}>
+        <Grid xs={2} sm={2} md={1} maxWidth={256} item>
           <AugmentCapsuleImage augment={augment} />
         </Grid>
         <Grid xs item>
-          <Stack>
+          <Grid container>
             {children}
-            <Box>
+            <Grid item xs={12}>
               <AugmentStatDisplay stat={augment.stat} />
-            </Box>
-            <Box>
+            </Grid>
+            <Grid item xs={12}>
               <UnitAddBar augment={augment} />
-            </Box>
-          </Stack>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Box>

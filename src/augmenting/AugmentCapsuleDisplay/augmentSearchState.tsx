@@ -10,6 +10,7 @@ import {
 } from "augmenting/types"
 import { atom, WritableAtom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
+import { groupBy } from "lodash"
 import { isNaN, bignumber } from "mathjs"
 
 export type SearchAugmentCategory = AugmentCategory | "all"
@@ -23,7 +24,10 @@ export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("basic")
 export const searchStatFamilyAtom = atomFamily<
   keyof AugmentStat,
   WritableAtom<string, string | typeof RESET>
->((s) => atomWithReset(""))
+>(
+  () => atomWithReset(""),
+  (a, b) => a === b,
+)
 
 export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
   (get) => {
@@ -50,11 +54,11 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
   },
   (get, set, update) => {
     if (update === RESET) {
-      allAugmentStats.forEach((s) => {
-        const a = searchStatFamilyAtom(s)
-        set(a, RESET)
-      })
-      return
+      return Promise.all(
+        allAugmentStats.map(searchStatFamilyAtom).map(async (atom) => {
+          set(atom, RESET)
+        }),
+      )
     }
     Object.keys(update).forEach((s) => {
       const key = s as keyof AugmentStat
@@ -65,7 +69,7 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
 )
 
 export const searchNameAtom = atomWithReset("")
-export const availableAugments = atom<Augment[]>((get) => {
+const availableAugmentsAtom = atom<Augment[]>((get) => {
   const category = get(augmentCategoryStateAtom)
 
   const searchStat = get(searchStatAtom)
@@ -91,4 +95,11 @@ export const availableAugments = atom<Augment[]>((get) => {
   }
 
   return filteredAugments
+})
+
+export const augmentGroupsAtom = atom((get) => {
+  const allAugments = get(availableAugmentsAtom)
+  const groups = groupBy(allAugments, (a) => (a.baseName ? a.baseName : a.name))
+
+  return Object.entries(groups).sort((a, b) => a[0].localeCompare(b[0]))
 })

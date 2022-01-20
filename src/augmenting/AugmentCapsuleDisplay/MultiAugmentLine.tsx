@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from "@mui/material"
+import { Button, ButtonGroup, Grid } from "@mui/material"
 import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
 import { augmentImageFromType } from "../images/augment"
 import { useState, useEffect } from "react"
@@ -66,12 +66,23 @@ export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
   return (
     <AugmentLine augment={augment}>
       <AugmentLineHeader>
-        {group}{" "}
-        <SelectTiers
-          selected={selectedAugment}
-          onClick={setSelected}
-          tiers={augments.map((v) => v.tier!)}
-        />
+        <Grid
+          container
+          direction="row"
+          justifyItems="flex-start"
+          alignItems="center"
+          spacing={1}
+        >
+          <Grid item>{group}</Grid>
+          <Grid item>
+            <SelectTiers
+              selected={selectedAugment}
+              onClick={setSelected}
+              tiers={augments.map((v) => v.tier!)}
+            />
+          </Grid>
+          <Grid item>{augment.stat.bp?.toNumber() ?? "??"} BP</Grid>
+        </Grid>
       </AugmentLineHeader>
     </AugmentLine>
   )
