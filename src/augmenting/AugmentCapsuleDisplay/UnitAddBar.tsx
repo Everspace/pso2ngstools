@@ -81,7 +81,7 @@ const isExistantAtom = atomFamily(
 const toggleOnAugmentSlotAtom = atomFamily((slot: AugmentableSlot) =>
   atom<undefined, Augment>(undefined, (get, set, augment) => {
     const isExistant = get(isExistantAtom({ slot, augment }))
-    const optAtom = isExistant ? addAugmentAtomFamily : removeAugmentAtomFamily
+    const optAtom = isExistant ? removeAugmentAtomFamily : addAugmentAtomFamily
     set(optAtom(slot), augment)
   }),
 )
