@@ -186,7 +186,7 @@
   {
     "name": "Deftness I",
     "baseName": "Deftness",
-    "category": "basic",
+    "category": "unknown",
     "icon": "special",
     "tier": 1,
     "rate": 10,
@@ -199,7 +199,7 @@
   {
     "name": "Deftness II",
     "baseName": "Deftness",
-    "category": "basic",
+    "category": "unknown",
     "icon": "special",
     "tier": 2,
     "rate": 10,
@@ -212,7 +212,7 @@
   {
     "name": "Deftness III",
     "baseName": "Deftness",
-    "category": "basic",
+    "category": "unknown",
     "icon": "special",
     "tier": 3,
     "rate": 9,
@@ -564,7 +564,7 @@
   {
     "name": "Guard I",
     "baseName": "Guard",
-    "category": "basic",
+    "category": "unknown",
     "icon": "ward",
     "tier": 1,
     "rate": 10,
@@ -577,7 +577,7 @@
   {
     "name": "Guard II",
     "baseName": "Guard",
-    "category": "basic",
+    "category": "unknown",
     "icon": "ward",
     "tier": 2,
     "rate": 10,
@@ -590,7 +590,7 @@
   {
     "name": "Guard III",
     "baseName": "Guard",
-    "category": "basic",
+    "category": "unknown",
     "icon": "ward",
     "tier": 3,
     "rate": 9,
@@ -627,7 +627,7 @@
   {
     "name": "Mastery I",
     "baseName": "Mastery",
-    "category": "basic",
+    "category": "unknown",
     "icon": "special",
     "tier": 1,
     "rate": 10,
@@ -642,7 +642,7 @@
   {
     "name": "Mastery II",
     "baseName": "Mastery",
-    "category": "basic",
+    "category": "unknown",
     "icon": "special",
     "tier": 2,
     "rate": 10,
@@ -657,7 +657,7 @@
   {
     "name": "Mastery III",
     "baseName": "Mastery",
-    "category": "basic",
+    "category": "unknown",
     "icon": "special",
     "tier": 3,
     "rate": 9,
@@ -756,7 +756,7 @@
   {
     "name": "Might I",
     "baseName": "Might",
-    "category": "basic",
+    "category": "might",
     "icon": "might",
     "tier": 1,
     "rate": 10,
@@ -769,7 +769,7 @@
   {
     "name": "Might II",
     "baseName": "Might",
-    "category": "basic",
+    "category": "might",
     "icon": "might",
     "tier": 2,
     "rate": 10,
@@ -782,7 +782,7 @@
   {
     "name": "Might III",
     "baseName": "Might",
-    "category": "basic",
+    "category": "might",
     "icon": "might",
     "tier": 3,
     "rate": 9,
@@ -851,7 +851,7 @@
   {
     "name": "Precision I",
     "baseName": "Precision",
-    "category": "basic",
+    "category": "precision",
     "icon": "precision",
     "tier": 1,
     "rate": 10,
@@ -864,7 +864,7 @@
   {
     "name": "Precision II",
     "baseName": "Precision",
-    "category": "basic",
+    "category": "precision",
     "icon": "precision",
     "tier": 2,
     "rate": 10,
@@ -877,7 +877,7 @@
   {
     "name": "Precision III",
     "baseName": "Precision",
-    "category": "basic",
+    "category": "precision",
     "icon": "precision",
     "tier": 3,
     "rate": 9,
@@ -924,7 +924,7 @@
     "rate": 8,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 15,
       "rangedPotency": 2.5
     }
@@ -986,7 +986,7 @@
   {
     "name": "Spirit I",
     "baseName": "Spirit",
-    "category": "basic",
+    "category": "unknown",
     "icon": "pp",
     "tier": 1,
     "rate": 10,
@@ -999,7 +999,7 @@
   {
     "name": "Spirit II",
     "baseName": "Spirit",
-    "category": "basic",
+    "category": "unknown",
     "icon": "pp",
     "tier": 2,
     "rate": 10,
@@ -1012,7 +1012,7 @@
   {
     "name": "Spirit III",
     "baseName": "Spirit",
-    "category": "basic",
+    "category": "unknown",
     "icon": "pp",
     "tier": 3,
     "rate": 9,
@@ -1025,7 +1025,7 @@
   {
     "name": "Stamina I",
     "baseName": "Stamina",
-    "category": "basic",
+    "category": "unknown",
     "icon": "hp",
     "tier": 1,
     "rate": 10,
@@ -1038,7 +1038,7 @@
   {
     "name": "Stamina II",
     "baseName": "Stamina",
-    "category": "basic",
+    "category": "unknown",
     "icon": "hp",
     "tier": 2,
     "rate": 10,
@@ -1051,7 +1051,7 @@
   {
     "name": "Stamina III",
     "baseName": "Stamina",
-    "category": "basic",
+    "category": "unknown",
     "icon": "hp",
     "tier": 3,
     "rate": 9,
@@ -1064,7 +1064,7 @@
   {
     "name": "Technique I",
     "baseName": "Technique",
-    "category": "basic",
+    "category": "technique",
     "icon": "technique",
     "tier": 1,
     "rate": 10,
@@ -1077,7 +1077,7 @@
   {
     "name": "Technique II",
     "baseName": "Technique",
-    "category": "basic",
+    "category": "technique",
     "icon": "technique",
     "tier": 2,
     "rate": 10,
@@ -1090,7 +1090,7 @@
   {
     "name": "Technique III",
     "baseName": "Technique",
-    "category": "basic",
+    "category": "technique",
     "icon": "technique",
     "tier": 3,
     "rate": 9,
@@ -1626,6 +1626,18 @@
     }
   },
   {
+    "name": "Wind Exploit",
+    "baseName": "Wind Exploit",
+    "category": "element",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 6,
+      "conditionalPotency": 2.5
+    }
+  },
+  {
     "name": "Addi Stamel",
     "baseName": "Addi Stamel",
     "category": "addi",
@@ -1633,7 +1645,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 20,
       "meleePotency": 2.5
     }
@@ -1646,7 +1658,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 20,
       "rangedPotency": 2.5
     }
@@ -1659,7 +1671,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 20,
       "techPotency": 2.5
     }
@@ -1672,7 +1684,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "pp": 6,
       "meleePotency": 2.5
     }
@@ -1685,7 +1697,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "pp": 6,
       "rangedPotency": 2.5
     }
@@ -1698,7 +1710,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "pp": 6,
       "techPotency": 2.5
     }
@@ -1711,7 +1723,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 10,
       "pp": 3,
       "meleePotency": 2.5
@@ -1725,7 +1737,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 10,
       "pp": 3,
       "rangedPotency": 2.5
@@ -1739,7 +1751,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "hp": 10,
       "pp": 3,
       "techPotency": 2.5
@@ -1753,7 +1765,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "meleePotency": 2.5,
       "floorPotency": 2.5
     }
@@ -1766,7 +1778,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "rangedPotency": 2.5,
       "floorPotency": 2.5
     }
@@ -1779,7 +1791,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "techPotency": 2.5,
       "floorPotency": 2.5
     }
@@ -1792,7 +1804,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "meleePotency": 2.5,
       "damageResist": 2.5
     }
@@ -1805,7 +1817,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "rangedPotency": 2.5,
       "damageResist": 2.5
     }
@@ -1818,7 +1830,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "techPotency": 2.5,
       "damageResist": 2.5
     }
@@ -1831,7 +1843,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "meleePotency": 2.5,
       "statusResist": 20
     }
@@ -1844,7 +1856,7 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "rangedPotency": 2.5,
       "statusResist": 20
     }
@@ -1857,9 +1869,220 @@
     "rate": 10,
     "location": "",
     "stat": {
-      "bp": 9,
+      "bp": 10,
       "techPotency": 2.5,
       "statusResist": 20
+    }
+  },
+  {
+    "name": "Eradi Soul I",
+    "baseName": "Eradi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 1,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 7,
+      "hp": 10,
+      "pp": 4,
+      "potency": 1.25
+    }
+  },
+  {
+    "name": "Eradi Soul II",
+    "baseName": "Eradi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 2,
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "pp": 4,
+      "potency": 1.75
+    }
+  },
+  {
+    "name": "Eradi Soul III",
+    "baseName": "Eradi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "hp": 10,
+      "pp": 4,
+      "potency": 2.25
+    }
+  },
+  {
+    "name": "Sta Might",
+    "baseName": "Sta Might",
+    "category": "might",
+    "icon": "might",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "hp": 15,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Spi Might",
+    "baseName": "Spi Might",
+    "category": "might",
+    "icon": "might",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Deft Might",
+    "baseName": "Deft Might",
+    "category": "might",
+    "icon": "might",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "meleePotency": 2,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Gua Might",
+    "baseName": "Gua Might",
+    "category": "might",
+    "icon": "might",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "meleePotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Sta Precision",
+    "baseName": "Sta Precision",
+    "category": "precision",
+    "icon": "precision",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "hp": 15,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Spi Precision",
+    "baseName": "Spi Precision",
+    "category": "precision",
+    "icon": "precision",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Deft Precision",
+    "baseName": "Deft Precision",
+    "category": "precision",
+    "icon": "precision",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "rangedPotency": 2,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Gua Precision",
+    "baseName": "Gua Precision",
+    "category": "precision",
+    "icon": "precision",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "rangedPotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Sta Technique",
+    "baseName": "Sta Technique",
+    "category": "technique",
+    "icon": "technique",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "hp": 15,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Spi Technique",
+    "baseName": "Spi Technique",
+    "category": "technique",
+    "icon": "technique",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Deft Technique",
+    "baseName": "Deft Technique",
+    "category": "technique",
+    "icon": "technique",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "techPotency": 2,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Gua Technique",
+    "baseName": "Gua Technique",
+    "category": "technique",
+    "icon": "technique",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "techPotency": 2,
+      "damageResist": 2
+    }
+  },
+  {
+    "name": "Megas Fusia",
+    "baseName": "Megas Fusia",
+    "category": "fusia",
+    "icon": "special",
+    "rate": 9,
+    "location": "",
+    "stat": {
+      "bp": 4,
+      "potency": 1
     }
   }
 ]
