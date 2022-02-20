@@ -7,7 +7,7 @@ export const classNameAtom = atomWithHash<ClassAbbreviation>("cls", "Hu", {
   replaceState: true,
 })
 
-export const MAX_LEVEL = 35
+export const MAX_LEVEL = 40
 
 export const levelAtom = atomWithHash("lv", MAX_LEVEL, {
   replaceState: true,
