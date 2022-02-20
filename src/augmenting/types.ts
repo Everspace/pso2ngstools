@@ -41,18 +41,23 @@ export const allAugmentStats: (keyof AugmentStat)[] = [
   "damageResist",
 ]
 
+// Arranged such that it's nice to use
 export const allAugmentCategories = [
-  "basic",
-  "ward",
-  "domina",
+  "unknown",
+  "might",
+  "precision",
+  "technique",
   "soul",
   "note",
+  "domina",
   "secreta",
   "dread",
   "gigas",
-  "element",
   "dualble",
+  "element",
   "addi",
+  "ward",
+  "fusia",
 ] as const
 
 export type AugmentCategory = typeof allAugmentCategories[number]
@@ -89,7 +94,9 @@ export type Unit = {
   name: string
   level: number
   stars: number
+  limit: number
   defenseBase: BigNumber
+  defenseLimit: BigNumber
   defenseMax: BigNumber
   stat: AugmentStat
 }
@@ -98,7 +105,9 @@ export type Weapon = {
   name: string
   level: number
   stars: number
+  limit: number
   attackBase: BigNumber
+  attackLimit: BigNumber
   attackMax: BigNumber
   element?: string // TODO: add all the valid elements
   /**

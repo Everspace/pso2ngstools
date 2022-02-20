@@ -1,11 +1,11 @@
 import { MAX_LEVEL } from "augmenting/state/characterState"
-import { allClasses, ClassData, Unit, Weapon } from "augmenting/types"
+import { allClasses, ClassData } from "augmenting/types"
 import { Options, parse, Parser } from "csv-parse"
 import fs from "fs/promises"
-import { handleArmorRow } from "./convertArmour"
+import { handleArmorRow, UnitData } from "./convertArmour"
 import { handleAugmentRow } from "./convertAugment"
 import { handleClassStatRow } from "./convertClassStat"
-import { handleWeaponRow } from "./convertWeapon"
+import { handleWeaponRow, WeaponData } from "./convertWeapon"
 
 async function openParse(
   fileSource: string,
@@ -41,7 +41,7 @@ async function main() {
       "./src/augmenting/data/Armours.json",
       { columns: true },
       async (parser) => {
-        const allArmours: Record<string, Unit> = {}
+        const allArmours: Record<string, UnitData> = {}
         for await (const entry of parser) {
           const armour = handleArmorRow(entry)
           allArmours[armour.name] = armour
@@ -54,7 +54,7 @@ async function main() {
       "./src/augmenting/data/Weapons.json",
       { columns: true },
       async (parser) => {
-        const allArmours: Record<string, Weapon> = {}
+        const allArmours: Record<string, WeaponData> = {}
         for await (const entry of parser) {
           const weapon = handleWeaponRow(entry)
           allArmours[weapon.name] = weapon

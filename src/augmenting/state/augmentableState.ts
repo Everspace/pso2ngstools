@@ -45,7 +45,7 @@ export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
     const prior = get(targetAtom)
     let newState: Augment[] = [...prior]
 
-    if (augment.category !== "basic") {
+    if (augment.category !== "unknown") {
       newState = newState.filter((a) => a.category !== augment.category)
     }
     newState.push(augment)

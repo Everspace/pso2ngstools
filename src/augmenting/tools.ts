@@ -42,11 +42,12 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
 }
 
 export const toUnitReal = (unit: Unit): Unit => {
-  const { stat, defenseBase, defenseMax } = unit
+  const { stat, defenseBase, defenseMax, defenseLimit } = unit
   return {
     ...unit,
     defenseBase: bignumber(defenseBase),
     defenseMax: bignumber(defenseMax),
+    defenseLimit: bignumber(defenseLimit),
     stat: toAugmentStatReal(stat),
   }
 }
@@ -56,7 +57,7 @@ export function augmentifyUnit(unit: Unit): Augment {
     name: unit.name,
     icon: "special",
     rate: 10,
-    category: "basic",
+    category: "unknown",
     stat: unit.stat,
   }
 }
@@ -85,10 +86,12 @@ export function rangeFromWeaponAugments(
 }
 
 export const toWeaponReal = (weapon: Weapon): Weapon => {
-  const { attackBase, attackMax, varianceHigh, varianceLow } = weapon
+  const { attackBase, attackMax, attackLimit, varianceHigh, varianceLow } =
+    weapon
   return {
     ...weapon,
     attackBase: bignumber(attackBase),
+    attackLimit: bignumber(attackLimit),
     attackMax: bignumber(attackMax),
     varianceHigh: bignumber(varianceHigh ?? 100).dividedBy(100),
     varianceLow: bignumber(varianceLow ?? 70).dividedBy(100),

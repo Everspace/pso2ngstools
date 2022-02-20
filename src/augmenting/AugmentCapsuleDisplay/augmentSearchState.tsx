@@ -16,10 +16,10 @@ import { isNaN, bignumber } from "mathjs"
 export type SearchAugmentCategory = AugmentCategory | "all"
 export const augmentSearchCategories = [
   "all",
-  ...[...allAugmentCategories].sort(),
+  ...allAugmentCategories,
 ] as SearchAugmentCategory[]
 
-export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("basic")
+export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("all")
 
 export const searchStatFamilyAtom = atomFamily<
   keyof AugmentStat,
