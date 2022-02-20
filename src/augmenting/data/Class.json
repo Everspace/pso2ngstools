@@ -131,43 +131,78 @@
     },
     {
       "attack": 725,
-      "defense": 445
+      "defense": 445,
+      "hp": 383
     },
     {
       "attack": 739,
-      "defense": 452
+      "defense": 452,
+      "hp": 387
     },
     {
       "attack": 753,
-      "defense": 459
+      "defense": 459,
+      "hp": 390
     },
     {
       "attack": 767,
-      "defense": 466
+      "defense": 466,
+      "hp": 394
     },
     {
       "attack": 782,
-      "defense": 473
+      "defense": 473,
+      "hp": 398
     },
     {
       "attack": 797,
-      "defense": 480
+      "defense": 480,
+      "hp": 402
     },
     {
       "attack": 813,
-      "defense": 487
+      "defense": 487,
+      "hp": 406
     },
     {
       "attack": 828,
-      "defense": 495
+      "defense": 495,
+      "hp": 410
     },
     {
       "attack": 844,
-      "defense": 503
+      "defense": 503,
+      "hp": 414
     },
     {
       "attack": 860,
-      "defense": 510
+      "defense": 510,
+      "hp": 418
+    },
+    {
+      "attack": 877,
+      "defense": 518,
+      "hp": 422
+    },
+    {
+      "attack": 894,
+      "defense": 526,
+      "hp": 426
+    },
+    {
+      "attack": 911,
+      "defense": 534,
+      "hp": 430
+    },
+    {
+      "attack": 929,
+      "defense": 542,
+      "hp": 435
+    },
+    {
+      "attack": 946,
+      "defense": 551,
+      "hp": 439
     }
   ],
   "Fi": [
@@ -281,52 +316,64 @@
       "hp": 340
     },
     {
-      "attack": 676,
-      "defense": 415
+      "attack": 675,
+      "defense": 415,
+      "hp": 344
     },
     {
       "attack": 688,
-      "defense": 422
+      "defense": 422,
+      "hp": 347
     },
     {
       "attack": 702,
-      "defense": 428
+      "defense": 428,
+      "hp": 350
     },
     {
       "attack": 715,
-      "defense": 435
+      "defense": 435,
+      "hp": 354
     },
     {
       "attack": 729,
-      "defense": 442
+      "defense": 442,
+      "hp": 357
     },
     {
       "attack": 743,
-      "defense": 449
+      "defense": 449,
+      "hp": 361
     },
     {
       "attack": 757,
-      "defense": 456
+      "defense": 456,
+      "hp": 364
     },
     {
       "attack": 771,
-      "defense": 463
+      "defense": 463,
+      "hp": 368
     },
     {
       "attack": 786,
-      "defense": 470
+      "defense": 470,
+      "hp": 372
     },
     {
       "attack": 801,
-      "defense": 477
+      "defense": 477,
+      "hp": 375
     },
     {
       "attack": 817,
-      "defense": 484
+      "defense": 484,
+      "hp": 379
     },
     {
       "attack": 832,
-      "defense": 492
+      "defense": 492,
+      "hp": 383
     },
     {
       "attack": 848,
@@ -335,7 +382,33 @@
     },
     {
       "attack": 864,
-      "defense": 507
+      "defense": 507,
+      "hp": 390
+    },
+    {
+      "attack": 881,
+      "defense": 515,
+      "hp": 394
+    },
+    {
+      "attack": 898,
+      "defense": 523,
+      "hp": 398
+    },
+    {
+      "attack": 915,
+      "defense": 531,
+      "hp": 402
+    },
+    {
+      "attack": 933,
+      "defense": 539,
+      "hp": 406
+    },
+    {
+      "attack": 950,
+      "defense": 548,
+      "hp": 410
     }
   ],
   "Ra": [
@@ -450,59 +523,98 @@
     },
     {
       "attack": 670,
-      "defense": 414
+      "defense": 414,
+      "hp": 295
     },
     {
       "attack": 682,
-      "defense": 421
+      "defense": 421,
+      "hp": 297
     },
     {
       "attack": 696,
-      "defense": 427
+      "defense": 427,
+      "hp": 300
     },
     {
       "attack": 709,
-      "defense": 434
+      "defense": 434,
+      "hp": 303
     },
     {
       "attack": 723,
-      "defense": 441
+      "defense": 441,
+      "hp": 306
     },
     {
       "attack": 737,
-      "defense": 448
+      "defense": 448,
+      "hp": 309
     },
     {
       "attack": 751,
-      "defense": 455
+      "defense": 455,
+      "hp": 312
     },
     {
       "attack": 765,
-      "defense": 462
+      "defense": 462,
+      "hp": 315
     },
     {
       "attack": 780,
-      "defense": 469
+      "defense": 469,
+      "hp": 318
     },
     {
       "attack": 795,
-      "defense": 476
+      "defense": 476,
+      "hp": 322
     },
     {
       "attack": 811,
-      "defense": 483
+      "defense": 483,
+      "hp": 325
     },
     {
       "attack": 826,
-      "defense": 491
+      "defense": 491,
+      "hp": 328
     },
     {
       "attack": 842,
-      "defense": 499
+      "defense": 499,
+      "hp": 331
     },
     {
       "attack": 858,
-      "defense": 506
+      "defense": 506,
+      "hp": 334
+    },
+    {
+      "attack": 875,
+      "defense": 514,
+      "hp": 338
+    },
+    {
+      "attack": 892,
+      "defense": 522,
+      "hp": 341
+    },
+    {
+      "attack": 808,
+      "defense": 530,
+      "hp": 344
+    },
+    {
+      "attack": 927,
+      "defense": 538,
+      "hp": 348
+    },
+    {
+      "attack": 944,
+      "defense": 547,
+      "hp": 351
     }
   ],
   "Gu": [
@@ -647,36 +759,68 @@
     },
     {
       "attack": 754,
-      "defense": 452
+      "defense": 452,
+      "hp": 325
     },
     {
       "attack": 768,
-      "defense": 459
+      "defense": 459,
+      "hp": 329
     },
     {
       "attack": 783,
-      "defense": 466
+      "defense": 466,
+      "hp": 332
     },
     {
       "attack": 798,
-      "defense": 473
+      "defense": 473,
+      "hp": 335
     },
     {
       "attack": 814,
-      "defense": 480
+      "defense": 480,
+      "hp": 338
     },
     {
       "attack": 829,
-      "defense": 488
+      "defense": 488,
+      "hp": 342
     },
     {
       "attack": 845,
-      "defense": 496
+      "defense": 496,
+      "hp": 345
     },
     {
       "attack": 861,
       "defense": 503,
       "hp": 348
+    },
+    {
+      "attack": 878,
+      "defense": 511,
+      "hp": 352
+    },
+    {
+      "attack": 895,
+      "defense": 519,
+      "hp": 355
+    },
+    {
+      "attack": 912,
+      "defense": 527,
+      "hp": 359
+    },
+    {
+      "attack": 930,
+      "defense": 535,
+      "hp": 362
+    },
+    {
+      "attack": 947,
+      "defense": 544,
+      "hp": 366
     }
   ],
   "Fo": [
@@ -791,23 +935,28 @@
     },
     {
       "attack": 675,
-      "defense": 410
+      "defense": 410,
+      "hp": 288
     },
     {
       "attack": 687,
-      "defense": 417
+      "defense": 417,
+      "hp": 291
     },
     {
       "attack": 701,
-      "defense": 423
+      "defense": 423,
+      "hp": 294
     },
     {
       "attack": 714,
-      "defense": 430
+      "defense": 430,
+      "hp": 297
     },
     {
       "attack": 728,
-      "defense": 437
+      "defense": 437,
+      "hp": 300
     },
     {
       "attack": 742,
@@ -836,7 +985,8 @@
     },
     {
       "attack": 816,
-      "defense": 479
+      "defense": 479,
+      "hp": 318
     },
     {
       "attack": 831,
@@ -852,6 +1002,31 @@
       "attack": 863,
       "defense": 502,
       "hp": 327
+    },
+    {
+      "attack": 880,
+      "defense": 510,
+      "hp": 331
+    },
+    {
+      "attack": 897,
+      "defense": 518,
+      "hp": 334
+    },
+    {
+      "attack": 914,
+      "defense": 526,
+      "hp": 337
+    },
+    {
+      "attack": 932,
+      "defense": 534,
+      "hp": 340
+    },
+    {
+      "attack": 949,
+      "defense": 543,
+      "hp": 344
     }
   ],
   "Te": [
@@ -1033,6 +1208,31 @@
       "attack": 856,
       "defense": 509,
       "hp": 362
+    },
+    {
+      "attack": 873,
+      "defense": 517,
+      "hp": 366
+    },
+    {
+      "attack": 890,
+      "defense": 525,
+      "hp": 369
+    },
+    {
+      "attack": 907,
+      "defense": 533,
+      "hp": 373
+    },
+    {
+      "attack": 925,
+      "defense": 541,
+      "hp": 377
+    },
+    {
+      "attack": 942,
+      "defense": 550,
+      "hp": 380
     }
   ],
   "Br": [
@@ -1152,43 +1352,53 @@
     },
     {
       "attack": 686,
-      "defense": 423
+      "defense": 423,
+      "hp": 335
     },
     {
       "attack": 700,
-      "defense": 429
+      "defense": 429,
+      "hp": 338
     },
     {
       "attack": 713,
-      "defense": 436
+      "defense": 436,
+      "hp": 341
     },
     {
       "attack": 727,
-      "defense": 443
+      "defense": 443,
+      "hp": 345
     },
     {
       "attack": 741,
-      "defense": 450
+      "defense": 450,
+      "hp": 348
     },
     {
       "attack": 755,
-      "defense": 457
+      "defense": 457,
+      "hp": 351
     },
     {
       "attack": 769,
-      "defense": 464
+      "defense": 464,
+      "hp": 355
     },
     {
       "attack": 784,
-      "defense": 471
+      "defense": 471,
+      "hp": 358
     },
     {
       "attack": 799,
-      "defense": 478
+      "defense": 478,
+      "hp": 362
     },
     {
       "attack": 815,
-      "defense": 485
+      "defense": 485,
+      "hp": 365
     },
     {
       "attack": 830,
@@ -1197,12 +1407,38 @@
     },
     {
       "attack": 846,
-      "defense": 501
+      "defense": 501,
+      "hp": 373
     },
     {
       "attack": 862,
       "defense": 508,
       "hp": 376
+    },
+    {
+      "attack": 879,
+      "defense": 516,
+      "hp": 380
+    },
+    {
+      "attack": 896,
+      "defense": 524,
+      "hp": 384
+    },
+    {
+      "attack": 913,
+      "defense": 532,
+      "hp": 387
+    },
+    {
+      "attack": 931,
+      "defense": 540,
+      "hp": 391
+    },
+    {
+      "attack": 948,
+      "defense": 549,
+      "hp": 395
     }
   ],
   "Bo": [
@@ -1327,7 +1563,8 @@
     },
     {
       "attack": 701,
-      "defense": 426
+      "defense": 426,
+      "hp": 344
     },
     {
       "attack": 714,
@@ -1341,39 +1578,73 @@
     },
     {
       "attack": 742,
-      "defense": 447
+      "defense": 447,
+      "hp": 354
     },
     {
       "attack": 756,
-      "defense": 454
+      "defense": 454,
+      "hp": 358
     },
     {
       "attack": 770,
-      "defense": 461
+      "defense": 461,
+      "hp": 361
     },
     {
       "attack": 785,
-      "defense": 468
+      "defense": 468,
+      "hp": 365
     },
     {
       "attack": 800,
-      "defense": 475
+      "defense": 475,
+      "hp": 369
     },
     {
       "attack": 816,
-      "defense": 482
+      "defense": 482,
+      "hp": 372
     },
     {
       "attack": 831,
-      "defense": 490
+      "defense": 490,
+      "hp": 376
     },
     {
       "attack": 847,
-      "defense": 498
+      "defense": 498,
+      "hp": 379
     },
     {
       "attack": 863,
-      "defense": 505
+      "defense": 505,
+      "hp": 383
+    },
+    {
+      "attack": 880,
+      "defense": 513,
+      "hp": 387
+    },
+    {
+      "attack": 897,
+      "defense": 521,
+      "hp": 391
+    },
+    {
+      "attack": 914,
+      "defense": 529,
+      "hp": 395
+    },
+    {
+      "attack": 932,
+      "defense": 537,
+      "hp": 398
+    },
+    {
+      "attack": 949,
+      "defense": 546,
+      "hp": 402
     }
   ]
 }

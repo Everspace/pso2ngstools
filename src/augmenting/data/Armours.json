@@ -3,175 +3,205 @@
     "name": "None",
     "level": 0,
     "stars": 0,
+    "limit": 0,
     "defenseBase": 0,
-    "defenseMax": 0,
-    "stat": {}
+    "stat": {},
+    "defenseLimit": 0,
+    "defenseMax": 0
   },
   "Primm": {
     "name": "Primm",
     "level": 1,
     "stars": 1,
+    "limit": 0,
     "defenseBase": 8,
-    "defenseMax": 28,
     "stat": {
       "hp": 10
-    }
+    },
+    "defenseLimit": null,
+    "defenseMax": 58
   },
   "Tzvia": {
     "name": "Tzvia",
     "level": 1,
     "stars": 2,
+    "limit": 20,
     "defenseBase": 9,
-    "defenseMax": 29,
     "stat": {
       "pp": 2
-    }
+    },
+    "defenseLimit": 29,
+    "defenseMax": 59
   },
   "Silver Primm": {
     "name": "Silver Primm",
     "level": 1,
     "stars": 2,
+    "limit": 20,
     "defenseBase": 9,
-    "defenseMax": 29,
     "stat": {
       "pp": 2
-    }
+    },
+    "defenseLimit": 29,
+    "defenseMax": 59
   },
   "Theseus": {
     "name": "Theseus",
     "level": 5,
     "stars": 3,
+    "limit": 30,
     "defenseBase": 10,
-    "defenseMax": 30,
     "stat": {
       "hp": 10,
       "pp": 1
-    }
+    },
+    "defenseLimit": 40,
+    "defenseMax": 60
   },
   "Gold Primm": {
     "name": "Gold Primm",
     "level": 5,
     "stars": 3,
+    "limit": 30,
     "defenseBase": 10,
-    "defenseMax": 40,
     "stat": {
       "hp": 10,
       "pp": 1
-    }
+    },
+    "defenseLimit": 40,
+    "defenseMax": 60
   },
   "Cattleya": {
     "name": "Cattleya",
     "level": 10,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 12,
-    "defenseMax": 53,
     "stat": {
       "hp": 20,
       "pp": 2
-    }
+    },
+    "defenseLimit": 53,
+    "defenseMax": 63
   },
   "Vialto": {
     "name": "Vialto",
     "level": 10,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 14,
-    "defenseMax": 55,
     "stat": {
       "hp": 30,
       "damageResist": 1
-    }
+    },
+    "defenseLimit": 55,
+    "defenseMax": 65
   },
   "Qual De": {
     "name": "Qual De",
     "level": 10,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 10,
-    "defenseMax": 49,
     "stat": {
       "pp": 6
-    }
+    },
+    "defenseLimit": 49,
+    "defenseMax": 61
   },
   "Vialto Arga": {
     "name": "Vialto Arga",
     "level": 12,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 16,
-    "defenseMax": 57,
     "stat": {
       "hp": 25,
       "meleePotency": 0.5,
       "rangedPotency": 0.5,
       "damageResist": 1
-    }
+    },
+    "defenseLimit": 57,
+    "defenseMax": 67
   },
   "Vialto Belta": {
     "name": "Vialto Belta",
     "level": 12,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 16,
-    "defenseMax": 57,
     "stat": {
       "hp": 25,
       "rangedPotency": 0.5,
       "techPotency": 0.5,
       "damageResist": 1
-    }
+    },
+    "defenseLimit": 57,
+    "defenseMax": 67
   },
   "Vialto Sheza": {
     "name": "Vialto Sheza",
     "level": 12,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 16,
-    "defenseMax": 57,
     "stat": {
       "hp": 25,
       "meleePotency": 0.5,
       "techPotency": 0.5,
       "damageResist": 1
-    }
+    },
+    "defenseLimit": 57,
+    "defenseMax": 67
   },
   "Qual De Arga": {
     "name": "Qual De Arga",
     "level": 12,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 13,
-    "defenseMax": 54,
     "stat": {
       "pp": 4,
       "meleePotency": 1,
       "rangedPotency": 1
-    }
+    },
+    "defenseLimit": 54,
+    "defenseMax": 64
   },
   "Qual De Belta": {
     "name": "Qual De Belta",
     "level": 12,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 13,
-    "defenseMax": 54,
     "stat": {
       "pp": 4,
       "rangedPotency": 1,
       "techPotency": 1
-    }
+    },
+    "defenseLimit": 54,
+    "defenseMax": 64
   },
   "Qual De Sheza": {
     "name": "Qual De Sheza",
     "level": 12,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 13,
-    "defenseMax": 54,
     "stat": {
       "pp": 4,
       "meleePotency": 1,
       "techPotency": 1
-    }
+    },
+    "defenseLimit": 54,
+    "defenseMax": 64
   },
   "Geant": {
     "name": "Geant",
     "level": 15,
     "stars": 4,
+    "limit": 40,
     "defenseBase": 15,
-    "defenseMax": 56,
     "stat": {
       "hp": -20,
       "pp": 10,
@@ -179,70 +209,82 @@
       "rangedPotency": 2,
       "techPotency": 2,
       "statusResist": -50
-    }
+    },
+    "defenseLimit": 56,
+    "defenseMax": 66
   },
   "Vios": {
     "name": "Vios",
     "level": 24,
     "stars": 5,
+    "limit": 40,
     "defenseBase": 15,
-    "defenseMax": 56,
     "stat": {
       "pp": 8,
       "meleePotency": 1,
       "rangedPotency": 1,
       "techPotency": 1
-    }
+    },
+    "defenseLimit": 56,
+    "defenseMax": 66
   },
   "Vijf": {
     "name": "Vijf",
     "level": 24,
     "stars": 5,
+    "limit": 40,
     "defenseBase": 17,
-    "defenseMax": 58,
     "stat": {
       "hp": 30,
       "pp": 4
-    }
+    },
+    "defenseLimit": 58,
+    "defenseMax": 68
   },
   "Vidal": {
     "name": "Vidal",
     "level": 24,
     "stars": 5,
+    "limit": 40,
     "defenseBase": 22,
-    "defenseMax": 63,
     "stat": {
       "hp": 45,
       "damageResist": 1
-    }
+    },
+    "defenseLimit": 63,
+    "defenseMax": 73
   },
   "Viosel": {
     "name": "Viosel",
     "level": 26,
     "stars": 5,
+    "limit": 40,
     "defenseBase": 10,
-    "defenseMax": 51,
     "stat": {
       "pp": 14,
       "statusResist": 20
-    }
+    },
+    "defenseLimit": 51,
+    "defenseMax": 61
   },
   "Vidalun": {
     "name": "Vidalun",
     "level": 26,
     "stars": 5,
+    "limit": 40,
     "defenseBase": 20,
-    "defenseMax": 61,
     "stat": {
       "hp": 70
-    }
+    },
+    "defenseLimit": 61,
+    "defenseMax": 71
   },
   "Greas": {
     "name": "Greas",
     "level": 31,
     "stars": 5,
+    "limit": 40,
     "defenseBase": 21,
-    "defenseMax": 62,
     "stat": {
       "hp": -40,
       "pp": 13,
@@ -250,6 +292,95 @@
       "rangedPotency": 2,
       "techPotency": 2,
       "statusResist": -50
-    }
+    },
+    "defenseLimit": 62,
+    "defenseMax": 72
+  },
+  "Vijf Armor: Belta": {
+    "name": "Vijf Armor: Belta",
+    "level": 31,
+    "stars": 5,
+    "limit": 40,
+    "defenseBase": 18,
+    "stat": {
+      "hp": 20,
+      "pp": 7,
+      "rangedPotency": 1,
+      "techPotency": 1
+    },
+    "defenseLimit": 59,
+    "defenseMax": 69
+  },
+  "Vijf Armor: Arga": {
+    "name": "Vijf Armor: Arga",
+    "level": 31,
+    "stars": 5,
+    "limit": 40,
+    "defenseBase": 18,
+    "stat": {
+      "hp": 20,
+      "pp": 7,
+      "meleePotency": 1,
+      "rangedPotency": 1
+    },
+    "defenseLimit": 59,
+    "defenseMax": 69
+  },
+  "Vijf Armor: Sheza": {
+    "name": "Vijf Armor: Sheza",
+    "level": 31,
+    "stars": 5,
+    "limit": 40,
+    "defenseBase": 18,
+    "stat": {
+      "hp": 20,
+      "pp": 7,
+      "meleePotency": 1,
+      "techPotency": 1
+    },
+    "defenseLimit": 59,
+    "defenseMax": 69
+  },
+  "Schwarzest Armor": {
+    "name": "Schwarzest Armor",
+    "level": 31,
+    "stars": 5,
+    "limit": 40,
+    "defenseBase": 20,
+    "stat": {
+      "hp": 25,
+      "pp": 3,
+      "meleePotency": 2
+    },
+    "defenseLimit": 61,
+    "defenseMax": 71
+  },
+  "Schwarzgarde Armor": {
+    "name": "Schwarzgarde Armor",
+    "level": 31,
+    "stars": 5,
+    "limit": 40,
+    "defenseBase": 20,
+    "stat": {
+      "hp": 25,
+      "pp": 3,
+      "rangedPotency": 2
+    },
+    "defenseLimit": 61,
+    "defenseMax": 71
+  },
+  "Schwarzrosso Armor": {
+    "name": "Schwarzrosso Armor",
+    "level": 31,
+    "stars": 5,
+    "limit": 40,
+    "defenseBase": 20,
+    "stat": {
+      "hp": 25,
+      "pp": 3,
+      "techPotency": 2
+    },
+    "defenseLimit": 61,
+    "defenseMax": 71
   }
 }

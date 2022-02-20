@@ -1,150 +1,235 @@
 {
   "None": {
     "name": "None",
-    "level": 0,
-    "stars": 0,
+    "level": 1,
+    "stars": 1,
+    "limit": 0,
     "attackBase": 0,
+    "attackLimit": 0,
     "attackMax": 0
   },
   "Primm": {
     "name": "Primm",
     "level": 1,
     "stars": 1,
+    "limit": 10,
     "attackBase": 177,
-    "attackMax": 259
+    "attackLimit": 199,
+    "attackMax": 338
   },
   "Tzvia": {
     "name": "Tzvia",
     "level": 4,
     "stars": 2,
+    "limit": 20,
     "attackBase": 195,
-    "attackMax": 264
+    "attackLimit": 228,
+    "attackMax": 338
+  },
+  "Silver Primm": {
+    "name": "Silver Primm",
+    "level": 5,
+    "stars": 2,
+    "limit": 20,
+    "attackBase": 195,
+    "attackLimit": 228,
+    "attackMax": 338
+  },
+  "N-EXP Weapon": {
+    "name": "N-EXP Weapon",
+    "level": 5,
+    "stars": 2,
+    "limit": 20,
+    "attackBase": 195,
+    "attackLimit": 228,
+    "attackMax": 338
+  },
+  "Gold Primm": {
+    "name": "Gold Primm",
+    "level": 10,
+    "stars": 3,
+    "limit": 30,
+    "attackBase": 223,
+    "attackLimit": 255,
+    "attackMax": 338
   },
   "Theseus": {
     "name": "Theseus",
     "level": 8,
     "stars": 3,
+    "limit": 30,
     "attackBase": 223,
-    "attackMax": 270
+    "attackLimit": 255,
+    "attackMax": 338
+  },
+  "Trois De": {
+    "name": "Trois De",
+    "level": 8,
+    "stars": 3,
+    "limit": 30,
+    "attackBase": 223,
+    "attackLimit": 255,
+    "attackMax": 338
   },
   "Frostel": {
     "name": "Frostel",
     "level": 13,
     "stars": 3,
+    "limit": 30,
     "attackBase": 225,
-    "attackMax": 272,
+    "attackLimit": 257,
+    "attackMax": 340,
     "element": "Ice"
   },
   "Glissen": {
     "name": "Glissen",
     "level": 13,
     "stars": 3,
+    "limit": 30,
     "attackBase": 225,
-    "attackMax": 272,
+    "attackLimit": 257,
+    "attackMax": 340,
     "element": "Lightning"
   },
   "Resurgir": {
     "name": "Resurgir",
     "level": 14,
     "stars": 4,
+    "limit": 40,
     "attackBase": 240,
-    "attackMax": 280,
+    "attackLimit": 280,
+    "attackMax": 348,
     "varianceLow": 75
   },
   "Cattleya": {
     "name": "Cattleya",
     "level": 14,
     "stars": 4,
+    "limit": 40,
     "attackBase": 242,
-    "attackMax": 282,
+    "attackLimit": 282,
+    "attackMax": 350,
     "varianceLow": 75
   },
   "Vialto": {
     "name": "Vialto",
     "level": 14,
     "stars": 4,
+    "limit": 40,
     "attackBase": 242,
-    "attackMax": 282,
+    "attackLimit": 282,
+    "attackMax": 350,
     "varianceLow": 75
   },
   "Foursis": {
     "name": "Foursis",
     "level": 14,
     "stars": 4,
+    "limit": 40,
     "attackBase": 242,
-    "attackMax": 282,
+    "attackLimit": 282,
+    "attackMax": 350,
     "varianceLow": 75
   },
   "Straga": {
     "name": "Straga",
     "level": 15,
     "stars": 4,
+    "limit": 40,
     "attackBase": 243,
-    "attackMax": 283,
+    "attackLimit": 283,
+    "attackMax": 351,
     "varianceLow": 75
   },
   "Evolcoat": {
     "name": "Evolcoat",
     "level": 15,
     "stars": 4,
+    "limit": 40,
     "attackBase": 242,
-    "attackMax": 282,
+    "attackLimit": 282,
+    "attackMax": 350,
     "varianceLow": 75
   },
   "Flamel": {
     "name": "Flamel",
     "level": 15,
     "stars": 4,
+    "limit": 40,
     "attackBase": 240,
-    "attackMax": 280,
+    "attackLimit": 280,
+    "attackMax": 348,
     "element": "Fire"
   },
   "Gothica": {
     "name": "Gothica",
     "level": 21,
     "stars": 5,
+    "limit": 40,
     "attackBase": 277,
-    "attackMax": 317,
+    "attackLimit": 317,
+    "attackMax": 369,
     "varianceLow": 75
   },
   "Fivla": {
     "name": "Fivla",
     "level": 21,
     "stars": 5,
+    "limit": 40,
     "attackBase": 277,
-    "attackMax": 317,
+    "attackLimit": 317,
+    "attackMax": 369,
     "varianceLow": 75
   },
   "Quintel": {
     "name": "Quintel",
     "level": 21,
     "stars": 5,
+    "limit": 40,
     "attackBase": 277,
-    "attackMax": 317,
+    "attackLimit": 317,
+    "attackMax": 369,
     "varianceLow": 75
   },
   "Tempesta": {
     "name": "Tempesta",
     "level": 25,
     "stars": 5,
+    "limit": 40,
     "attackBase": 263,
-    "attackMax": 303,
-    "varianceLow": 70
+    "attackLimit": 303,
+    "attackMax": 355,
+    "varianceLow": 70,
+    "element": "Wind"
   },
   "Greaga": {
     "name": "Greaga",
     "level": 27,
     "stars": 5,
+    "limit": 40,
     "attackBase": 280,
-    "attackMax": 320,
+    "attackLimit": 320,
+    "attackMax": 372,
     "varianceLow": 75
   },
   "Relik": {
     "name": "Relik",
     "level": 31,
     "stars": 5,
+    "limit": 40,
     "attackBase": 284,
-    "attackMax": 324,
+    "attackLimit": 324,
+    "attackMax": 376,
+    "varianceLow": 75
+  },
+  "Cinquem": {
+    "name": "Cinquem",
+    "level": 36,
+    "stars": 5,
+    "limit": 40,
+    "attackBase": 293,
+    "attackLimit": 333,
+    "attackMax": 385,
     "varianceLow": 75
   }
 }
