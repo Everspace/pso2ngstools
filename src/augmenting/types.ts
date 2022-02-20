@@ -7,6 +7,10 @@ export type AugmentableSlot = typeof augmentSlots[number]
 export type UnitSlot = Exclude<AugmentableSlot, "weapon">
 export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
 
+export type GrindLevel = 0 | 10 | 20 | 30 | 40 | 50
+// Eventually | 60 | 70 | 80 | 90 | 100
+export const MAX_GRIND: GrindLevel = 50
+
 export interface AugmentStat {
   bp?: BigNumber
   hp?: BigNumber

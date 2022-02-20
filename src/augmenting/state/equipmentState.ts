@@ -3,19 +3,63 @@ import { atomFamily, atomWithHash } from "jotai/utils"
 import { toId, fromId, flipTable, translateKeys } from "utils"
 import { allUnits } from "../data/armours"
 import { allWeapons } from "../data/weapons"
-import { AugmentableSlot, augmentSlots, Unit, UnitSlot, Weapon } from "../types"
+import {
+  AugmentableSlot,
+  augmentSlots,
+  Unit,
+  UnitSlot,
+  Weapon,
+  MAX_GRIND,
+} from "../types"
 import { augmentableFamily } from "./augmentableState"
 
-type SerializedEquippableState = {
+const DEFAULT_WEAPON = allWeapons["Cinquem"]
+const DEFAULT_UNIT = allUnits["Schwarzest Armor"]
+
+interface Versionable {
+  version?: number
+}
+
+type SerializedEquippableStateV1 = {
+  version?: 1
   name?: string
   potential?: number
   fullyGround?: boolean
 }
 
-const shrinkTable: Record<keyof SerializedEquippableState, string> = {
+type SerializedEquippableStateV2 = Versionable & {
+  version: 2
+  name?: string
+  potential?: number
+  grind?: number
+}
+
+type AnyVersion = SerializedEquippableStateV1 | SerializedEquippableStateV2
+
+function migrate(state: AnyVersion): SerializedEquippableStateV2 {
+  switch (state.version) {
+    case 1:
+      const { fullyGround, ...properites } = state
+      const unit = allUnits[state.name ?? "None"]
+      const grind = fullyGround ? unit.limit : 0
+      return migrate({ ...properites, version: 2, grind })
+    case 2:
+      return state
+    default:
+      return migrate({ ...state, version: 1 })
+  }
+}
+
+type AllKeysForTable =
+  | keyof SerializedEquippableStateV1
+  | keyof SerializedEquippableStateV2
+
+const shrinkTable: Record<AllKeysForTable, string> = {
+  fullyGround: "fg",
+  grind: "g",
   name: "n",
   potential: "p",
-  fullyGround: "fg",
+  version: "v",
 }
 const expandTable = flipTable(shrinkTable)
 
@@ -44,33 +88,30 @@ export const augmentsPerSlotAtom = atom<number, number>(
 
 export type UnitEquipState = {
   unit: Unit
-  fullyGround: boolean
+  grind: number
 }
 
 export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
   return atomWithHash<UnitEquipState>(
     id,
-    { unit: allUnits["None"], fullyGround: true },
+    { unit: DEFAULT_UNIT, grind: MAX_GRIND },
     {
       replaceState: true,
-      serialize({ unit, fullyGround }) {
+      serialize({ unit, grind }) {
         return toId(
           translateKeys(shrinkTable, {
             name: unit.name,
-            fullyGround,
+            grind,
           }),
         )
       },
       deserialize(id) {
-        const state = translateKeys(
-          expandTable,
-          fromId(id),
-        ) as SerializedEquippableState
-
+        const state = migrate(translateKeys(expandTable, fromId(id)))
+        const unit = allUnits[state?.name ?? "None"]
         return {
-          unit: allUnits[state?.name ?? "None"],
-          fullyGround: state.fullyGround ?? true,
+          unit,
+          grind: state?.grind ?? unit?.level,
         }
       },
     },
@@ -80,33 +121,30 @@ export const unitStateFamily = atomFamily((slot: UnitSlot) => {
 export type WeaponEquipState = {
   weapon: Weapon
   potential: number
-  fullyGround: boolean
+  grind: number
 }
 
 export const weaponStateAtom = atomWithHash<WeaponEquipState>(
   slotToHash["weapon"],
-  { weapon: allWeapons["Fivla"], potential: 0, fullyGround: true },
+  { weapon: DEFAULT_WEAPON, potential: 3, grind: MAX_GRIND },
   {
     replaceState: true,
-    serialize({ weapon, potential, fullyGround }) {
+    serialize({ weapon, potential, grind }) {
       return toId(
         translateKeys(shrinkTable, {
           name: weapon.name,
           potential,
-          fullyGround,
+          grind,
         }),
       )
     },
     deserialize(id) {
-      const state = translateKeys(
-        expandTable,
-        fromId(id),
-      ) as SerializedEquippableState
+      const state = migrate(translateKeys(expandTable, fromId(id)))
 
       return {
         weapon: allWeapons[state?.name ?? "None"],
-        potential: state.potential ?? 0,
-        fullyGround: state.fullyGround ?? true,
+        potential: state.potential ?? 3,
+        grind: state.grind ?? MAX_GRIND,
       }
     },
   },

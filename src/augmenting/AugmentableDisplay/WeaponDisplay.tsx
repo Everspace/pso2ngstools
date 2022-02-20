@@ -110,6 +110,9 @@ function WeaponConfig() {
 
   return (
     <Grid container>
+      <Grid item xs={12}>
+        <ChangePotentialDropdown />
+      </Grid>
       <Grid item>
         <FormControlLabel
           control={
@@ -121,9 +124,6 @@ function WeaponConfig() {
           }
           label="Full Grind"
         />
-      </Grid>
-      <Grid item xs={3} lg={2}>
-        <ChangePotentialDropdown />
       </Grid>
     </Grid>
   )

@@ -1,7 +1,6 @@
-import { Weapon } from "augmenting/types"
+import { GrindLevel, Weapon } from "augmenting/types"
 import { BigNumber } from "mathjs"
 import {
-  GrindLevel,
   HasGrindLevels,
   MAX_GRIND_INDEX,
   MAX_GRIND_KEY,
