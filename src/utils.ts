@@ -6,17 +6,18 @@ export const toId = (object: any) => {
   return window.btoa(JSON.stringify(object))
 }
 
-type ValidKeyType = string | number | symbol
+type ValidKey = string | number | symbol
+type FlippableRecord = Record<ValidKey, ValidKey>
 
 /**
  * Using a table, map the keys of object to the results in the table.
  *
  * Used for shortening keys like "weapon" to "w" and back again.
  */
-export const translateKeys = <T extends Record<string, any>>(
-  table: Record<keyof T, string>,
-  obj: T,
-): any => {
+export const translateKeys = <Source extends FlippableRecord>(
+  table: Record<keyof Source, ValidKey>,
+  obj: Source,
+) => {
   return Object.fromEntries(Object.entries(obj).map(([k, v]) => [table[k], v]))
 }
 
@@ -24,9 +25,9 @@ export const translateKeys = <T extends Record<string, any>>(
  * Use `transform` to change every value in an object
  */
 export function transformValues<T>(
-  obj: Record<ValidKeyType, T>,
+  obj: Record<ValidKey, T>,
   transform: (entry: T) => T,
-): Record<ValidKeyType, T> {
+): Record<ValidKey, T> {
   return Object.fromEntries(
     Object.entries(obj).map(([k, v]) => [k, transform(v)]),
   )
@@ -35,8 +36,8 @@ export function transformValues<T>(
 /**
  * Turns a table of k,v to a table of v,k
  */
-export function flipTable<T extends Record<string, ValidKeyType>>(table: T) {
+export function flipTable(table: Record<ValidKey, ValidKey>) {
   return Object.fromEntries(
     Object.entries(table).map(([k, v]) => [v, k]),
-  ) as Record<ValidKeyType, keyof T>
+  ) as Record<ValidKey, ValidKey>
 }
