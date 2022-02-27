@@ -184,6 +184,20 @@
     }
   },
   {
+    "name": "Daityl Soul III",
+    "baseName": "Daityl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 3,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "bp": 10,
+      "pp": 5,
+      "meleePotency": 2.5
+    }
+  },
+  {
     "name": "Deftness I",
     "baseName": "Deftness",
     "category": "unknown",
@@ -821,6 +835,20 @@
     }
   },
   {
+    "name": "Nex Soul II",
+    "baseName": "Nex Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "techPotency": 2.5
+    }
+  },
+  {
     "name": "Pettas Soul I",
     "baseName": "Pettas Soul",
     "category": "soul",
@@ -846,6 +874,20 @@
       "bp": 8,
       "pp": 5,
       "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Pettas Soul II",
+    "baseName": "Pettas Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 2,
+    "rate": 8,
+    "location": "",
+    "stat": {
+      "bp": 10,
+      "pp": 5,
+      "rangedPotency": 2.4
     }
   },
   {
@@ -1898,6 +1940,7 @@
     "rate": 9,
     "location": "",
     "stat": {
+      "bp": 8,
       "hp": 10,
       "pp": 4,
       "potency": 1.75
@@ -1912,6 +1955,7 @@
     "rate": 8,
     "location": "",
     "stat": {
+      "bp": 10,
       "hp": 10,
       "pp": 4,
       "potency": 2.25
