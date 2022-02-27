@@ -30,27 +30,28 @@ export function CharacterBPDisplay() {
           <Grid item xs={12}>
             <Typography>Class: {classBp + skillBp} BP</Typography>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs="auto">
             <NumberInput
               label={`Lv (Max ${MAX_LEVEL})`}
               atom={levelAtom}
               max={MAX_LEVEL}
               min={1}
               resetValue={MAX_LEVEL}
+              sx={{ maxWidth: 120 }}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs="auto">
             <ChangeClassDropdown />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs="auto">
             <NumberInput
               label={`Skillpoints (${MAX_SKILLPOINTS})`}
-              sx={{ maxWidth: 130 }}
               atom={skillpointAtom}
               resetValue={MAX_SKILLPOINTS}
+              sx={{ maxWidth: 120 }}
             />
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm={12} md>
             <Typography>
               (Class: {classBp} BP + Skill: {skillBp * 2} [{skillBp} Main +{" "}
               {skillBp} Sub] BP)
