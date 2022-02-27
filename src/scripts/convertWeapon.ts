@@ -1,12 +1,6 @@
-import { GrindLevel, Weapon } from "augmenting/types"
+import { GrindLevel, GRIND_LEVELS, Weapon } from "augmenting/types"
 import { BigNumber } from "mathjs"
-import {
-  HasGrindLevels,
-  MAX_GRIND_INDEX,
-  MAX_GRIND_KEY,
-  RecordSheet,
-  Replace,
-} from "./common"
+import { HasGrindLevels, RecordSheet, Replace } from "./common"
 
 // Guessed offsets for
 // [rarity][Grind of 10]
@@ -36,20 +30,17 @@ export function handleWeaponRow(row: DataSheetRow): WeaponData {
     name: Series,
     level: Number(Lv),
     stars,
-    limit: Number(Limit),
-    attackBase,
+    limit: Number(Limit) as GrindLevel,
   }
 
-  const attackLimit = grinds[`Grind${Limit}`]
-  if (attackLimit === "")
-    data.attackLimit =
-      attackBase + rarityBackfill[stars][Math.floor(Number(Limit) / 10)]
-  else data.attackLimit = Number(attackLimit)
-
-  const attackMax = grinds[MAX_GRIND_KEY]
-  if (attackMax === "")
-    data.attackMax = attackBase + rarityBackfill[stars][MAX_GRIND_INDEX]
-  else data.attackMax = Number(attackMax)
+  const grindLevelTuples = GRIND_LEVELS.map((level) => {
+    const rawGrind = grinds[`Grind${level}`]
+    let grind: number = Number(rawGrind)
+    if (rawGrind === "")
+      grind = attackBase + rarityBackfill[stars][Math.floor(level / 10)]
+    return [level, grind]
+  })
+  data.grindValues = Object.fromEntries(grindLevelTuples)
 
   if (VLow !== "") data.varianceLow = Number(VLow)
   if (VHigh !== "") data.varianceHigh = Number(VHigh)

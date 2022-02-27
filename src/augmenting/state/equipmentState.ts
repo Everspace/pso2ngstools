@@ -70,6 +70,13 @@ const slotToHash: Record<AugmentableSlot, string> = {
   weapon: "w",
 }
 
+const grindStateSlotToHash: Record<AugmentableSlot, string> = {
+  unit1: "u1g",
+  unit2: "u2g",
+  unit3: "u3g",
+  weapon: "wg",
+}
+
 export const MAX_AUGMENTS_PER_SLOT = 8
 const augmentsPerSlotRawAtom = atomWithHash("slots", 4, {
   replaceState: true,
@@ -86,23 +93,27 @@ export const augmentsPerSlotAtom = atom<number, number>(
   },
 )
 
+export const grindStateFamily = atomFamily((slot: AugmentableSlot) =>
+  atomWithHash(grindStateSlotToHash[slot], MAX_GRIND, {
+    replaceState: true,
+  }),
+)
+
 export type UnitEquipState = {
   unit: Unit
-  grind: number
 }
 
 export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
   return atomWithHash<UnitEquipState>(
     id,
-    { unit: DEFAULT_UNIT, grind: MAX_GRIND },
+    { unit: DEFAULT_UNIT },
     {
       replaceState: true,
-      serialize({ unit, grind }) {
+      serialize({ unit }) {
         return toId(
           translateKeys(shrinkTable, {
             name: unit.name,
-            grind,
           }),
         )
       },
@@ -111,7 +122,6 @@ export const unitStateFamily = atomFamily((slot: UnitSlot) => {
         const unit = allUnits[state?.name ?? "None"]
         return {
           unit,
-          grind: state?.grind ?? unit?.level,
         }
       },
     },
@@ -121,30 +131,26 @@ export const unitStateFamily = atomFamily((slot: UnitSlot) => {
 export type WeaponEquipState = {
   weapon: Weapon
   potential: number
-  grind: number
 }
 
 export const weaponStateAtom = atomWithHash<WeaponEquipState>(
   slotToHash["weapon"],
-  { weapon: DEFAULT_WEAPON, potential: 3, grind: MAX_GRIND },
+  { weapon: DEFAULT_WEAPON, potential: 3 },
   {
     replaceState: true,
-    serialize({ weapon, potential, grind }) {
+    serialize({ weapon, potential }) {
       return toId(
         translateKeys(shrinkTable, {
           name: weapon.name,
           potential,
-          grind,
         }),
       )
     },
     deserialize(id) {
       const state = migrate(translateKeys(expandTable, fromId(id)))
-
       return {
         weapon: allWeapons[state?.name ?? "None"],
         potential: state.potential ?? 3,
-        grind: state.grind ?? MAX_GRIND,
       }
     },
   },

@@ -1,9 +1,7 @@
 import {
   Autocomplete,
   Box,
-  Checkbox,
   createFilterOptions,
-  FormControlLabel,
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
@@ -12,6 +10,7 @@ import { useCallback } from "react"
 import { Unit, UnitSlot } from "augmenting/types"
 import { allUnits } from "augmenting/data/armours"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
+import { GrindDropdown } from "./GrindDropdown"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -35,13 +34,13 @@ type UnitAutocompleteProps = {
 }
 
 function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
-  const [{ unit, fullyGround }, setUnitState] = useAtom(unitStateFamily(slot))
+  const [{ unit }, setUnitState] = useAtom(unitStateFamily(slot))
   const handleAutocompleteChange = useCallback(
     (_, v: Unit | null) => {
       const unit = v ?? allUnits["None"]
-      setUnitState({ unit, fullyGround })
+      setUnitState({ unit })
     },
-    [setUnitState, fullyGround],
+    [setUnitState],
   )
 
   return (
@@ -70,20 +69,9 @@ type UnitConfigProps = {
   slot: UnitSlot
 }
 function UnitConfig({ slot }: UnitConfigProps) {
-  const [{ fullyGround }, setUnitState] = useAtom(unitStateFamily(slot))
-  const toggleGrind = useCallback(
-    () =>
-      setUnitState((prior) => ({ ...prior, fullyGround: !prior.fullyGround })),
-    [setUnitState],
-  )
   return (
     <>
-      <FormControlLabel
-        control={
-          <Checkbox size="small" checked={fullyGround} onClick={toggleGrind} />
-        }
-        label="Full Grind"
-      />
+      <GrindDropdown slot={slot} />
     </>
   )
 }

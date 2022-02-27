@@ -9,7 +9,8 @@ export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
 
 export type GrindLevel = 0 | 10 | 20 | 30 | 40 | 50
 // Eventually | 60 | 70 | 80 | 90 | 100
-export const MAX_GRIND: GrindLevel = 50
+export const GRIND_LEVELS: readonly GrindLevel[] = [0, 10, 20, 30, 40, 50]
+export const MAX_GRIND: GrindLevel = GRIND_LEVELS[GRIND_LEVELS.length - 1]
 
 export interface AugmentStat {
   bp?: BigNumber
@@ -98,10 +99,8 @@ export type Unit = {
   name: string
   level: number
   stars: number
-  limit: number
-  defenseBase: BigNumber
-  defenseLimit: BigNumber
-  defenseMax: BigNumber
+  limit: GrindLevel
+  grindValues: Record<GrindLevel, BigNumber>
   stat: AugmentStat
 }
 
@@ -109,10 +108,8 @@ export type Weapon = {
   name: string
   level: number
   stars: number
-  limit: number
-  attackBase: BigNumber
-  attackLimit: BigNumber
-  attackMax: BigNumber
+  limit: GrindLevel
+  grindValues: Record<GrindLevel, BigNumber>
   element?: string // TODO: add all the valid elements
   /**
    * Default 70
