@@ -1,4 +1,5 @@
 import { BigNumber, bignumber } from "mathjs"
+import { transformValues } from "utils"
 import { one, zero } from "../MathConstants"
 import { Augment, AugmentStat, Unit, Weapon } from "./types"
 
@@ -42,12 +43,11 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
 }
 
 export const toUnitReal = (unit: Unit): Unit => {
-  const { stat, defenseBase, defenseMax, defenseLimit } = unit
+  const { stat, grindValues } = unit
+  const grindValueNew = transformValues(grindValues, bignumber)
   return {
     ...unit,
-    defenseBase: bignumber(defenseBase),
-    defenseMax: bignumber(defenseMax),
-    defenseLimit: bignumber(defenseLimit),
+    grindValues: grindValueNew,
     stat: toAugmentStatReal(stat),
   }
 }
@@ -86,13 +86,12 @@ export function rangeFromWeaponAugments(
 }
 
 export const toWeaponReal = (weapon: Weapon): Weapon => {
-  const { attackBase, attackMax, attackLimit, varianceHigh, varianceLow } =
-    weapon
+  const { varianceHigh, varianceLow, grindValues } = weapon
+  const grindValueNew = transformValues(grindValues, bignumber)
+
   return {
     ...weapon,
-    attackBase: bignumber(attackBase),
-    attackLimit: bignumber(attackLimit),
-    attackMax: bignumber(attackMax),
+    grindValues: grindValueNew,
     varianceHigh: bignumber(varianceHigh ?? 100).dividedBy(100),
     varianceLow: bignumber(varianceLow ?? 70).dividedBy(100),
   }

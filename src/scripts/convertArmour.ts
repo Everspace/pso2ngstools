@@ -1,12 +1,6 @@
-import { AugmentStat, GrindLevel, Unit } from "augmenting/types"
+import { AugmentStat, GrindLevel, GRIND_LEVELS, Unit } from "augmenting/types"
 import { BigNumber } from "mathjs"
-import {
-  HasGrindLevels,
-  MAX_GRIND_INDEX,
-  MAX_GRIND_KEY,
-  RecordSheet,
-  Replace,
-} from "./common"
+import { HasGrindLevels, RecordSheet, Replace } from "./common"
 
 // Guessed offsets for
 // [rarity][Grind of 10]
@@ -71,21 +65,18 @@ export function handleArmorRow(row: DataSheetRow): UnitData {
     name: Series,
     level: Number(Lv),
     stars,
-    limit: Number(Limit),
-    defenseBase,
+    limit: Number(Limit) as GrindLevel,
     stat: {},
   }
 
-  const defenseLimit = grinds[`Grind${Limit}`]
-  if (defenseLimit === "")
-    data.defenseLimit =
-      defenseBase + rarityBackfill[stars][Math.floor(Number(Limit) / 10)]
-  else data.defenseLimit = Number(defenseLimit)
-
-  const defenseMax = grinds[MAX_GRIND_KEY]
-  if (defenseMax === "")
-    data.defenseMax = defenseBase + rarityBackfill[stars][MAX_GRIND_INDEX]
-  else data.defenseMax = Number(defenseMax)
+  const grindLevelTuples = GRIND_LEVELS.map((level) => {
+    const rawGrind = grinds[`Grind${level}`]
+    let grind: number = Number(rawGrind)
+    if (rawGrind === "")
+      grind = defenseBase + rarityBackfill[stars][Math.floor(level / 10)]
+    return [level, grind]
+  })
+  data.grindValues = Object.fromEntries(grindLevelTuples)
 
   const processedStats: AugmentStat = Object.fromEntries(
     (Object.entries(stats) as Array<[keyof TranslationTable, string]>)

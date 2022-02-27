@@ -1,10 +1,8 @@
 import {
   Autocomplete,
   Box,
-  Checkbox,
   createFilterOptions,
   FormControl,
-  FormControlLabel,
   Grid,
   InputLabel,
   MenuItem,
@@ -19,6 +17,7 @@ import { useCallback } from "react"
 import { Weapon } from "augmenting/types"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { range } from "lodash"
+import { GrindDropdown } from "./GrindDropdown"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)
@@ -34,14 +33,13 @@ const filteropts = createFilterOptions<Weapon>({
 })
 
 function WeaponAutocomplete() {
-  const [{ weapon, fullyGround, potential }, setWeaponState] =
-    useAtom(weaponStateAtom)
+  const [{ weapon, potential }, setWeaponState] = useAtom(weaponStateAtom)
   const handleAutocompleteChange = useCallback(
     (_, v: Weapon | null) => {
       const weapon = v ?? allWeapons["None"]
-      setWeaponState({ weapon, fullyGround, potential })
+      setWeaponState({ weapon, potential })
     },
-    [setWeaponState, fullyGround, potential],
+    [setWeaponState, potential],
   )
 
   return (
@@ -98,32 +96,13 @@ function ChangePotentialDropdown() {
 }
 
 function WeaponConfig() {
-  const [{ fullyGround }, setWeaponState] = useAtom(weaponStateAtom)
-  const toggleGrind = useCallback(
-    () =>
-      setWeaponState((prior) => ({
-        ...prior,
-        fullyGround: !prior.fullyGround,
-      })),
-    [setWeaponState],
-  )
-
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <ChangePotentialDropdown />
-      </Grid>
+    <Grid container spacing={1}>
       <Grid item>
-        <FormControlLabel
-          control={
-            <Checkbox
-              size="small"
-              checked={fullyGround}
-              onClick={toggleGrind}
-            />
-          }
-          label="Full Grind"
-        />
+        <GrindDropdown slot="weapon" />
+      </Grid>
+      <Grid item xs={4}>
+        <ChangePotentialDropdown />
       </Grid>
     </Grid>
   )
