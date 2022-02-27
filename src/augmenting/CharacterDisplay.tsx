@@ -1,16 +1,21 @@
 import { Box, Grid, Paper, Typography } from "@mui/material"
+import { NumberInput } from "components/NumberInput"
 import { useAtomValue } from "jotai/utils"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
-import { ChangeLevelDropdown } from "./ChangeLevelDropdown"
-import { ChangeSkillpoints } from "./ChangeSkillpoints"
 import { classBpAtom } from "./state/bpState"
-import { skillpointAtom } from "./state/characterState"
+import {
+  levelAtom,
+  MAX_LEVEL,
+  MAX_SKILLPOINTS,
+  skillpointAtom,
+} from "./state/characterState"
+
 export function CharacterBPDisplay() {
   const skillpoint = useAtomValue(skillpointAtom)
   const classBpRaw = useAtomValue(classBpAtom)
 
   const classBp = classBpRaw.toNumber()
-  const skillBp = skillpoint * 2 * 3
+  const skillBp = skillpoint * 3
   return (
     <Paper>
       <Box p={2}>
@@ -25,18 +30,30 @@ export function CharacterBPDisplay() {
           <Grid item xs={12}>
             <Typography>Class: {classBp + skillBp} BP</Typography>
           </Grid>
-          <Grid item>
-            <ChangeLevelDropdown />
+          <Grid item xs={1}>
+            <NumberInput
+              label={`Lv (Max ${MAX_LEVEL})`}
+              atom={levelAtom}
+              max={MAX_LEVEL}
+              min={1}
+              resetValue={MAX_LEVEL}
+            />
           </Grid>
           <Grid item>
             <ChangeClassDropdown />
           </Grid>
-          <Grid item>
-            <ChangeSkillpoints />
+          <Grid item xs={1}>
+            <NumberInput
+              label={`Skillpoints (${MAX_SKILLPOINTS})`}
+              sx={{ maxWidth: 130 }}
+              atom={skillpointAtom}
+              resetValue={MAX_SKILLPOINTS}
+            />
           </Grid>
           <Grid item>
             <Typography>
-              (Class: {classBp} BP + Skill: {skillBp} BP)
+              (Class: {classBp} BP + Skill: {skillBp * 2} [{skillBp} Main +{" "}
+              {skillBp} Sub] BP)
             </Typography>
           </Grid>
         </Grid>
