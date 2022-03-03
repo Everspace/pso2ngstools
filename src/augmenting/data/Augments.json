@@ -835,11 +835,11 @@
     }
   },
   {
-    "name": "Nex Soul II",
+    "name": "Nex Soul III",
     "baseName": "Nex Soul",
     "category": "soul",
     "icon": "technique",
-    "tier": 2,
+    "tier": 3,
     "rate": 8,
     "location": "",
     "stat": {
@@ -877,11 +877,11 @@
     }
   },
   {
-    "name": "Pettas Soul II",
+    "name": "Pettas Soul III",
     "baseName": "Pettas Soul",
     "category": "soul",
     "icon": "precision",
-    "tier": 2,
+    "tier": 3,
     "rate": 8,
     "location": "",
     "stat": {
