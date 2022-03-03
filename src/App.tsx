@@ -1,5 +1,5 @@
 import PanelRouter from "PanelRouter"
-import { useHistory } from "react-router"
+import { useNavigate } from "react-router"
 import {
   AppBar,
   Button,
@@ -10,7 +10,7 @@ import {
 } from "@mui/material"
 
 function App() {
-  const history = useHistory()
+  const navigate = useNavigate()
   return (
     <>
       <AppBar position="static" sx={{ mb: 2 }}>
@@ -20,7 +20,7 @@ function App() {
               size="large"
               color="inherit"
               href="/"
-              onClick={() => history.push("/")}
+              onClick={() => navigate("/")}
             >
               PSO2:NGS Tools
             </Button>

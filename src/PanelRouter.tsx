@@ -1,30 +1,16 @@
-import { AugmentPanel } from "augmenting/AugmentPanel"
 import { HomePage } from "HomePage"
-import React from "react"
-import { Switch, Route } from "react-router-dom"
-type RouteDefinition = {
-  path: string
-  component: React.ComponentType<any>
-}
+import { Suspense, lazy } from "react"
+import { Routes, Route } from "react-router-dom"
 
-const routes: RouteDefinition[] = [
-  {
-    path: "/augment/:data",
-    component: AugmentPanel,
-  },
-  {
-    path: "/augment/",
-    component: AugmentPanel,
-  },
-]
+const AugmentPanel = lazy(() => import("augmenting/AugmentPanel"))
 
 export default function PanelRouter() {
   return (
-    <Switch>
-      {routes.map((def) => (
-        <Route key={def.path} path={def.path} component={def.component} />
-      ))}
-      <Route path="/" component={HomePage} />
-    </Switch>
+    <Suspense fallback="Loading...">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="augment" element={<AugmentPanel />} />
+      </Routes>
+    </Suspense>
   )
 }

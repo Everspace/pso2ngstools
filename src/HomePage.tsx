@@ -7,7 +7,7 @@ import {
 } from "@mui/material"
 import { PropsWithChildren, ReactText, useCallback } from "react"
 
-import { useHistory } from "react-router"
+import { useNavigate } from "react-router"
 
 type LinkProps = PropsWithChildren<{
   to: string
@@ -16,10 +16,10 @@ type LinkProps = PropsWithChildren<{
 }>
 
 function DisplayLink({ to, title, children }: LinkProps) {
-  const history = useHistory()
+  const navigate = useNavigate()
   const nav = useCallback(() => {
-    history.push(to)
-  }, [to, history])
+    navigate(to)
+  }, [to, navigate])
   return (
     <Grid item xs={4}>
       <Card onClick={nav}>

@@ -60,7 +60,7 @@ const augmentableDisplayGrid: SxProps<Theme> = (theme) => ({
   },
 })
 
-export function AugmentPanel() {
+export default function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
   const stats = useAtomValue(allAugmentableSlotStatSum)
   const bp = useAtomValue(bpTotalAtom)
