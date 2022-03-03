@@ -1,4 +1,4 @@
-import { MAX_LEVEL } from "augmenting/state/characterState"
+import { MAX_LEVEL } from "augmenting/state/consts"
 import { allClasses, ClassData } from "augmenting/types"
 import { Options, parse, Parser } from "csv-parse"
 import fs from "fs/promises"
@@ -64,7 +64,7 @@ async function main() {
     ),
     openParse(
       "./Affixes - StatTable.csv",
-      "./src/augmenting/data/Class.json",
+      "./src/augmenting/data/Classes.json",
       { columns: true },
       async (parser) => {
         const classes: ClassData = allClasses.reduce(

@@ -2,22 +2,22 @@ import {
   Autocomplete,
   Box,
   createFilterOptions,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
-import { weaponStateAtom } from "augmenting/state/equipmentState"
+import {
+  weaponPotentialAtom,
+  weaponStateAtom,
+} from "augmenting/state/equipmentState"
 import { allWeapons } from "augmenting/data/weapons"
 import { useCallback } from "react"
 import { Weapon } from "augmenting/types"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { range } from "lodash"
 import { GrindDropdown } from "./GrindDropdown"
+import { CopyAugmentButton } from "./CopyAugmentButton"
+import { ListDropdown } from "components/ListDropdown"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)
@@ -33,13 +33,13 @@ const filteropts = createFilterOptions<Weapon>({
 })
 
 function WeaponAutocomplete() {
-  const [{ weapon, potential }, setWeaponState] = useAtom(weaponStateAtom)
+  const [weapon, setWeaponState] = useAtom(weaponStateAtom)
   const handleAutocompleteChange = useCallback(
     (_, v: Weapon | null) => {
       const weapon = v ?? allWeapons["None"]
-      setWeaponState({ weapon, potential })
+      setWeaponState(weapon)
     },
-    [setWeaponState, potential],
+    [setWeaponState],
   )
 
   return (
@@ -63,46 +63,24 @@ function WeaponAutocomplete() {
 }
 
 const potentialLevels = range(0, 5)
-function ChangePotentialDropdown() {
-  const [{ potential }, setWeaponState] = useAtom(weaponStateAtom)
-  const handleSetAugmentSlots = useCallback(
-    (e: SelectChangeEvent<number>) => {
-      const value = e.target.value
-      if (typeof value === "number") {
-        setWeaponState((prior) => ({ ...prior, potential: value }))
-      }
-    },
-    [setWeaponState],
-  )
-
-  return (
-    <FormControl fullWidth>
-      <InputLabel>Potential</InputLabel>
-      <Select
-        label="Potential"
-        typeof="number"
-        size="small"
-        onChange={handleSetAugmentSlots}
-        value={potential}
-      >
-        {potentialLevels.map((i) => (
-          <MenuItem key={i} value={i}>
-            {i}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
-  )
-}
-
 function WeaponConfig() {
   return (
     <Grid container spacing={1}>
-      <Grid item>
-        <GrindDropdown slot="weapon" />
+      <Grid item container spacing={1} xs={12}>
+        <Grid item>
+          <GrindDropdown slot="weapon" />
+        </Grid>
+        <Grid item xs={4}>
+          <ListDropdown
+            label="Potential"
+            options={potentialLevels}
+            atom={weaponPotentialAtom}
+            handleUpdate={Number}
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={4}>
-        <ChangePotentialDropdown />
+      <Grid item xs={12}>
+        <CopyAugmentButton from="weapon" to="units" />
       </Grid>
     </Grid>
   )

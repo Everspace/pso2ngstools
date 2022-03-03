@@ -8,10 +8,8 @@ import {
 import { useAtom } from "jotai"
 import { range } from "lodash"
 import { useCallback } from "react"
-import {
-  augmentsPerSlotAtom,
-  MAX_AUGMENTS_PER_SLOT,
-} from "./state/equipmentState"
+import { MAX_AUGMENTS_PER_SLOT } from "./state/consts"
+import { augmentsPerSlotAtom } from "./state/equipmentState"
 
 const augmentSlotNumberArray = range(1, MAX_AUGMENTS_PER_SLOT + 1)
 export function ChangeAugmentSlotsDropdown() {

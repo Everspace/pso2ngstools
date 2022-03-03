@@ -4,6 +4,7 @@ import { Stack } from "@mui/material"
 import { AugmentSearch } from "./AugmentCapsuleDisplay/AugmentSearch"
 import { augmentGroupsAtom } from "./AugmentCapsuleDisplay/augmentSearchState"
 import { useAtomValue } from "jotai/utils"
+import { Augment } from "./types"
 
 function CapsuleList() {
   const augmentGroups = useAtomValue(augmentGroupsAtom)
@@ -14,7 +15,10 @@ function CapsuleList() {
         augments.length === 1 ? (
           <SingleAugmentDisplay key={groupName} augment={augments[0]} />
         ) : (
-          <MultiAugmentDisplay key={groupName} augments={augments} />
+          <MultiAugmentDisplay
+            key={groupName}
+            augments={augments as [Augment, ...Augment[]]}
+          />
         ),
       )}
     </Stack>

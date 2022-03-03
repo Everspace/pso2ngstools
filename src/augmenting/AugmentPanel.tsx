@@ -22,7 +22,7 @@ function rangeToLine({ min, max }: WeaponRange): string {
 }
 
 function WeaponRangeLine() {
-  const { weapon } = useAtomValue(weaponStateAtom)
+  const weapon = useAtomValue(weaponStateAtom)
   const weaponStats = useAtomValue(augmentableSlotStatSum("weapon"))
   const realStats = useAtomValue(allAugmentableSlotStatSum)
   const weaponRange = rangeFromWeaponAugments(weapon, weaponStats)

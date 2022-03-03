@@ -2,6 +2,7 @@ import {
   Autocomplete,
   Box,
   createFilterOptions,
+  Grid,
   TextField,
 } from "@mui/material"
 import { useAtom } from "jotai"
@@ -11,6 +12,7 @@ import { Unit, UnitSlot } from "augmenting/types"
 import { allUnits } from "augmenting/data/armours"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { GrindDropdown } from "./GrindDropdown"
+import { CopyAugmentButton } from "./CopyAugmentButton"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -34,11 +36,11 @@ type UnitAutocompleteProps = {
 }
 
 function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
-  const [{ unit }, setUnitState] = useAtom(unitStateFamily(slot))
+  const [unit, setUnitState] = useAtom(unitStateFamily(slot))
   const handleAutocompleteChange = useCallback(
     (_, v: Unit | null) => {
       const unit = v ?? allUnits["None"]
-      setUnitState({ unit })
+      setUnitState(unit)
     },
     [setUnitState],
   )
@@ -70,9 +72,17 @@ type UnitConfigProps = {
 }
 function UnitConfig({ slot }: UnitConfigProps) {
   return (
-    <>
-      <GrindDropdown slot={slot} />
-    </>
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+        <GrindDropdown slot={slot} />
+      </Grid>
+      <Grid item xs="auto">
+        <CopyAugmentButton from={slot} to="all" />
+      </Grid>
+      <Grid item xs="auto">
+        <CopyAugmentButton from={slot} to="units" />
+      </Grid>
+    </Grid>
   )
 }
 

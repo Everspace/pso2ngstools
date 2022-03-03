@@ -1,6 +1,5 @@
 import { atom, PrimitiveAtom } from "jotai"
 import { atomFamily, atomWithHash } from "jotai/utils"
-import { toId, fromId, flipTable, translateKeys } from "utils"
 import { allUnits } from "../data/armours"
 import { allWeapons } from "../data/weapons"
 import {
@@ -10,58 +9,10 @@ import {
   UnitSlot,
   Weapon,
   MAX_GRIND,
+  unitSlots,
 } from "../types"
 import { augmentableFamily } from "./augmentableState"
-
-const DEFAULT_WEAPON = allWeapons["Cinquem"]
-const DEFAULT_UNIT = allUnits["Schwarzest Armor"]
-
-interface Versionable {
-  version?: number
-}
-
-type SerializedEquippableStateV1 = {
-  version?: 1
-  name?: string
-  potential?: number
-  fullyGround?: boolean
-}
-
-type SerializedEquippableStateV2 = Versionable & {
-  version: 2
-  name?: string
-  potential?: number
-  grind?: number
-}
-
-type AnyVersion = SerializedEquippableStateV1 | SerializedEquippableStateV2
-
-function migrate(state: AnyVersion): SerializedEquippableStateV2 {
-  switch (state.version) {
-    case 1:
-      const { fullyGround, ...properites } = state
-      const unit = allUnits[state.name ?? "None"]
-      const grind = fullyGround ? unit.limit : 0
-      return migrate({ ...properites, version: 2, grind })
-    case 2:
-      return state
-    default:
-      return migrate({ ...state, version: 1 })
-  }
-}
-
-type AllKeysForTable =
-  | keyof SerializedEquippableStateV1
-  | keyof SerializedEquippableStateV2
-
-const shrinkTable: Record<AllKeysForTable, string> = {
-  fullyGround: "fg",
-  grind: "g",
-  name: "n",
-  potential: "p",
-  version: "v",
-}
-const expandTable = flipTable(shrinkTable)
+import { DEFAULT_AUGMENT_SLOTS, DEFAULT_UNIT, DEFAULT_WEAPON } from "./consts"
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1",
@@ -77,14 +28,13 @@ const grindStateSlotToHash: Record<AugmentableSlot, string> = {
   weapon: "wg",
 }
 
-export const MAX_AUGMENTS_PER_SLOT = 8
-const augmentsPerSlotRawAtom = atomWithHash("slots", 4, {
+const augmentsPerSlotRawAtom = atomWithHash("slots", DEFAULT_AUGMENT_SLOTS, {
   replaceState: true,
 })
 
 export const augmentsPerSlotAtom = atom<number, number>(
   (get) => get(augmentsPerSlotRawAtom),
-  (get, set, update) => {
+  async (get, set, update) => {
     augmentSlots.map(augmentableFamily).forEach((a) => {
       const val = get(a)
       set(a, val.slice(0, update))
@@ -99,67 +49,67 @@ export const grindStateFamily = atomFamily((slot: AugmentableSlot) =>
   }),
 )
 
-export type UnitEquipState = {
-  unit: Unit
-}
-
 export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
-  return atomWithHash<UnitEquipState>(
-    id,
-    { unit: DEFAULT_UNIT },
-    {
-      replaceState: true,
-      serialize({ unit }) {
-        return toId(
-          translateKeys(shrinkTable, {
-            name: unit.name,
-          }),
-        )
-      },
-      deserialize(id) {
-        const state = migrate(translateKeys(expandTable, fromId(id)))
-        const unit = allUnits[state?.name ?? "None"]
-        return {
-          unit,
-        }
-      },
+  return atomWithHash<Unit>(id, DEFAULT_UNIT, {
+    replaceState: true,
+    serialize(unit) {
+      return unit.name
     },
-  )
+    deserialize(name) {
+      return allUnits[name ?? "None"]
+    },
+  })
 })
 
-export type WeaponEquipState = {
-  weapon: Weapon
-  potential: number
-}
-
-export const weaponStateAtom = atomWithHash<WeaponEquipState>(
+export const weaponStateAtom = atomWithHash<Weapon>(
   slotToHash["weapon"],
-  { weapon: DEFAULT_WEAPON, potential: 3 },
+  DEFAULT_WEAPON,
   {
     replaceState: true,
-    serialize({ weapon, potential }) {
-      return toId(
-        translateKeys(shrinkTable, {
-          name: weapon.name,
-          potential,
-        }),
-      )
+    serialize(weapon) {
+      return weapon.name
     },
-    deserialize(id) {
-      const state = migrate(translateKeys(expandTable, fromId(id)))
-      return {
-        weapon: allWeapons[state?.name ?? "None"],
-        potential: state.potential ?? 3,
-      }
+    deserialize(name) {
+      return allWeapons[name ?? "None"]
     },
   },
 )
 
+export const weaponPotentialAtom = atomWithHash("wp", 3, { replaceState: true })
+
 export const equipStateFamily = atomFamily<
   AugmentableSlot,
-  PrimitiveAtom<WeaponEquipState> | PrimitiveAtom<UnitEquipState>
+  PrimitiveAtom<Weapon> | PrimitiveAtom<Unit>
 >((slot: AugmentableSlot) => {
   if (slot === "weapon") return weaponStateAtom
   return unitStateFamily(slot)
 })
+
+export type CopyAugmentAtomOptions = {
+  from: AugmentableSlot
+  to: AugmentableSlot | "units" | "all"
+}
+
+export const copyAugmentAtom = atom<void, CopyAugmentAtomOptions>(
+  undefined,
+  async (get, set, { from, to }) => {
+    const fromAugments = get(augmentableFamily(from))
+    let targetSlots: AugmentableSlot[] = []
+    switch (to) {
+      case "units":
+        targetSlots.push(...unitSlots)
+        break
+      case "all":
+        targetSlots.push(...augmentSlots)
+        break
+      default:
+        targetSlots.push(to)
+        break
+    }
+    targetSlots
+      .filter((slot) => slot !== from)
+      .map(augmentableFamily)
+      .forEach((a) => set(a, fromAugments))
+  },
+)

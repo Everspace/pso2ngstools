@@ -141,3 +141,6 @@ export type ClassLevel = {
 }
 
 export type ClassData = Record<ClassAbbreviation, ClassLevel[]>
+
+export type Region = "Aelio" | "Retem"
+export type BPActivityType = "UQ" | "Battle Area"

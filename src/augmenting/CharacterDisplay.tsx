@@ -3,12 +3,8 @@ import { NumberInput } from "components/NumberInput"
 import { useAtomValue } from "jotai/utils"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
 import { classBpAtom } from "./state/bpState"
-import {
-  levelAtom,
-  MAX_LEVEL,
-  MAX_SKILLPOINTS,
-  skillpointAtom,
-} from "./state/characterState"
+import { levelAtom, skillpointAtom } from "./state/characterState"
+import { MAX_LEVEL, MAX_SKILLPOINTS } from "./state/consts"
 
 export function CharacterBPDisplay() {
   const skillpoint = useAtomValue(skillpointAtom)

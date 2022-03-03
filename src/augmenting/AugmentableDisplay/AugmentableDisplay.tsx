@@ -4,8 +4,8 @@ import {
   AccordionSummary,
   Box,
   Button,
+  Grid,
   Paper,
-  Stack,
   Typography,
 } from "@mui/material"
 import { ExpandMore } from "@mui/icons-material"
@@ -37,48 +37,58 @@ export function AugmentibleDisplay({
 
   return (
     <Paper>
-      <Stack p={2} spacing={2}>
-        <Box>
+      <Grid container>
+        <Grid item p={2} xs={12}>
           <Typography>
             {augmentSlotNiceName[slot]}: {bp} BP
           </Typography>
-        </Box>
-        <Box>{autocomplete}</Box>
-        <Box>
+        </Grid>
+        <Grid item p={2} xs={12}>
+          {autocomplete}
+        </Grid>
+        <Grid item p={2} xs={12}>
           <Typography>Config:</Typography>
-        </Box>
-        <Box sx={{ height: "3em" }}>{configure}</Box>
-      </Stack>
-      <Accordion defaultExpanded TransitionProps={{ unmountOnExit: true }}>
-        <AccordionSummary expandIcon={<ExpandMore />}>
-          <Typography>Augments</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box>
-            <AugmentSlotList slot={slot} />
-          </Box>
-          <Box>
-            <Button
-              sx={{ float: "right" }}
-              color="error"
-              onClick={clearAugments}
-            >
-              Clear Augments
-            </Button>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        disabled={stat === null}
-        TransitionProps={{ unmountOnExit: true }}
-      >
-        <AccordionSummary expandIcon={<ExpandMore />}>
-          <Typography>Stat total</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {stat && <AugmentStatDisplay simple stat={stat} />}
-        </AccordionDetails>
-      </Accordion>
+        </Grid>
+        <Grid item p={2} xs={12}>
+          {configure}
+        </Grid>
+
+        <Grid item xs={12}>
+          <Accordion defaultExpanded TransitionProps={{ unmountOnExit: true }}>
+            <AccordionSummary expandIcon={<ExpandMore />}>
+              <Typography>Augments</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Box>
+                <AugmentSlotList slot={slot} />
+              </Box>
+              <Box>
+                <Button
+                  sx={{ float: "right" }}
+                  color="error"
+                  onClick={clearAugments}
+                >
+                  Clear Augments
+                </Button>
+              </Box>
+            </AccordionDetails>
+          </Accordion>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Accordion
+            disabled={stat === null}
+            TransitionProps={{ unmountOnExit: true }}
+          >
+            <AccordionSummary expandIcon={<ExpandMore />}>
+              <Typography>Stat total</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              {stat && <AugmentStatDisplay simple stat={stat} />}
+            </AccordionDetails>
+          </Accordion>
+        </Grid>
+      </Grid>
     </Paper>
   )
 }

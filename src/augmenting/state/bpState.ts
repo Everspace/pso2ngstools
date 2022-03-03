@@ -5,6 +5,7 @@ import {
   GrindLevel,
   Unit,
   unitSlots,
+  Weapon,
 } from "augmenting/types"
 import { atom } from "jotai"
 import { atomFamily } from "jotai/utils"
@@ -15,7 +16,7 @@ import { classInfoAtom, skillpointAtom } from "./characterState"
 import {
   grindStateFamily,
   unitStateFamily,
-  WeaponEquipState,
+  weaponPotentialAtom,
   weaponStateAtom,
 } from "./equipmentState"
 
@@ -39,8 +40,9 @@ function getUnitBp(unit: Unit, grind: GrindLevel) {
 }
 
 export function getWeaponBp(
-  { weapon, potential }: WeaponEquipState,
+  weapon: Weapon,
   grind: GrindLevel,
+  potential: number,
 ): BigNumber {
   const { varianceHigh, varianceLow, grindValues } = weapon
   const weaponAtt = grindValues[grind]
@@ -61,27 +63,29 @@ export function getAugmentBp(augs: Augment[]): BigNumber {
 }
 
 export const equipBpFamily = atomFamily((slot: AugmentableSlot) =>
-  atom((get) => {
+  atom(async (get) => {
     const augAtom = augmentableFamily(slot)
     const augbp = getAugmentBp(get(augAtom))
     const grind = get(grindStateFamily(slot))
     if (slot === "weapon")
-      return getWeaponBp(get(weaponStateAtom), grind).add(augbp).toNumber()
+      return getWeaponBp(get(weaponStateAtom), grind, get(weaponPotentialAtom))
+        .add(augbp)
+        .toNumber()
     const equipAtom = unitStateFamily(slot)
-    const { defBp, statBp } = getUnitBp(get(equipAtom).unit, grind)
+    const { defBp, statBp } = getUnitBp(get(equipAtom), grind)
     return zero.add(defBp).add(statBp).add(augbp).toNumber()
   }),
 )
 
-export const classBpAtom = atom((get) => {
+export const classBpAtom = atom(async (get) => {
   const classInfo = get(classInfoAtom)
   return getClassBp(classInfo)
 })
 
-export const bpTotalAtom = atom((get) => {
+export const bpTotalAtom = atom(async (get) => {
   const augmentBp = getAugmentBp(get(allAugmentsAtom))
   const unitStates = unitSlots.map((s) => ({
-    unit: get(unitStateFamily(s)).unit,
+    unit: get(unitStateFamily(s)),
     grind: get(grindStateFamily(s)),
   }))
 
@@ -99,6 +103,7 @@ export const bpTotalAtom = atom((get) => {
   const weaponBp = getWeaponBp(
     get(weaponStateAtom),
     get(grindStateFamily("weapon")),
+    get(weaponPotentialAtom),
   )
   const skillpointBp = get(skillpointAtom) * 3 * 2 // points x3 for class and sub
 
