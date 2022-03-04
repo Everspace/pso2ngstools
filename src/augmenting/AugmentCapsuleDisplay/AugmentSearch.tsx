@@ -2,7 +2,6 @@ import {
   Button,
   Grid,
   IconButton,
-  Paper,
   TextField,
   Tooltip,
   Typography,
@@ -92,41 +91,48 @@ const searchables: (keyof AugmentStat)[] = [
 
 export function AugmentSearch() {
   return (
-    <Paper>
-      <Grid container px={2} pb={2} rowSpacing={1}>
-        <Grid item xs={12}>
-          <AugmentSearchHeader />
-        </Grid>
-        <Grid item xs={12}>
-          <AugmentStatSearchHeader />
-        </Grid>
-        <Grid
-          item
-          container
-          direction="row"
-          justifyContent="flex-start"
-          spacing={1}
-          xs={12}
-        >
-          {searchables.map((s) => (
-            // TODO: proper grid to break this into multiple rows at large sizes
-            <Grid item key={s} xs={4} sm={4} md={2}>
-              <AugmentStatFieldSearch stat={s} />
-            </Grid>
-          ))}
-        </Grid>
-        <Grid item xs={12}>
-          <AugmentFamilyHeader />
-        </Grid>
-        <Grid container item spacing={1}>
-          {augmentSearchCategories.map((c) => (
-            <Grid item key={c}>
-              <AugmentSearchCategoryButton category={c} />
-            </Grid>
-          ))}
-        </Grid>
+    <Grid
+      container
+      sx={{ borderBottom: 1, borderColor: "text.disabled" }}
+      pb={2}
+      rowSpacing={1}
+    >
+      <Grid item xs={12}>
+        <SearchInput
+          label="Name"
+          placeholder="Chungus Soul LXIX"
+          atom={searchNameAtom}
+        />
       </Grid>
-    </Paper>
+      <Grid item xs={12}>
+        <AugmentStatSearchHeader />
+      </Grid>
+      <Grid
+        item
+        container
+        direction="row"
+        justifyContent="flex-start"
+        spacing={1}
+        xs={12}
+      >
+        {searchables.map((s) => (
+          // TODO: proper grid to break this into multiple rows at large sizes
+          <Grid item key={s} xs={4} sm={4} md={2}>
+            <AugmentStatFieldSearch stat={s} />
+          </Grid>
+        ))}
+      </Grid>
+      <Grid item xs={12}>
+        <AugmentFamilyHeader />
+      </Grid>
+      <Grid container item spacing={1}>
+        {augmentSearchCategories.map((c) => (
+          <Grid item key={c}>
+            <AugmentSearchCategoryButton category={c} />
+          </Grid>
+        ))}
+      </Grid>
+    </Grid>
   )
 }
 
@@ -184,25 +190,6 @@ function AugmentFamilyHeader() {
           </Typography>
         </span>
       </Tooltip>
-    </Grid>
-  )
-}
-
-function AugmentSearchHeader() {
-  return (
-    <Grid
-      container
-      direction="row"
-      justifyContent="flex-start"
-      alignItems="baseline"
-      columnSpacing={1}
-    >
-      <Grid item>
-        <Typography variant="h5">Augment Search</Typography>
-      </Grid>
-      <Grid item>
-        <SearchInput label="Name" atom={searchNameAtom} />
-      </Grid>
     </Grid>
   )
 }

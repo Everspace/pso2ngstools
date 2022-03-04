@@ -19,7 +19,7 @@ export const augmentSearchCategories = [
   ...allAugmentCategories,
 ] as SearchAugmentCategory[]
 
-export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("all")
+export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("might")
 
 export const searchStatFamilyAtom = atomFamily<
   keyof AugmentStat,

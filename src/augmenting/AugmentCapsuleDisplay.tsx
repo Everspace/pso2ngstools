@@ -1,10 +1,17 @@
 import { SingleAugmentDisplay } from "./AugmentCapsuleDisplay/SingleAugmentLine"
 import { MultiAugmentDisplay } from "./AugmentCapsuleDisplay/MultiAugmentLine"
-import { Stack } from "@mui/material"
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Stack,
+  Typography,
+} from "@mui/material"
 import { AugmentSearch } from "./AugmentCapsuleDisplay/AugmentSearch"
 import { augmentGroupsAtom } from "./AugmentCapsuleDisplay/augmentSearchState"
 import { useAtomValue } from "jotai/utils"
 import { Augment } from "./types"
+import { ExpandMore } from "@mui/icons-material"
 
 function CapsuleList() {
   const augmentGroups = useAtomValue(augmentGroupsAtom)
@@ -25,11 +32,16 @@ function CapsuleList() {
   )
 }
 
-export function AugmentCategoryDisplay() {
+export function AugmentCapsuleDisplay() {
   return (
-    <>
-      <AugmentSearch />
-      <CapsuleList />
-    </>
+    <Accordion TransitionProps={{ unmountOnExit: true, timeout: 500 }}>
+      <AccordionSummary expandIcon={<ExpandMore />}>
+        <Typography variant="h5">Augment Search</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <AugmentSearch />
+        <CapsuleList />
+      </AccordionDetails>
+    </Accordion>
   )
 }

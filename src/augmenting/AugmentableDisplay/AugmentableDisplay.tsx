@@ -38,21 +38,17 @@ export function AugmentibleDisplay({
   return (
     <Paper>
       <Grid container>
-        <Grid item p={2} xs={12}>
+        <Grid item p={2} px={2} xs={12}>
           <Typography>
             {augmentSlotNiceName[slot]}: {bp} BP
           </Typography>
         </Grid>
-        <Grid item p={2} xs={12}>
+        <Grid item py={1} px={2} xs={12}>
           {autocomplete}
         </Grid>
-        <Grid item p={2} xs={12}>
-          <Typography>Config:</Typography>
-        </Grid>
-        <Grid item p={2} xs={12}>
+        <Grid item py={1} px={2} xs={12}>
           {configure}
         </Grid>
-
         <Grid item xs={12}>
           <Accordion defaultExpanded TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary expandIcon={<ExpandMore />}>

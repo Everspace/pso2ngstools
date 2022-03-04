@@ -1,12 +1,11 @@
 import { Stack, Box, Typography, Button, Paper } from "@mui/material"
-import { AugmentCategoryDisplay } from "./AugmentCapsuleDisplay"
+import { AugmentCapsuleDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import {
   allAugmentableSlotStatSum,
   augmentableSlotStatSum,
 } from "./state/augmentableState"
 import { useAllAugments } from "./useAllAugments"
-import { ChangeAugmentSlotsDropdown } from "./ChangeAugmentSlotsDropdown"
 import { CharacterBPDisplay } from "./CharacterDisplay"
 import { WeaponDisplay } from "./AugmentableDisplay/WeaponDisplay"
 import { UnitDisplay } from "./AugmentableDisplay/UnitDisplay"
@@ -16,6 +15,7 @@ import { weaponStateAtom } from "./state/equipmentState"
 import { rangeFromWeaponAugments, WeaponRange } from "./tools"
 import { AugmentPanelHelm } from "./AugmentPanelHelm"
 import { SxProps, Theme } from "@mui/system"
+import { AugmentPanelSettingsDisplay } from "./AugmentPanelSettingsDisplay"
 
 function rangeToLine({ min, max }: WeaponRange): string {
   return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
@@ -68,7 +68,7 @@ export default function AugmentPanel() {
   return (
     <>
       <AugmentPanelHelm />
-      <Stack spacing={1}>
+      <Stack spacing={1} pb={2}>
         <Box>
           <Typography variant="h3">Augmenting</Typography>
           <Typography variant="subtitle1">Total: {bp} BP</Typography>
@@ -78,7 +78,7 @@ export default function AugmentPanel() {
           </Button>
         </Box>
         <Box>
-          <ChangeAugmentSlotsDropdown />
+          <AugmentPanelSettingsDisplay />
         </Box>
         <Box>
           <CharacterBPDisplay />
@@ -102,7 +102,9 @@ export default function AugmentPanel() {
           <WeaponRangeLine />
           {stats && <AugmentStatDisplay simple stat={stats} />}
         </Paper>
-        <AugmentCategoryDisplay />
+        <Box>
+          <AugmentCapsuleDisplay />
+        </Box>
       </Stack>
     </>
   )

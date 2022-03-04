@@ -24,10 +24,10 @@ export const translateKeys = <Source extends FlippableRecord>(
 /**
  * Use `transform` to change every value in an object
  */
-export function transformValues<T>(
-  obj: Record<ValidKey, T>,
-  transform: (entry: T) => T,
-): Record<ValidKey, T> {
+export function transformValues<Source, Target>(
+  obj: Record<ValidKey, Source>,
+  transform: (entry: Source) => Target,
+): Record<ValidKey, Target> {
   return Object.fromEntries(
     Object.entries(obj).map(([k, v]) => [k, transform(v)]),
   )
