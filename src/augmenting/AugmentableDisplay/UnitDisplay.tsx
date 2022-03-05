@@ -1,18 +1,21 @@
 import {
   Autocomplete,
   Box,
+  Button,
   createFilterOptions,
   Grid,
   TextField,
 } from "@mui/material"
-import { useAtom } from "jotai"
-import { unitStateFamily } from "augmenting/state/equipmentState"
+import { useAtom, useSetAtom } from "jotai"
+import {
+  mirrorUnitAtom,
+  unitStateFamily,
+} from "augmenting/state/equipmentState"
 import { useCallback } from "react"
 import { Unit, UnitSlot } from "augmenting/types"
 import { allUnits } from "augmenting/data/armours"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { GrindDropdown } from "./GrindDropdown"
-import { CopyAugmentButton } from "./CopyAugmentButton"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -71,16 +74,26 @@ type UnitConfigProps = {
   slot: UnitSlot
 }
 function UnitConfig({ slot }: UnitConfigProps) {
+  const mirror = useSetAtom(mirrorUnitAtom)
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={12}>
+    <Grid
+      container
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="center"
+      spacing={1}
+    >
+      <Grid item>
         <GrindDropdown slot={slot} />
       </Grid>
-      <Grid item xs="auto">
-        <CopyAugmentButton from={slot} to="all" />
-      </Grid>
-      <Grid item xs="auto">
-        <CopyAugmentButton from={slot} to="units" />
+      <Grid item xs>
+        <Button
+          sx={{ float: "right" }}
+          size="small"
+          onClick={() => mirror(slot)}
+        >
+          Mirror Unit
+        </Button>
       </Grid>
     </Grid>
   )

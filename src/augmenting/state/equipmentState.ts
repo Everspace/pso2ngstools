@@ -91,6 +91,23 @@ export type CopyAugmentAtomOptions = {
   to: AugmentableSlot | "units" | "all"
 }
 
+export const mirrorUnitAtom = atom<void, UnitSlot>(
+  undefined,
+  async (get, set, slot) => {
+    const fromAugmentable = get(augmentableFamily(slot))
+    const fromUnit = get(unitStateFamily(slot))
+    const fromGrind = get(grindStateFamily(slot))
+
+    unitSlots
+      .filter((other) => other !== slot)
+      .forEach((other) => {
+        set(augmentableFamily(other), fromAugmentable)
+        set(unitStateFamily(other), fromUnit)
+        set(grindStateFamily(other), fromGrind)
+      })
+  },
+)
+
 export const copyAugmentAtom = atom<void, CopyAugmentAtomOptions>(
   undefined,
   async (get, set, { from, to }) => {

@@ -16,7 +16,6 @@ import { Weapon } from "augmenting/types"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { range } from "lodash"
 import { GrindDropdown } from "./GrindDropdown"
-import { CopyAugmentButton } from "./CopyAugmentButton"
 import { ListDropdown } from "components/ListDropdown"
 
 const weaponSelections = Object.keys(allWeapons)
@@ -78,9 +77,6 @@ function WeaponConfig() {
             handleUpdate={Number}
           />
         </Grid>
-      </Grid>
-      <Grid item xs={12}>
-        <CopyAugmentButton from="weapon" to="units" />
       </Grid>
     </Grid>
   )

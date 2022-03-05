@@ -19,6 +19,7 @@ import {
   clearAugmentFamily,
 } from "augmenting/state/augmentableState"
 import { useUpdateAtom, useAtomValue } from "jotai/utils"
+import { CopyAugmentButton } from "./CopyAugmentButton"
 
 interface AugmentibleDisplayProps {
   slot: AugmentableSlot
@@ -55,10 +56,18 @@ export function AugmentibleDisplay({
               <Typography>Augments</Typography>
             </AccordionSummary>
             <AccordionDetails>
+              <Grid container spacing={1} mb={2}>
+                <Grid item xs="auto">
+                  <CopyAugmentButton from={slot} to="all" />
+                </Grid>
+                <Grid item xs="auto">
+                  <CopyAugmentButton from={slot} to="units" />
+                </Grid>
+              </Grid>
               <Box>
                 <AugmentSlotList slot={slot} />
               </Box>
-              <Box>
+              <Box mt={1}>
                 <Button
                   sx={{ float: "right" }}
                   color="error"

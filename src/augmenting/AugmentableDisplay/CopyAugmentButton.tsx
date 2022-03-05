@@ -12,7 +12,7 @@ export function CopyAugmentButton({ from, to }: CopyAugmentButtonProps) {
   const set = useUpdateAtom(copyAugmentAtom)
   return (
     <Button
-      variant="outlined"
+      size="small"
       onClick={() => {
         set({ from, to })
       }}
