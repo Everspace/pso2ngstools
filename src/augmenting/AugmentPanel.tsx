@@ -16,6 +16,7 @@ import { rangeFromWeaponAugments, WeaponRange } from "./tools"
 import { AugmentPanelHelm } from "./AugmentPanelHelm"
 import { SxProps, Theme } from "@mui/system"
 import { AugmentPanelSettingsDisplay } from "./AugmentPanelSettingsDisplay"
+import { ActivityDisplay } from "./ActivityDisplay"
 
 function rangeToLine({ min, max }: WeaponRange): string {
   return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
@@ -96,6 +97,9 @@ export default function AugmentPanel() {
           <Box sx={{ gridArea: "unit3" }}>
             <UnitDisplay slot="unit3" />
           </Box>
+        </Box>
+        <Box>
+          <ActivityDisplay />
         </Box>
         <Paper sx={{ p: 2 }}>
           <Typography variant="h4">Total: {bp} BP</Typography>

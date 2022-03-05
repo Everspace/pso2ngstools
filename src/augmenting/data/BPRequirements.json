@@ -1,0 +1,149 @@
+[
+  {
+    "name": "Dark Falz",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1898
+  },
+  {
+    "name": "DOLLS Suppression",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1184
+  },
+  {
+    "name": "DOLLS Suppression",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 1898
+  },
+  {
+    "name": "Dustyl Vera",
+    "region": "Retem",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1682
+  },
+  {
+    "name": "Maqead Lower Level",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 1,
+    "bp": 1562
+  },
+  {
+    "name": "Maqead Lower Level",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 1633
+  },
+  {
+    "name": "Mining Rig",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1243
+  },
+  {
+    "name": "Mining Rig",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 1898
+  },
+  {
+    "name": "Mt. Magnus",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 1,
+    "bp": 864
+  },
+  {
+    "name": "Mt. Magnus",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 1184
+  },
+  {
+    "name": "Mt. Magnus",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 3,
+    "bp": 1759
+  },
+  {
+    "name": "Nex Vera",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1184
+  },
+  {
+    "name": "Nex Vera",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 1898
+  },
+  {
+    "name": "Renus Vera",
+    "region": "Retem",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1682
+  },
+  {
+    "name": "Resol Forest",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 1,
+    "bp": 1184
+  },
+  {
+    "name": "Resol Forest",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 1759
+  },
+  {
+    "name": "Retem Alnothe",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 1,
+    "bp": 1363
+  },
+  {
+    "name": "Retem Alnothe",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 1633
+  },
+  {
+    "name": "Vanford Laboratory Ruins",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 1,
+    "bp": 1009
+  },
+  {
+    "name": "Vanford Laboratory Ruins",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 1184
+  },
+  {
+    "name": "Vanford Laboratory Ruins",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 3,
+    "bp": 1759
+  }
+]

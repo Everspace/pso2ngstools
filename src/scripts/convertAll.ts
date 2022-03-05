@@ -1,5 +1,11 @@
 import { MAX_LEVEL } from "augmenting/state/consts"
-import { allClasses, ClassData } from "augmenting/types"
+import {
+  allClasses,
+  ClassData,
+  CombatActivity,
+  CombatActivityType,
+  GameRegion,
+} from "augmenting/types"
 import { Options, parse, Parser } from "csv-parse"
 import fs from "fs/promises"
 import { handleArmorRow, UnitData } from "./convertArmour"
@@ -79,6 +85,30 @@ async function main() {
           })
         }
         return classes
+      },
+    ),
+    openParse(
+      "./Affixes - BPRequirements.csv",
+      "./src/augmenting/data/BPRequirements.json",
+      { columns: true },
+      async (parser) => {
+        const data: CombatActivity[] = []
+
+        for await (const entry of parser) {
+          const { Region, Type, Name, Rank, BP } = entry
+          if ([Region, Type, Name, Rank, BP].indexOf("") !== -1) continue
+          data.push({
+            name: Name,
+            region: Region as GameRegion,
+            type: Type as CombatActivityType,
+            rank: Number(Rank),
+            bp: Number(BP),
+          })
+        }
+
+        return data.sort((a, b) =>
+          `${a.name}${a.rank}`.localeCompare(`${b.name}${b.rank}`),
+        )
       },
     ),
   ])
