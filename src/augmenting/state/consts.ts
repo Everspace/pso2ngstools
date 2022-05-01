@@ -6,6 +6,7 @@ import { groupBy, uniqBy } from "lodash"
 
 export const MAX_SKILLPOINTS = 30
 
+// TODO: Move these derived stats to other places
 export const MAX_LEVEL = allClassData.Hu.length - 1
 
 export const DEFAULT_WEAPON = Object.entries(allWeapons)
