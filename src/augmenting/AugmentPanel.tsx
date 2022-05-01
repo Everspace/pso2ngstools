@@ -13,7 +13,6 @@ import { bpTotalAtom } from "./state/bpState"
 import { useAtomValue } from "jotai/utils"
 import { weaponStateAtom } from "./state/equipmentState"
 import { rangeFromWeaponAugments, WeaponRange } from "./tools"
-import { AugmentPanelHelm } from "./AugmentPanelHelm"
 import { SxProps, Theme } from "@mui/system"
 import { AugmentPanelSettingsDisplay } from "./AugmentPanelSettingsDisplay"
 import { ActivityDisplay } from "./ActivityDisplay"
@@ -67,49 +66,46 @@ export default function AugmentPanel() {
   const bp = useAtomValue(bpTotalAtom)
 
   return (
-    <>
-      <AugmentPanelHelm />
-      <Stack spacing={1} pb={2}>
-        <Box>
-          <Typography variant="h3">Augmenting</Typography>
-          <Typography variant="subtitle1">Total: {bp} BP</Typography>
-          <Button onClick={randomizeAllAugments}>Randomize</Button>
-          <Button color="error" onClick={clearAllAugments}>
-            Clear All
-          </Button>
+    <Stack spacing={1} pb={2}>
+      <Box>
+        <Typography variant="h3">Augmenting</Typography>
+        <Typography variant="subtitle1">Total: {bp} BP</Typography>
+        <Button onClick={randomizeAllAugments}>Randomize</Button>
+        <Button color="error" onClick={clearAllAugments}>
+          Clear All
+        </Button>
+      </Box>
+      <Box>
+        <AugmentPanelSettingsDisplay />
+      </Box>
+      <Box>
+        <CharacterBPDisplay />
+      </Box>
+      <Box sx={augmentableDisplayGrid}>
+        <Box sx={{ gridArea: "weapon" }}>
+          <WeaponDisplay />
         </Box>
-        <Box>
-          <AugmentPanelSettingsDisplay />
+        <Box sx={{ gridArea: "unit1" }}>
+          <UnitDisplay slot="unit1" />
         </Box>
-        <Box>
-          <CharacterBPDisplay />
+        <Box sx={{ gridArea: "unit2" }}>
+          <UnitDisplay slot="unit2" />
         </Box>
-        <Box sx={augmentableDisplayGrid}>
-          <Box sx={{ gridArea: "weapon" }}>
-            <WeaponDisplay />
-          </Box>
-          <Box sx={{ gridArea: "unit1" }}>
-            <UnitDisplay slot="unit1" />
-          </Box>
-          <Box sx={{ gridArea: "unit2" }}>
-            <UnitDisplay slot="unit2" />
-          </Box>
-          <Box sx={{ gridArea: "unit3" }}>
-            <UnitDisplay slot="unit3" />
-          </Box>
+        <Box sx={{ gridArea: "unit3" }}>
+          <UnitDisplay slot="unit3" />
         </Box>
-        <Box>
-          <ActivityDisplay />
-        </Box>
-        <Paper sx={{ p: 2 }}>
-          <Typography variant="h4">Total: {bp} BP</Typography>
-          <WeaponRangeLine />
-          {stats && <AugmentStatDisplay simple stat={stats} />}
-        </Paper>
-        <Box>
-          <AugmentCapsuleDisplay />
-        </Box>
-      </Stack>
-    </>
+      </Box>
+      <Box>
+        <ActivityDisplay />
+      </Box>
+      <Paper sx={{ p: 2 }}>
+        <Typography variant="h4">Total: {bp} BP</Typography>
+        <WeaponRangeLine />
+        {stats && <AugmentStatDisplay simple stat={stats} />}
+      </Paper>
+      <Box>
+        <AugmentCapsuleDisplay />
+      </Box>
+    </Stack>
   )
 }

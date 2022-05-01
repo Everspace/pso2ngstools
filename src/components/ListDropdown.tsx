@@ -45,7 +45,7 @@ export function ListDropdown<
       <Select label="Level" onChange={handleChange} value={choice.toString()}>
         {options.map((item) => (
           <MenuItem key={item.toString()} value={item.toString()}>
-            {item}
+            {item.toString()}
           </MenuItem>
         ))}
       </Select>

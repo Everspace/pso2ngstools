@@ -7,9 +7,11 @@ export type AugmentableSlot = typeof augmentSlots[number]
 export type UnitSlot = Exclude<AugmentableSlot, "weapon">
 export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
 
-export type GrindLevel = 0 | 10 | 20 | 30 | 40 | 50
-// Eventually | 60 | 70 | 80 | 90 | 100
-export const GRIND_LEVELS: readonly GrindLevel[] = [0, 10, 20, 30, 40, 50]
+export const GRIND_LEVELS = [0, 10, 20, 30, 40, 50] as const
+export type GrindLevel = typeof GRIND_LEVELS[number]
+export const GRIND_KEYS = GRIND_LEVELS.map(
+  (id) => `Grind${id}`,
+) as `Grind${GrindLevel}`[]
 export const MAX_GRIND: GrindLevel = GRIND_LEVELS[GRIND_LEVELS.length - 1]
 
 export interface AugmentStat {
@@ -52,17 +54,18 @@ export const allAugmentCategories = [
   "might",
   "precision",
   "technique",
-  "soul",
-  "note",
+  "addi",
   "domina",
-  "secreta",
   "dread",
-  "gigas",
   "dualble",
   "element",
-  "addi",
-  "ward",
   "fusia",
+  "gigas",
+  "note",
+  "secreta",
+  "soul",
+  "tria",
+  "ward",
 ] as const
 
 export type AugmentCategory = typeof allAugmentCategories[number]

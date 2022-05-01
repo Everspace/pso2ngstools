@@ -41,7 +41,7 @@ function AugmentLine({ augment, number, slot }: AugmentLineProps) {
   const addAugment = useUpdateAtom(addAugmentAtomFamily(slot))
 
   const handleAutocompleteChange = useCallback(
-    async (_, v: Augment | null, reason: AutocompleteChangeReason) => {
+    async (_: any, v: Augment | null, reason: AutocompleteChangeReason) => {
       const augment = augments[number]
       switch (reason) {
         case "clear":

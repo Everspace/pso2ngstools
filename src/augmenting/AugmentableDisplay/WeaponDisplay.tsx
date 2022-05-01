@@ -34,7 +34,7 @@ const filteropts = createFilterOptions<Weapon>({
 function WeaponAutocomplete() {
   const [weapon, setWeaponState] = useAtom(weaponStateAtom)
   const handleAutocompleteChange = useCallback(
-    (_, v: Weapon | null) => {
+    (_: any, v: Weapon | null) => {
       const weapon = v ?? allWeapons["None"]
       setWeaponState(weapon)
     },

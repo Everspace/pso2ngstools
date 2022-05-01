@@ -13,7 +13,7 @@ export function GrindDropdown({ slot }: GrindDropdownProps) {
   return (
     <ListDropdown
       label="Grind +"
-      options={GRIND_LEVELS as number[]}
+      options={[...GRIND_LEVELS] as number[]}
       atom={grindAtom}
       handleUpdate={Number}
     />

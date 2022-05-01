@@ -1,6 +1,5 @@
 import { allAugmentableSlotStatSum } from "./state/augmentableState"
 import { useAtomValue } from "jotai/utils"
-import { Helmet } from "react-helmet-async"
 import { augmentStatToDisplayInfo, augmentValueToString } from "./info"
 import { simplifyAugmentStat } from "./tools"
 import { zero } from "MathConstants"
@@ -8,6 +7,8 @@ import { BigNumber } from "mathjs"
 import { AugmentStat } from "./types"
 import { bpTotalAtom } from "./state/bpState"
 import { classNameAtom, levelAtom } from "./state/characterState"
+
+const Helmet = ({ children }: any) => <>{children}</>
 
 export function AugmentPanelHelm() {
   const bp = useAtomValue(bpTotalAtom)

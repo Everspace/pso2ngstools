@@ -1,17 +1,29 @@
 import { allUnits } from "augmenting/data/armours"
-import { activityByName } from "augmenting/data/bprequirements"
+import { allCombatActivities } from "augmenting/data/bprequirements"
+import { allClassData } from "augmenting/data/classes"
 import { allWeapons } from "augmenting/data/weapons"
+import { groupBy, uniqBy } from "lodash"
 
-export const MAX_LEVEL = 40
 export const MAX_SKILLPOINTS = 30
 
-export const DEFAULT_WEAPON = allWeapons["Cinquem"]
-export const DEFAULT_UNIT = allUnits["Schwarzest Armor"]
+export const MAX_LEVEL = allClassData.Hu.length - 1
 
-export const DEFAULT_AUGMENT_SLOTS = 5
+export const DEFAULT_WEAPON = Object.entries(allWeapons)
+  .sort(([_, a], [__, b]) => a.level - b.level)
+  .reverse()[0][1]
+
+export const DEFAULT_UNIT = Object.entries(allUnits)
+  .sort(([_, a], [__, b]) => a.level - b.level)
+  .reverse()[0][1]
+
+export const DEFAULT_AUGMENT_SLOTS = DEFAULT_UNIT.stars
 export const MAX_AUGMENTS_PER_SLOT = 8
 
-export const DEFAULT_ACTIVITIES = [
-  activityByName["Dark Falz"][1 - 1],
-  activityByName["Mt. Magnus"][3 - 1],
-]
+const top2Bp = uniqBy(allCombatActivities, (a) => a.bp)
+  .sort((a, b) => a.bp - b.bp)
+  .reverse()
+  .map((a) => a.bp)
+  .slice(0, 3)
+const bpActivity = groupBy(allCombatActivities, (a) => a.bp)
+
+export const DEFAULT_ACTIVITIES = top2Bp.flatMap((bp) => bpActivity[bp][0])
