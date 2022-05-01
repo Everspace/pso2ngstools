@@ -293,7 +293,7 @@
   },
   "Tempesta": {
     "name": "Tempesta",
-    "level": 25,
+    "level": 15,
     "stars": 5,
     "limit": 40,
     "grindValues": {
@@ -349,6 +349,37 @@
       "30": 323,
       "40": 333,
       "50": 385
+    },
+    "varianceLow": 75
+  },
+  "Lumiere": {
+    "name": "Lumiere",
+    "level": 15,
+    "stars": 5,
+    "limit": 40,
+    "grindValues": {
+      "0": 263,
+      "10": 273,
+      "20": 283,
+      "30": 293,
+      "40": 303,
+      "50": 355
+    },
+    "varianceLow": 70,
+    "element": "Light"
+  },
+  "Kukuhroziat": {
+    "name": "Kukuhroziat",
+    "level": 27,
+    "stars": 5,
+    "limit": 40,
+    "grindValues": {
+      "0": 280,
+      "10": 290,
+      "20": 300,
+      "30": 310,
+      "40": 320,
+      "50": 372
     },
     "varianceLow": 75
   }

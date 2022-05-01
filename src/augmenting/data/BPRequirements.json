@@ -28,6 +28,13 @@
     "bp": 1682
   },
   {
+    "name": "Dustyl Vera",
+    "region": "Retem",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 2049
+  },
+  {
     "name": "Maqead Lower Level",
     "region": "Retem",
     "type": "Battle Zone",
@@ -40,6 +47,13 @@
     "type": "Battle Zone",
     "rank": 2,
     "bp": 1633
+  },
+  {
+    "name": "Maqead Lower Level",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 3,
+    "bp": 1869
   },
   {
     "name": "Mining Rig",
@@ -98,6 +112,13 @@
     "bp": 1682
   },
   {
+    "name": "Renus Vera",
+    "region": "Retem",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 2049
+  },
+  {
     "name": "Resol Forest",
     "region": "Aelio",
     "type": "Battle Zone",
@@ -124,6 +145,13 @@
     "type": "Battle Zone",
     "rank": 2,
     "bp": 1633
+  },
+  {
+    "name": "Retem Alnothe",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 3,
+    "bp": 1869
   },
   {
     "name": "Vanford Laboratory Ruins",

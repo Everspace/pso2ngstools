@@ -5,7 +5,6 @@
     "category": "domina",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 5,
@@ -19,7 +18,6 @@
     "category": "note",
     "icon": "hp",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "hp": 5,
@@ -32,7 +30,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "meleePotency": 1,
@@ -45,7 +42,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "meleePotency": 1,
@@ -58,7 +54,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "rangedPotency": 1,
@@ -72,7 +67,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 3,
       "hp": -10,
@@ -88,7 +82,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 4,
       "hp": -10,
@@ -104,7 +97,6 @@
     "icon": "special",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 5,
       "hp": -10,
@@ -120,7 +112,6 @@
     "icon": "hp",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "hp": 5,
@@ -134,7 +125,6 @@
     "icon": "hp",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 7,
       "hp": 10,
@@ -148,7 +138,6 @@
     "icon": "hp",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 9,
       "hp": 15,
@@ -162,7 +151,6 @@
     "icon": "might",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "pp": 5,
@@ -176,7 +164,6 @@
     "icon": "might",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "pp": 5,
@@ -190,7 +177,6 @@
     "icon": "might",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "pp": 5,
@@ -204,7 +190,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 3,
       "floorPotency": 1
@@ -217,7 +202,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "floorPotency": 1.5
@@ -230,7 +214,6 @@
     "icon": "special",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "floorPotency": 2
@@ -243,7 +226,6 @@
     "icon": "pp",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "pp": 5,
@@ -257,7 +239,6 @@
     "icon": "pp",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 6,
       "pp": 5,
@@ -271,7 +252,6 @@
     "icon": "pp",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 7,
       "pp": 5,
@@ -285,7 +265,6 @@
     "icon": "hp",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "hp": 10,
@@ -301,7 +280,6 @@
     "icon": "hp",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 7.5,
       "hp": 15,
@@ -317,7 +295,6 @@
     "icon": "hp",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 30,
@@ -333,7 +310,6 @@
     "icon": "might",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "meleePotency": 2
@@ -346,7 +322,6 @@
     "icon": "might",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "meleePotency": 2,
@@ -360,7 +335,6 @@
     "icon": "might",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 9,
       "meleePotency": 2,
@@ -374,7 +348,6 @@
     "icon": "precision",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "rangedPotency": 2
@@ -387,7 +360,6 @@
     "icon": "precision",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "rangedPotency": 2,
@@ -401,7 +373,6 @@
     "icon": "precision",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 9,
       "rangedPotency": 2,
@@ -415,7 +386,6 @@
     "icon": "technique",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "techPotency": 2
@@ -428,7 +398,6 @@
     "icon": "technique",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "techPotency": 2,
@@ -442,7 +411,6 @@
     "icon": "technique",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 9,
       "techPotency": 2,
@@ -456,7 +424,6 @@
     "icon": "technique",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "hp": 5,
@@ -470,7 +437,6 @@
     "icon": "technique",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 10,
@@ -484,7 +450,6 @@
     "icon": "technique",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 15,
@@ -498,7 +463,6 @@
     "icon": "might",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "hp": 5,
@@ -512,7 +476,6 @@
     "icon": "might",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 10,
@@ -526,7 +489,6 @@
     "icon": "might",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 15,
@@ -540,7 +502,6 @@
     "icon": "precision",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "hp": 5,
@@ -554,7 +515,6 @@
     "icon": "precision",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 10,
@@ -568,7 +528,6 @@
     "icon": "precision",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 15,
@@ -582,7 +541,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 2,
       "damageResist": 1
@@ -595,7 +553,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 3,
       "damageResist": 1.5
@@ -608,7 +565,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "damageResist": 2
@@ -620,7 +576,6 @@
     "category": "note",
     "icon": "precision",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "rangedPotency": 1.5
@@ -632,7 +587,6 @@
     "category": "note",
     "icon": "might",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "meleePotency": 1.5
@@ -645,7 +599,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 6,
       "potency": 0.5,
@@ -660,7 +613,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 8,
       "potency": 1,
@@ -675,12 +627,25 @@
     "icon": "special",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 10,
       "potency": 1.5,
       "floorPotency": 1.5,
       "damageResist": 1.5
+    }
+  },
+  {
+    "name": "Mastery IV",
+    "baseName": "Mastery",
+    "category": "unknown",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "bp": 12,
+      "potency": 2.5,
+      "floorPotency": 2.5,
+      "damageResist": 2.5
     }
   },
   {
@@ -690,7 +655,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "meleePotency": 0.75,
@@ -704,7 +668,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "meleePotency": 1.25,
@@ -718,7 +681,6 @@
     "icon": "special",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "meleePotency": 1.75,
@@ -732,7 +694,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "meleePotency": 0.75,
@@ -746,7 +707,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "meleePotency": 1.25,
@@ -760,7 +720,6 @@
     "icon": "special",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "meleePotency": 1.75,
@@ -774,7 +733,6 @@
     "icon": "might",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "meleePotency": 1
@@ -787,7 +745,6 @@
     "icon": "might",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "meleePotency": 1.5
@@ -800,7 +757,6 @@
     "icon": "might",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "meleePotency": 2
@@ -813,7 +769,6 @@
     "icon": "technique",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "pp": 5,
@@ -827,7 +782,6 @@
     "icon": "technique",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "pp": 5,
@@ -841,9 +795,8 @@
     "icon": "technique",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
-      "bp": 8,
+      "bp": 10,
       "pp": 5,
       "techPotency": 2.5
     }
@@ -855,7 +808,6 @@
     "icon": "precision",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "pp": 5,
@@ -869,7 +821,6 @@
     "icon": "precision",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "pp": 5,
@@ -883,11 +834,10 @@
     "icon": "precision",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "pp": 5,
-      "rangedPotency": 2.4
+      "rangedPotency": 2.5
     }
   },
   {
@@ -897,7 +847,6 @@
     "icon": "precision",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "rangedPotency": 1
@@ -910,7 +859,6 @@
     "icon": "precision",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "rangedPotency": 1.5
@@ -923,7 +871,6 @@
     "icon": "precision",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "rangedPotency": 2
@@ -936,7 +883,6 @@
     "icon": "precision",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "hp": 15,
@@ -950,7 +896,6 @@
     "icon": "precision",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -964,7 +909,6 @@
     "icon": "precision",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 15,
@@ -978,7 +922,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "rangedPotency": 0.75,
@@ -992,7 +935,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "rangedPotency": 1.25,
@@ -1006,7 +948,6 @@
     "icon": "special",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "rangedPotency": 1.75,
@@ -1019,7 +960,6 @@
     "category": "note",
     "icon": "technique",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "techPotency": 1.5
@@ -1032,7 +972,6 @@
     "icon": "pp",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 2,
       "pp": 3
@@ -1045,7 +984,6 @@
     "icon": "pp",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 3,
       "pp": 4
@@ -1058,7 +996,6 @@
     "icon": "pp",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "pp": 5
@@ -1071,7 +1008,6 @@
     "icon": "hp",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 3,
       "hp": 5
@@ -1084,7 +1020,6 @@
     "icon": "hp",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "hp": 10
@@ -1097,7 +1032,6 @@
     "icon": "hp",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "hp": 15
@@ -1110,7 +1044,6 @@
     "icon": "technique",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "techPotency": 1
@@ -1123,7 +1056,6 @@
     "icon": "technique",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "techPotency": 1.5
@@ -1136,7 +1068,6 @@
     "icon": "technique",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "techPotency": 2
@@ -1149,7 +1080,6 @@
     "icon": "might",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "hp": 15,
@@ -1163,7 +1093,6 @@
     "icon": "might",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -1177,7 +1106,6 @@
     "icon": "might",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 15,
@@ -1190,7 +1118,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "potency": 1.25
@@ -1202,7 +1129,6 @@
     "category": "note",
     "icon": "hp",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "hp": 10,
@@ -1217,7 +1143,6 @@
     "icon": "technique",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "hp": 15,
@@ -1231,7 +1156,6 @@
     "icon": "technique",
     "tier": 2,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -1245,7 +1169,6 @@
     "icon": "technique",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 15,
@@ -1258,7 +1181,6 @@
     "category": "note",
     "icon": "hp",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 5,
       "hp": 10
@@ -1270,7 +1192,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "hp": 5,
@@ -1284,7 +1205,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "hp": 5,
@@ -1298,7 +1218,6 @@
     "category": "note",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "hp": 5,
@@ -1312,7 +1231,6 @@
     "category": "domina",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -1326,7 +1244,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 20
@@ -1339,7 +1256,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 8,
       "statusResist": 25
@@ -1352,7 +1268,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 10,
       "statusResist": 30
@@ -1365,7 +1280,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1378,7 +1292,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1391,7 +1304,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1404,7 +1316,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1417,7 +1328,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1430,7 +1340,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1443,7 +1352,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1456,7 +1364,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1469,7 +1376,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1482,7 +1388,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1495,7 +1400,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1508,7 +1412,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1521,7 +1424,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1534,7 +1436,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1547,7 +1448,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1560,7 +1460,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1573,7 +1472,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1586,7 +1484,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1599,7 +1496,6 @@
     "icon": "ward",
     "tier": 1,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 4,
       "statusResist": 20
@@ -1612,7 +1508,6 @@
     "icon": "ward",
     "tier": 2,
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 5,
       "statusResist": 25
@@ -1625,7 +1520,6 @@
     "icon": "ward",
     "tier": 3,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "statusResist": 30
@@ -1637,7 +1531,6 @@
     "category": "element",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "conditionalPotency": 2.5
@@ -1649,7 +1542,6 @@
     "category": "element",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "conditionalPotency": 2.5
@@ -1661,7 +1553,6 @@
     "category": "element",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 6,
       "conditionalPotency": 2.5
@@ -1673,7 +1564,28 @@
     "category": "element",
     "icon": "special",
     "rate": 9,
-    "location": "",
+    "stat": {
+      "bp": 6,
+      "conditionalPotency": 2.5
+    }
+  },
+  {
+    "name": "Light Exploit",
+    "baseName": "Light Exploit",
+    "category": "element",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "conditionalPotency": 2.5
+    }
+  },
+  {
+    "name": "Gloom Exploit",
+    "baseName": "Gloom Exploit",
+    "category": "element",
+    "icon": "special",
+    "rate": 9,
     "stat": {
       "bp": 6,
       "conditionalPotency": 2.5
@@ -1685,7 +1597,6 @@
     "category": "addi",
     "icon": "might",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 20,
@@ -1698,7 +1609,6 @@
     "category": "addi",
     "icon": "precision",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 20,
@@ -1711,7 +1621,6 @@
     "category": "addi",
     "icon": "technique",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 20,
@@ -1724,7 +1633,6 @@
     "category": "addi",
     "icon": "might",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "pp": 6,
@@ -1737,7 +1645,6 @@
     "category": "addi",
     "icon": "precision",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "pp": 6,
@@ -1750,7 +1657,6 @@
     "category": "addi",
     "icon": "technique",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "pp": 6,
@@ -1763,7 +1669,6 @@
     "category": "addi",
     "icon": "might",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 10,
@@ -1777,7 +1682,6 @@
     "category": "addi",
     "icon": "precision",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 10,
@@ -1791,7 +1695,6 @@
     "category": "addi",
     "icon": "technique",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 10,
@@ -1805,7 +1708,6 @@
     "category": "addi",
     "icon": "might",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "meleePotency": 2.5,
@@ -1818,7 +1720,6 @@
     "category": "addi",
     "icon": "precision",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "rangedPotency": 2.5,
@@ -1831,7 +1732,6 @@
     "category": "addi",
     "icon": "technique",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "techPotency": 2.5,
@@ -1844,7 +1744,6 @@
     "category": "addi",
     "icon": "might",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "meleePotency": 2.5,
@@ -1857,7 +1756,6 @@
     "category": "addi",
     "icon": "precision",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "rangedPotency": 2.5,
@@ -1870,7 +1768,6 @@
     "category": "addi",
     "icon": "technique",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "techPotency": 2.5,
@@ -1883,7 +1780,6 @@
     "category": "addi",
     "icon": "might",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "meleePotency": 2.5,
@@ -1896,7 +1792,6 @@
     "category": "addi",
     "icon": "precision",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "rangedPotency": 2.5,
@@ -1909,7 +1804,6 @@
     "category": "addi",
     "icon": "technique",
     "rate": 10,
-    "location": "",
     "stat": {
       "bp": 10,
       "techPotency": 2.5,
@@ -1923,7 +1817,6 @@
     "icon": "special",
     "tier": 1,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 7,
       "hp": 10,
@@ -1938,7 +1831,6 @@
     "icon": "special",
     "tier": 2,
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 10,
@@ -1953,7 +1845,6 @@
     "icon": "special",
     "tier": 3,
     "rate": 8,
-    "location": "",
     "stat": {
       "bp": 10,
       "hp": 10,
@@ -1967,7 +1858,6 @@
     "category": "might",
     "icon": "might",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -1980,7 +1870,6 @@
     "category": "might",
     "icon": "might",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "pp": 5,
@@ -1993,7 +1882,6 @@
     "category": "might",
     "icon": "might",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "meleePotency": 2,
@@ -2006,7 +1894,6 @@
     "category": "might",
     "icon": "might",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "meleePotency": 2,
@@ -2019,7 +1906,6 @@
     "category": "precision",
     "icon": "precision",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -2032,7 +1918,6 @@
     "category": "precision",
     "icon": "precision",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "pp": 5,
@@ -2045,7 +1930,6 @@
     "category": "precision",
     "icon": "precision",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "rangedPotency": 2,
@@ -2058,7 +1942,6 @@
     "category": "precision",
     "icon": "precision",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "rangedPotency": 2,
@@ -2071,7 +1954,6 @@
     "category": "technique",
     "icon": "technique",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "hp": 15,
@@ -2084,7 +1966,6 @@
     "category": "technique",
     "icon": "technique",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "pp": 5,
@@ -2097,7 +1978,6 @@
     "category": "technique",
     "icon": "technique",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "techPotency": 2,
@@ -2110,7 +1990,6 @@
     "category": "technique",
     "icon": "technique",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 8,
       "techPotency": 2,
@@ -2123,10 +2002,153 @@
     "category": "fusia",
     "icon": "special",
     "rate": 9,
-    "location": "",
     "stat": {
       "bp": 4,
       "potency": 1
+    }
+  },
+  {
+    "name": "Tria Gauromel",
+    "baseName": "Tria Gauromel",
+    "category": "tria",
+    "icon": "might",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "meleePotency": 2.25,
+      "damageResist": -1
+    }
+  },
+  {
+    "name": "Tria Staromel",
+    "baseName": "Tria Staromel",
+    "category": "tria",
+    "icon": "might",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "hp": -5,
+      "meleePotency": 2.25
+    }
+  },
+  {
+    "name": "Tria Spiromel",
+    "baseName": "Tria Spiromel",
+    "category": "tria",
+    "icon": "might",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "pp": -3,
+      "meleePotency": 2.25
+    }
+  },
+  {
+    "name": "Tria Deftromel",
+    "baseName": "Tria Deftromel",
+    "category": "tria",
+    "icon": "might",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "meleePotency": 2.25,
+      "floorPotency": -1
+    }
+  },
+  {
+    "name": "Tria Guarora",
+    "baseName": "Tria Guarora",
+    "category": "tria",
+    "icon": "precision",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "rangedPotency": 2.25,
+      "damageResist": -1
+    }
+  },
+  {
+    "name": "Tria Starora",
+    "baseName": "Tria Starora",
+    "category": "tria",
+    "icon": "precision",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "hp": -5,
+      "rangedPotency": 2.25
+    }
+  },
+  {
+    "name": "Tria Spirora",
+    "baseName": "Tria Spirora",
+    "category": "tria",
+    "icon": "precision",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "pp": -3,
+      "rangedPotency": 2.25
+    }
+  },
+  {
+    "name": "Tria Deftrora",
+    "baseName": "Tria Deftrora",
+    "category": "tria",
+    "icon": "precision",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "rangedPotency": 2.25,
+      "floorPotency": -1
+    }
+  },
+  {
+    "name": "Tria Guarotech",
+    "baseName": "Tria Guarotech",
+    "category": "tria",
+    "icon": "technique",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "techPotency": 2.25,
+      "damageResist": -1
+    }
+  },
+  {
+    "name": "Tria Starotech",
+    "baseName": "Tria Starotech",
+    "category": "tria",
+    "icon": "technique",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "hp": -5,
+      "techPotency": 2.25
+    }
+  },
+  {
+    "name": "Tria Spirotech",
+    "baseName": "Tria Spirotech",
+    "category": "tria",
+    "icon": "technique",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "pp": -3,
+      "techPotency": 2.25
+    }
+  },
+  {
+    "name": "Tria Deftrotech",
+    "baseName": "Tria Deftrotech",
+    "category": "tria",
+    "icon": "technique",
+    "rate": 9,
+    "stat": {
+      "bp": 6,
+      "techPotency": 2.25,
+      "floorPotency": -1
     }
   }
 ]
