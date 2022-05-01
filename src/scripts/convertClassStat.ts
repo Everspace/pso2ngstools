@@ -9,18 +9,31 @@ const classStats: RowTuple[] = allClasses.map(
 
 export type ClassStatResultTuple = [number, ClassAbbreviation, ClassLevel]
 
+const toNull = <T extends any>(what: T): number | null =>
+  what === "" || what === undefined || what === null ? null : Number(what)
+
 export function handleClassStatRow(
   row: Record<string, string>,
 ): ClassStatResultTuple[] {
-  const classInfo = classStats.map(([name, hp, attack, defense]) => {
-    const cl: ClassLevel = {
-      attack: Number(row[attack]),
-      defense: Number(row[defense]),
-    }
-    if (row[hp] !== "" || row[hp] !== null) cl.hp = Number(row[hp])
-    const result = [Number(row[name]), name, cl] as ClassStatResultTuple
-    return result
-  })
+  const classInfo = classStats.map(
+    ([className, classHp, classAttack, classDefense]) => {
+      const hp = toNull(row[classHp])
+      const level = toNull(row[className])
+      const attack = toNull(row[classAttack])
+      const defense = toNull(row[classDefense])
 
-  return classInfo.filter(([level, name, {attack, defense}]) => !Number.isNaN(attack) && !Number.isNaN(defense))
+      if (attack === null) return null
+      if (defense === null) return null
+
+      const cl: ClassLevel = {
+        attack,
+        defense,
+      }
+      if (hp !== null) cl.hp = Number(hp)
+      const result = [Number(level), className, cl] as ClassStatResultTuple
+      return result
+    },
+  )
+
+  return classInfo.filter((thing) => thing !== null) as ClassStatResultTuple[]
 }

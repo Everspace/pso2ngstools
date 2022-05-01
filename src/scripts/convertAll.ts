@@ -3,7 +3,6 @@ import denv from "dotenv"
 denv.config({ path: process.cwd() + "\\.env" })
 denv.config({ path: process.cwd() + "\\.env.local" })
 
-import { MAX_LEVEL } from "augmenting/state/consts"
 import {
   allClasses,
   ClassData,
@@ -29,15 +28,15 @@ async function openParse(
   callback: (sheet: GoogleSpreadsheetWorksheet) => any | Promise<any>,
 ) {
   const source = await doc.sheetsByTitle[fileSource]
-  const dest = await fs.open(fileTarget, "w")
   const data = await callback(source)
+
+  const dest = await fs.open(fileTarget, "w")
   dest.writeFile(JSON.stringify(data, null, 2))
   dest.close()
 }
 
 async function main() {
-  console.log(process.env.GOOGLE_API_KEY)
-  doc.useApiKey(process.env.GOOGLE_API_KEY!)
+  await doc.useApiKey(process.env.GOOGLE_API_KEY!)
   await doc.loadInfo()
   Promise.all([
     openParse(
@@ -82,7 +81,6 @@ async function main() {
         for await (const entry of await sheet.getRows()) {
           const classResult = handleClassStatRow(entry)
           classResult.forEach(([level, c, stat]) => {
-            if (level > MAX_LEVEL) return
             classes[c][level] = stat
           })
         }
@@ -115,4 +113,9 @@ async function main() {
   ])
 }
 
-main()
+try {
+  main()
+} catch (e) {
+  console.log(e)
+  process.exit(1)
+}
