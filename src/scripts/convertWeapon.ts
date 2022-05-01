@@ -1,4 +1,4 @@
-import { GrindLevel, GRIND_LEVELS, Weapon } from "augmenting/types"
+import { GrindLevel, GRIND_KEYS, GRIND_LEVELS, Weapon } from "augmenting/types"
 import { BigNumber } from "mathjs"
 import { HasGrindLevels, RecordSheet, Replace } from "./common"
 
@@ -22,9 +22,10 @@ interface DataSheetRow extends RecordSheet<DataSheetKeys>, HasGrindLevels {
 
 export type WeaponData = Replace<Weapon, BigNumber, number>
 export function handleWeaponRow(row: DataSheetRow): WeaponData {
-  const { Series, Lv, Stars, Limit, Element, VLow, VHigh, ...grinds } = row
+  const { Series, Lv, Stars, Limit, Element, VLow, VHigh, ...otherKeys } = row
+
   const stars = Number(Stars)
-  const attackBase = Number(grinds["Grind0"])
+  const attackBase = Number(otherKeys["Grind0"])
 
   const data: Partial<WeaponData> = {
     name: Series,
@@ -33,10 +34,15 @@ export function handleWeaponRow(row: DataSheetRow): WeaponData {
     limit: Number(Limit) as GrindLevel,
   }
 
+  const grinds = GRIND_KEYS.reduce((memory,key) => {
+    memory[key] = otherKeys[key]
+    return memory
+  }, {} as Record<typeof GRIND_KEYS[number], string>)
+
   const grindLevelTuples = GRIND_LEVELS.map((level) => {
     const rawGrind = grinds[`Grind${level}`]
     let grind: number = Number(rawGrind)
-    if (rawGrind === "")
+    if (rawGrind === null || rawGrind === undefined || rawGrind === "")
       grind = attackBase + rarityBackfill[stars][Math.floor(level / 10)]
     return [level, grind]
   })

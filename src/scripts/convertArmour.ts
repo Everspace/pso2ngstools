@@ -1,4 +1,4 @@
-import { AugmentStat, GrindLevel, GRIND_LEVELS, Unit } from "augmenting/types"
+import { AugmentStat, GrindLevel, GRIND_KEYS, GRIND_LEVELS, Unit } from "augmenting/types"
 import { BigNumber } from "mathjs"
 import { HasGrindLevels, RecordSheet, Replace } from "./common"
 
@@ -55,12 +55,17 @@ export function handleArmorRow(row: DataSheetRow): UnitData {
     TEC,
     DmgResist,
     Status,
-    ...grinds
+    ...otherKeys
   } = row
   const stats = { hp, pp, MEL, RNG, TEC, DmgResist, Status }
   const stars = Number(Stars)
-  const defenseBase = Number(grinds["Grind0"])
 
+  const grinds = GRIND_KEYS.reduce((memory,key) => {
+    memory[key] = otherKeys[key]
+    return memory
+  }, {} as Record<typeof GRIND_KEYS[number], string>)
+
+  const defenseBase = Number(grinds["Grind0"])
   const data: Partial<UnitData> = {
     name: Series,
     level: Number(Lv),
@@ -72,7 +77,7 @@ export function handleArmorRow(row: DataSheetRow): UnitData {
   const grindLevelTuples = GRIND_LEVELS.map((level) => {
     const rawGrind = grinds[`Grind${level}`]
     let grind: number = Number(rawGrind)
-    if (rawGrind === "")
+    if (rawGrind === null || rawGrind === undefined || rawGrind === "")
       grind = defenseBase + rarityBackfill[stars][Math.floor(level / 10)]
     return [level, grind]
   })
@@ -80,7 +85,7 @@ export function handleArmorRow(row: DataSheetRow): UnitData {
 
   const processedStats: AugmentStat = Object.fromEntries(
     (Object.entries(stats) as Array<[keyof TranslationTable, string]>)
-      .filter(([name, value]) => value !== "")
+      .filter(([name, value]) => value !== "" && value !== null && value !== undefined)
       .map(([name, value]) => [translationTable[name], Number(value)]),
   )
   data.stat = processedStats

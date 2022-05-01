@@ -17,11 +17,10 @@ export function handleClassStatRow(
       attack: Number(row[attack]),
       defense: Number(row[defense]),
     }
-
-    if (row[hp] !== "") cl.hp = Number(row[hp])
+    if (row[hp] !== "" || row[hp] !== null) cl.hp = Number(row[hp])
     const result = [Number(row[name]), name, cl] as ClassStatResultTuple
     return result
   })
 
-  return classInfo
+  return classInfo.filter(([level, name, {attack, defense}]) => !Number.isNaN(attack) && !Number.isNaN(defense))
 }
