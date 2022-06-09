@@ -144,8 +144,6 @@ export type ClassLevel = {
 }
 
 export type ClassData = Record<ClassAbbreviation, ClassLevel[]>
-
-export type GameRegion = "Aelio" | "Retem"
 export type CombatActivityType = "UQ" | "Battle Area"
 
 export type CombatActivity = {

@@ -8,7 +8,6 @@ import {
   ClassData,
   CombatActivity,
   CombatActivityType,
-  GameRegion,
 } from "augmenting/types"
 import fs from "fs/promises"
 import {
@@ -120,7 +119,7 @@ async function main() {
           if ([Region, Type, Name, Rank, BP].indexOf("") !== -1) continue
           data.push({
             name: Name,
-            region: Region as GameRegion,
+            region: Region,
             type: Type as CombatActivityType,
             rank: Number(Rank),
             bp: Number(BP),

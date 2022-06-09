@@ -10,12 +10,14 @@ import {
 } from "@mui/material"
 import { styled } from "@mui/system"
 import { useAtomValue } from "jotai"
-import { activityNameByRegion, activityByName } from "./data/bprequirements"
+import {
+  activityNameByRegion,
+  activityByName,
+  allRegions,
+} from "./data/bprequirements"
 import { bpTotalAtom } from "./state/bpState"
 import { DEFAULT_ACTIVITIES } from "./state/consts"
-import { CombatActivity, GameRegion } from "./types"
-
-const allRegions: GameRegion[] = ["Retem", "Aelio"]
+import { CombatActivity } from "./types"
 
 const GroupItem = styled(Grid)(({ theme }) => ({
   minWidth: 20,
@@ -87,7 +89,7 @@ function CombatActivityGroup({ activities }: { activities: CombatActivity[] }) {
   )
 }
 
-function RegionActivities({ region }: { region: GameRegion }) {
+function RegionActivities({ region }: { region: string }) {
   const activities = activityNameByRegion[region]
   return (
     <Grid container spacing={1} mb={1}>
