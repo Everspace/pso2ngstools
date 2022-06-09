@@ -572,7 +572,7 @@
       "hp": 30,
       "pp": 4,
       "meleePotency": 2.2,
-      "rangedPotency": 2.2
+      "techPotency": 2.2
     },
     "grindValues": {
       "0": 20,
