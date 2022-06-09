@@ -40,11 +40,44 @@ async function openParse<T>(
   return data
 }
 
+async function doClasses() {
+  const statDelta = await openParse("StatDelta", null, async (sheet) => {
+    const deltas: StatDelta = {}
+    for await (const entry of await sheet.getRows()) {
+      deltas[entry["level"]] = {
+        attackDelta: toNumberOrNull(entry["attack"]),
+        defenseDelta: toNumberOrNull(entry["defense"]),
+      }
+    }
+    return deltas
+  })
+
+  return await openParse(
+    "StatTable",
+    "./src/augmenting/data/Classes.json",
+    async (sheet) => {
+      const classes: ClassData = allClasses.reduce(
+        (mem, cname) => ({ ...mem, [cname]: [{ attack: 0, defense: 0 }] }),
+        {} as any,
+      )
+      const rows = await sheet.getRows()
+      for (const entry of rows) {
+        const classResult = handleClassStatRow(entry, statDelta)
+        classResult.forEach(([level, c, stat]) => {
+          classes[c][level] = stat
+        })
+      }
+      return classes
+    },
+  )
+}
+
 async function main() {
   await doc.useApiKey(process.env.GOOGLE_API_KEY!)
   await doc.loadInfo()
 
-  Promise.all([
+  await Promise.allSettled([
+    doClasses(),
     openParse(
       "Affixes",
       "./src/augmenting/data/Augments.json",
@@ -76,36 +109,6 @@ async function main() {
         return allArmours
       },
     ),
-    async () => {
-      const statDelta = await openParse("StatDelta", null, async (sheet) => {
-        const deltas: StatDelta = {}
-        for await (const entry of await sheet.getRows()) {
-          deltas[entry["level"]] = {
-            attackDelta: toNumberOrNull(entry["attack"]),
-            defenseDelta: toNumberOrNull(entry["defense"]),
-          }
-        }
-        return deltas
-      })
-
-      return await openParse(
-        "StatTable",
-        "./src/augmenting/data/Classes.json",
-        async (sheet) => {
-          const classes: ClassData = allClasses.reduce(
-            (mem, cname) => ({ ...mem, [cname]: [{ attack: 0, defense: 0 }] }),
-            {} as any,
-          )
-          for await (const entry of await sheet.getRows()) {
-            const classResult = handleClassStatRow(entry, statDelta)
-            classResult.forEach(([level, c, stat]) => {
-              classes[c][level] = stat
-            })
-          }
-          return classes
-        },
-      )
-    },
     openParse(
       "BPRequirements",
       "./src/augmenting/data/BPRequirements.json",

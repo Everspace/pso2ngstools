@@ -48,7 +48,15 @@ const translationTable: TranslationTable = {
 }
 
 export function handleAugmentRow(row: DataSheetRow): Augment {
-  const { baseName, category, icon, tier, rate, drop, bp, hp,
+  const {
+    baseName,
+    category,
+    icon,
+    tier,
+    rate,
+    drop,
+    bp,
+    hp,
     pp,
     MEL,
     RNG,
@@ -57,7 +65,7 @@ export function handleAugmentRow(row: DataSheetRow): Augment {
     PotencyFloor,
     DmgResist,
     ConditionalPot,
-    StatusResist
+    StatusResist,
   } = row
 
   const stats = {
@@ -94,7 +102,10 @@ export function handleAugmentRow(row: DataSheetRow): Augment {
 
   const processedStats: AugmentStat = Object.fromEntries(
     (Object.entries(stats) as Array<[keyof TranslationTable, string]>)
-      .filter(([name, value]) => value !== "" && value !== null && value !== undefined)
+      .filter(
+        ([name, value]) =>
+          value !== "" && value !== null && value !== undefined,
+      )
       .map(([name, value]) => [translationTable[name], Number(value)]),
   )
   data.stat = processedStats
