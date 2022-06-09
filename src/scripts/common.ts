@@ -14,3 +14,6 @@ export const MAX_GRIND_KEY: GrindLevelHeader = `Grind${MAX_GRIND}`
 export function limitToIndex(limit: string): number {
   return Math.floor(Number(limit) / 10)
 }
+
+export const toNumberOrNull = <T extends any>(what: T): number | null =>
+  what === "" || what === undefined || what === null ? null : Number(what)

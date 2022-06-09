@@ -1,4 +1,10 @@
-import { AugmentStat, GrindLevel, GRIND_KEYS, GRIND_LEVELS, Unit } from "augmenting/types"
+import {
+  AugmentStat,
+  GrindLevel,
+  GRIND_KEYS,
+  GRIND_LEVELS,
+  Unit,
+} from "augmenting/types"
 import { BigNumber } from "mathjs"
 import { HasGrindLevels, RecordSheet, Replace } from "./common"
 
@@ -12,6 +18,7 @@ const rarityBackfill = [
   [0, 10, 20, 30, 40, 50],
   [0, 10, 20, 30, 41, 51],
   [0, 10, 20, 30, 41, 51],
+  [0, 10, 20, 30, 41, 51], // Guessing +50 Grind
 ]
 
 type DataSheetKeys =
@@ -60,7 +67,7 @@ export function handleArmorRow(row: DataSheetRow): UnitData {
   const stats = { hp, pp, MEL, RNG, TEC, DmgResist, Status }
   const stars = Number(Stars)
 
-  const grinds = GRIND_KEYS.reduce((memory,key) => {
+  const grinds = GRIND_KEYS.reduce((memory, key) => {
     memory[key] = otherKeys[key]
     return memory
   }, {} as Record<typeof GRIND_KEYS[number], string>)
@@ -85,7 +92,10 @@ export function handleArmorRow(row: DataSheetRow): UnitData {
 
   const processedStats: AugmentStat = Object.fromEntries(
     (Object.entries(stats) as Array<[keyof TranslationTable, string]>)
-      .filter(([name, value]) => value !== "" && value !== null && value !== undefined)
+      .filter(
+        ([name, value]) =>
+          value !== "" && value !== null && value !== undefined,
+      )
       .map(([name, value]) => [translationTable[name], Number(value)]),
   )
   data.stat = processedStats

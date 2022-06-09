@@ -12,6 +12,8 @@ const rarityBackfill = [
   [0, 10, 21, 32, 47, 115],
   [0, 10, 20, 30, 40, 108],
   [0, 10, 20, 30, 40, 92], // 5 star
+  [0, 10, 20, 30, 40, 92], // 6 star
+  [0, 10, 20, 30, 40, 186], // 7 star: OOPS ALL GUESSES
 ]
 
 type DataSheetKeys = "Series" | "Lv" | "Stars" | "Element" | "VLow" | "VHigh"
@@ -34,7 +36,7 @@ export function handleWeaponRow(row: DataSheetRow): WeaponData {
     limit: Number(Limit) as GrindLevel,
   }
 
-  const grinds = GRIND_KEYS.reduce((memory,key) => {
+  const grinds = GRIND_KEYS.reduce((memory, key) => {
     memory[key] = otherKeys[key]
     return memory
   }, {} as Record<typeof GRIND_KEYS[number], string>)
