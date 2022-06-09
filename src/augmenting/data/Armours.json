@@ -522,5 +522,149 @@
       "40": 61,
       "50": 71
     }
+  },
+  "Sestato Armor: Arga": {
+    "name": "Sestato Armor: Arga",
+    "level": 47,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "hp": 30,
+      "pp": 4,
+      "meleePotency": 2.2,
+      "rangedPotency": 2.2
+    },
+    "grindValues": {
+      "0": 20,
+      "10": 30,
+      "20": 40,
+      "30": 50,
+      "40": 61,
+      "50": 71
+    }
+  },
+  "Sestato Armor: Belta": {
+    "name": "Sestato Armor: Belta",
+    "level": 47,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "hp": 30,
+      "pp": 4,
+      "rangedPotency": 2.2,
+      "techPotency": 2.2
+    },
+    "grindValues": {
+      "0": 20,
+      "10": 30,
+      "20": 40,
+      "30": 50,
+      "40": 61,
+      "50": 71
+    }
+  },
+  "Sestato Armor: Sheza": {
+    "name": "Sestato Armor: Sheza",
+    "level": 47,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "hp": 30,
+      "pp": 4,
+      "meleePotency": 2.2,
+      "rangedPotency": 2.2
+    },
+    "grindValues": {
+      "0": 20,
+      "10": 30,
+      "20": 40,
+      "30": 50,
+      "40": 61,
+      "50": 71
+    }
+  },
+  "Sestato Armor": {
+    "name": "Sestato Armor",
+    "level": 42,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "hp": 35,
+      "pp": 5,
+      "meleePotency": 1.5,
+      "rangedPotency": 1.5,
+      "techPotency": 1.5
+    },
+    "grindValues": {
+      "0": 21,
+      "10": 31,
+      "20": 41,
+      "30": 51,
+      "40": 62,
+      "50": 72
+    }
+  },
+  "Defrozzis": {
+    "name": "Defrozzis",
+    "level": 42,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "pp": 9,
+      "meleePotency": 2,
+      "rangedPotency": 2,
+      "techPotency": 2
+    },
+    "grindValues": {
+      "0": 20,
+      "10": 30,
+      "20": 40,
+      "30": 50,
+      "40": 61,
+      "50": 71
+    }
+  },
+  "Defrozza": {
+    "name": "Defrozza",
+    "level": 42,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "hp": 50,
+      "meleePotency": 1,
+      "rangedPotency": 1,
+      "techPotency": 1,
+      "damageResist": 1
+    },
+    "grindValues": {
+      "0": 22,
+      "10": 32,
+      "20": 42,
+      "30": 52,
+      "40": 63,
+      "50": 73
+    }
+  },
+  "Behlgren": {
+    "name": "Behlgren",
+    "level": 52,
+    "stars": 6,
+    "limit": 40,
+    "stat": {
+      "hp": -40,
+      "pp": 13,
+      "meleePotency": 2.7,
+      "rangedPotency": 2.7,
+      "techPotency": 2.7,
+      "statusResist": -50
+    },
+    "grindValues": {
+      "0": 26,
+      "10": 36,
+      "20": 46,
+      "30": 56,
+      "40": 67,
+      "50": 77
+    }
   }
 }

@@ -382,5 +382,111 @@
       "50": 372
     },
     "varianceLow": 75
+  },
+  "Obscura": {
+    "name": "Obscura",
+    "level": 15,
+    "stars": 5,
+    "limit": 40,
+    "grindValues": {
+      "0": 263,
+      "10": 273,
+      "20": 283,
+      "30": 293,
+      "40": 303,
+      "50": 355
+    },
+    "varianceLow": 70,
+    "element": "Dark"
+  },
+  "Evoleclipse": {
+    "name": "Evoleclipse",
+    "level": 40,
+    "stars": 6,
+    "limit": 40,
+    "grindValues": {
+      "0": 346,
+      "10": 356,
+      "20": 366,
+      "30": 376,
+      "40": 386,
+      "50": 471
+    },
+    "varianceLow": 75
+  },
+  "Sechetyl": {
+    "name": "Sechetyl",
+    "level": 45,
+    "stars": 6,
+    "limit": 40,
+    "grindValues": {
+      "0": 350,
+      "10": 360,
+      "20": 370,
+      "30": 380,
+      "40": 435,
+      "50": 475
+    },
+    "varianceLow": 75
+  },
+  "Rokz Sieiemes": {
+    "name": "Rokz Sieiemes",
+    "level": 52,
+    "stars": 6,
+    "limit": 40,
+    "grindValues": {
+      "0": 353,
+      "10": 363,
+      "20": 373,
+      "30": 383,
+      "40": 393,
+      "50": 478
+    },
+    "varianceLow": 75
+  },
+  "Rokz Roughewn": {
+    "name": "Rokz Roughewn",
+    "level": 52,
+    "stars": 6,
+    "limit": 40,
+    "grindValues": {
+      "0": 353,
+      "10": 363,
+      "20": 373,
+      "30": 383,
+      "40": 393,
+      "50": 445
+    },
+    "varianceLow": 75
+  },
+  "Rokz Curva": {
+    "name": "Rokz Curva",
+    "level": 52,
+    "stars": 6,
+    "limit": 40,
+    "grindValues": {
+      "0": 353,
+      "10": 363,
+      "20": 373,
+      "30": 383,
+      "40": 393,
+      "50": 445
+    },
+    "varianceLow": 75
+  },
+  "Rugged": {
+    "name": "Rugged",
+    "level": 57,
+    "stars": 7,
+    "limit": 40,
+    "grindValues": {
+      "0": 490,
+      "10": 500,
+      "20": 510,
+      "30": 520,
+      "40": 530,
+      "50": 676
+    },
+    "varianceLow": 50
   }
 }

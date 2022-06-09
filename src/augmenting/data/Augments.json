@@ -2150,5 +2150,310 @@
       "techPotency": 2.25,
       "floorPotency": -1
     }
+  },
+  {
+    "name": "Frostyl Soul",
+    "baseName": "Frostyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 1
+    }
+  },
+  {
+    "name": "Frostyl Soul",
+    "baseName": "Frostyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Frostyl Soul",
+    "baseName": "Frostyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 2.5
+    }
+  },
+  {
+    "name": "Crocys Soul",
+    "baseName": "Crocys Soul",
+    "category": "soul",
+    "icon": "precision",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "rangedPotency": 1
+    }
+  },
+  {
+    "name": "Crocys Soul",
+    "baseName": "Crocys Soul",
+    "category": "soul",
+    "icon": "precision",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Crocys Soul",
+    "baseName": "Crocys Soul",
+    "category": "soul",
+    "icon": "precision",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Ams Soul",
+    "baseName": "Ams Soul",
+    "category": "soul",
+    "icon": "technique",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "techPotency": 1
+    }
+  },
+  {
+    "name": "Ams Soul",
+    "baseName": "Ams Soul",
+    "category": "soul",
+    "icon": "technique",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Ams Soul",
+    "baseName": "Ams Soul",
+    "category": "soul",
+    "icon": "technique",
+    "rate": 0,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Kvar Note A undefined",
+    "baseName": "Kvar Note A",
+    "category": "note",
+    "tier": null,
+    "rate": null,
+    "stat": {}
+  },
+  {
+    "name": "Kvar Note B undefined",
+    "baseName": "Kvar Note B",
+    "category": "note",
+    "tier": null,
+    "rate": null,
+    "stat": {}
+  },
+  {
+    "name": "Kvar Note C undefined",
+    "baseName": "Kvar Note C",
+    "category": "note",
+    "tier": null,
+    "rate": null,
+    "stat": {}
+  },
+  {
+    "name": "Kvar Note D undefined",
+    "baseName": "Kvar Note D",
+    "category": "note",
+    "tier": null,
+    "rate": null,
+    "stat": {}
+  },
+  {
+    "name": "Kvar Domina undefined",
+    "baseName": "Kvar Domina",
+    "category": "domina",
+    "icon": "special",
+    "tier": null,
+    "rate": null,
+    "stat": {}
+  },
+  {
+    "name": "Gigas Aglai",
+    "baseName": "Gigas Aglai",
+    "category": "gigas",
+    "icon": "special",
+    "rate": 0,
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2.5,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Gigas Euphroy",
+    "baseName": "Gigas Euphroy",
+    "category": "gigas",
+    "icon": "special",
+    "rate": 0,
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Gigas Thali",
+    "baseName": "Gigas Thali",
+    "category": "gigas",
+    "icon": "special",
+    "rate": 0,
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Aglai Soul H",
+    "baseName": "Aglai Soul H",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2.5,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Euphroy Soul H",
+    "baseName": "Euphroy Soul H",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "hp": 15,
+      "meleePotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Thali Soul H",
+    "baseName": "Thali Soul H",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Aglai Soul P",
+    "baseName": "Aglai Soul P",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "pp": 5,
+      "meleePotency": 2.5,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Euphroy Soul P",
+    "baseName": "Euphroy Soul P",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "pp": 5,
+      "meleePotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Thali Soul P",
+    "baseName": "Thali Soul P",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "pp": 5,
+      "rangedPotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Aglai Soul X",
+    "baseName": "Aglai Soul X",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 2.5,
+      "rangedPotency": 2.5
+    }
+  },
+  {
+    "name": "Euphroy Soul X",
+    "baseName": "Euphroy Soul X",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Thali Soul X",
+    "baseName": "Thali Soul X",
+    "category": "soul",
+    "icon": "",
+    "rate": 9,
+    "stat": {
+      "hp": 10,
+      "pp": 3,
+      "rangedPotency": 2.5,
+      "techPotency": 2.5
+    }
+  },
+  {
+    "name": "Triplble undefined",
+    "baseName": "Triplble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": null,
+    "rate": null,
+    "stat": {}
   }
 ]

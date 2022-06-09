@@ -1,5 +1,26 @@
 [
   {
+    "name": "Ams Vera",
+    "region": "Kvaris",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2506
+  },
+  {
+    "name": "Belugana Ruins",
+    "region": "Kvaris",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 2251
+  },
+  {
+    "name": "Crocodylis Vera",
+    "region": "Kvaris",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2506
+  },
+  {
     "name": "Dark Falz",
     "region": "Aelio",
     "type": "UQ",
@@ -33,6 +54,13 @@
     "type": "UQ",
     "rank": 2,
     "bp": 2049
+  },
+  {
+    "name": "Lost Central",
+    "region": "Kvaris",
+    "type": "Battle Zone",
+    "rank": 2,
+    "bp": 2416
   },
   {
     "name": "Maqead Lower Level",
