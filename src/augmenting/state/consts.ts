@@ -4,7 +4,7 @@ import { allClassData } from "augmenting/data/classes"
 import { allWeapons } from "augmenting/data/weapons"
 import { groupBy, uniqBy } from "lodash"
 
-export const MAX_SKILLPOINTS = 30
+export const MAX_SKILLPOINTS = 40
 
 // TODO: Move these derived stats to other places
 export const MAX_LEVEL = allClassData.Hu.length - 1
