@@ -32,7 +32,7 @@ export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
       return JSON.stringify(val.map((a) => a.name))
     },
     deserialize(raw) {
-      return revivify(JSON.parse(raw)) as Augment[]
+      return revivify(JSON.parse(raw ?? "[]")) as Augment[]
     },
   })
 })

@@ -1,8 +1,28 @@
-import { allClasses, ClassAbbreviation, ClassLevel } from "augmenting/types"
-import { toNumberOrNull } from "./common"
+import {
+  allClasses,
+  ClassAbbreviation,
+  ClassData,
+  ClassLevel,
+} from "augmenting/types"
+import { toNumberOrNull, writeFileJson } from "./common"
+import { getSheetRows } from "./google"
 import level1Stats from "./level1Stat.json"
 
 const statNames = ["HP", "Atk", "Def"]
+const deltas: StatDelta = {}
+let maxLevel = 1
+for await (const entry of await getSheetRows("StatDelta")) {
+  const attackDelta = toNumberOrNull(entry["attack"])
+  const defenseDelta = toNumberOrNull(entry["defense"])
+  deltas[entry["level"]] = {
+    attackDelta,
+    defenseDelta,
+  }
+
+  const level = toNumberOrNull(entry["level"]) ?? 1
+  if (attackDelta && maxLevel < level) maxLevel = level
+}
+export const MaxLevel = maxLevel
 
 type RowTuple = [ClassAbbreviation, string, string, string]
 const classStats: RowTuple[] = allClasses.map(
@@ -49,4 +69,19 @@ export function handleClassStatRow(
   )
 
   return classInfo.filter((thing) => thing !== null) as ClassStatResultTuple[]
+}
+
+export async function doClasses() {
+  const classes: ClassData = allClasses.reduce(
+    (mem, cname) => ({ ...mem, [cname]: [{ attack: 0, defense: 0 }] }),
+    {} as any,
+  )
+  for await (const entry of await getSheetRows("StatTable")) {
+    const classResult = handleClassStatRow(entry, deltas)
+    classResult.forEach(([level, c, stat]) => {
+      classes[c][level] = stat
+    })
+  }
+
+  writeFileJson(classes, "./src/augmenting/data/Classes.json")
 }

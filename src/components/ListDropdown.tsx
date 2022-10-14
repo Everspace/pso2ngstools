@@ -7,7 +7,6 @@ import {
 } from "@mui/material"
 import { WritableAtom, useAtom, PrimitiveAtom, SetStateAction } from "jotai"
 import { Stringable } from "pureTypes"
-import { useCallback } from "react"
 
 type ListDropdownProps<
   OptionType extends Stringable,
@@ -31,18 +30,20 @@ export function ListDropdown<
   handleUpdate,
 }: ListDropdownProps<OptionType, AtomType>) {
   const [choice, setChoice] = useAtom(atom)
-  const handleChange = useCallback(
-    (e: SelectChangeEvent) => {
-      const val = e.target.value
-      setChoice((prior: AtomType) => handleUpdate(val, prior))
-    },
-    [setChoice, handleUpdate],
-  )
+  const handleChange = (e: SelectChangeEvent) => {
+    const val = e.target.value
+    setChoice((prior: AtomType) => handleUpdate(val, prior))
+  }
 
   return (
     <FormControl size="small">
-      <InputLabel>{label}</InputLabel>
-      <Select label="Level" onChange={handleChange} value={choice.toString()}>
+      <InputLabel id={label}>{label}</InputLabel>
+      <Select
+        id={label}
+        label={label}
+        onChange={handleChange}
+        value={choice.toString()}
+      >
         {options.map((item) => (
           <MenuItem key={item.toString()} value={item.toString()}>
             {item.toString()}

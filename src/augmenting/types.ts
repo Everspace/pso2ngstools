@@ -7,12 +7,23 @@ export type AugmentableSlot = typeof augmentSlots[number]
 export type UnitSlot = Exclude<AugmentableSlot, "weapon">
 export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
 
-export const GRIND_LEVELS = [0, 10, 20, 30, 40, 50] as const
+export const GRIND_LEVELS = [
+  0,
+  10,
+  20,
+  30,
+  40,
+  50,
+  60, // 70, 80, 90, 100,
+] as const
+
 export type GrindLevel = typeof GRIND_LEVELS[number]
+
 export const GRIND_KEYS = GRIND_LEVELS.map(
   (id) => `Grind${id}`,
 ) as `Grind${GrindLevel}`[]
 export const MAX_GRIND: GrindLevel = GRIND_LEVELS[GRIND_LEVELS.length - 1]
+export const MAX_GRIND_INDEX = Math.floor(MAX_GRIND / 10)
 
 export interface AugmentStat {
   bp?: BigNumber
@@ -103,6 +114,7 @@ export type Unit = {
   level: number
   stars: number
   limit: GrindLevel
+  limit_max: GrindLevel
   grindValues: Record<GrindLevel, BigNumber>
   stat: AugmentStat
 }
@@ -112,6 +124,7 @@ export type Weapon = {
   level: number
   stars: number
   limit: GrindLevel
+  limit_max: GrindLevel
   grindValues: Record<GrindLevel, BigNumber>
   element?: string // TODO: add all the valid elements
   /**
@@ -133,6 +146,7 @@ export const allClasses = [
   "Te",
   "Br",
   "Bo",
+  "Wa",
 ] as const
 
 export type ClassAbbreviation = typeof allClasses[number]

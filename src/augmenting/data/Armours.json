@@ -3,7 +3,8 @@
     "name": "None",
     "level": 0,
     "stars": 0,
-    "limit": 0,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {},
     "grindValues": {
       "0": 0,
@@ -11,14 +12,16 @@
       "20": 0,
       "30": 0,
       "40": 0,
-      "50": 0
+      "50": 0,
+      "60": 0
     }
   },
   "Primm": {
     "name": "Primm",
     "level": 1,
     "stars": 1,
-    "limit": 0,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 10
     },
@@ -28,14 +31,16 @@
       "20": 28,
       "30": 38,
       "40": 48,
-      "50": 58
+      "50": 58,
+      "60": 81
     }
   },
   "Tzvia": {
     "name": "Tzvia",
     "level": 1,
     "stars": 2,
-    "limit": 20,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 2
     },
@@ -45,14 +50,16 @@
       "20": 29,
       "30": 39,
       "40": 49,
-      "50": 59
+      "50": 59,
+      "60": 82
     }
   },
   "Silver Primm": {
     "name": "Silver Primm",
     "level": 1,
     "stars": 2,
-    "limit": 20,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 2
     },
@@ -62,14 +69,16 @@
       "20": 29,
       "30": 39,
       "40": 49,
-      "50": 59
+      "50": 59,
+      "60": 82
     }
   },
   "Theseus": {
     "name": "Theseus",
     "level": 5,
     "stars": 3,
-    "limit": 30,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 10,
       "pp": 1
@@ -80,14 +89,16 @@
       "20": 30,
       "30": 40,
       "40": 50,
-      "50": 60
+      "50": 60,
+      "60": 82
     }
   },
   "Gold Primm": {
     "name": "Gold Primm",
     "level": 5,
     "stars": 3,
-    "limit": 30,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 10,
       "pp": 1
@@ -98,14 +109,16 @@
       "20": 30,
       "30": 40,
       "40": 50,
-      "50": 60
+      "50": 60,
+      "60": 82
     }
   },
   "Cattleya": {
     "name": "Cattleya",
     "level": 10,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 20,
       "pp": 2
@@ -116,14 +129,16 @@
       "20": 32,
       "30": 42,
       "40": 53,
-      "50": 63
+      "50": 63,
+      "60": 83
     }
   },
   "Vialto": {
     "name": "Vialto",
     "level": 10,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 30,
       "damageResist": 1
@@ -134,14 +149,16 @@
       "20": 34,
       "30": 44,
       "40": 55,
-      "50": 65
+      "50": 65,
+      "60": 85
     }
   },
   "Qual De": {
     "name": "Qual De",
     "level": 10,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 6
     },
@@ -150,15 +167,17 @@
       "10": 20,
       "20": 30,
       "30": 40,
-      "40": 49,
-      "50": 61
+      "40": 51,
+      "50": 61,
+      "60": 81
     }
   },
   "Vialto Arga": {
     "name": "Vialto Arga",
     "level": 12,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 25,
       "meleePotency": 0.5,
@@ -171,14 +190,16 @@
       "20": 36,
       "30": 46,
       "40": 57,
-      "50": 67
+      "50": 67,
+      "60": 87
     }
   },
   "Vialto Belta": {
     "name": "Vialto Belta",
     "level": 12,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 25,
       "rangedPotency": 0.5,
@@ -191,14 +212,16 @@
       "20": 36,
       "30": 46,
       "40": 57,
-      "50": 67
+      "50": 67,
+      "60": 87
     }
   },
   "Vialto Sheza": {
     "name": "Vialto Sheza",
     "level": 12,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 25,
       "meleePotency": 0.5,
@@ -211,14 +234,16 @@
       "20": 36,
       "30": 46,
       "40": 57,
-      "50": 67
+      "50": 67,
+      "60": 87
     }
   },
   "Qual De Arga": {
     "name": "Qual De Arga",
     "level": 12,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 4,
       "meleePotency": 1,
@@ -230,14 +255,16 @@
       "20": 33,
       "30": 43,
       "40": 54,
-      "50": 64
+      "50": 64,
+      "60": 84
     }
   },
   "Qual De Belta": {
     "name": "Qual De Belta",
     "level": 12,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 4,
       "rangedPotency": 1,
@@ -249,14 +276,16 @@
       "20": 33,
       "30": 43,
       "40": 54,
-      "50": 64
+      "50": 64,
+      "60": 84
     }
   },
   "Qual De Sheza": {
     "name": "Qual De Sheza",
     "level": 12,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 4,
       "meleePotency": 1,
@@ -268,14 +297,16 @@
       "20": 33,
       "30": 43,
       "40": 54,
-      "50": 64
+      "50": 64,
+      "60": 84
     }
   },
   "Geant": {
     "name": "Geant",
     "level": 15,
     "stars": 4,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": -20,
       "pp": 10,
@@ -290,14 +321,16 @@
       "20": 35,
       "30": 45,
       "40": 56,
-      "50": 66
+      "50": 66,
+      "60": 86
     }
   },
   "Vios": {
     "name": "Vios",
     "level": 24,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 8,
       "meleePotency": 1,
@@ -310,14 +343,16 @@
       "20": 35,
       "30": 45,
       "40": 56,
-      "50": 66
+      "50": 66,
+      "60": 82
     }
   },
   "Vijf": {
     "name": "Vijf",
     "level": 24,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 30,
       "pp": 4
@@ -328,14 +363,16 @@
       "20": 37,
       "30": 47,
       "40": 58,
-      "50": 68
+      "50": 68,
+      "60": 84
     }
   },
   "Vidal": {
     "name": "Vidal",
     "level": 24,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 45,
       "damageResist": 1
@@ -346,14 +383,16 @@
       "20": 42,
       "30": 52,
       "40": 63,
-      "50": 73
+      "50": 73,
+      "60": 89
     }
   },
   "Viosel": {
     "name": "Viosel",
     "level": 26,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 14,
       "statusResist": 20
@@ -364,14 +403,16 @@
       "20": 30,
       "30": 40,
       "40": 51,
-      "50": 61
+      "50": 61,
+      "60": 77
     }
   },
   "Vidalun": {
     "name": "Vidalun",
     "level": 26,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 70
     },
@@ -381,14 +422,16 @@
       "20": 40,
       "30": 50,
       "40": 61,
-      "50": 71
+      "50": 71,
+      "60": 87
     }
   },
   "Greas": {
     "name": "Greas",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": -40,
       "pp": 13,
@@ -403,14 +446,16 @@
       "20": 41,
       "30": 51,
       "40": 62,
-      "50": 72
+      "50": 72,
+      "60": 88
     }
   },
   "Vijf Armor: Belta": {
     "name": "Vijf Armor: Belta",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 20,
       "pp": 7,
@@ -423,14 +468,16 @@
       "20": 38,
       "30": 48,
       "40": 59,
-      "50": 69
+      "50": 69,
+      "60": 85
     }
   },
   "Vijf Armor: Arga": {
     "name": "Vijf Armor: Arga",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 20,
       "pp": 7,
@@ -443,14 +490,16 @@
       "20": 38,
       "30": 48,
       "40": 59,
-      "50": 69
+      "50": 69,
+      "60": 85
     }
   },
   "Vijf Armor: Sheza": {
     "name": "Vijf Armor: Sheza",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 20,
       "pp": 7,
@@ -463,14 +512,16 @@
       "20": 38,
       "30": 48,
       "40": 59,
-      "50": 69
+      "50": 69,
+      "60": 85
     }
   },
   "Schwarzest Armor": {
     "name": "Schwarzest Armor",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 25,
       "pp": 3,
@@ -482,14 +533,16 @@
       "20": 40,
       "30": 50,
       "40": 61,
-      "50": 71
+      "50": 71,
+      "60": 87
     }
   },
   "Schwarzgarde Armor": {
     "name": "Schwarzgarde Armor",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 25,
       "pp": 3,
@@ -501,14 +554,16 @@
       "20": 40,
       "30": 50,
       "40": 61,
-      "50": 71
+      "50": 71,
+      "60": 87
     }
   },
   "Schwarzrosso Armor": {
     "name": "Schwarzrosso Armor",
     "level": 31,
     "stars": 5,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 25,
       "pp": 3,
@@ -520,14 +575,16 @@
       "20": 40,
       "30": 50,
       "40": 61,
-      "50": 71
+      "50": 71,
+      "60": 87
     }
   },
   "Sestato Armor: Arga": {
     "name": "Sestato Armor: Arga",
     "level": 47,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 30,
       "pp": 4,
@@ -539,15 +596,17 @@
       "10": 30,
       "20": 40,
       "30": 50,
-      "40": 61,
-      "50": 71
+      "40": 60,
+      "50": 70,
+      "60": 86
     }
   },
   "Sestato Armor: Belta": {
     "name": "Sestato Armor: Belta",
     "level": 47,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 30,
       "pp": 4,
@@ -559,15 +618,17 @@
       "10": 30,
       "20": 40,
       "30": 50,
-      "40": 61,
-      "50": 71
+      "40": 60,
+      "50": 70,
+      "60": 86
     }
   },
   "Sestato Armor: Sheza": {
     "name": "Sestato Armor: Sheza",
     "level": 47,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 30,
       "pp": 4,
@@ -579,15 +640,17 @@
       "10": 30,
       "20": 40,
       "30": 50,
-      "40": 61,
-      "50": 71
+      "40": 60,
+      "50": 70,
+      "60": 86
     }
   },
   "Sestato Armor": {
     "name": "Sestato Armor",
     "level": 42,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 35,
       "pp": 5,
@@ -600,15 +663,17 @@
       "10": 31,
       "20": 41,
       "30": 51,
-      "40": 62,
-      "50": 72
+      "40": 61,
+      "50": 71,
+      "60": 87
     }
   },
   "Defrozzis": {
     "name": "Defrozzis",
     "level": 42,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "pp": 9,
       "meleePotency": 2,
@@ -620,15 +685,17 @@
       "10": 30,
       "20": 40,
       "30": 50,
-      "40": 61,
-      "50": 71
+      "40": 60,
+      "50": 70,
+      "60": 86
     }
   },
   "Defrozza": {
     "name": "Defrozza",
     "level": 42,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": 50,
       "meleePotency": 1,
@@ -641,15 +708,17 @@
       "10": 32,
       "20": 42,
       "30": 52,
-      "40": 63,
-      "50": 73
+      "40": 62,
+      "50": 72,
+      "60": 88
     }
   },
   "Behlgren": {
     "name": "Behlgren",
     "level": 52,
     "stars": 6,
-    "limit": 40,
+    "limit": 50,
+    "limit_max": 60,
     "stat": {
       "hp": -40,
       "pp": 13,
@@ -663,8 +732,75 @@
       "10": 36,
       "20": 46,
       "30": 56,
-      "40": 67,
-      "50": 77
+      "40": 66,
+      "50": 76,
+      "60": 92
+    }
+  },
+  "Efitus Armor: Arga": {
+    "name": "Efitus Armor: Arga",
+    "level": 57,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "stat": {
+      "hp": 30,
+      "pp": 4,
+      "meleePotency": 3,
+      "rangedPotency": 3
+    },
+    "grindValues": {
+      "0": 39,
+      "10": 49,
+      "20": 59,
+      "30": 69,
+      "40": 80,
+      "50": 90,
+      "60": 39
+    }
+  },
+  "Efitus Armor: Belta": {
+    "name": "Efitus Armor: Belta",
+    "level": 57,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "stat": {
+      "hp": 30,
+      "pp": 4,
+      "rangedPotency": 3,
+      "techPotency": 3
+    },
+    "grindValues": {
+      "0": 39,
+      "10": 49,
+      "20": 59,
+      "30": 69,
+      "40": 80,
+      "50": 90,
+      "60": 39
+    }
+  },
+  "Efitus Armor: Sheza": {
+    "name": "Efitus Armor: Sheza",
+    "level": 57,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "stat": {
+      "hp": 30,
+      "pp": 4,
+      "meleePotency": 3,
+      "techPotency": 3
+    },
+    "grindValues": {
+      "0": 39,
+      "10": 49,
+      "20": 59,
+      "30": 69,
+      "40": 80,
+      "50": 90,
+      "60": 39
     }
   }
 }

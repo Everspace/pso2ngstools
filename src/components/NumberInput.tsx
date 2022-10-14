@@ -1,8 +1,9 @@
 import { Replay } from "@mui/icons-material"
 import { InputAdornment, IconButton, TextField } from "@mui/material"
 import { PrimitiveAtom, useAtom, WritableAtom } from "jotai"
+import { debounce } from "lodash"
 import { WithSx } from "pureTypes"
-import { useState, useCallback, useMemo } from "react"
+import React, { useState, useMemo } from "react"
 
 type BaseNumberInputDropdownProps = {
   label: string
@@ -35,15 +36,7 @@ export function NumberInput({
   const [value, setValue] = useAtom<number, number, void>(atom)
   const [field, setField] = useState(value.toString())
 
-  const num = Number(field)
-  const error = Number.isNaN(num)
-
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setField(e.target.value)
-    },
-    [setField],
-  )
+  const error = Number.isNaN(Number(field))
 
   const ResetComponent = useMemo(() => {
     if (!("resetValue" in otherProps)) return null
@@ -60,22 +53,36 @@ export function NumberInput({
     )
   }, [otherProps, setField, setValue])
 
-  const handleCompute = useCallback(() => {
-    if (!error) {
-      if (num > max) {
-        setValue(max)
-        setField(max.toString())
-        return
-      }
-      if (num < min) {
-        setValue(min)
-        setField(min.toString())
-        return
-      }
-      setValue(num)
-      setField(num.toString())
-    }
-  }, [error, num, max, min, setValue])
+  const handleCompute = useMemo(
+    () =>
+      debounce((field: string) => {
+        const num = Number(field)
+        const error = Number.isNaN(num)
+        if (error) return
+        if (num > max) {
+          setValue(max)
+          setField(max.toString())
+          return
+        }
+        if (num < min) {
+          setValue(min)
+          setField(min.toString())
+          return
+        }
+        setValue(num)
+        setField(num.toString())
+      }, 1000),
+    [setValue, setField, max, min],
+  )
+
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.FocusEvent<HTMLTextAreaElement | HTMLInputElement, Element>,
+  ) => {
+    setField(e.target.value)
+    handleCompute(e.target.value)
+  }
 
   return (
     <TextField
@@ -86,7 +93,10 @@ export function NumberInput({
       type="number"
       sx={sx}
       onChange={handleChange}
-      onBlur={handleCompute}
+      onBlur={(e) => {
+        handleChange(e)
+        handleCompute.flush()
+      }}
       InputProps={{
         endAdornment: ResetComponent,
       }}

@@ -8,6 +8,7 @@ import UINGSClassFo from "./UINGSClassFo.png"
 import UINGSClassTe from "./UINGSClassTe.png"
 import UINGSClassBr from "./UINGSClassBr.png"
 import UINGSClassBo from "./UINGSClassBo.png"
+import UINGSClassWa from "./UINGSClassWa.png"
 import { ClassAbbreviation } from "augmenting/types"
 
 export const MesetaIcon: Icon = (props) => (
@@ -23,6 +24,7 @@ const classIconTable: Record<ClassAbbreviation, string> = {
   Te: UINGSClassTe,
   Br: UINGSClassBr,
   Bo: UINGSClassBo,
+  Wa: UINGSClassWa,
 }
 
 type ClassIconProps = JSX.IntrinsicElements["img"] & {

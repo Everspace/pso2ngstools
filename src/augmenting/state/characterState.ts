@@ -2,7 +2,7 @@ import { allClassData } from "augmenting/data/classes"
 import { ClassAbbreviation } from "augmenting/types"
 import { atom } from "jotai"
 import { atomWithHash } from "jotai/utils"
-import { MAX_LEVEL, MAX_SKILLPOINTS } from "./consts"
+import { MAX_LEVEL, MAX_SKILLPOINTS } from "../data/consts"
 
 export const classNameAtom = atomWithHash<ClassAbbreviation>("cls", "Hu", {
   replaceState: true,

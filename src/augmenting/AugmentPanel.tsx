@@ -14,7 +14,6 @@ import { useAtomValue } from "jotai/utils"
 import { weaponStateAtom } from "./state/equipmentState"
 import { rangeFromWeaponAugments, WeaponRange } from "./tools"
 import { SxProps, Theme } from "@mui/system"
-import { AugmentPanelSettingsDisplay } from "./AugmentPanelSettingsDisplay"
 import { ActivityDisplay } from "./ActivityDisplay"
 
 function rangeToLine({ min, max }: WeaponRange): string {
@@ -75,9 +74,9 @@ export default function AugmentPanel() {
           Clear All
         </Button>
       </Box>
-      <Box>
+      {/* <Box>
         <AugmentPanelSettingsDisplay />
-      </Box>
+      </Box> */}
       <Box>
         <CharacterBPDisplay />
       </Box>

@@ -17,6 +17,7 @@ import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { range } from "lodash"
 import { GrindDropdown } from "./GrindDropdown"
 import { ListDropdown } from "components/ListDropdown"
+import { MAX_POTENTIAL } from "augmenting/data/consts"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)
@@ -61,7 +62,7 @@ function WeaponAutocomplete() {
   )
 }
 
-const potentialLevels = range(0, 5)
+const potentialLevels = range(0, MAX_POTENTIAL + 1)
 function WeaponConfig() {
   return (
     <Grid container spacing={1}>

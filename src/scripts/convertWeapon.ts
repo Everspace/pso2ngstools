@@ -1,58 +1,58 @@
-import { GrindLevel, GRIND_KEYS, GRIND_LEVELS, Weapon } from "augmenting/types"
+import { GRIND_LEVELS, Weapon } from "augmenting/types"
 import { BigNumber } from "mathjs"
-import { HasGrindLevels, RecordSheet, Replace } from "./common"
+import { HasGrindLevels, RecordSheet, Replace, writeFileJson } from "./common"
+import { getSheetRows } from "./google"
+import { GrindBase, GrindLimit, WeaponGrind } from "./grindInfo"
+import { MiscData } from "./miscSheet"
 
-// Guessed offsets for
-// [rarity][Grind of 10]
-const rarityBackfill = [
-  //null, Grind0, Grind10, Grind20...
-  [0, 0, 0, 0, 0, 0, 0], // "None"
-  [0, 22, 46, 63, 82, 161], // 1 star
-  [0, 16, 33, 50, 69, 143],
-  [0, 10, 21, 32, 47, 115],
-  [0, 10, 20, 30, 40, 108],
-  [0, 10, 20, 30, 40, 92], // 5 star
-  [0, 10, 20, 30, 40, 92], // 6 star
-  [0, 10, 20, 30, 40, 186], // 7 star: OOPS ALL GUESSES
-]
+type DataSheetKeys =
+  | "Series"
+  | "Lv"
+  | "Stars"
+  | "Element"
+  | "VLow"
+  | "VHigh"
+  | "Attack"
 
-type DataSheetKeys = "Series" | "Lv" | "Stars" | "Element" | "VLow" | "VHigh"
-
-interface DataSheetRow extends RecordSheet<DataSheetKeys>, HasGrindLevels {
-  Limit: GrindLevel
-}
+interface DataSheetRow extends RecordSheet<DataSheetKeys>, HasGrindLevels {}
 
 export type WeaponData = Replace<Weapon, BigNumber, number>
-export function handleWeaponRow(row: DataSheetRow): WeaponData {
-  const { Series, Lv, Stars, Limit, Element, VLow, VHigh, ...otherKeys } = row
+function handleWeaponRow(row: DataSheetRow): WeaponData {
+  const { Series, Lv, Stars, Attack, Element, VLow, VHigh } = row
 
   const stars = Number(Stars)
-  const attackBase = Number(otherKeys["Grind0"])
+  const attackBase = Number(Attack)
 
   const data: Partial<WeaponData> = {
     name: Series,
     level: Number(Lv),
     stars,
-    limit: Number(Limit) as GrindLevel,
+    limit: GrindBase[stars] ?? MiscData.MAX_GRIND,
+    limit_max: GrindLimit[stars] ?? MiscData.MAX_GRIND,
   }
 
-  const grinds = GRIND_KEYS.reduce((memory, key) => {
-    memory[key] = otherKeys[key]
-    return memory
-  }, {} as Record<typeof GRIND_KEYS[number], string>)
+  const grinds: Partial<Record<string, number>> = {}
 
-  const grindLevelTuples = GRIND_LEVELS.map((level) => {
-    const rawGrind = grinds[`Grind${level}`]
-    let grind: number = Number(rawGrind)
-    if (rawGrind === null || rawGrind === undefined || rawGrind === "")
-      grind = attackBase + rarityBackfill[stars][Math.floor(level / 10)]
-    return [level, grind]
-  })
-  data.grindValues = Object.fromEntries(grindLevelTuples)
+  for (const level of GRIND_LEVELS) {
+    grinds[level.toString()] = attackBase + WeaponGrind[stars][`Grind${level}`]
+  }
+
+  //@ts-ignore TODO: Figure out how to do this safely?
+  data.grindValues = grinds as Record<GrindLevel, number>
 
   if (VLow !== "") data.varianceLow = Number(VLow)
   if (VHigh !== "") data.varianceHigh = Number(VHigh)
   if (Element !== "") data.element = Element
 
   return data as WeaponData
+}
+
+export async function doWeapons() {
+  const allWeapons: Record<string, WeaponData> = {}
+  for await (const entry of await getSheetRows("Weapons")) {
+    const weapon = handleWeaponRow(entry as any)
+    allWeapons[weapon.name] = weapon
+  }
+
+  writeFileJson(allWeapons, "./src/augmenting/data/Weapons.json")
 }

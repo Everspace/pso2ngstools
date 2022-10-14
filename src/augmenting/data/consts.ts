@@ -1,13 +1,31 @@
 import { allUnits } from "augmenting/data/armours"
 import { allCombatActivities } from "augmenting/data/bprequirements"
-import { allClassData } from "augmenting/data/classes"
 import { allWeapons } from "augmenting/data/weapons"
+import { GrindLevel } from "augmenting/types"
 import { groupBy, uniqBy } from "lodash"
 
-export const MAX_SKILLPOINTS = 40
+import consts from "./Consts.json"
 
-// TODO: Move these derived stats to other places
-export const MAX_LEVEL = allClassData.Hu.length - 1
+const {
+  MAX_SKILLPOINTS,
+  MAX_LEVEL,
+  DEFAULT_AUGMENTS_PER_SLOT,
+  MAX_AUGMENTS_PER_SLOT,
+  MAX_POTENTIAL,
+  MAX_GRIND: grind,
+  MAX_GRIND_LIMIT: limit,
+} = consts
+
+export {
+  MAX_SKILLPOINTS,
+  MAX_LEVEL,
+  MAX_POTENTIAL,
+  DEFAULT_AUGMENTS_PER_SLOT,
+  MAX_AUGMENTS_PER_SLOT,
+}
+
+export const MAX_GRIND = grind as GrindLevel
+export const MAX_GRIND_LIMIT = limit as GrindLevel
 
 export const DEFAULT_WEAPON = Object.entries(allWeapons)
   .sort(([_, a], [__, b]) => a.level - b.level)
@@ -16,9 +34,6 @@ export const DEFAULT_WEAPON = Object.entries(allWeapons)
 export const DEFAULT_UNIT = Object.entries(allUnits)
   .sort(([_, a], [__, b]) => a.level - b.level)
   .reverse()[0][1]
-
-export const DEFAULT_AUGMENT_SLOTS = DEFAULT_UNIT.stars
-export const MAX_AUGMENTS_PER_SLOT = 8
 
 const top2Bp = uniqBy(allCombatActivities, (a) => a.bp)
   .sort((a, b) => a.bp - b.bp)

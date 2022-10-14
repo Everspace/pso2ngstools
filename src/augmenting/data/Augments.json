@@ -418,8 +418,8 @@
     }
   },
   {
-    "name": "Gigas Casting I",
-    "baseName": "Gigas Casting",
+    "name": "Gigas Technique I",
+    "baseName": "Gigas Technique",
     "category": "gigas",
     "icon": "technique",
     "tier": 1,
@@ -431,8 +431,8 @@
     }
   },
   {
-    "name": "Gigas Casting II",
-    "baseName": "Gigas Casting",
+    "name": "Gigas Technique II",
+    "baseName": "Gigas Technique",
     "category": "gigas",
     "icon": "technique",
     "tier": 2,
@@ -444,8 +444,8 @@
     }
   },
   {
-    "name": "Gigas Casting III",
-    "baseName": "Gigas Casting",
+    "name": "Gigas Technique III",
+    "baseName": "Gigas Technique",
     "category": "gigas",
     "icon": "technique",
     "tier": 3,
@@ -2152,161 +2152,192 @@
     }
   },
   {
-    "name": "Frostyl Soul",
+    "name": "Frostyl Soul I",
     "baseName": "Frostyl Soul",
     "category": "soul",
     "icon": "might",
-    "rate": 0,
+    "tier": 1,
+    "rate": 9,
     "stat": {
+      "bp": 7,
       "hp": 10,
       "pp": 3,
       "meleePotency": 1
     }
   },
   {
-    "name": "Frostyl Soul",
+    "name": "Frostyl Soul II",
     "baseName": "Frostyl Soul",
     "category": "soul",
     "icon": "might",
-    "rate": 0,
+    "tier": 2,
+    "rate": 8,
     "stat": {
+      "bp": 8,
       "hp": 10,
       "pp": 3,
       "meleePotency": 2
     }
   },
   {
-    "name": "Frostyl Soul",
+    "name": "Frostyl Soul III",
     "baseName": "Frostyl Soul",
     "category": "soul",
     "icon": "might",
-    "rate": 0,
+    "tier": 3,
+    "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 10,
       "pp": 3,
       "meleePotency": 2.5
     }
   },
   {
-    "name": "Crocys Soul",
+    "name": "Crocys Soul I",
     "baseName": "Crocys Soul",
     "category": "soul",
     "icon": "precision",
-    "rate": 0,
+    "tier": 1,
+    "rate": 9,
     "stat": {
+      "bp": 7,
       "hp": 10,
       "pp": 3,
       "rangedPotency": 1
     }
   },
   {
-    "name": "Crocys Soul",
+    "name": "Crocys Soul II",
     "baseName": "Crocys Soul",
     "category": "soul",
     "icon": "precision",
-    "rate": 0,
+    "tier": 2,
+    "rate": 8,
     "stat": {
+      "bp": 8,
       "hp": 10,
       "pp": 3,
       "rangedPotency": 2
     }
   },
   {
-    "name": "Crocys Soul",
+    "name": "Crocys Soul III",
     "baseName": "Crocys Soul",
     "category": "soul",
     "icon": "precision",
-    "rate": 0,
+    "tier": 3,
+    "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 10,
       "pp": 3,
       "rangedPotency": 2.5
     }
   },
   {
-    "name": "Ams Soul",
+    "name": "Ams Soul I",
     "baseName": "Ams Soul",
     "category": "soul",
     "icon": "technique",
-    "rate": 0,
+    "tier": 1,
+    "rate": 9,
     "stat": {
+      "bp": 7,
       "hp": 10,
       "pp": 3,
       "techPotency": 1
     }
   },
   {
-    "name": "Ams Soul",
+    "name": "Ams Soul II",
     "baseName": "Ams Soul",
     "category": "soul",
     "icon": "technique",
-    "rate": 0,
+    "tier": 2,
+    "rate": 8,
     "stat": {
+      "bp": 8,
       "hp": 10,
       "pp": 3,
       "techPotency": 2
     }
   },
   {
-    "name": "Ams Soul",
+    "name": "Ams Soul III",
     "baseName": "Ams Soul",
     "category": "soul",
     "icon": "technique",
-    "rate": 0,
+    "tier": 3,
+    "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 10,
       "pp": 3,
       "techPotency": 2.5
     }
   },
   {
-    "name": "Kvar Note A undefined",
+    "name": "Kvar Note A",
     "baseName": "Kvar Note A",
     "category": "note",
-    "tier": null,
-    "rate": null,
-    "stat": {}
+    "icon": "hp",
+    "rate": 9,
+    "stat": {
+      "bp": 5
+    }
   },
   {
-    "name": "Kvar Note B undefined",
+    "name": "Kvar Note B",
     "baseName": "Kvar Note B",
     "category": "note",
-    "tier": null,
-    "rate": null,
-    "stat": {}
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 4
+    }
   },
   {
-    "name": "Kvar Note C undefined",
+    "name": "Kvar Note C",
     "baseName": "Kvar Note C",
     "category": "note",
-    "tier": null,
-    "rate": null,
-    "stat": {}
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 4
+    }
   },
   {
-    "name": "Kvar Note D undefined",
+    "name": "Kvar Note D",
     "baseName": "Kvar Note D",
     "category": "note",
-    "tier": null,
-    "rate": null,
-    "stat": {}
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 4
+    }
   },
   {
-    "name": "Kvar Domina undefined",
+    "name": "Kvar Domina",
     "baseName": "Kvar Domina",
     "category": "domina",
     "icon": "special",
-    "tier": null,
-    "rate": null,
-    "stat": {}
+    "rate": 9,
+    "stat": {
+      "bp": 10,
+      "hp": 10,
+      "potency": 2,
+      "damageResist": -2
+    }
   },
   {
     "name": "Gigas Aglai",
     "baseName": "Gigas Aglai",
     "category": "gigas",
     "icon": "special",
-    "rate": 0,
+    "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "meleePotency": 2.5,
       "rangedPotency": 2.5
@@ -2317,8 +2348,9 @@
     "baseName": "Gigas Euphroy",
     "category": "gigas",
     "icon": "special",
-    "rate": 0,
+    "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "meleePotency": 2.5,
       "techPotency": 2.5
@@ -2329,8 +2361,9 @@
     "baseName": "Gigas Thali",
     "category": "gigas",
     "icon": "special",
-    "rate": 0,
+    "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "rangedPotency": 2.5,
       "techPotency": 2.5
@@ -2340,9 +2373,10 @@
     "name": "Aglai Soul H",
     "baseName": "Aglai Soul H",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "meleePotency": 2.5,
       "rangedPotency": 2.5
@@ -2352,9 +2386,10 @@
     "name": "Euphroy Soul H",
     "baseName": "Euphroy Soul H",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "meleePotency": 2.5,
       "techPotency": 2.5
@@ -2364,9 +2399,10 @@
     "name": "Thali Soul H",
     "baseName": "Thali Soul H",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "rangedPotency": 2.5,
       "techPotency": 2.5
@@ -2376,9 +2412,10 @@
     "name": "Aglai Soul P",
     "baseName": "Aglai Soul P",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "pp": 5,
       "meleePotency": 2.5,
       "rangedPotency": 2.5
@@ -2388,9 +2425,10 @@
     "name": "Euphroy Soul P",
     "baseName": "Euphroy Soul P",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "pp": 5,
       "meleePotency": 2.5,
       "techPotency": 2.5
@@ -2400,9 +2438,10 @@
     "name": "Thali Soul P",
     "baseName": "Thali Soul P",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "pp": 5,
       "rangedPotency": 2.5,
       "techPotency": 2.5
@@ -2412,9 +2451,10 @@
     "name": "Aglai Soul X",
     "baseName": "Aglai Soul X",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 10,
       "pp": 3,
       "meleePotency": 2.5,
@@ -2425,9 +2465,10 @@
     "name": "Euphroy Soul X",
     "baseName": "Euphroy Soul X",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 10,
       "pp": 3,
       "meleePotency": 2.5,
@@ -2438,9 +2479,10 @@
     "name": "Thali Soul X",
     "baseName": "Thali Soul X",
     "category": "soul",
-    "icon": "",
+    "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 11,
       "hp": 10,
       "pp": 3,
       "rangedPotency": 2.5,
@@ -2448,12 +2490,464 @@
     }
   },
   {
-    "name": "Triplble undefined",
+    "name": "Triplble",
     "baseName": "Triplble",
     "category": "dualble",
     "icon": "special",
-    "tier": null,
-    "rate": null,
-    "stat": {}
+    "rate": 9,
+    "stat": {
+      "bp": 8
+    }
+  },
+  {
+    "name": "Belgan Note",
+    "baseName": "Belgan Note",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 5,
+      "pp": 3,
+      "potency": 1.25
+    }
+  },
+  {
+    "name": "Lostral Note",
+    "baseName": "Lostral Note",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 5,
+      "hp": 10,
+      "potency": 1.25
+    }
+  },
+  {
+    "name": "Decold I",
+    "baseName": "Decold",
+    "category": "decold",
+    "icon": "ward",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "bp": 2
+    }
+  },
+  {
+    "name": "Decold II",
+    "baseName": "Decold",
+    "category": "decold",
+    "icon": "ward",
+    "tier": 2,
+    "rate": 9,
+    "stat": {
+      "bp": 3
+    }
+  },
+  {
+    "name": "Decold III",
+    "baseName": "Decold",
+    "category": "decold",
+    "icon": "ward",
+    "tier": 3,
+    "rate": 8,
+    "stat": {
+      "bp": 5
+    }
+  },
+  {
+    "name": "Decold Might",
+    "baseName": "Decold Might",
+    "category": "decold",
+    "icon": "might",
+    "rate": 8,
+    "stat": {
+      "bp": 9
+    }
+  },
+  {
+    "name": "Decold Technique",
+    "baseName": "Decold Technique",
+    "category": "decold",
+    "icon": "technique",
+    "rate": 8,
+    "stat": {
+      "bp": 9
+    }
+  },
+  {
+    "name": "Decold Precision",
+    "baseName": "Decold Precision",
+    "category": "decold",
+    "icon": "precision",
+    "rate": 8,
+    "stat": {
+      "bp": 9
+    }
+  },
+  {
+    "name": "Might IV",
+    "baseName": "Might",
+    "category": "might",
+    "icon": "might",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "meleePotency": 3
+    }
+  },
+  {
+    "name": "Technique IV",
+    "baseName": "Technique",
+    "category": "technique",
+    "icon": "technique",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "techPotency": 3
+    }
+  },
+  {
+    "name": "Precision IV",
+    "baseName": "Precision",
+    "category": "precision",
+    "icon": "precision",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "rangedPotency": 3
+    }
+  },
+  {
+    "name": "Deftness IV",
+    "baseName": "Deftness",
+    "category": "unknown",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "floorPotency": 3
+    }
+  },
+  {
+    "name": "Daityl Soul IV",
+    "baseName": "Daityl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "meleePotency": 3
+    }
+  },
+  {
+    "name": "Pettas Soul IV",
+    "baseName": "Pettas Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "rangedPotency": 3
+    }
+  },
+  {
+    "name": "Nex Soul IV",
+    "baseName": "Nex Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "pp": 5,
+      "techPotency": 3
+    }
+  },
+  {
+    "name": "Dustyl Soul IV",
+    "baseName": "Dustyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "meleePotency": 3
+    }
+  },
+  {
+    "name": "Ragras Soul IV",
+    "baseName": "Ragras Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "rangedPotency": 3
+    }
+  },
+  {
+    "name": "Renus Soul IV",
+    "baseName": "Renus Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "techPotency": 3
+    }
+  },
+  {
+    "name": "Eradi Soul IV",
+    "baseName": "Eradi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "pp": 4,
+      "potency": 2.75
+    }
+  },
+  {
+    "name": "Frostyl Soul IV",
+    "baseName": "Frostyl Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "pp": 3
+    }
+  },
+  {
+    "name": "Crocys Soul IV",
+    "baseName": "Crocys Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "pp": 3
+    }
+  },
+  {
+    "name": "Ams Soul IV",
+    "baseName": "Ams Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 10,
+      "pp": 3
+    }
+  },
+  {
+    "name": "Vardi Soul I",
+    "baseName": "Vardi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "hp": 25,
+      "potency": 1.25
+    }
+  },
+  {
+    "name": "Vardi Soul II",
+    "baseName": "Vardi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "hp": 25,
+      "potency": 1.75
+    }
+  },
+  {
+    "name": "Vardi Soul III",
+    "baseName": "Vardi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 3,
+    "rate": 8,
+    "stat": {
+      "hp": 25,
+      "potency": 2.25
+    }
+  },
+  {
+    "name": "Vardi Soul IV",
+    "baseName": "Vardi Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 25,
+      "potency": 2.75
+    }
+  },
+  {
+    "name": "Gigas Might IV",
+    "baseName": "Gigas Might",
+    "category": "gigas",
+    "icon": "might",
+    "tier": 4,
+    "rate": 7,
+    "stat": {
+      "hp": 20,
+      "meleePotency": 3
+    }
+  },
+  {
+    "name": "Gigas Precision IV",
+    "baseName": "Gigas Precision",
+    "category": "gigas",
+    "icon": "precision",
+    "tier": 4,
+    "rate": 7,
+    "stat": {
+      "hp": 20,
+      "rangedPotency": 3
+    }
+  },
+  {
+    "name": "Gigas Technique IV",
+    "baseName": "Gigas Technique",
+    "category": "gigas",
+    "icon": "technique",
+    "tier": 4,
+    "rate": 7,
+    "stat": {
+      "hp": 20,
+      "techPotency": 3
+    }
+  },
+  {
+    "name": "Super Might I",
+    "baseName": "Super Might",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "meleePotency": 2.25
+    }
+  },
+  {
+    "name": "Super Stamel I",
+    "baseName": "Super Stamel",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "hp": 15,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Super Spimel I",
+    "baseName": "Super Spimel",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "meleePotency": 2
+    }
+  },
+  {
+    "name": "Super Precision I",
+    "baseName": "Super Precision",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "rangedPotency": 2.25
+    }
+  },
+  {
+    "name": "Super Stara I",
+    "baseName": "Super Stara",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "hp": 15,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Super Spira I",
+    "baseName": "Super Spira",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "rangedPotency": 2
+    }
+  },
+  {
+    "name": "Super Technique I",
+    "baseName": "Super Technique",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "techPotency": 2.25
+    }
+  },
+  {
+    "name": "Super Statech I",
+    "baseName": "Super Statech",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "hp": 15,
+      "techPotency": 2
+    }
+  },
+  {
+    "name": "Super Statech I",
+    "baseName": "Super Statech",
+    "category": "super",
+    "icon": "",
+    "tier": 1,
+    "rate": 10,
+    "stat": {
+      "bp": 8,
+      "pp": 5,
+      "rangedPotency": null,
+      "techPotency": 2
+    }
   }
 ]

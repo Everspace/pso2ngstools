@@ -1,5 +1,47 @@
 [
   {
+    "name": "Aelio Mining Rig",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 1243
+  },
+  {
+    "name": "Aelio Mining Rig",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 1898
+  },
+  {
+    "name": "Aelio Purple",
+    "region": "Aelio",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 1363
+  },
+  {
+    "name": "Aelio Purple",
+    "region": "Aelio",
+    "type": "Trigger",
+    "rank": 2,
+    "bp": 1957
+  },
+  {
+    "name": "Aelio Yellow",
+    "region": "Aelio",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 1081
+  },
+  {
+    "name": "Aelio Yellow",
+    "region": "Aelio",
+    "type": "Trigger",
+    "rank": 2,
+    "bp": 1759
+  },
+  {
     "name": "Ams Vera",
     "region": "Kvaris",
     "type": "UQ",
@@ -12,6 +54,13 @@
     "type": "Battle Zone",
     "rank": 2,
     "bp": 2251
+  },
+  {
+    "name": "Belugana Ruins",
+    "region": "Kvaris",
+    "type": "Battle Zone",
+    "rank": 3,
+    "bp": 2647
   },
   {
     "name": "Crocodylis Vera",
@@ -56,11 +105,53 @@
     "bp": 2049
   },
   {
+    "name": "Kvaris Mining Rig",
+    "region": "Kvaris",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2647
+  },
+  {
+    "name": "Kvaris Mining Rig",
+    "region": "Kvaris",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 2878
+  },
+  {
+    "name": "Kvaris Purple",
+    "region": "Kvaris",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 2744
+  },
+  {
+    "name": "Kvaris Purple",
+    "region": "Kvaris",
+    "type": "Trigger",
+    "rank": 2,
+    "bp": 2972
+  },
+  {
+    "name": "Kvaris Yellow",
+    "region": "Kvaris",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 2416
+  },
+  {
     "name": "Lost Central",
     "region": "Kvaris",
     "type": "Battle Zone",
     "rank": 2,
     "bp": 2416
+  },
+  {
+    "name": "Lost Central",
+    "region": "Kvaris",
+    "type": "Battle Zone",
+    "rank": 3,
+    "bp": 2647
   },
   {
     "name": "Maqead Lower Level",
@@ -84,18 +175,11 @@
     "bp": 1869
   },
   {
-    "name": "Mining Rig",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 1,
-    "bp": 1243
-  },
-  {
-    "name": "Mining Rig",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 2,
-    "bp": 1898
+    "name": "Maqead Lower Level",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 4,
+    "bp": 2647
   },
   {
     "name": "Mt. Magnus",
@@ -180,6 +264,55 @@
     "type": "Battle Zone",
     "rank": 3,
     "bp": 1869
+  },
+  {
+    "name": "Retem Alnothe",
+    "region": "Retem",
+    "type": "Battle Zone",
+    "rank": 4,
+    "bp": 2647
+  },
+  {
+    "name": "Retem Mining Rig",
+    "region": "Retem",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2049
+  },
+  {
+    "name": "Retem Mining Rig",
+    "region": "Retem",
+    "type": "UQ",
+    "rank": 2,
+    "bp": 2878
+  },
+  {
+    "name": "Retem Purple",
+    "region": "Retem",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 1813
+  },
+  {
+    "name": "Retem Purple",
+    "region": "Retem",
+    "type": "Trigger",
+    "rank": 2,
+    "bp": 2972
+  },
+  {
+    "name": "Retem Yellow",
+    "region": "Retem",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 1474
+  },
+  {
+    "name": "Retem Yellow",
+    "region": "Retem",
+    "type": "Trigger",
+    "rank": 2,
+    "bp": 2049
   },
   {
     "name": "Vanford Laboratory Ruins",

@@ -1,6 +1,8 @@
 import { AugmentImageType } from "augmenting/images/augment"
 import { augmentTierToRoman } from "augmenting/tools"
 import { Augment, AugmentCategory, AugmentStat } from "augmenting/types"
+import { writeFileJson } from "./common"
+import { getSheetRows } from "./google"
 
 interface DataSheetRow {
   baseName: string
@@ -47,7 +49,8 @@ const translationTable: TranslationTable = {
   StatusResist: "statusResist",
 }
 
-export function handleAugmentRow(row: DataSheetRow): Augment {
+export function handleAugmentRow(rawRow: any): Augment {
+  const row = rawRow as DataSheetRow
   const {
     baseName,
     category,
@@ -111,4 +114,11 @@ export function handleAugmentRow(row: DataSheetRow): Augment {
   data.stat = processedStats
 
   return data
+}
+
+export async function doAffixes() {
+  const rows = await getSheetRows("Affixes")
+  const allAugments = rows.map(handleAugmentRow)
+
+  writeFileJson(allAugments, "./src/augmenting/data/Augments.json")
 }

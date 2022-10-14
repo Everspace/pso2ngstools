@@ -16,7 +16,7 @@ import {
   allRegions,
 } from "./data/bprequirements"
 import { bpTotalAtom } from "./state/bpState"
-import { DEFAULT_ACTIVITIES } from "./state/consts"
+import { DEFAULT_ACTIVITIES } from "./data/consts"
 import { CombatActivity } from "./types"
 
 const GroupItem = styled(Grid)(({ theme }) => ({
@@ -81,7 +81,7 @@ function CombatActivityGroup({ activities }: { activities: CombatActivity[] }) {
       <Grid item>
         <GroupContainer container>
           {activities.map((a) => (
-            <CombatActivityChip key={a.rank} activity={a} />
+            <CombatActivityChip key={a.region + a.name + a.rank} activity={a} />
           ))}
         </GroupContainer>
       </Grid>

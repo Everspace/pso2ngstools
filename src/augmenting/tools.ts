@@ -1,7 +1,7 @@
 import { BigNumber, bignumber } from "mathjs"
 import { transformValues } from "utils"
 import { one, zero } from "../MathConstants"
-import { Augment, AugmentStat, Unit, Weapon } from "./types"
+import { Augment, AugmentStat, GrindLevel, Unit, Weapon } from "./types"
 
 export const augmentTierToRoman = [
   "I",
@@ -43,8 +43,12 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
 }
 
 export const toUnitReal = (unit: Unit): Unit => {
-  const { stat, grindValues } = unit
-  const grindValueNew = transformValues(grindValues, bignumber)
+  const { stat } = unit
+  const grindValues = unit.grindValues as any
+  const grindValueNew = transformValues(
+    grindValues,
+    bignumber,
+  ) as any as Record<GrindLevel, BigNumber>
   return {
     ...unit,
     grindValues: grindValueNew,
@@ -86,8 +90,12 @@ export function rangeFromWeaponAugments(
 }
 
 export const toWeaponReal = (weapon: Weapon): Weapon => {
-  const { varianceHigh, varianceLow, grindValues } = weapon
-  const grindValueNew = transformValues(grindValues, bignumber)
+  const { varianceHigh, varianceLow } = weapon
+  const grindValues = weapon.grindValues as any
+  const grindValueNew = transformValues(
+    grindValues,
+    bignumber,
+  ) as any as Record<GrindLevel, BigNumber>
 
   return {
     ...weapon,

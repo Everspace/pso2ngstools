@@ -8,11 +8,15 @@ import {
   Unit,
   UnitSlot,
   Weapon,
-  MAX_GRIND,
   unitSlots,
 } from "../types"
 import { augmentableFamily } from "./augmentableState"
-import { DEFAULT_AUGMENT_SLOTS, DEFAULT_UNIT, DEFAULT_WEAPON } from "./consts"
+import {
+  DEFAULT_AUGMENTS_PER_SLOT,
+  DEFAULT_UNIT,
+  DEFAULT_WEAPON,
+  MAX_GRIND,
+} from "../data/consts"
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1",
@@ -28,9 +32,13 @@ const grindStateSlotToHash: Record<AugmentableSlot, string> = {
   weapon: "wg",
 }
 
-const augmentsPerSlotRawAtom = atomWithHash("slots", DEFAULT_AUGMENT_SLOTS, {
-  replaceState: true,
-})
+const augmentsPerSlotRawAtom = atomWithHash(
+  "slots",
+  DEFAULT_AUGMENTS_PER_SLOT,
+  {
+    replaceState: true,
+  },
+)
 
 export const augmentsPerSlotAtom = atom<number, number>(
   (get) => get(augmentsPerSlotRawAtom),
@@ -76,7 +84,9 @@ export const weaponStateAtom = atomWithHash<Weapon>(
   },
 )
 
-export const weaponPotentialAtom = atomWithHash("wp", 3, { replaceState: true })
+export const weaponPotentialAtom = atomWithHash("wp", 3, {
+  replaceState: true,
+})
 
 export const equipStateFamily = atomFamily<
   AugmentableSlot,

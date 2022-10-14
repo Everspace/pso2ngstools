@@ -17,7 +17,7 @@ import {
   levelAtom,
   skillpointAtom,
 } from "./state/characterState"
-import { MAX_LEVEL, MAX_SKILLPOINTS } from "./state/consts"
+import { MAX_LEVEL, MAX_SKILLPOINTS } from "./data/consts"
 
 export function CharacterBPDisplay() {
   const skillpoint = useAtomValue(skillpointAtom)

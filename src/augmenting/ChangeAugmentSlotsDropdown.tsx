@@ -8,7 +8,7 @@ import {
 import { useAtom } from "jotai"
 import { range } from "lodash"
 import { useCallback } from "react"
-import { MAX_AUGMENTS_PER_SLOT } from "./state/consts"
+import { MAX_AUGMENTS_PER_SLOT } from "./data/consts"
 import { augmentsPerSlotAtom } from "./state/equipmentState"
 
 const augmentSlotNumberArray = range(1, MAX_AUGMENTS_PER_SLOT + 1)
