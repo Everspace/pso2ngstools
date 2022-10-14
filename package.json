@@ -38,8 +38,8 @@
     "test": "react-scripts test",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "data:build": "esbuild src/scripts/convertAll.ts --sourcemap --bundle --tree-shaking=true --platform=node --target=node16.0 --outdir=build",
-    "data": "node build/convertAll.js"
+    "data:build": "node buildData.mjs",
+    "data": "node --experimental-modules build/convertAll.mjs"
   },
   "eslintConfig": {
     "extends": [
@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "csv-parse": "5.0.4",
-    "esbuild": "0.14.38",
+    "esbuild": "0.15.10",
     "prettier": "2.6.2"
   }
 }
