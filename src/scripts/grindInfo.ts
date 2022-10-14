@@ -4,7 +4,8 @@ import { getSheetRows } from "./google"
 
 function doRow(row: HasGrindLevels): Record<GrindLevelHeader, number> {
   return GRIND_KEYS.reduce((memory, key) => {
-    memory[key] = toNumberOrNull(row[key]) ?? 0
+    const value = toNumberOrNull(row[key]) ?? 0
+    memory[key] = value
     return memory
   }, {} as Record<GrindLevelHeader, number>)
 }
@@ -55,7 +56,7 @@ for (const entry of await getSheetRows("ArmourGrindGrowth")) {
   ArmourGrind[entry["Stars"]] = doRow(entry as any)
 }
 
-for (const entry of await getSheetRows("ArmourGrindGrowth")) {
+for (const entry of await getSheetRows("WeaponGrindGrowth")) {
   WeaponGrind[entry["Stars"]] = doRow(entry as any)
 }
 
