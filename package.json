@@ -21,7 +21,7 @@
     "caniuse-lite": "1.0.30001427",
     "dotenv": "16.0.3",
     "google-spreadsheet": "3.2.0",
-    "jotai": "1.9.0",
+    "jotai": "1.9.1",
     "lodash": "4.17.21",
     "mathjs": "11.3.0",
     "react": "18.2.0",

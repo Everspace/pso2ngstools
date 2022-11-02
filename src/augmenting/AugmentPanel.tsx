@@ -3,18 +3,19 @@ import { AugmentCapsuleDisplay } from "./AugmentCapsuleDisplay"
 import { AugmentStatDisplay } from "./AugmentStatDisplay"
 import {
   allAugmentableSlotStatSum,
-  augmentableSlotStatSum,
+  allAugmentsAtom,
+  augmentableFamily,
 } from "./state/augmentableState"
 import { useAllAugments } from "./useAllAugments"
 import { CharacterBPDisplay } from "./CharacterDisplay"
 import { WeaponDisplay } from "./AugmentableDisplay/WeaponDisplay"
 import { UnitDisplay } from "./AugmentableDisplay/UnitDisplay"
-import { bpTotalAtom } from "./state/bpState"
 import { useAtomValue } from "jotai/utils"
 import { weaponStateAtom } from "./state/equipmentState"
-import { rangeFromWeaponAugments, WeaponRange } from "./tools"
+import { rangeFromWeaponAugments, sumAugmentStats, WeaponRange } from "./tools"
 import { SxProps, Theme } from "@mui/system"
 import { ActivityDisplay } from "./ActivityDisplay"
+import { useTotalBp } from "./hooks"
 
 function rangeToLine({ min, max }: WeaponRange): string {
   return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
@@ -22,8 +23,12 @@ function rangeToLine({ min, max }: WeaponRange): string {
 
 function WeaponRangeLine() {
   const weapon = useAtomValue(weaponStateAtom)
-  const weaponStats = useAtomValue(augmentableSlotStatSum("weapon"))
-  const realStats = useAtomValue(allAugmentableSlotStatSum)
+  const weaponAugments = useAtomValue(augmentableFamily("weapon"))
+  const weaponStats = sumAugmentStats(weaponAugments)
+
+  const allAugments = useAtomValue(allAugmentsAtom)
+  const realStats = sumAugmentStats(allAugments)
+
   const weaponRange = rangeFromWeaponAugments(weapon, weaponStats)
   const realRange = rangeFromWeaponAugments(weapon, realStats)
 
@@ -61,8 +66,8 @@ const augmentableDisplayGrid: SxProps<Theme> = (theme) => ({
 
 export default function AugmentPanel() {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
+  const bp = useTotalBp()
   const stats = useAtomValue(allAugmentableSlotStatSum)
-  const bp = useAtomValue(bpTotalAtom)
 
   return (
     <Stack spacing={1} pb={2}>

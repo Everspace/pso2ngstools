@@ -11,32 +11,32 @@ import { NumberInput } from "components/NumberInput"
 import { ClassIcon } from "icons"
 import { useAtomValue } from "jotai/utils"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
-import { classBpAtom } from "./state/bpState"
 import {
   classNameAtom,
   levelAtom,
   skillpointAtom,
 } from "./state/characterState"
 import { MAX_LEVEL, MAX_SKILLPOINTS } from "./data/consts"
+import { getClassBp, getSkillpointBp } from "./bpCalc"
 
 export function CharacterBPDisplay() {
   const skillpoint = useAtomValue(skillpointAtom)
-  const classBpRaw = useAtomValue(classBpAtom)
   const level = useAtomValue(levelAtom)
-  const className = useAtomValue(classNameAtom)
-  const classBp = classBpRaw.toNumber()
-  const skillBp = skillpoint * 2 * 3
+  const name = useAtomValue(classNameAtom)
+  const classBp = getClassBp({ name, level }).toNumber()
+  const skillBp = getSkillpointBp(skillpoint).toNumber()
+
   return (
     <Paper>
       <Accordion>
         <AccordionSummary expandIcon={<ExpandMore />}>
           <Grid container justifyItems="center" alignItems="flex-start">
             <Grid item>
-              <ClassIcon shortname={className} />
+              <ClassIcon shortname={name} />
             </Grid>
             <Grid item>
               <Typography>
-                Lv.{level} {className} ({skillpoint} Skillpoints):{" "}
+                Lv.{level} {name} ({skillpoint} Skillpoints):{" "}
                 {classBp + skillBp} BP
               </Typography>
             </Grid>

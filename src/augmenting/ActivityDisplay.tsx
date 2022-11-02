@@ -9,14 +9,13 @@ import {
   alpha,
 } from "@mui/material"
 import { styled } from "@mui/system"
-import { useAtomValue } from "jotai"
 import {
   activityNameByRegion,
   activityByName,
   allRegions,
 } from "./data/bprequirements"
-import { bpTotalAtom } from "./state/bpState"
 import { DEFAULT_ACTIVITIES } from "./data/consts"
+import { useTotalBp } from "./hooks"
 import { CombatActivity } from "./types"
 
 const GroupItem = styled(Grid)(({ theme }) => ({
@@ -47,7 +46,7 @@ const GroupContainer = styled(Grid)(({ theme }) => ({
 }))
 
 function CombatActivityChip({ activity }: { activity: CombatActivity }) {
-  const bp = useAtomValue(bpTotalAtom)
+  const bp = useTotalBp()
   const meetsRequirement = activity.bp <= bp
   return (
     <GroupItem
@@ -106,7 +105,7 @@ function RegionActivities({ region }: { region: string }) {
 
 export function ActivityDisplay() {
   return (
-    <Accordion>
+    <Accordion TransitionProps={{ unmountOnExit: true }}>
       <AccordionSummary expandIcon={<ExpandMore />}>
         <Grid container spacing={1}>
           <Grid item xs={2}>

@@ -1,13 +1,14 @@
 import { sumAugmentStats, augmentifyUnit } from "augmenting/tools"
-import { Atom, atom } from "jotai"
+import { atom } from "jotai"
 import { atomFamily, atomWithHash } from "jotai/utils"
 import { allAugments } from "../data/augments"
 import {
   Augment,
   AugmentableSlot,
   augmentSlots,
-  AugmentStat,
+  Unit,
   unitSlots,
+  Weapon,
 } from "../types"
 import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
 
@@ -78,26 +79,14 @@ export const allAugmentsAtom = atom(async (get) =>
   augmentSlots.flatMap((n) => get(augmentableFamily(n))),
 )
 
-export const augmentableSlotStatSum = atomFamily<
-  AugmentableSlot,
-  Atom<Promise<AugmentStat | null>>
->((slot) => {
-  const augmentsAtom = augmentableFamily(slot)
-  if (slot === "weapon") {
-    return atom(async (get) => {
-      const augments = get(augmentsAtom)
-      if (augments.length === 0) return null
-      return sumAugmentStats(augments)
-    })
+export function sumEquipStats(equip: Weapon | Unit, augments: Augment[]) {
+  const toSum = [...augments]
+  if ("stat" in equip) {
+    toSum.push(augmentifyUnit(equip))
   }
-  const unitAtom = unitStateFamily(slot)
-  return atom(async (get) => {
-    const augments = get(augmentsAtom)
-    const unit = get(unitAtom)
-    if (augments.length === 0 && unit.name === "None") return null
-    return sumAugmentStats([...augments, augmentifyUnit(unit)])
-  })
-})
+  if (toSum.length === 0) return null
+  return sumAugmentStats(toSum)
+}
 
 export const allAugmentableSlotStatSum = atom(async (get) => {
   const augments = get(allAugmentsAtom)
