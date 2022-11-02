@@ -158,7 +158,7 @@ export type ClassLevel = {
 }
 
 export type ClassData = Record<ClassAbbreviation, ClassLevel[]>
-export type CombatActivityType = "UQ" | "Battle Area"
+export type CombatActivityType = "UQ" | "Battle Area" | "Trigger"
 
 export type CombatActivity = {
   name: string

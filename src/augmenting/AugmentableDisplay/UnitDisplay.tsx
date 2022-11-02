@@ -6,7 +6,7 @@ import {
   Grid,
   TextField,
 } from "@mui/material"
-import { useAtom, useSetAtom } from "jotai"
+import { useAtomValue, useSetAtom } from "jotai"
 import {
   mirrorUnitAtom,
   unitStateFamily,
@@ -16,6 +16,7 @@ import { Unit, UnitSlot } from "augmenting/types"
 import { allUnits } from "augmenting/data/armours"
 import { AugmentibleDisplay } from "./AugmentableDisplay"
 import { GrindDropdown } from "./GrindDropdown"
+import useTransitionedAtom from "hooks/useTransitionedAtom"
 
 const unitSelections: Unit[] = Object.keys(allUnits)
   .sort((a, b) => allUnits[a].stars - allUnits[b].stars)
@@ -39,7 +40,8 @@ type UnitAutocompleteProps = {
 }
 
 function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
-  const [unit, setUnitState] = useAtom(unitStateFamily(slot))
+  const unit = useAtomValue(unitStateFamily(slot))
+  const [, setUnitState] = useTransitionedAtom(unitStateFamily(slot))
   const handleAutocompleteChange = useCallback(
     (_: any, v: Unit | null) => {
       const unit = v ?? allUnits["None"]

@@ -74,8 +74,7 @@ function CombatActivityGroup({ activities }: { activities: CombatActivity[] }) {
     <Grid container alignItems="center" spacing={1}>
       <Grid item xs="auto">
         <Typography component="span">
-          {type === "UQ" ? "UQ " : null}
-          {name}:{" "}
+          {type}: {name}{" "}
         </Typography>
       </Grid>
       <Grid item>
@@ -114,7 +113,7 @@ export function ActivityDisplay() {
             BP Requirements
           </Grid>
           {DEFAULT_ACTIVITIES.map((activity) => (
-            <Grid item key={activity.name}>
+            <Grid item key={`${activity.name}${activity.rank}`}>
               <CombatActivityGroup activities={[activity]} />
             </Grid>
           ))}

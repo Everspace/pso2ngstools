@@ -65,7 +65,7 @@ export const unitStateFamily = atomFamily((slot: UnitSlot) => {
       return unit.name
     },
     deserialize(name) {
-      return allUnits[name ?? "None"]
+      return allUnits[name ?? DEFAULT_UNIT.name]
     },
   })
 })
@@ -79,7 +79,7 @@ export const weaponStateAtom = atomWithHash<Weapon>(
       return weapon.name
     },
     deserialize(name) {
-      return allWeapons[name ?? "None"]
+      return allWeapons[name ?? DEFAULT_WEAPON.name]
     },
   },
 )

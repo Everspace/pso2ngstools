@@ -2839,7 +2839,7 @@
     "name": "Super Might I",
     "baseName": "Super Might",
     "category": "super",
-    "icon": "",
+    "icon": "might",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2851,7 +2851,7 @@
     "name": "Super Stamel I",
     "baseName": "Super Stamel",
     "category": "super",
-    "icon": "",
+    "icon": "might",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2864,7 +2864,7 @@
     "name": "Super Spimel I",
     "baseName": "Super Spimel",
     "category": "super",
-    "icon": "",
+    "icon": "might",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2877,7 +2877,7 @@
     "name": "Super Precision I",
     "baseName": "Super Precision",
     "category": "super",
-    "icon": "",
+    "icon": "precision",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2889,7 +2889,7 @@
     "name": "Super Stara I",
     "baseName": "Super Stara",
     "category": "super",
-    "icon": "",
+    "icon": "precision",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2902,7 +2902,7 @@
     "name": "Super Spira I",
     "baseName": "Super Spira",
     "category": "super",
-    "icon": "",
+    "icon": "precision",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2915,7 +2915,7 @@
     "name": "Super Technique I",
     "baseName": "Super Technique",
     "category": "super",
-    "icon": "",
+    "icon": "technique",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2927,7 +2927,7 @@
     "name": "Super Statech I",
     "baseName": "Super Statech",
     "category": "super",
-    "icon": "",
+    "icon": "technique",
     "tier": 1,
     "rate": 10,
     "stat": {
@@ -2937,17 +2937,40 @@
     }
   },
   {
-    "name": "Super Statech I",
-    "baseName": "Super Statech",
+    "name": "Super Spitech I",
+    "baseName": "Super Spitech",
     "category": "super",
-    "icon": "",
+    "icon": "technique",
     "tier": 1,
     "rate": 10,
     "stat": {
       "bp": 8,
       "pp": 5,
-      "rangedPotency": null,
       "techPotency": 2
+    }
+  },
+  {
+    "name": "Daytime Exploit I",
+    "baseName": "Daytime Exploit",
+    "category": "element",
+    "icon": "special",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "bp": 7,
+      "conditionalPotency": 2.5
+    }
+  },
+  {
+    "name": "Nighttime Exploit I",
+    "baseName": "Nighttime Exploit",
+    "category": "element",
+    "icon": "special",
+    "tier": 1,
+    "rate": 9,
+    "stat": {
+      "bp": 7,
+      "conditionalPotency": 2.5
     }
   }
 ]

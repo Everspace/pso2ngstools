@@ -25,7 +25,7 @@ export function CharacterBPDisplay() {
   const level = useAtomValue(levelAtom)
   const className = useAtomValue(classNameAtom)
   const classBp = classBpRaw.toNumber()
-  const skillBp = skillpoint * 3
+  const skillBp = skillpoint * 2 * 3
   return (
     <Paper>
       <Accordion>

@@ -6,7 +6,7 @@ import {
   unitSlots,
 } from "augmenting/types"
 import { flatten, includes } from "lodash"
-import { useMemo, useCallback } from "react"
+import { useMemo } from "react"
 import { augmentSlotNiceName } from "augmenting/info"
 import {
   addAugmentAtomFamily,
@@ -14,8 +14,10 @@ import {
   augmentableFamily,
   removeAugmentAtomFamily,
 } from "augmenting/state/augmentableState"
-import { atomFamily, useAtomValue, useUpdateAtom } from "jotai/utils"
+
+import { atomFamily, useAtomValue } from "jotai/utils"
 import { atom } from "jotai"
+import useTransitionedAtom from "hooks/useTransitionedAtom"
 
 type TakesAugment = { augment: Augment }
 
@@ -24,8 +26,8 @@ const atomAddToUnits = atom<void, Augment>(undefined, (get, set, update) => {
 })
 
 function useAddToAllUnits(augment: Augment) {
-  const addToAll = useUpdateAtom(atomAddToAll)
-  return useCallback(() => addToAll(augment), [addToAll, augment])
+  const [, addToAll] = useTransitionedAtom(atomAddToAll)
+  return useMemo(() => () => addToAll(augment), [addToAll, augment])
 }
 
 const allUnitAugments = atom((get) =>
@@ -33,10 +35,10 @@ const allUnitAugments = atom((get) =>
 )
 
 const useAddToUnitsButton = (augment: Augment) => {
-  const add = useUpdateAtom(atomAddToUnits)
+  const [, add] = useTransitionedAtom(atomAddToUnits)
   const augments = useAtomValue(allUnitAugments)
 
-  const addToUnits = useCallback(() => add(augment), [add, augment])
+  const addToUnits = useMemo(() => () => add(augment), [add, augment])
   const hasAny = useMemo(() => includes(augments, augment), [augment, augments])
 
   return {
@@ -54,9 +56,9 @@ const atomRemoveFromAll = atom<void, Augment>(undefined, (get, set, update) => {
 })
 
 const useRemoveAllButton = (augment: Augment) => {
-  const remove = useUpdateAtom(atomRemoveFromAll)
+  const [, remove] = useTransitionedAtom(atomRemoveFromAll)
   const augments = useAtomValue(allAugmentsAtom)
-  const removeAll = useCallback(() => remove(augment), [remove, augment])
+  const removeAll = useMemo(() => () => remove(augment), [remove, augment])
 
   const hasAny = useMemo(() => includes(augments, augment), [augment, augments])
 
@@ -91,11 +93,11 @@ function AugmentableSlotToggleButton({
   slot,
 }: TakesAugment & { slot: AugmentableSlot }) {
   const isExsitant = useAtomValue(isExistantAtom({ slot, augment }))
-  const toggle = useUpdateAtom(toggleOnAugmentSlotAtom(slot))
+  const [, toggle] = useTransitionedAtom(toggleOnAugmentSlotAtom(slot))
 
-  const onClick = useCallback(() => {
+  const onClick = () => {
     toggle(augment)
-  }, [toggle, augment])
+  }
 
   return (
     <Button onClick={onClick} variant={isExsitant ? "contained" : "outlined"}>

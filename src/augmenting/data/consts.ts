@@ -2,7 +2,7 @@ import { allUnits } from "augmenting/data/armours"
 import { allCombatActivities } from "augmenting/data/bprequirements"
 import { allWeapons } from "augmenting/data/weapons"
 import { GrindLevel } from "augmenting/types"
-import { groupBy, uniqBy } from "lodash"
+import { groupBy, mapValues } from "lodash"
 
 import consts from "./Consts.json"
 
@@ -26,20 +26,23 @@ export {
 
 export const MAX_GRIND = grind as GrindLevel
 export const MAX_GRIND_LIMIT = limit as GrindLevel
-
-export const DEFAULT_WEAPON = Object.entries(allWeapons)
+const weaponByLevel = Object.entries(allWeapons)
   .sort(([_, a], [__, b]) => a.level - b.level)
-  .reverse()[0][1]
-
-export const DEFAULT_UNIT = Object.entries(allUnits)
-  .sort(([_, a], [__, b]) => a.level - b.level)
-  .reverse()[0][1]
-
-const top2Bp = uniqBy(allCombatActivities, (a) => a.bp)
-  .sort((a, b) => a.bp - b.bp)
   .reverse()
-  .map((a) => a.bp)
-  .slice(0, 3)
-const bpActivity = groupBy(allCombatActivities, (a) => a.bp)
+export const DEFAULT_WEAPON = weaponByLevel[0][1]
 
-export const DEFAULT_ACTIVITIES = top2Bp.flatMap((bp) => bpActivity[bp][0])
+const unitByLevel = Object.entries(allUnits)
+  .sort(([_, a], [__, b]) => a.level - b.level)
+  .reverse()
+export const DEFAULT_UNIT = unitByLevel[0][1]
+
+const bpActivity = groupBy(allCombatActivities, (a) => a.type)
+
+const highestForType = mapValues(
+  bpActivity,
+  (activities) => activities.sort((a, b) => a.bp - b.bp).reverse()[0],
+)
+
+export const DEFAULT_ACTIVITIES = Object.keys(highestForType).map(
+  (k) => highestForType[k],
+)
