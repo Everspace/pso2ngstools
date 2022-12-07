@@ -656,5 +656,76 @@
       "60": 488
     },
     "varianceLow": 50
+  },
+  "Crystia": {
+    "name": "Crystia",
+    "level": 55,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "grindValues": {
+      "0": 473,
+      "10": 503,
+      "20": 533,
+      "30": 563,
+      "40": 609,
+      "50": 659,
+      "60": 473
+    },
+    "varianceLow": 50
+  },
+  "Primm Libra": {
+    "name": "Primm Libra",
+    "level": 55,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 50,
+    "grindValues": {
+      "0": 436,
+      "10": 466,
+      "20": 496,
+      "30": 526,
+      "40": 561,
+      "50": 601,
+      "60": 436
+    },
+    "varianceLow": 50,
+    "element": "Ice"
+  },
+  "Effulgent": {
+    "name": "Effulgent",
+    "level": 60,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 50,
+    "grindValues": {
+      "0": 446,
+      "10": 476,
+      "20": 506,
+      "30": 536,
+      "40": 571,
+      "50": 611,
+      "60": 446
+    },
+    "varianceLow": 50,
+    "element": "Fire"
+  },
+  "Kouklophis": {
+    "name": "Kouklophis",
+    "level": 62,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 50,
+    "grindValues": {
+      "0": 520,
+      "10": 550,
+      "20": 580,
+      "30": 610,
+      "40": 645,
+      "50": 685,
+      "60": 520
+    },
+    "varianceLow": null,
+    "varianceHigh": null
   }
 }

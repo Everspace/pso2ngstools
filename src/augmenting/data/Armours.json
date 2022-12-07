@@ -754,7 +754,7 @@
       "10": 49,
       "20": 59,
       "30": 69,
-      "40": 80,
+      "40": 79,
       "50": 90,
       "60": 39
     }
@@ -776,7 +776,7 @@
       "10": 49,
       "20": 59,
       "30": 69,
-      "40": 80,
+      "40": 79,
       "50": 90,
       "60": 39
     }
@@ -798,9 +798,75 @@
       "10": 49,
       "20": 59,
       "30": 69,
-      "40": 80,
+      "40": 79,
       "50": 90,
       "60": 39
+    }
+  },
+  "Eptize Armor: Vida": {
+    "name": "Eptize Armor: Vida",
+    "level": 61,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "stat": {
+      "hp": 55,
+      "meleePotency": 3,
+      "rangedPotency": 3,
+      "techPotency": 3
+    },
+    "grindValues": {
+      "0": 40,
+      "10": 50,
+      "20": 60,
+      "30": 70,
+      "40": 80,
+      "50": 91,
+      "60": 40
+    }
+  },
+  "Eclaireur": {
+    "name": "Eclaireur",
+    "level": 65,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "stat": {
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "damageResist": -5
+    },
+    "grindValues": {
+      "0": 35,
+      "10": 45,
+      "20": 55,
+      "30": 65,
+      "40": 75,
+      "50": 86,
+      "60": 35
+    }
+  },
+  "Eptize Armor: Vio": {
+    "name": "Eptize Armor: Vio",
+    "level": 61,
+    "stars": 7,
+    "limit": 50,
+    "limit_max": 50,
+    "stat": {
+      "pp": 10,
+      "meleePotency": 3,
+      "rangedPotency": 3,
+      "techPotency": 3
+    },
+    "grindValues": {
+      "0": 40,
+      "10": 50,
+      "20": 60,
+      "30": 70,
+      "40": 80,
+      "50": 91,
+      "60": 40
     }
   }
 }

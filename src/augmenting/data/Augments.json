@@ -304,6 +304,20 @@
     }
   },
   {
+    "name": "Dread Keeper IV",
+    "baseName": "Dread Keeper",
+    "category": "dread",
+    "icon": "hp",
+    "tier": 4,
+    "rate": 7,
+    "stat": {
+      "hp": 50,
+      "pp": 10,
+      "floorPotency": 6,
+      "damageResist": 3
+    }
+  },
+  {
     "name": "Forms Soul I",
     "baseName": "Forms Soul",
     "category": "soul",
@@ -3222,6 +3236,196 @@
       "techPotency": 3,
       "floorPotency": 1,
       "statusResist": 20
+    }
+  },
+  {
+    "name": "Nils Soul III",
+    "baseName": "Nils Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 3,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "techPotency": 2.5,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Nils Soul IV",
+    "baseName": "Nils Soul",
+    "category": "soul",
+    "icon": "technique",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "techPotency": 3,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Doldor Soul III",
+    "baseName": "Doldor Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 3,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "rangedPotency": 2.5,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Doldor Soul IV",
+    "baseName": "Doldor Soul",
+    "category": "soul",
+    "icon": "precision",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "rangedPotency": 3,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Freid Soul III",
+    "baseName": "Freid Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 3,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "meleePotency": 2.5,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Freid Soul IV",
+    "baseName": "Freid Soul",
+    "category": "soul",
+    "icon": "might",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "meleePotency": 3,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Stira Note A",
+    "baseName": "Stira Note A",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "hp": 15,
+      "pp": 5
+    }
+  },
+  {
+    "name": "Stira Note B",
+    "baseName": "Stira Note B",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 2,
+      "rangedPotency": 2,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Stira Note C",
+    "baseName": "Stira Note C",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "meleePotency": 2,
+      "techPotency": 2,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Stira Note D",
+    "baseName": "Stira Note D",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "rangedPotency": 2,
+      "techPotency": 2,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Stira Domina",
+    "baseName": "Stira Domina",
+    "category": "domina",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "potency": 3,
+      "statusResist": -2
+    }
+  },
+  {
+    "name": "Ratech Dualble IV",
+    "baseName": "Ratech Dualble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "rangedPotency": 2.75,
+      "techPotency": 2.75
+    }
+  },
+  {
+    "name": "Meltech Duable IV",
+    "baseName": "Meltech Duable",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "meleePotency": 2.75,
+      "techPotency": 2.75
+    }
+  },
+  {
+    "name": "Melra Duable IV",
+    "baseName": "Melra Duable",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "meleePotency": 2.75,
+      "rangedPotency": 2.75
+    }
+  },
+  {
+    "name": "Dextra Note",
+    "baseName": "Dextra Note",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "hp": 10,
+      "potency": 2,
+      "statusResist": -10
     }
   }
 ]
