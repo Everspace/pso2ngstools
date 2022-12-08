@@ -91,6 +91,13 @@
     "bp": 1898
   },
   {
+    "name": "Doloris Vera",
+    "region": "Stia",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2972
+  },
+  {
     "name": "Dustyl Vera",
     "region": "Retem",
     "type": "UQ",
@@ -217,6 +224,13 @@
     "bp": 1898
   },
   {
+    "name": "Nils Vera",
+    "region": "Stia",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2972
+  },
+  {
     "name": "Renus Vera",
     "region": "Retem",
     "type": "UQ",
@@ -313,6 +327,13 @@
     "type": "Trigger",
     "rank": 2,
     "bp": 2049
+  },
+  {
+    "name": "Stia Yellow",
+    "region": "Stia",
+    "type": "Trigger",
+    "rank": 1,
+    "bp": 2878
   },
   {
     "name": "Vanford Laboratory Ruins",

@@ -727,5 +727,21 @@
     },
     "varianceLow": null,
     "varianceHigh": null
+  },
+  "Gunblaze": {
+    "name": "Gunblaze",
+    "level": 65,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 50,
+    "grindValues": {
+      "0": 526,
+      "10": 556,
+      "20": 586,
+      "30": 616,
+      "40": 651,
+      "50": 691,
+      "60": 526
+    }
   }
 }

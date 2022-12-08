@@ -2298,7 +2298,9 @@
     "icon": "hp",
     "rate": 9,
     "stat": {
-      "bp": 5
+      "bp": 5,
+      "hp": 10,
+      "pp": 5
     }
   },
   {
@@ -2308,7 +2310,10 @@
     "icon": "special",
     "rate": 9,
     "stat": {
-      "bp": 4
+      "bp": 4,
+      "meleePotency": 2,
+      "rangedPotency": 2,
+      "damageResist": -2
     }
   },
   {
@@ -2318,7 +2323,10 @@
     "icon": "special",
     "rate": 9,
     "stat": {
-      "bp": 4
+      "bp": 4,
+      "meleePotency": 2,
+      "techPotency": 2,
+      "damageResist": -2
     }
   },
   {
@@ -2328,7 +2336,10 @@
     "icon": "special",
     "rate": 9,
     "stat": {
-      "bp": 4
+      "bp": 4,
+      "rangedPotency": 2,
+      "techPotency": 2,
+      "damageResist": -2
     }
   },
   {
@@ -2510,7 +2521,8 @@
     "icon": "special",
     "rate": 9,
     "stat": {
-      "bp": 8
+      "bp": 8,
+      "potency": 2
     }
   },
   {
