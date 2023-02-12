@@ -593,8 +593,8 @@
     "name": "Rugged",
     "level": 57,
     "stars": 7,
-    "limit": 50,
-    "limit_max": 50,
+    "limit": 60,
+    "limit_max": 60,
     "grindValues": {
       "0": 490,
       "10": 520,
@@ -602,7 +602,7 @@
       "30": 580,
       "40": 626,
       "50": 676,
-      "60": 490
+      "60": 738
     },
     "varianceLow": 50
   },
@@ -610,8 +610,8 @@
     "name": "Kaisaar",
     "level": 60,
     "stars": 7,
-    "limit": 50,
-    "limit_max": 50,
+    "limit": 60,
+    "limit_max": 60,
     "grindValues": {
       "0": 485,
       "10": 515,
@@ -619,7 +619,7 @@
       "30": 575,
       "40": 621,
       "50": 671,
-      "60": 485
+      "60": 733
     },
     "varianceLow": 50
   },
@@ -627,8 +627,8 @@
     "name": "Kaisaar Mk. 1",
     "level": 60,
     "stars": 7,
-    "limit": 50,
-    "limit_max": 50,
+    "limit": 60,
+    "limit_max": 60,
     "grindValues": {
       "0": 465,
       "10": 495,
@@ -636,7 +636,7 @@
       "30": 555,
       "40": 601,
       "50": 651,
-      "60": 465
+      "60": 713
     },
     "varianceLow": 50
   },
@@ -644,8 +644,8 @@
     "name": "Obsidia",
     "level": 61,
     "stars": 7,
-    "limit": 50,
-    "limit_max": 50,
+    "limit": 60,
+    "limit_max": 60,
     "grindValues": {
       "0": 488,
       "10": 518,
@@ -653,7 +653,7 @@
       "30": 578,
       "40": 624,
       "50": 674,
-      "60": 488
+      "60": 736
     },
     "varianceLow": 50
   },
@@ -661,8 +661,8 @@
     "name": "Crystia",
     "level": 55,
     "stars": 7,
-    "limit": 50,
-    "limit_max": 50,
+    "limit": 60,
+    "limit_max": 60,
     "grindValues": {
       "0": 473,
       "10": 503,
@@ -670,7 +670,7 @@
       "30": 563,
       "40": 609,
       "50": 659,
-      "60": 473
+      "60": 721
     },
     "varianceLow": 50
   },
@@ -679,7 +679,7 @@
     "level": 55,
     "stars": 8,
     "limit": 50,
-    "limit_max": 50,
+    "limit_max": 60,
     "grindValues": {
       "0": 436,
       "10": 466,
@@ -687,7 +687,7 @@
       "30": 526,
       "40": 561,
       "50": 601,
-      "60": 436
+      "60": 662
     },
     "varianceLow": 50,
     "element": "Ice"
@@ -697,7 +697,7 @@
     "level": 60,
     "stars": 8,
     "limit": 50,
-    "limit_max": 50,
+    "limit_max": 60,
     "grindValues": {
       "0": 446,
       "10": 476,
@@ -705,7 +705,7 @@
       "30": 536,
       "40": 571,
       "50": 611,
-      "60": 446
+      "60": 672
     },
     "varianceLow": 50,
     "element": "Fire"
@@ -715,7 +715,7 @@
     "level": 62,
     "stars": 8,
     "limit": 50,
-    "limit_max": 50,
+    "limit_max": 60,
     "grindValues": {
       "0": 520,
       "10": 550,
@@ -723,17 +723,15 @@
       "30": 610,
       "40": 645,
       "50": 685,
-      "60": 520
-    },
-    "varianceLow": null,
-    "varianceHigh": null
+      "60": 746
+    }
   },
   "Gunblaze": {
     "name": "Gunblaze",
     "level": 65,
     "stars": 8,
     "limit": 50,
-    "limit_max": 50,
+    "limit_max": 60,
     "grindValues": {
       "0": 526,
       "10": 556,
@@ -741,7 +739,43 @@
       "30": 616,
       "40": 651,
       "50": 691,
-      "60": 526
+      "60": 752
     }
+  },
+  "Tenebrous": {
+    "name": "Tenebrous",
+    "level": 60,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "grindValues": {
+      "0": 448,
+      "10": 478,
+      "20": 508,
+      "30": 538,
+      "40": 573,
+      "50": 613,
+      "60": 674
+    },
+    "varianceLow": 50,
+    "element": "Ice"
+  },
+  "Neos Astrean": {
+    "name": "Neos Astrean",
+    "level": 70,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "grindValues": {
+      "0": 535,
+      "10": 565,
+      "20": 595,
+      "30": 625,
+      "40": 660,
+      "50": 700,
+      "60": 761
+    },
+    "varianceLow": 50,
+    "varianceHigh": null
   }
 }
