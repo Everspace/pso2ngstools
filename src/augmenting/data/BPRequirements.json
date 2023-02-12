@@ -70,11 +70,25 @@
     "bp": 2506
   },
   {
+    "name": "Dark Falz Aegis",
+    "region": "Aelio",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 3119
+  },
+  {
     "name": "Dark Falz",
     "region": "Aelio",
     "type": "UQ",
     "rank": 1,
     "bp": 1898
+  },
+  {
+    "name": "Doldoris Vera",
+    "region": "Stia",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 2972
   },
   {
     "name": "DOLLS Suppression",
@@ -89,13 +103,6 @@
     "type": "UQ",
     "rank": 2,
     "bp": 1898
-  },
-  {
-    "name": "Doloris Vera",
-    "region": "Stia",
-    "type": "UQ",
-    "rank": 1,
-    "bp": 2972
   },
   {
     "name": "Dustyl Vera",

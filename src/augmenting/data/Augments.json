@@ -311,6 +311,7 @@
     "tier": 4,
     "rate": 7,
     "stat": {
+      "bp": 11,
       "hp": 50,
       "pp": 10,
       "floorPotency": 6,
@@ -1540,10 +1541,11 @@
     }
   },
   {
-    "name": "Fire Exploit",
+    "name": "Fire Exploit I",
     "baseName": "Fire Exploit",
     "category": "element",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 6,
@@ -1551,10 +1553,23 @@
     }
   },
   {
-    "name": "Ice Exploit",
+    "name": "Fire Exploit II",
+    "baseName": "Fire Exploit",
+    "category": "element",
+    "icon": "special",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "bp": 11,
+      "conditionalPotency": 4
+    }
+  },
+  {
+    "name": "Ice Exploit I",
     "baseName": "Ice Exploit",
     "category": "element",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 6,
@@ -1562,10 +1577,23 @@
     }
   },
   {
-    "name": "Lightning Exploit",
+    "name": "Ice Exploit II",
+    "baseName": "Ice Exploit",
+    "category": "element",
+    "icon": "special",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "bp": 11,
+      "conditionalPotency": 4
+    }
+  },
+  {
+    "name": "Lightning Exploit I",
     "baseName": "Lightning Exploit",
     "category": "element",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 6,
@@ -1573,10 +1601,11 @@
     }
   },
   {
-    "name": "Wind Exploit",
+    "name": "Wind Exploit I",
     "baseName": "Wind Exploit",
     "category": "element",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 6,
@@ -1584,10 +1613,11 @@
     }
   },
   {
-    "name": "Light Exploit",
+    "name": "Light Exploit I",
     "baseName": "Light Exploit",
     "category": "element",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 6,
@@ -1595,10 +1625,11 @@
     }
   },
   {
-    "name": "Gloom Exploit",
+    "name": "Gloom Exploit I",
     "baseName": "Gloom Exploit",
     "category": "element",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 6,
@@ -2656,6 +2687,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 7,
       "floorPotency": 3
     }
   },
@@ -2798,7 +2830,7 @@
     "tier": 1,
     "rate": 9,
     "stat": {
-      "bp": 11,
+      "bp": 7,
       "hp": 25,
       "potency": 1.25
     }
@@ -2811,7 +2843,7 @@
     "tier": 2,
     "rate": 8,
     "stat": {
-      "bp": 11,
+      "bp": 8,
       "hp": 25,
       "potency": 1.75
     }
@@ -2824,7 +2856,7 @@
     "tier": 3,
     "rate": 8,
     "stat": {
-      "bp": 11,
+      "bp": 10,
       "hp": 25,
       "potency": 2.25
     }
@@ -2850,6 +2882,7 @@
     "tier": 4,
     "rate": 7,
     "stat": {
+      "bp": 11,
       "hp": 20,
       "meleePotency": 3
     }
@@ -2862,6 +2895,7 @@
     "tier": 4,
     "rate": 7,
     "stat": {
+      "bp": 11,
       "hp": 20,
       "rangedPotency": 3
     }
@@ -2874,6 +2908,7 @@
     "tier": 4,
     "rate": 7,
     "stat": {
+      "bp": 11,
       "hp": 20,
       "techPotency": 3
     }
@@ -3023,6 +3058,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "hp": 20,
       "meleePotency": 3,
       "rangedPotency": 3,
@@ -3036,6 +3072,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "hp": 20,
       "meleePotency": 3,
       "techPotency": 3,
@@ -3049,6 +3086,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "hp": 20,
       "rangedPotency": 3,
       "techPotency": 3,
@@ -3062,6 +3100,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "hp": 10,
       "pp": 3,
       "meleePotency": 3,
@@ -3076,6 +3115,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "hp": 10,
       "pp": 3,
       "meleePotency": 3,
@@ -3090,6 +3130,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "hp": 10,
       "pp": 3,
       "rangedPotency": 3,
@@ -3104,6 +3145,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "pp": 6,
       "meleePotency": 3,
       "rangedPotency": 3,
@@ -3117,6 +3159,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "pp": 6,
       "meleePotency": 3,
       "techPotency": 3,
@@ -3130,6 +3173,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "pp": 6,
       "rangedPotency": 3,
       "techPotency": 3,
@@ -3143,6 +3187,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "meleePotency": 3,
       "rangedPotency": 3,
       "floorPotency": 2.75
@@ -3155,6 +3200,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "meleePotency": 3,
       "techPotency": 3,
       "floorPotency": 2.75
@@ -3167,6 +3213,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "rangedPotency": 3,
       "techPotency": 3,
       "floorPotency": 2.75
@@ -3179,6 +3226,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "meleePotency": 3,
       "rangedPotency": 3,
       "floorPotency": 1,
@@ -3192,6 +3240,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "meleePotency": 3,
       "techPotency": 3,
       "floorPotency": 1,
@@ -3205,6 +3254,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "rangedPotency": 3,
       "techPotency": 3,
       "floorPotency": 1,
@@ -3218,6 +3268,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "meleePotency": 3,
       "rangedPotency": 3,
       "floorPotency": 1,
@@ -3231,6 +3282,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "meleePotency": 3,
       "techPotency": 3,
       "floorPotency": 1,
@@ -3244,6 +3296,7 @@
     "icon": "special",
     "rate": 10,
     "stat": {
+      "bp": 13,
       "rangedPotency": 3,
       "techPotency": 3,
       "floorPotency": 1,
@@ -3258,6 +3311,7 @@
     "tier": 3,
     "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 15,
       "pp": 5,
       "techPotency": 2.5,
@@ -3272,6 +3326,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "pp": 5,
       "techPotency": 3,
@@ -3286,6 +3341,7 @@
     "tier": 3,
     "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 15,
       "pp": 5,
       "rangedPotency": 2.5,
@@ -3300,6 +3356,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "pp": 5,
       "rangedPotency": 3,
@@ -3314,6 +3371,7 @@
     "tier": 3,
     "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 15,
       "pp": 5,
       "meleePotency": 2.5,
@@ -3328,6 +3386,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 11,
       "hp": 15,
       "pp": 5,
       "meleePotency": 3,
@@ -3341,6 +3400,7 @@
     "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 5,
       "hp": 15,
       "pp": 5
     }
@@ -3352,6 +3412,7 @@
     "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 4,
       "meleePotency": 2,
       "rangedPotency": 2,
       "statusResist": -10
@@ -3364,6 +3425,7 @@
     "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 4,
       "meleePotency": 2,
       "techPotency": 2,
       "statusResist": -10
@@ -3376,6 +3438,7 @@
     "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 4,
       "rangedPotency": 2,
       "techPotency": 2,
       "statusResist": -10
@@ -3388,6 +3451,7 @@
     "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 10,
       "potency": 3,
       "statusResist": -2
     }
@@ -3400,6 +3464,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 7,
       "rangedPotency": 2.75,
       "techPotency": 2.75
     }
@@ -3412,6 +3477,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 7,
       "meleePotency": 2.75,
       "techPotency": 2.75
     }
@@ -3424,6 +3490,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 7,
       "meleePotency": 2.75,
       "rangedPotency": 2.75
     }
@@ -3435,9 +3502,89 @@
     "icon": "special",
     "rate": 9,
     "stat": {
+      "bp": 5,
       "hp": 10,
       "potency": 2,
       "statusResist": -10
+    }
+  },
+  {
+    "name": "Alts Secreta IV",
+    "baseName": "Alts Secreta",
+    "category": "secreta",
+    "icon": "special",
+    "tier": 4,
+    "rate": 7,
+    "stat": {
+      "bp": 6,
+      "hp": -10,
+      "potency": 2.5,
+      "floorPotency": 2.5,
+      "damageResist": -1.5
+    }
+  },
+  {
+    "name": "Noizel Note",
+    "baseName": "Noizel Note",
+    "category": "note",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 5,
+      "pp": 3,
+      "potency": 2,
+      "statusResist": -10
+    }
+  },
+  {
+    "name": "Halphinale",
+    "baseName": "Halphinale",
+    "category": "unknown",
+    "icon": "special",
+    "rate": 7,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "potency": 4
+    }
+  },
+  {
+    "name": "Aegis Soul II",
+    "baseName": "Aegis Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "hp": 5,
+      "pp": 2,
+      "potency": 2
+    }
+  },
+  {
+    "name": "Aegis Soul III",
+    "baseName": "Aegis Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 3,
+    "rate": 8,
+    "stat": {
+      "hp": 5,
+      "pp": 2,
+      "potency": 2.5
+    }
+  },
+  {
+    "name": "Aegis Soul IV",
+    "baseName": "Aegis Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": 4,
+    "rate": 8,
+    "stat": {
+      "hp": 5,
+      "pp": 2,
+      "potency": 3
     }
   }
 ]
