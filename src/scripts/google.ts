@@ -5,11 +5,11 @@ denv.config({ path: process.cwd() + "\\.env.local" })
 
 import { GoogleSpreadsheet } from "google-spreadsheet"
 
-if (!("GOOGLE_SPREADSHEET" in process.env)) {
+if (!process.env?.GOOGLE_SPREADSHEET) {
   throw new Error("Please set GOOGLE_SPREADSHEET")
 }
 
-if (!("GOOGLE_API_KEY" in process.env)) {
+if (!process.env?.GOOGLE_API_KEY) {
   throw new Error("Please set GOOGLE_API_KEY")
 }
 
