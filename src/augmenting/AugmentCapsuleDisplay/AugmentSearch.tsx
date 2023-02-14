@@ -1,5 +1,6 @@
 import {
   Button,
+  ButtonGroup,
   Grid,
   IconButton,
   TextField,
@@ -8,17 +9,17 @@ import {
 } from "@mui/material"
 import { SearchInput } from "components/SearchInput"
 import {
-  augmentCategoryStateAtom,
+  augmentCategoryStateFamilyAtom,
   augmentSearchCategories,
   SearchAugmentCategory,
   searchNameAtom,
   searchStatAtom,
   searchStatFamilyAtom,
 } from "./augmentSearchState"
-import { useAtom } from "jotai"
+import { atom, useAtom, useSetAtom } from "jotai"
 import { useCallback } from "react"
 import { augmentStatToDisplayInfo } from "augmenting/info"
-import { AugmentStat } from "augmenting/types"
+import { allAugmentCategories, AugmentStat } from "augmenting/types"
 import { Replay } from "@mui/icons-material"
 import { useResetAtom } from "jotai/utils"
 
@@ -65,17 +66,68 @@ type AugmentSearchCategoryButtonProps = { category: SearchAugmentCategory }
 function AugmentSearchCategoryButton({
   category,
 }: AugmentSearchCategoryButtonProps) {
-  const [currentCategory, setCategory] = useAtom(augmentCategoryStateAtom)
-  const handleChange = useCallback(
-    () => setCategory(category),
-    [setCategory, category],
-  )
-
-  const variant = category === currentCategory ? "contained" : "outlined"
+  const [active, setActive] = useAtom(augmentCategoryStateFamilyAtom(category))
+  const toggle = () => setActive((state) => !state)
+  const variant = active ? "contained" : "outlined"
 
   return (
-    <Button variant={variant} onClick={handleChange}>
+    <Button variant={variant} onClick={toggle}>
       {category}
+    </Button>
+  )
+}
+
+const allCatAtoms = allAugmentCategories.map(augmentCategoryStateFamilyAtom)
+
+const allActive = atom<boolean, boolean>(
+  (get) => {
+    return allCatAtoms.map(get).every((b) => b)
+  },
+  (get, set, update) => {
+    allCatAtoms.forEach((a) => set(a, update))
+  },
+)
+
+function AllAugmentCategoryButton() {
+  const [active, setActive] = useAtom(allActive)
+  const variant = active ? "contained" : "outlined"
+  const toggle = () => setActive(true)
+  return (
+    <Button variant={variant} onClick={toggle}>
+      All
+    </Button>
+  )
+}
+
+const p2w = ["addi"]
+const p2wlessCategories = allAugmentCategories
+  .filter((c) => p2w.indexOf(c) === -1)
+  .map(augmentCategoryStateFamilyAtom)
+
+const p2wlessAtom = atom(
+  (get) => p2wlessCategories.map(get).every((b) => b),
+  (_, set) => {
+    p2wlessCategories.map((a) => set(a, true))
+  },
+)
+function NoP2WAugmentCategoryButton() {
+  const [active, setActive] = useAtom(p2wlessAtom)
+  const variant = active ? "contained" : "outlined"
+  const toggle = () => setActive()
+  return (
+    <Button variant={variant} onClick={toggle}>
+      NoP2W
+    </Button>
+  )
+}
+
+function NoneAugmentCategoryButton() {
+  const setActive = useSetAtom(allActive)
+  const variant = "outlined"
+  const toggle = () => setActive(false)
+  return (
+    <Button variant={variant} onClick={toggle}>
+      None
     </Button>
   )
 }
@@ -126,6 +178,13 @@ export function AugmentSearch() {
         <AugmentFamilyHeader />
       </Grid>
       <Grid container item spacing={1}>
+        <Grid item key="all">
+          <ButtonGroup>
+            <AllAugmentCategoryButton />
+            <NoP2WAugmentCategoryButton />
+            <NoneAugmentCategoryButton />
+          </ButtonGroup>
+        </Grid>
         {augmentSearchCategories.map((c) => (
           <Grid item key={c}>
             <AugmentSearchCategoryButton category={c} />

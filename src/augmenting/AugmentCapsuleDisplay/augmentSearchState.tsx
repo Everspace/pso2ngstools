@@ -1,11 +1,10 @@
-import { allAugments, augmentByCategory } from "augmenting/data/augments"
+import { augmentByCategory } from "augmenting/data/augments"
 import { augmentStatToDisplayInfo } from "augmenting/info"
 import { augmentFufillsRequirement } from "augmenting/tools"
 import {
   allAugmentCategories,
   allAugmentStats,
   Augment,
-  AugmentCategory,
   AugmentStat,
 } from "augmenting/types"
 import { atom, WritableAtom } from "jotai"
@@ -13,13 +12,14 @@ import { atomFamily, atomWithReset, RESET } from "jotai/utils"
 import { groupBy } from "lodash"
 import { isNaN, bignumber } from "mathjs"
 
-export type SearchAugmentCategory = AugmentCategory | "all"
+export type SearchAugmentCategory = string
 export const augmentSearchCategories = [
-  "all",
   ...allAugmentCategories,
 ] as SearchAugmentCategory[]
 
-export const augmentCategoryStateAtom = atom<SearchAugmentCategory>("might")
+export const augmentCategoryStateFamilyAtom = atomFamily((category: string) =>
+  atom(false),
+)
 
 export const searchStatFamilyAtom = atomFamily<
   keyof AugmentStat,
@@ -70,17 +70,17 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
 
 export const searchNameAtom = atomWithReset("")
 const availableAugmentsAtom = atom<Augment[]>((get) => {
-  const category = get(augmentCategoryStateAtom)
+  const activeCategories = allAugmentCategories.map((s) => ({
+    category: s,
+    active: get(augmentCategoryStateFamilyAtom(s)),
+  }))
 
   const searchStat = get(searchStatAtom)
   const searchName = get(searchNameAtom).toLocaleLowerCase()
-  let filteredAugments: Augment[]
-
-  if (category === "all") {
-    filteredAugments = [...allAugments]
-  } else {
-    filteredAugments = [...augmentByCategory[category]]
-  }
+  let filteredAugments = activeCategories.reduce(
+    (augs, c) => augs.concat(c.active ? augmentByCategory[c.category] : []),
+    [] as Augment[],
+  )
 
   if (searchName !== "") {
     filteredAugments = filteredAugments.filter((a) =>

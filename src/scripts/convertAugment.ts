@@ -1,12 +1,12 @@
 import { AugmentImageType } from "augmenting/images/augment"
 import { augmentTierToRoman } from "augmenting/tools"
-import { Augment, AugmentCategory, AugmentStat } from "augmenting/types"
+import { Augment, AugmentStat } from "augmenting/types"
 import { writeFileJson } from "./common"
 import { getSheetRows } from "./google"
 
 interface DataSheetRow {
   baseName: string
-  category: AugmentCategory
+  category: string
   icon: AugmentImageType
   tier: string
   bp: string

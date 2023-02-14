@@ -1,5 +1,7 @@
 import { AugmentImageType } from "./images/augment"
 import { BigNumber } from "mathjs"
+import { allAugments } from "./data/augments"
+import { uniq } from "lodash"
 
 export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
 export type AugmentableSlot = typeof augmentSlots[number]
@@ -59,31 +61,25 @@ export const allAugmentStats: (keyof AugmentStat)[] = [
   "damageResist",
 ]
 
-// Arranged such that it's nice to use
-export const allAugmentCategories = [
-  "unknown",
-  "might",
-  "precision",
-  "technique",
-  "addi",
-  "domina",
-  "dread",
-  "dualble",
-  "element",
-  "fusia",
-  "gigas",
-  "note",
-  "secreta",
-  "soul",
-  "tria",
-  "ward",
-] as const
+const allAugmentCategoriesSort = ["unknown", "might", "precision", "technique"]
 
-export type AugmentCategory = typeof allAugmentCategories[number]
+const sortAugmentCategory = (a: string, b: string): number => {
+  const indexA = allAugmentCategoriesSort.indexOf(a)
+  const indexB = allAugmentCategoriesSort.indexOf(b)
+  if (indexA === -1 && indexB === -1) return a.localeCompare(b)
+  if (indexA === -1) return 1
+  if (indexB === -1) return -1
+  return indexA - indexB
+}
+
+// Arranged such that it's nice to use
+export const allAugmentCategories = uniq(
+  allAugments.map((a) => a.category),
+).sort(sortAugmentCategory)
 
 export interface Augment {
   name: string
-  category: AugmentCategory
+  category: string
   icon: AugmentImageType
   tier?: number
   baseName?: string
