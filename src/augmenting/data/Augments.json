@@ -3543,6 +3543,7 @@
     "icon": "special",
     "rate": 7,
     "stat": {
+      "bp": 12,
       "hp": 15,
       "pp": 5,
       "potency": 4
@@ -3556,6 +3557,7 @@
     "tier": 2,
     "rate": 8,
     "stat": {
+      "bp": 8,
       "hp": 5,
       "pp": 2,
       "potency": 2
@@ -3569,6 +3571,7 @@
     "tier": 3,
     "rate": 8,
     "stat": {
+      "bp": 10,
       "hp": 5,
       "pp": 2,
       "potency": 2.5
@@ -3582,6 +3585,7 @@
     "tier": 4,
     "rate": 8,
     "stat": {
+      "bp": 11,
       "hp": 5,
       "pp": 2,
       "potency": 3

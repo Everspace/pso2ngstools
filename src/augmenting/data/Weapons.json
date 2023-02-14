@@ -777,5 +777,24 @@
     },
     "varianceLow": 50,
     "varianceHigh": null
+  },
+  "Neos Justitean": {
+    "name": "Neos Justitean",
+    "level": 70,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "grindValues": {
+      "0": 445,
+      "10": 475,
+      "20": 505,
+      "30": 535,
+      "40": 570,
+      "50": 610,
+      "60": 671
+    },
+    "varianceLow": 50,
+    "varianceHigh": null,
+    "element": "Light"
   }
 }
