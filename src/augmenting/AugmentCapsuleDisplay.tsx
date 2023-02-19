@@ -1,20 +1,21 @@
 import { SingleAugmentDisplay } from "./AugmentCapsuleDisplay/SingleAugmentLine"
 import { MultiAugmentDisplay } from "./AugmentCapsuleDisplay/MultiAugmentLine"
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Stack,
-  Typography,
-} from "@mui/material"
+import { Box, Paper, Stack, Typography } from "@mui/material"
 import { AugmentSearch } from "./AugmentCapsuleDisplay/AugmentSearch"
 import { augmentGroupsAtom } from "./AugmentCapsuleDisplay/augmentSearchState"
 import { useAtomValue } from "jotai/react"
 import { Augment } from "./types"
-import { ExpandMore } from "@mui/icons-material"
 
 function CapsuleList() {
   const augmentGroups = useAtomValue(augmentGroupsAtom)
+
+  if (augmentGroups.length === 0) {
+    return (
+      <Typography mt={2} mx={2}>
+        Nothing Found.
+      </Typography>
+    )
+  }
 
   return (
     <Stack>
@@ -34,14 +35,14 @@ function CapsuleList() {
 
 export function AugmentCapsuleDisplay() {
   return (
-    <Accordion TransitionProps={{ unmountOnExit: true, timeout: 500 }}>
-      <AccordionSummary expandIcon={<ExpandMore />}>
+    <Paper>
+      <Stack gap={2} p={2}>
         <Typography variant="h5">Augment Search</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <AugmentSearch />
-        <CapsuleList />
-      </AccordionDetails>
-    </Accordion>
+        <Box>
+          <AugmentSearch />
+          <CapsuleList />
+        </Box>
+      </Stack>
+    </Paper>
   )
 }
