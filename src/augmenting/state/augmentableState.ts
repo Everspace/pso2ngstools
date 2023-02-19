@@ -49,7 +49,10 @@ export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
     if (augment.category !== "unknown") {
       newState = newState.filter((a) => a.category !== augment.category)
     }
-    newState = newState.filter((a) => a.baseName !== augment.baseName)
+    // If this augment is part of a line of augments...
+    if (augment.baseName) {
+      newState = newState.filter((a) => a.baseName !== augment.baseName)
+    }
 
     // If i'm in the last box, then I want to replace
     if (newState.length === max) {
