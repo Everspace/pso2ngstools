@@ -2620,7 +2620,8 @@
     "icon": "might",
     "rate": 8,
     "stat": {
-      "bp": 9
+      "bp": 9,
+      "meleePotency": 2
     }
   },
   {
@@ -2630,7 +2631,8 @@
     "icon": "technique",
     "rate": 8,
     "stat": {
-      "bp": 9
+      "bp": 9,
+      "rangedPotency": 2
     }
   },
   {
@@ -2640,7 +2642,8 @@
     "icon": "precision",
     "rate": 8,
     "stat": {
-      "bp": 9
+      "bp": 9,
+      "techPotency": 2
     }
   },
   {
@@ -2793,7 +2796,8 @@
     "stat": {
       "bp": 11,
       "hp": 10,
-      "pp": 3
+      "pp": 3,
+      "meleePotency": 3
     }
   },
   {
@@ -2806,7 +2810,8 @@
     "stat": {
       "bp": 11,
       "hp": 10,
-      "pp": 3
+      "pp": 3,
+      "rangedPotency": 3
     }
   },
   {
@@ -2819,7 +2824,8 @@
     "stat": {
       "bp": 11,
       "hp": 10,
-      "pp": 3
+      "pp": 3,
+      "techPotency": 3
     }
   },
   {
