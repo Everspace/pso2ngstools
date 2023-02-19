@@ -3,6 +3,7 @@ import {
   AutocompleteChangeReason,
   Box,
   createFilterOptions,
+  FilterOptionsState,
   Grid,
   TextField,
 } from "@mui/material"
@@ -18,6 +19,7 @@ import useTransitionedAtom from "hooks/useTransitionedAtom"
 import { atom } from "jotai"
 import { atomFamily } from "jotai/utils"
 import { useAtomValue } from "jotai/react"
+import { compare } from "mathjs"
 
 type AugmentLineProps = {
   augment?: Augment
@@ -33,9 +35,18 @@ function augmentEqual(a: Augment, b: Augment) {
   return a.name === b.name
 }
 
-const filteropts = createFilterOptions<Augment>({
+const defaultFilter = createFilterOptions<Augment>({
   stringify: augmentToName,
 })
+
+type Filterer<T> = (options: T[], state: FilterOptionsState<T>) => T[]
+const filterer: Filterer<Augment> = (options, state) => {
+  if (state.inputValue.trim() === "") return []
+  return defaultFilter(options, state)
+    .sort((a, b) => compare(a.stat.bp ?? 0, b.stat.bp ?? 0) as number)
+    .reverse()
+    .slice(0, 20)
+}
 
 const updateAugmentAtom = atomFamily((params: AugmentLineProps) => {
   const { number, slot } = params
@@ -78,7 +89,7 @@ function AugmentLine({ augment, number, slot }: AugmentLineProps) {
       filterSelectedOptions
       options={allAugments}
       value={augment || null}
-      filterOptions={filteropts}
+      filterOptions={filterer}
       isOptionEqualToValue={augmentEqual}
       onChange={(_, v, reason) => handleChange({ v, reason })}
       renderOption={(props, option) => (
