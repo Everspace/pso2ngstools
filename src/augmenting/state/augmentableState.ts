@@ -1,6 +1,6 @@
 import { sumAugmentStats, augmentifyUnit } from "augmenting/tools"
 import { atom } from "jotai"
-import { atomFamily, atomWithHash } from "jotai/utils"
+import { atomFamily } from "jotai/utils"
 import { allAugments } from "../data/augments"
 import {
   Augment,
@@ -11,6 +11,7 @@ import {
   Weapon,
 } from "../types"
 import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
+import { atomWithHash } from "jotai-location"
 
 const revivify = (names: string[]): Augment[] => {
   return names
@@ -28,7 +29,7 @@ const augmentSlotToHash: Record<AugmentableSlot, string> = {
 export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   const id = augmentSlotToHash[slot]
   return atomWithHash<Augment[]>(id, [], {
-    replaceState: true,
+    setHash: "replaceState",
     serialize(val) {
       return JSON.stringify(val.map((a) => a.name))
     },
@@ -40,7 +41,7 @@ export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
 
 export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
-  return atom<undefined, Augment>(undefined, async (get, set, augment) => {
+  return atom(null, (get, set, augment: Augment) => {
     const max = get(augmentsPerSlotAtom)
     const prior = get(targetAtom)
     let newState: Augment[] = [...prior]
@@ -48,34 +49,37 @@ export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
     if (augment.category !== "unknown") {
       newState = newState.filter((a) => a.category !== augment.category)
     }
-    newState.push(augment)
+    newState = newState.filter((a) => a.baseName !== augment.baseName)
 
-    if (newState.length > max) {
-      set(targetAtom, prior)
-      return prior
+    // If i'm in the last box, then I want to replace
+    if (newState.length === max) {
+      newState.pop()
     }
+    newState.push(augment)
 
     newState = newState.sort((a, b) => a.name.localeCompare(b.name))
     set(targetAtom, newState)
-    return newState
+    return
   })
 })
 
 export const removeAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
-  return atom<undefined, Augment>(undefined, async (_, set, augment) => {
+  return atom(null, (_, set, augment: Augment) => {
     set(targetAtom, (prior) => prior.filter((c) => c.name !== augment.name))
+    return
   })
 })
 
 export const clearAugmentFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
-  return atom<undefined, any>(undefined, async (_, set) => {
+  return atom(null, (_, set) => {
     set(targetAtom, () => [])
+    return
   })
 })
 
-export const allAugmentsAtom = atom(async (get) =>
+export const allAugmentsAtom = atom((get) =>
   augmentSlots.flatMap((n) => get(augmentableFamily(n))),
 )
 

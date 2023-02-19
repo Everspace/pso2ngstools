@@ -9,7 +9,7 @@ import {
 } from "@mui/material"
 import { NumberInput } from "components/NumberInput"
 import { ClassIcon } from "icons"
-import { useAtomValue } from "jotai/utils"
+import { useAtomValue } from "jotai/react"
 import { ChangeClassDropdown } from "./ChangeClassDropdown"
 import {
   classNameAtom,

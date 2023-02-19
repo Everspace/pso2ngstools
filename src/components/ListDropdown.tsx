@@ -15,7 +15,7 @@ type ListDropdownProps<
   label: string
   atom:
     | PrimitiveAtom<AtomType>
-    | WritableAtom<AtomType, SetStateAction<AtomType>, void>
+    | WritableAtom<AtomType, [SetStateAction<AtomType>], void>
   options: OptionType[]
   handleUpdate: (value: string, prior: AtomType) => AtomType
 }

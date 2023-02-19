@@ -9,7 +9,7 @@ import {
 } from "@mui/material"
 import { AugmentSearch } from "./AugmentCapsuleDisplay/AugmentSearch"
 import { augmentGroupsAtom } from "./AugmentCapsuleDisplay/augmentSearchState"
-import { useAtomValue } from "jotai/utils"
+import { useAtomValue } from "jotai/react"
 import { Augment } from "./types"
 import { ExpandMore } from "@mui/icons-material"
 

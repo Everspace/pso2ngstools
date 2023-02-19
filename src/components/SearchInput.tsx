@@ -8,7 +8,7 @@ interface SearchInputProps {
   Icon?: React.ElementType
   label?: string
   placeholder?: string
-  atom: WritableAtom<string, string | typeof RESET>
+  atom: WritableAtom<string, [string | typeof RESET], void>
 }
 
 export function SearchInput({

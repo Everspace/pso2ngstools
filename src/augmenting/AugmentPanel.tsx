@@ -10,7 +10,7 @@ import { useAllAugments } from "./useAllAugments"
 import { CharacterBPDisplay } from "./CharacterDisplay"
 import { WeaponDisplay } from "./AugmentableDisplay/WeaponDisplay"
 import { UnitDisplay } from "./AugmentableDisplay/UnitDisplay"
-import { useAtomValue } from "jotai/utils"
+import { useAtomValue } from "jotai/react"
 import { weaponStateAtom } from "./state/equipmentState"
 import { rangeFromWeaponAugments, sumAugmentStats, WeaponRange } from "./tools"
 import { SxProps, Theme } from "@mui/system"
@@ -74,8 +74,8 @@ export default function AugmentPanel() {
       <Box>
         <Typography variant="h3">Augmenting</Typography>
         <Typography variant="subtitle1">Total: {bp} BP</Typography>
-        <Button onClick={randomizeAllAugments}>Randomize</Button>
-        <Button color="error" onClick={clearAllAugments}>
+        <Button onClick={() => randomizeAllAugments()}>Randomize</Button>
+        <Button color="error" onClick={() => clearAllAugments()}>
           Clear All
         </Button>
       </Box>

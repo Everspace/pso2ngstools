@@ -15,8 +15,9 @@ import {
 import { augmentsPerSlotAtom } from "augmenting/state/equipmentState"
 import { Augment, AugmentableSlot } from "augmenting/types"
 import useTransitionedAtom from "hooks/useTransitionedAtom"
-import { atom, WritableAtom } from "jotai"
-import { atomFamily, useAtomValue } from "jotai/utils"
+import { atom } from "jotai"
+import { atomFamily } from "jotai/utils"
+import { useAtomValue } from "jotai/react"
 
 type AugmentLineProps = {
   augment?: Augment
@@ -36,31 +37,31 @@ const filteropts = createFilterOptions<Augment>({
   stringify: augmentToName,
 })
 
-const updateAugmentAtom = atomFamily<
-  AugmentLineProps,
-  WritableAtom<
-    undefined,
-    { v: Augment | null; reason: AutocompleteChangeReason }
-  >
->((params) => {
+const updateAugmentAtom = atomFamily((params: AugmentLineProps) => {
   const { number, slot } = params
   const augmentsAtom = augmentableFamily(slot)
   const removeAtom = removeAugmentAtomFamily(slot)
   const addAtom = addAugmentAtomFamily(slot)
-  return atom<
-    undefined,
-    { v: Augment | null; reason: AutocompleteChangeReason }
-  >(undefined, (get, set, update) => {
-    const { v, reason } = update
-    const augment = get(augmentsAtom)[number]
-    switch (reason) {
-      case "clear":
-      case "removeOption":
-        return augment && set(removeAtom, augment)
-    }
-    if (augment) set(addAtom, augment)
-    if (v) set(addAtom, v)
-  })
+  return atom(
+    null,
+    (
+      get,
+      set,
+      update: { v: Augment | null; reason: AutocompleteChangeReason },
+    ) => {
+      const { v, reason } = update
+      const augment = get(augmentsAtom)[number]
+      console.log(reason, v)
+      switch (reason) {
+        case "clear":
+          return set(removeAtom, augment)
+        case "removeOption":
+          return augment && set(removeAtom, augment)
+        case "selectOption":
+          if (v) set(addAtom, v)
+      }
+    },
+  )
 })
 
 function AugmentLine({ augment, number, slot }: AugmentLineProps) {

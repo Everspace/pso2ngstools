@@ -1,5 +1,5 @@
-import { atom, PrimitiveAtom } from "jotai"
-import { atomFamily, atomWithHash } from "jotai/utils"
+import { atom } from "jotai"
+import { atomFamily } from "jotai/utils"
 import { allUnits } from "../data/armours"
 import { allWeapons } from "../data/weapons"
 import {
@@ -17,6 +17,7 @@ import {
   DEFAULT_WEAPON,
   MAX_GRIND,
 } from "../data/consts"
+import { atomWithHash } from "jotai-location"
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1",
@@ -36,13 +37,13 @@ const augmentsPerSlotRawAtom = atomWithHash(
   "slots",
   DEFAULT_AUGMENTS_PER_SLOT,
   {
-    replaceState: true,
+    setHash: "replaceState",
   },
 )
 
-export const augmentsPerSlotAtom = atom<number, number>(
+export const augmentsPerSlotAtom = atom(
   (get) => get(augmentsPerSlotRawAtom),
-  async (get, set, update) => {
+  async (get, set, update: number) => {
     augmentSlots.map(augmentableFamily).forEach((a) => {
       const val = get(a)
       set(a, val.slice(0, update))
@@ -53,14 +54,14 @@ export const augmentsPerSlotAtom = atom<number, number>(
 
 export const grindStateFamily = atomFamily((slot: AugmentableSlot) =>
   atomWithHash(grindStateSlotToHash[slot], MAX_GRIND, {
-    replaceState: true,
+    setHash: "replaceState",
   }),
 )
 
 export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
   return atomWithHash<Unit>(id, DEFAULT_UNIT, {
-    replaceState: true,
+    setHash: "replaceState",
     serialize(unit) {
       return unit.name
     },
@@ -74,7 +75,7 @@ export const weaponStateAtom = atomWithHash<Weapon>(
   slotToHash["weapon"],
   DEFAULT_WEAPON,
   {
-    replaceState: true,
+    setHash: "replaceState",
     serialize(weapon) {
       return weapon.name
     },
@@ -85,13 +86,10 @@ export const weaponStateAtom = atomWithHash<Weapon>(
 )
 
 export const weaponPotentialAtom = atomWithHash("wp", 3, {
-  replaceState: true,
+  setHash: "replaceState",
 })
 
-export const equipStateFamily = atomFamily<
-  AugmentableSlot,
-  PrimitiveAtom<Weapon> | PrimitiveAtom<Unit>
->((slot: AugmentableSlot) => {
+export const equipStateFamily = atomFamily((slot: AugmentableSlot) => {
   if (slot === "weapon") return weaponStateAtom
   return unitStateFamily(slot)
 })
@@ -101,9 +99,9 @@ export type CopyAugmentAtomOptions = {
   to: AugmentableSlot | "units" | "all"
 }
 
-export const mirrorUnitAtom = atom<void, UnitSlot>(
+export const mirrorUnitAtom = atom(
   undefined,
-  async (get, set, slot) => {
+  async (get, set, slot: UnitSlot) => {
     const fromAugmentable = get(augmentableFamily(slot))
     const fromUnit = get(unitStateFamily(slot))
     const fromGrind = get(grindStateFamily(slot))
@@ -118,9 +116,9 @@ export const mirrorUnitAtom = atom<void, UnitSlot>(
   },
 )
 
-export const copyAugmentAtom = atom<void, CopyAugmentAtomOptions>(
-  undefined,
-  async (get, set, { from, to }) => {
+export const copyAugmentAtom = atom(
+  null,
+  (get, set, { from, to }: CopyAugmentAtomOptions) => {
     const fromAugments = get(augmentableFamily(from))
     let targetSlots: AugmentableSlot[] = []
     switch (to) {

@@ -7,21 +7,15 @@ import { MAX_AUGMENTS_PER_SLOT } from "./data/consts"
 import { augmentableFamily } from "./state/augmentableState"
 import { Augment, augmentSlots } from "./types"
 
-const setAllUnitsAtom = atom<any, Augment[], any>(
-  undefined,
-  (get, set, update) => {
-    augmentSlots.map((name) => set(augmentableFamily(name), update))
-  },
-)
+const setAllUnitsAtom = atom(null, (_get, set, update: Augment[]) => {
+  augmentSlots.map((name) => set(augmentableFamily(name), update))
+})
 
-const clearAllAugmentsAtom = atom<void, any, any>(
-  undefined,
-  (get, set, update) => {
-    augmentSlots.map((name) => set(augmentableFamily(name), RESET))
-  },
-)
+const clearAllAugmentsAtom = atom(null, (_get, set) => {
+  augmentSlots.map((name) => set(augmentableFamily(name), RESET))
+})
 
-const randomizeAllAugmentsAtom = atom<any, any, void>(undefined, (get, set) => {
+const randomizeAllAugmentsAtom = atom(null, (_get, set) => {
   const categories = sampleSize(
     Object.keys(augmentByCategory),
     MAX_AUGMENTS_PER_SLOT,

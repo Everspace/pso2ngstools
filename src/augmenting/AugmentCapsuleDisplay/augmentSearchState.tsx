@@ -7,7 +7,7 @@ import {
   Augment,
   AugmentStat,
 } from "augmenting/types"
-import { atom, WritableAtom } from "jotai"
+import { atom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
 import { groupBy } from "lodash"
 import { isNaN, bignumber } from "mathjs"
@@ -21,15 +21,11 @@ export const augmentCategoryStateFamilyAtom = atomFamily((category: string) =>
   atom(false),
 )
 
-export const searchStatFamilyAtom = atomFamily<
-  keyof AugmentStat,
-  WritableAtom<string, string | typeof RESET>
->(
-  () => atomWithReset(""),
-  (a, b) => a === b,
+export const searchStatFamilyAtom = atomFamily((key: keyof AugmentStat) =>
+  atomWithReset(""),
 )
 
-export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
+export const searchStatAtom = atom(
   (get) => {
     const stat = Object.fromEntries(
       allAugmentStats
@@ -52,7 +48,7 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
     ) as AugmentStat
     return stat
   },
-  (get, set, update) => {
+  (_get, set, update: AugmentStat | typeof RESET) => {
     if (update === RESET) {
       return Promise.all(
         allAugmentStats.map(searchStatFamilyAtom).map(async (atom) => {
@@ -69,7 +65,7 @@ export const searchStatAtom = atom<AugmentStat, AugmentStat | typeof RESET>(
 )
 
 export const searchNameAtom = atomWithReset("")
-const availableAugmentsAtom = atom<Augment[]>((get) => {
+const availableAugmentsAtom = atom((get) => {
   const activeCategories = allAugmentCategories.map((s) => ({
     category: s,
     active: get(augmentCategoryStateFamilyAtom(s)),

@@ -1,13 +1,13 @@
 import { Replay } from "@mui/icons-material"
 import { InputAdornment, IconButton, TextField } from "@mui/material"
-import { PrimitiveAtom, useAtom, WritableAtom } from "jotai"
+import { useAtom, WritableAtom } from "jotai"
 import { debounce } from "lodash"
 import { WithSx } from "pureTypes"
 import React, { useState, useMemo } from "react"
 
 type BaseNumberInputDropdownProps = {
   label: string
-  atom: PrimitiveAtom<number> | WritableAtom<number, number>
+  atom: WritableAtom<number, [number], void>
   max?: number
   step?: number
   min?: number
@@ -33,7 +33,7 @@ export function NumberInput({
   ...otherProps
 }: NumberInputDropdownProps) {
   // Have to specify typing here for some reason
-  const [value, setValue] = useAtom<number, number, void>(atom)
+  const [value, setValue] = useAtom(atom)
   const [field, setField] = useState(value.toString())
 
   const error = Number.isNaN(Number(field))

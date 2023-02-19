@@ -15,13 +15,13 @@ import {
   removeAugmentAtomFamily,
 } from "augmenting/state/augmentableState"
 
-import { atomFamily, useAtomValue } from "jotai/utils"
-import { atom } from "jotai"
+import { atomFamily } from "jotai/utils"
+import { atom, useAtomValue } from "jotai"
 import useTransitionedAtom from "hooks/useTransitionedAtom"
 
 type TakesAugment = { augment: Augment }
 
-const atomAddToUnits = atom<void, Augment>(undefined, (get, set, update) => {
+const atomAddToUnits = atom(null, (_get, set, update: Augment) => {
   unitSlots.map(addAugmentAtomFamily).map((a) => set(a, update))
 })
 
@@ -47,11 +47,11 @@ const useAddToUnitsButton = (augment: Augment) => {
   }
 }
 
-const atomAddToAll = atom<void, Augment>(undefined, (get, set, update) => {
+const atomAddToAll = atom(null, (_get, set, update: Augment) => {
   augmentSlots.map(addAugmentAtomFamily).map((a) => set(a, update))
 })
 
-const atomRemoveFromAll = atom<void, Augment>(undefined, (get, set, update) => {
+const atomRemoveFromAll = atom(null, (_get, set, update: Augment) => {
   augmentSlots.map(removeAugmentAtomFamily).map((a) => set(a, update))
 })
 
@@ -81,7 +81,7 @@ const isExistantAtom = atomFamily(
 )
 
 const toggleOnAugmentSlotAtom = atomFamily((slot: AugmentableSlot) =>
-  atom<undefined, Augment>(undefined, (get, set, augment) => {
+  atom(null, (get, set, augment: Augment) => {
     const isExistant = get(isExistantAtom({ slot, augment }))
     const optAtom = isExistant ? removeAugmentAtomFamily : addAugmentAtomFamily
     set(optAtom(slot), augment)

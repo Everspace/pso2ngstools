@@ -18,7 +18,7 @@ import {
   clearAugmentFamily,
   sumEquipStats,
 } from "augmenting/state/augmentableState"
-import { useAtomValue } from "jotai/utils"
+import { useAtomValue } from "jotai/react"
 import { CopyAugmentButton } from "./CopyAugmentButton"
 import useTransitionedAtom from "hooks/useTransitionedAtom"
 import { Suspense } from "react"
@@ -129,7 +129,7 @@ export function AugmentibleDisplay({
                   <Button
                     sx={{ float: "right" }}
                     color="error"
-                    onClick={clearAugments}
+                    onClick={() => clearAugments()}
                   >
                     Clear Augments
                   </Button>

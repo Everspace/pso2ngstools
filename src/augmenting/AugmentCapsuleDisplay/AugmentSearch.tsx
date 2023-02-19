@@ -21,7 +21,7 @@ import { useCallback } from "react"
 import { augmentStatToDisplayInfo } from "augmenting/info"
 import { allAugmentCategories, AugmentStat } from "augmenting/types"
 import { Replay } from "@mui/icons-material"
-import { useResetAtom } from "jotai/utils"
+import { RESET } from "jotai/utils"
 
 type AugmentStatFieldSearchProps = {
   stat: keyof AugmentStat
@@ -79,11 +79,11 @@ function AugmentSearchCategoryButton({
 
 const allCatAtoms = allAugmentCategories.map(augmentCategoryStateFamilyAtom)
 
-const allActive = atom<boolean, boolean>(
+const allActive = atom(
   (get) => {
     return allCatAtoms.map(get).every((b) => b)
   },
-  (get, set, update) => {
+  (get, set, update: boolean) => {
     allCatAtoms.forEach((a) => set(a, update))
   },
 )
@@ -196,7 +196,8 @@ export function AugmentSearch() {
 }
 
 function AugmentStatSearchHeader() {
-  const resetSearch = useResetAtom(searchStatAtom)
+  const doAtom = useSetAtom(searchStatAtom)
+  const resetSearch = () => doAtom(RESET)
   return (
     <Grid container>
       <Grid item>

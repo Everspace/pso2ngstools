@@ -1,14 +1,21 @@
-import { WritableAtom } from "jotai"
+import { ExtractAtomArgs, PrimitiveAtom } from "jotai"
 import { useTransition } from "react"
-import { useUpdateAtom } from "jotai/utils"
+import { useSetAtom } from "jotai"
 
 /**
  * useUpdate
  */
-export default function useTransitionedAtom<Value, Update>(
-  atom: WritableAtom<Value, Update>,
-): [boolean, (v: Update) => void] {
-  const func = useUpdateAtom(atom)
+export default function useTransitionedAtom<T extends PrimitiveAtom<any>>(
+  atom: T,
+): [
+  boolean,
+  (v: ExtractAtomArgs<T> | ExtractAtomArgs<T>[number] | void) => void,
+] {
+  const func = useSetAtom(atom)
   const [pending, startTransition] = useTransition()
-  return [pending, (v: Update) => startTransition(() => func(v))]
+  return [
+    pending,
+    (v: ExtractAtomArgs<T> | ExtractAtomArgs<T>[number] | void) =>
+      startTransition(() => func(v)),
+  ]
 }
