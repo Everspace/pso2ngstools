@@ -1,3 +1,4 @@
+import { NextPage } from "next/types"
 import {
   Typography,
   Card,
@@ -5,21 +6,22 @@ import {
   CardContent,
   Grid,
 } from "@mui/material"
-import { PropsWithChildren, ReactText, useCallback } from "react"
-
-import { useNavigate } from "react-router"
+import { PropsWithChildren, ReactFragment, useCallback } from "react"
+import { useRouter } from "next/router"
+import Container from "Layout"
 
 type LinkProps = PropsWithChildren<{
   to: string
   title: string
-  children: ReactText
+  children: ReactFragment
 }>
 
 function DisplayLink({ to, title, children }: LinkProps) {
-  const navigate = useNavigate()
+  const router = useRouter()
   const nav = useCallback(() => {
-    navigate(to)
-  }, [to, navigate])
+    router.push(to)
+  }, [to, router])
+
   return (
     <Grid item xs={4}>
       <Card onClick={nav}>
@@ -38,15 +40,19 @@ function DisplayLink({ to, title, children }: LinkProps) {
   )
 }
 
-export function HomePage() {
+const HomePage: NextPage = () => {
   return (
-    <Grid container spacing={1}>
-      <Grid item xs={12}>
-        <Typography>Here's a bunch of neat things I have made</Typography>
+    <Container>
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <Typography>Here's a bunch of neat things I have made</Typography>
+        </Grid>
+        <DisplayLink to="/augment" title="Augment Calculator">
+          Figure out your BP, and stats
+        </DisplayLink>
       </Grid>
-      <DisplayLink to="/augment" title="Augment Calculator">
-        Figure out your BP, and stats
-      </DisplayLink>
-    </Grid>
+    </Container>
   )
 }
+
+export default HomePage

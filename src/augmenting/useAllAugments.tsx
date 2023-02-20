@@ -1,5 +1,4 @@
-import useTransitionedAtom from "hooks/useTransitionedAtom"
-import { atom } from "jotai"
+import { atom, useSetAtom } from "jotai"
 import { RESET } from "jotai/utils"
 import { sample, sampleSize } from "lodash"
 import { augmentByCategory } from "./data/augments"
@@ -27,9 +26,8 @@ const randomizeAllAugmentsAtom = atom(null, (_get, set) => {
 })
 
 export function useAllAugments() {
-  const [, randomizeAllAugments] = useTransitionedAtom(randomizeAllAugmentsAtom)
-
-  const [, clearAllAugments] = useTransitionedAtom(clearAllAugmentsAtom)
+  const randomizeAllAugments = useSetAtom(randomizeAllAugmentsAtom)
+  const clearAllAugments = useSetAtom(clearAllAugmentsAtom)
 
   return {
     randomizeAllAugments,

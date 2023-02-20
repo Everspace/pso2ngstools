@@ -12,6 +12,7 @@ import {
 } from "../types"
 import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
 import { atomWithHash } from "jotai-location"
+import { subscribeToRouter } from "atomTools"
 
 const revivify = (names: string[]): Augment[] => {
   return names
@@ -29,6 +30,7 @@ const augmentSlotToHash: Record<AugmentableSlot, string> = {
 export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   const id = augmentSlotToHash[slot]
   return atomWithHash<Augment[]>(id, [], {
+    subscribe: subscribeToRouter,
     setHash: "replaceState",
     serialize(val) {
       return JSON.stringify(val.map((a) => a.name))
@@ -95,7 +97,7 @@ export function sumEquipStats(equip: Weapon | Unit, augments: Augment[]) {
   return sumAugmentStats(toSum)
 }
 
-export const allAugmentableSlotStatSum = atom(async (get) => {
+export const allAugmentableSlotStatSum = atom((get) => {
   const augments = get(allAugmentsAtom)
   const unitAugs = unitSlots
     .map(unitStateFamily)
@@ -105,6 +107,6 @@ export const allAugmentableSlotStatSum = atom(async (get) => {
 })
 
 // TODO: handle displaying that there is missing bp from the calculation
-export const hasUnknownBpAug = atom(async (get) =>
+export const hasUnknownBpAug = atom((get) =>
   get(allAugmentsAtom).every((v) => v.stat.bp !== undefined),
 )

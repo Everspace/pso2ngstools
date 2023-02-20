@@ -4,6 +4,7 @@ import { augmentImageFromType } from "../images/augment"
 import { useState, useEffect } from "react"
 import { Augment } from "augmenting/types"
 import { augmentTierToRoman } from "augmenting/tools"
+import Image from "next/image"
 
 interface MultiAugmentDisplayProps {
   augments: [Augment, ...Augment[]]
@@ -17,7 +18,7 @@ export function AugmentCapsuleImage({ augment }: AugmentCapsuleImageProps) {
   const icon = augmentImageFromType[augment.icon]
 
   return (
-    <img
+    <Image
       alt={`${augment.icon} icon`}
       style={{ display: "block", width: "100%", height: "auto" }}
       src={icon}

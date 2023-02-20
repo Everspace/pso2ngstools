@@ -5,12 +5,12 @@ import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
 import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
 import { ImageIcon, Icon } from "components/Icon"
 
-export const MeleeIcon: Icon = (props) => (
-  <ImageIcon src={SATKIconRaw} {...props} />
-)
+export const MeleeIcon: Icon = (props) => {
+  return <ImageIcon {...props} alt="MATK" src={SATKIconRaw} />
+}
 
 export const TechIcon: Icon = (props) => (
-  <ImageIcon src={TATKIconRaw} {...props} />
+  <ImageIcon {...props} alt="TATK" src={TATKIconRaw} />
 )
 
 export const AllAttackIcons: Icon = (props) => (
@@ -22,13 +22,13 @@ export const AllAttackIcons: Icon = (props) => (
 )
 
 export const RangeIcon: Icon = (props) => (
-  <ImageIcon src={RATKIconRaw} {...props} />
+  <ImageIcon {...props} alt="" src={RATKIconRaw} />
 )
 
 export const ATKOutlineIcon: Icon = (props) => (
-  <ImageIcon src={ATKOutlineIconRaw} {...props} />
+  <ImageIcon {...props} alt="" src={ATKOutlineIconRaw} />
 )
 
 export const DEFOutlineIcon: Icon = (props) => (
-  <ImageIcon src={DEFOutlineIconRaw} {...props} />
+  <ImageIcon {...props} alt="" src={DEFOutlineIconRaw} />
 )

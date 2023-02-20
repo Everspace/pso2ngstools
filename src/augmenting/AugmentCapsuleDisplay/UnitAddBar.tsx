@@ -16,8 +16,7 @@ import {
 } from "augmenting/state/augmentableState"
 
 import { atomFamily } from "jotai/utils"
-import { atom, useAtomValue } from "jotai"
-import useTransitionedAtom from "hooks/useTransitionedAtom"
+import { atom, useAtomValue, useSetAtom } from "jotai"
 
 type TakesAugment = { augment: Augment }
 
@@ -26,7 +25,7 @@ const atomAddToUnits = atom(null, (_get, set, update: Augment) => {
 })
 
 function useAddToAllUnits(augment: Augment) {
-  const [, addToAll] = useTransitionedAtom(atomAddToAll)
+  const addToAll = useSetAtom(atomAddToAll)
   return useMemo(() => () => addToAll(augment), [addToAll, augment])
 }
 
@@ -35,7 +34,7 @@ const allUnitAugments = atom((get) =>
 )
 
 const useAddToUnitsButton = (augment: Augment) => {
-  const [, add] = useTransitionedAtom(atomAddToUnits)
+  const add = useSetAtom(atomAddToUnits)
   const augments = useAtomValue(allUnitAugments)
 
   const addToUnits = useMemo(() => () => add(augment), [add, augment])
@@ -56,7 +55,7 @@ const atomRemoveFromAll = atom(null, (_get, set, update: Augment) => {
 })
 
 const useRemoveAllButton = (augment: Augment) => {
-  const [, remove] = useTransitionedAtom(atomRemoveFromAll)
+  const remove = useSetAtom(atomRemoveFromAll)
   const augments = useAtomValue(allAugmentsAtom)
   const removeAll = useMemo(() => () => remove(augment), [remove, augment])
 
@@ -93,7 +92,7 @@ function AugmentableSlotToggleButton({
   slot,
 }: TakesAugment & { slot: AugmentableSlot }) {
   const isExsitant = useAtomValue(isExistantAtom({ slot, augment }))
-  const [, toggle] = useTransitionedAtom(toggleOnAugmentSlotAtom(slot))
+  const toggle = useSetAtom(toggleOnAugmentSlotAtom(slot))
 
   const onClick = () => {
     toggle(augment)

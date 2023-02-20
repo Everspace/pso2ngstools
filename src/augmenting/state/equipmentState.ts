@@ -18,6 +18,7 @@ import {
   MAX_GRIND,
 } from "../data/consts"
 import { atomWithHash } from "jotai-location"
+import { subscribeToRouter } from "atomTools"
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1",
@@ -37,6 +38,7 @@ const augmentsPerSlotRawAtom = atomWithHash(
   "slots",
   DEFAULT_AUGMENTS_PER_SLOT,
   {
+    subscribe: subscribeToRouter,
     setHash: "replaceState",
   },
 )
@@ -54,6 +56,7 @@ export const augmentsPerSlotAtom = atom(
 
 export const grindStateFamily = atomFamily((slot: AugmentableSlot) =>
   atomWithHash(grindStateSlotToHash[slot], MAX_GRIND, {
+    subscribe: subscribeToRouter,
     setHash: "replaceState",
   }),
 )
@@ -61,6 +64,7 @@ export const grindStateFamily = atomFamily((slot: AugmentableSlot) =>
 export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
   return atomWithHash<Unit>(id, DEFAULT_UNIT, {
+    subscribe: subscribeToRouter,
     setHash: "replaceState",
     serialize(unit) {
       return unit.name
@@ -75,6 +79,7 @@ export const weaponStateAtom = atomWithHash<Weapon>(
   slotToHash["weapon"],
   DEFAULT_WEAPON,
   {
+    subscribe: subscribeToRouter,
     setHash: "replaceState",
     serialize(weapon) {
       return weapon.name
@@ -86,6 +91,7 @@ export const weaponStateAtom = atomWithHash<Weapon>(
 )
 
 export const weaponPotentialAtom = atomWithHash("wp", 3, {
+  subscribe: subscribeToRouter,
   setHash: "replaceState",
 })
 

@@ -1,3 +1,4 @@
+import { subscribeToRouter } from "atomTools"
 import { allClassData } from "augmenting/data/classes"
 import { ClassAbbreviation } from "augmenting/types"
 import { atom } from "jotai"
@@ -5,10 +6,12 @@ import { atomWithHash } from "jotai-location"
 import { MAX_LEVEL, MAX_SKILLPOINTS } from "../data/consts"
 
 export const classNameAtom = atomWithHash<ClassAbbreviation>("cls", "Hu", {
+  subscribe: subscribeToRouter,
   setHash: "replaceState",
 })
 
 const levelAtomRaw = atomWithHash("lv", MAX_LEVEL, {
+  subscribe: subscribeToRouter,
   setHash: "replaceState",
 })
 
@@ -30,5 +33,6 @@ export const classInfoAtom = atom((get) => {
 })
 
 export const skillpointAtom = atomWithHash("sp", MAX_SKILLPOINTS, {
+  subscribe: subscribeToRouter,
   setHash: "replaceState",
 })
