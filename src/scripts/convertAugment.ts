@@ -49,7 +49,7 @@ const translationTable: TranslationTable = {
   StatusResist: "statusResist",
 }
 
-export function handleAugmentRow(rawRow: any): Augment {
+export function handleAugmentRow(rawRow: unknown): Augment {
   const row = rawRow as DataSheetRow
   const {
     baseName,
@@ -106,8 +106,7 @@ export function handleAugmentRow(rawRow: any): Augment {
   const processedStats: AugmentStat = Object.fromEntries(
     (Object.entries(stats) as Array<[keyof TranslationTable, string]>)
       .filter(
-        ([name, value]) =>
-          value !== "" && value !== null && value !== undefined,
+        ([, value]) => value !== "" && value !== null && value !== undefined,
       )
       .map(([name, value]) => [translationTable[name], Number(value)]),
   )

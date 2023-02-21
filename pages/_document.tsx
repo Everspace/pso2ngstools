@@ -2,9 +2,13 @@ import Document, { Html, Head, Main, NextScript } from "next/document"
 import createEmotionServer from "@emotion/server/create-instance"
 import theme, { roboto } from "mui/theme"
 import { createEmotionCache } from "mui/createEmotionCache"
+import type App from "./_app"
 
 export default class MyDocument extends Document {
   render() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { emotionStyleTags } = this.props as unknown as any
+
     return (
       <Html lang="en" className={roboto.className}>
         <Head>
@@ -12,7 +16,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="shortcut icon" href="/NGSUIMSTIcon.png" />
           <meta name="emotion-insertion-point" content="" />
-          {(this.props as any).emotionStyleTags}
+          {emotionStyleTags}
         </Head>
         <body>
           <Main />
@@ -57,9 +61,10 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: any) =>
+      enhanceApp: (DefaultApp) =>
         function EnhanceApp(props) {
-          return <App emotionCache={cache} {...props} />
+          const MyApp = DefaultApp as typeof App
+          return <MyApp {...props} emotionCache={cache} />
         },
     })
 

@@ -67,8 +67,6 @@ export function getSkillpointBp(skillpoints: number): BigNumber {
   return zero.add(skillpoints).mul(6) // 3 per point, x2 for main and sub
 }
 
-export function getEquipBp(opts: WeaponBpOptions | UnitBpOptions) {}
-
 type BpTotalOptions = {
   character: ClassBpOptions
 

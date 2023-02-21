@@ -70,8 +70,7 @@ export function handleArmorRow(row: RecordSheet<DataSheetKeys>): UnitData {
   const processedStats: AugmentStat = Object.fromEntries(
     (Object.entries(stats) as Array<[keyof TranslationTable, string]>)
       .filter(
-        ([name, value]) =>
-          value !== "" && value !== null && value !== undefined,
+        ([, value]) => value !== "" && value !== null && value !== undefined,
       )
       .map(([name, value]) => [translationTable[name], Number(value)]),
   )
@@ -83,7 +82,9 @@ export function handleArmorRow(row: RecordSheet<DataSheetKeys>): UnitData {
 export async function doArmour() {
   const allArmours: Record<string, UnitData> = {}
   for await (const entry of await getSheetRows("Armour")) {
-    const armour = handleArmorRow(entry as any)
+    const armour = handleArmorRow(
+      entry as unknown as RecordSheet<DataSheetKeys>,
+    )
     allArmours[armour.name] = armour
   }
   writeFileJson(allArmours, "./src/augmenting/data/Armours.json")

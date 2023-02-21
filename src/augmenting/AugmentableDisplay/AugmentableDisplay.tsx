@@ -20,7 +20,6 @@ import {
 } from "augmenting/state/augmentableState"
 import { useAtomValue, useSetAtom } from "jotai/react"
 import { CopyAugmentButton } from "./CopyAugmentButton"
-import { Suspense } from "react"
 import {
   equipStateFamily,
   grindStateFamily,
@@ -62,7 +61,7 @@ function StatDisplay({ slot }: StatDisplayProps) {
   const equip = useAtomValue(equipStateFamily(slot))
   const augments = useAtomValue(augmentableFamily(slot))
 
-  let stat = sumEquipStats(equip, augments)
+  const stat = sumEquipStats(equip, augments)
 
   return (
     <Accordion

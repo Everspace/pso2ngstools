@@ -29,7 +29,7 @@ const Title = () => {
   )
 }
 
-const weaponInfo = () => {
+const useWeaponInfo = () => {
   const weapon = useAtomValue(weaponStateAtom)
   const weaponPotential = useAtomValue(weaponPotentialAtom)
   const weaponGrind = useAtomValue(grindStateFamily("weapon"))
@@ -40,7 +40,8 @@ const weaponInfo = () => {
     potential: weaponPotential,
   }
 }
-const unitInfo = (slot: UnitSlot) => {
+
+const useUnitInfo = (slot: UnitSlot) => {
   const unit = useAtomValue(unitStateFamily(slot))
   const grind = useAtomValue(grindStateFamily(slot))
   return `${unit.name}+${grind}`
@@ -51,8 +52,8 @@ const Description = () => {
   const stats = simplifyAugmentStat(rawStats)
   const lines: string[] = []
 
-  const weapon = weaponInfo()
-  const units = (["unit1", "unit2", "unit3"] as UnitSlot[]).map(unitInfo)
+  const weapon = useWeaponInfo()
+  const units = (["unit1", "unit2", "unit3"] as UnitSlot[]).map(useUnitInfo)
   lines.push(weapon.name)
   lines.push(units.join("/"))
   lines.push("")

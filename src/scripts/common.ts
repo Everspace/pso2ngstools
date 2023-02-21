@@ -15,7 +15,7 @@ export function limitToIndex(limit: string): number {
   return Math.floor(Number(limit) / 10)
 }
 
-export const toNumberOrNull = <T extends any>(what: T): number | null =>
+export const toNumberOrNull = <T>(what: T): number | null =>
   what === "" || what === undefined || what === null ? null : Number(what)
 
 export function grindRowToArray(row: HasGrindLevels): (number | null)[] {
@@ -25,7 +25,7 @@ export function grindRowToArray(row: HasGrindLevels): (number | null)[] {
     .map((entry) => toNumberOrNull(entry[1]))
 }
 
-export async function writeFileJson(data: any, dest: string) {
+export async function writeFileJson(data: unknown, dest: string) {
   const destFile = await fs.open(dest, "w")
   destFile.writeFile(JSON.stringify(data, null, 2))
   destFile.close()

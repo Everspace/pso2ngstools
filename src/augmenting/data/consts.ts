@@ -27,12 +27,12 @@ export {
 export const MAX_GRIND = grind as GrindLevel
 export const MAX_GRIND_LIMIT = limit as GrindLevel
 const weaponByLevel = Object.entries(allWeapons)
-  .sort(([_, a], [__, b]) => a.level - b.level)
+  .sort(([, a], [, b]) => a.level - b.level)
   .reverse()
 export const DEFAULT_WEAPON = weaponByLevel[0][1]
 
 const unitByLevel = Object.entries(allUnits)
-  .sort(([_, a], [__, b]) => a.level - b.level)
+  .sort(([, a], [, b]) => a.level - b.level)
   .reverse()
 export const DEFAULT_UNIT = unitByLevel[0][1]
 

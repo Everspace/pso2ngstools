@@ -41,7 +41,7 @@ export function AugmentStatDisplay({
   stat,
   simple = false,
 }: AugmentStatDisplayProps) {
-  let finalStat: AugmentStat | null = null
+  let finalStat: AugmentStat
 
   if (stat instanceof Array) {
     finalStat = sumAugmentStats(stat)
@@ -50,9 +50,9 @@ export function AugmentStatDisplay({
   }
 
   if (simple) finalStat = simplifyAugmentStat(finalStat)
-
-  const { hp, pp, bp, ...listableStats } = finalStat
-  let hpppLine: string[] = []
+  delete finalStat.bp
+  const { hp, pp, ...listableStats } = finalStat
+  const hpppLine: string[] = []
   if (hp && !hp.equals(zero)) {
     hpppLine.push(`HP: ${hp}`)
   }
@@ -73,7 +73,7 @@ export function AugmentStatDisplay({
           return (indexA > -1 ? indexA : 999) - (indexB > -1 ? indexB : 999)
         })
         .map((k) => {
-          const value = finalStat![k]
+          const value = finalStat[k]
           if (!value) return false
           return <StatItem key={k} statName={k} value={value} />
         })

@@ -54,7 +54,7 @@ export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
     setSelected(augments.length - 1)
   }, [setSelected, augments.length])
 
-  const group = augments[0].baseName!
+  const group = augments[0].baseName
   let augment = augments[selectedAugment]
 
   // When augments changes length
@@ -79,7 +79,7 @@ export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
             <SelectTiers
               selected={selectedAugment}
               onClick={setSelected}
-              tiers={augments.map((v) => v.tier!)}
+              tiers={augments.map((v) => v.tier ?? NaN)}
             />
           </Grid>
           <Grid item>{augment.stat.bp?.toNumber() ?? "??"} BP</Grid>

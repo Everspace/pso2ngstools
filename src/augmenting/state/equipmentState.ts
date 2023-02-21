@@ -126,7 +126,7 @@ export const copyAugmentAtom = atom(
   null,
   (get, set, { from, to }: CopyAugmentAtomOptions) => {
     const fromAugments = get(augmentableFamily(from))
-    let targetSlots: AugmentableSlot[] = []
+    const targetSlots: AugmentableSlot[] = []
     switch (to) {
       case "units":
         targetSlots.push(...unitSlots)

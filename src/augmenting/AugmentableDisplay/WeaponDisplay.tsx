@@ -36,7 +36,7 @@ function WeaponAutocomplete() {
   const weapon = useAtomValue(weaponStateAtom)
   const setWeaponState = useSetAtom(weaponStateAtom)
   const handleAutocompleteChange = useCallback(
-    (_: any, v: Weapon | null) => {
+    (_: unknown, v: Weapon | null) => {
       const weapon = v ?? allWeapons["None"]
       setWeaponState(weapon)
     },

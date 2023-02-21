@@ -45,7 +45,9 @@ const HomePage: NextPage = () => {
     <Container>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Typography>Here's a bunch of neat things I have made</Typography>
+          <Typography>
+            Here&apos;s a bunch of neat things I have made
+          </Typography>
         </Grid>
         <DisplayLink to="/augment" title="Augment Calculator">
           Figure out your BP, and stats

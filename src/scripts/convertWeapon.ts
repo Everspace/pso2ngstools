@@ -50,7 +50,7 @@ function handleWeaponRow(row: DataSheetRow): WeaponData {
 export async function doWeapons() {
   const allWeapons: Record<string, WeaponData> = {}
   for await (const entry of await getSheetRows("Weapons")) {
-    const weapon = handleWeaponRow(entry as any)
+    const weapon = handleWeaponRow(entry as unknown as DataSheetRow)
     allWeapons[weapon.name] = weapon
   }
 

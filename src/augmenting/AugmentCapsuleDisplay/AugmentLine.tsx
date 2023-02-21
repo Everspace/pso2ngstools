@@ -4,7 +4,7 @@ import { AugmentStatDisplay } from "../AugmentStatDisplay"
 import { AugmentCapsuleImage } from "./MultiAugmentLine"
 import { Augment } from "augmenting/types"
 
-export function AugmentLineHeader({ children }: React.PropsWithChildren<{}>) {
+export function AugmentLineHeader({ children }: React.PropsWithChildren) {
   return (
     <Grid item xs={12}>
       {children}

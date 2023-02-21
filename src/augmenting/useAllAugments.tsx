@@ -20,7 +20,7 @@ const randomizeAllAugmentsAtom = atom(null, (_get, set) => {
     MAX_AUGMENTS_PER_SLOT,
   ) as string[]
   const augments = categories.map(
-    (category) => sample(augmentByCategory[category]!)!,
+    (category) => sample(augmentByCategory[category]) as Augment,
   )
   set(setAllUnitsAtom, augments)
 })

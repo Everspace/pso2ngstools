@@ -42,7 +42,7 @@ function UnitAutocomplete({ slot }: UnitAutocompleteProps) {
   const unit = useAtomValue(unitStateFamily(slot))
   const setUnitState = useSetAtom(unitStateFamily(slot))
   const handleAutocompleteChange = useCallback(
-    (_: any, v: Unit | null) => {
+    (_: unknown, v: Unit | null) => {
       const unit = v ?? allUnits["None"]
       setUnitState(unit)
     },

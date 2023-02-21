@@ -27,16 +27,16 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
       case "hp":
       case "pp":
       case "bp":
-        newAug[key] = bignumber(stat[key]!)
+        newAug[key] = bignumber(stat[key])
         break
       // Damage and status resist are
       // actually (1-display) internally (0.98 for 2% resist)
       case "damageResist":
       case "statusResist":
-        newAug[key] = one.minus(bignumber(stat[key]!).dividedBy(100))
+        newAug[key] = one.minus(bignumber(stat[key]).dividedBy(100))
         break
       default:
-        newAug[key] = bignumber(stat[key]!).dividedBy(100).add(1)
+        newAug[key] = bignumber(stat[key]).dividedBy(100).add(1)
     }
   })
   return newAug
@@ -44,11 +44,11 @@ export function toAugmentStatReal(stat: AugmentStat): AugmentStat {
 
 export const toUnitReal = (unit: Unit): Unit => {
   const { stat } = unit
-  const grindValues = unit.grindValues as any
+  const grindValues = unit.grindValues
   const grindValueNew = transformValues(
-    grindValues,
+    grindValues as Record<number, BigNumber>,
     bignumber,
-  ) as any as Record<GrindLevel, BigNumber>
+  ) as unknown as Record<GrindLevel, BigNumber>
   return {
     ...unit,
     grindValues: grindValueNew,
@@ -76,11 +76,11 @@ export function rangeFromWeaponAugments(
   augment?: AugmentStat | null,
 ): WeaponRange {
   let min = weapon.varianceLow
-  let max = weapon.varianceHigh
+  const max = weapon.varianceHigh
 
   if (augment) {
     min = min.mul(augment.floorPotency ?? one)
-    // TODO max = max.mul(augment.ceilingPotency ?? one) perhaps eventually?
+    // TODO: max = max.mul(augment.ceilingPotency ?? one) perhaps eventually?
   }
 
   return {
@@ -91,11 +91,14 @@ export function rangeFromWeaponAugments(
 
 export const toWeaponReal = (weapon: Weapon): Weapon => {
   const { varianceHigh, varianceLow } = weapon
-  const grindValues = weapon.grindValues as any
+  const grindValues = weapon.grindValues as unknown as Record<
+    GrindLevel,
+    number
+  >
   const grindValueNew = transformValues(
     grindValues,
     bignumber,
-  ) as any as Record<GrindLevel, BigNumber>
+  ) as unknown as Record<GrindLevel, BigNumber>
 
   return {
     ...weapon,
@@ -118,18 +121,20 @@ export const sumAugmentStats = (augments: Augment[]) =>
         case "bp":
         case "hp":
         case "pp":
-          memory[key] = (memory[key] ?? zero).add(stat[key]!)
+          memory[key] = (memory[key] ?? zero).add(stat[key] ?? zero)
           break
         default:
-          if (memory[key] === undefined) {
+          const target = memory[key]
+          if (target === undefined) {
             memory[key] = bignumber(stat[key])
-            return
+          } else {
+            memory[key] = target.mul(stat[key] ?? one)
           }
-          memory[key] = memory[key]!.mul(stat[key]!)
+          break
       }
     })
     return memory
-  }, {})
+  }, {} as AugmentStat)
 
 export const simplifyAugmentStat = (stats: AugmentStat): AugmentStat => {
   const potency = stats?.potency ?? zero
@@ -168,9 +173,13 @@ export function augmentFufillsRequirement(
   const hasAllKeys = needed.every((need) => keys.includes(need))
   if (!hasAllKeys) return false
 
-  const hasAllStatMins = needed.every((need) =>
-    stats[need]!.greaterThanOrEqualTo(atLeast[need]!),
-  )
+  const hasAllStatMins = needed.every((need) => {
+    const neededStat = stats[need]
+    if (!neededStat) return false
+    const findingStat = atLeast[need]
+    if (!findingStat) return false
+    return neededStat.greaterThanOrEqualTo(findingStat)
+  })
 
   return hasAllStatMins
 }

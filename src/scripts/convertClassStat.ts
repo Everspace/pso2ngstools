@@ -42,7 +42,7 @@ export function handleClassStatRow(
   const classInfo = classStats.map(
     ([className, classHp, classAttack, classDefense]) => {
       const hp = toNumberOrNull(row[classHp])
-      const level = Number(row[className]!)
+      const level = Number(row[className])
       let attack = toNumberOrNull(row[classAttack])
       let defense = toNumberOrNull(row[classDefense])
 
@@ -74,7 +74,7 @@ export function handleClassStatRow(
 export async function doClasses() {
   const classes: ClassData = allClasses.reduce(
     (mem, cname) => ({ ...mem, [cname]: [{ attack: 0, defense: 0 }] }),
-    {} as any,
+    {} as ClassData,
   )
   for await (const entry of await getSheetRows("StatTable")) {
     const classResult = handleClassStatRow(entry, deltas)
