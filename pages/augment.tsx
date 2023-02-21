@@ -20,6 +20,10 @@ import Container from "Layout"
 import { AugmentDiscordPreview } from "augmenting/AugumentDiscordPreview"
 import { rangeToLine } from "augmenting/info"
 
+export function getServerSideProps() {
+  return { props: {} }
+}
+
 function WeaponRangeLine() {
   const weapon = useAtomValue(weaponStateAtom)
   const weaponAugments = useAtomValue(augmentableFamily("weapon"))
