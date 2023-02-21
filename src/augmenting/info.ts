@@ -7,6 +7,7 @@ import {
   RangeIcon,
   TechIcon,
 } from "./images/icon"
+import { WeaponRange } from "./tools"
 import { AugmentStat, AugmentDisplayInfo, AugmentableSlot } from "./types"
 
 export const augmentStatToDisplayInfo: Record<
@@ -101,4 +102,8 @@ export function augmentValueToString(
     transformValue = one.minus(value)
   }
   return `${symbol}${transformValue.mul(100).toFixed(2)}%`
+}
+
+export function rangeToLine({ min, max }: WeaponRange): string {
+  return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
 }

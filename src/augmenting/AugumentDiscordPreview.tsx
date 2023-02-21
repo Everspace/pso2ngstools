@@ -1,9 +1,8 @@
 import { useAtomValue } from "jotai"
 import { zero } from "MathConstants"
 import Head from "next/head"
-import { rangeToLine } from "../../pages/augment"
 import { useTotalBp } from "./hooks"
-import { augmentValueToString } from "./info"
+import { augmentValueToString, rangeToLine } from "./info"
 import { allAugmentableSlotStatSum } from "./state/augmentableState"
 import { classNameAtom } from "./state/characterState"
 import {

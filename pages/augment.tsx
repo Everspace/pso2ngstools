@@ -12,20 +12,13 @@ import { WeaponDisplay } from "augmenting/AugmentableDisplay/WeaponDisplay"
 import { UnitDisplay } from "augmenting/AugmentableDisplay/UnitDisplay"
 import { useAtomValue } from "jotai/react"
 import { weaponStateAtom } from "augmenting/state/equipmentState"
-import {
-  rangeFromWeaponAugments,
-  sumAugmentStats,
-  WeaponRange,
-} from "augmenting/tools"
+import { rangeFromWeaponAugments, sumAugmentStats } from "augmenting/tools"
 import { SxProps, Theme } from "@mui/system"
 import { ActivityDisplay } from "augmenting/ActivityDisplay"
 import { useTotalBp } from "augmenting/hooks"
 import Container from "Layout"
 import { AugmentDiscordPreview } from "augmenting/AugumentDiscordPreview"
-
-export function rangeToLine({ min, max }: WeaponRange): string {
-  return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
-}
+import { rangeToLine } from "augmenting/info"
 
 function WeaponRangeLine() {
   const weapon = useAtomValue(weaponStateAtom)
