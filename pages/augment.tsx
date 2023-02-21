@@ -67,7 +67,8 @@ const augmentableDisplayGrid: SxProps<Theme> = (theme) => ({
   },
 })
 
-export default function AugmentPanel() {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function AugmentPanel(_: unknown) {
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
   const bp = useTotalBp()
   const stats = useAtomValue(allAugmentableSlotStatSum)
