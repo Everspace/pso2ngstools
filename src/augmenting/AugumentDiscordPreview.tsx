@@ -1,7 +1,6 @@
 import { useAtomValue } from "jotai"
 import { zero } from "MathConstants"
 import Head from "next/head"
-import { useRouter } from "next/router"
 import { rangeToLine } from "../../pages/augment"
 import { useTotalBp } from "./hooks"
 import { augmentValueToString } from "./info"
@@ -78,17 +77,27 @@ const Description = () => {
   lines.push(statLine.join("/"))
 
   if (stats.floorPotency) {
+    // TODO: or ceilPotency
     const range = rangeFromWeaponAugments(weapon.stats, stats)
     lines.push(`Weapon Range: ${rangeToLine(range)}`)
   }
 
-  if (stats.damageResist)
+  if (stats.damageResist) {
     lines.push(
       `Damage Resist: ${augmentValueToString(
         "damageResist",
         stats.damageResist,
       )}`,
     )
+  }
+  if (stats.statusResist) {
+    lines.push(
+      `Status Resist: ${augmentValueToString(
+        "statusResist",
+        stats.statusResist,
+      )}`,
+    )
+  }
 
   const desc = lines.join("\n")
   return (
@@ -100,12 +109,11 @@ const Description = () => {
 }
 
 export const AugmentDiscordPreview = () => {
-  const r = useRouter()
   return (
     <>
       <Head>
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={r.asPath} />
+        {/* <meta property="og:url" content={r.asPath} /> doesn't work with hash links */}
       </Head>
       <Title />
       <Description />
