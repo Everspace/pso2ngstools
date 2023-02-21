@@ -19,12 +19,11 @@ import { UnitSlot } from "./types"
 const Title = () => {
   const cl = useAtomValue(classNameAtom)
   const bp = useTotalBp()
+  const title = `Augment Calculator: ${cl} - ${bp}bp`
   return (
     <Head>
-      <meta
-        property="og:title"
-        content={`Augment Calculator: ${cl} - ${bp}bp`}
-      />
+      <title>{title}</title>
+      <meta key="og:title" property="og:title" content={title} />
     </Head>
   )
 }
@@ -91,10 +90,11 @@ const Description = () => {
       )}`,
     )
 
-  // Weapon Range: 50.0% - 100.0%
+  const desc = lines.join("\n")
   return (
     <Head>
-      <meta property="og:description" content={lines.join("\n")} />
+      <meta key="description" name="description" content={desc} />
+      <meta key="og:description" property="og:description" content={desc} />
     </Head>
   )
 }

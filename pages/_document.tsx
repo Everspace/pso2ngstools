@@ -11,10 +11,12 @@ export default class MyDocument extends Document {
 
     return (
       <Html lang="en" className={roboto.className}>
-        <Head>
+        <Head title="PSO2:NGS Tools">
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link rel="shortcut icon" href="/NGSUIMSTIcon.png" />
+          <meta name="theme-color" content="#000000" />
+          <meta name="description" content="Collection of PSO2:NGS Tools" />
           <meta name="emotion-insertion-point" content="" />
           {emotionStyleTags}
         </Head>
