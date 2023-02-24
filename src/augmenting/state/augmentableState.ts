@@ -11,8 +11,7 @@ import {
   Weapon,
 } from "../types"
 import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
-import { atomWithHash } from "jotai-location"
-import { subscribeToRouter } from "atomTools"
+import { atomWithQuery } from "atomTools"
 
 const revivify = (names: string[]): Augment[] => {
   return names
@@ -29,9 +28,7 @@ const augmentSlotToHash: Record<AugmentableSlot, string> = {
 
 export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   const id = augmentSlotToHash[slot]
-  return atomWithHash<Augment[]>(id, [], {
-    subscribe: subscribeToRouter,
-    setHash: "replaceState",
+  return atomWithQuery<Augment[]>(id, [], {
     serialize(val) {
       return JSON.stringify(val.map((a) => a.name))
     },

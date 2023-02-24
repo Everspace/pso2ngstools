@@ -19,9 +19,11 @@ import { useTotalBp } from "augmenting/hooks"
 import Container from "Layout"
 import { AugmentDiscordPreview } from "augmenting/AugumentDiscordPreview"
 import { rangeToLine } from "augmenting/info"
+import { GetServerSidePropsContext } from "next"
+import { encode } from "querystring"
 
-export function getServerSideProps() {
-  return { props: {} }
+export function getServerSideProps({ query }: GetServerSidePropsContext) {
+  return { props: { query: encode(query) } }
 }
 
 function WeaponRangeLine() {
