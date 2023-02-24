@@ -22,9 +22,13 @@ function DisplayLink({ to, title, children }: LinkProps) {
     router.push(to)
   }, [to, router])
 
+  const preload = useCallback(() => {
+    router.prefetch(to, undefined)
+  }, [to, router])
+
   return (
     <Grid item xs={4}>
-      <Card onClick={nav}>
+      <Card onClick={nav} onMouseEnter={preload}>
         <CardActionArea>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
