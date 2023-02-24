@@ -67,8 +67,11 @@ export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
 
 export const removeAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
-  return atom(null, (_, set, augment: Augment) => {
-    set(targetAtom, (prior) => prior.filter((c) => c.name !== augment.name))
+  return atom(null, (get, set, augment: Augment) => {
+    set(
+      targetAtom,
+      get(targetAtom).filter((c) => c.name !== augment.name),
+    )
     return
   })
 })
@@ -76,7 +79,7 @@ export const removeAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
 export const clearAugmentFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
   return atom(null, (_, set) => {
-    set(targetAtom, () => [])
+    set(targetAtom, [])
     return
   })
 })

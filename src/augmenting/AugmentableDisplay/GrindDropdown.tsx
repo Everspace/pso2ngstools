@@ -2,16 +2,22 @@ import {
   equipStateFamily,
   grindStateFamily,
 } from "augmenting/state/equipmentState"
-import { AugmentableSlot, GRIND_LEVELS, Unit, Weapon } from "augmenting/types"
+import {
+  AugmentableSlot,
+  GrindLevel,
+  GRIND_LEVELS,
+  Unit,
+  Weapon,
+} from "augmenting/types"
 import { ListDropdown } from "components/ListDropdown"
-import { PrimitiveAtom, useAtomValue } from "jotai"
+import { useAtomValue } from "jotai"
 
 type GrindDropdownProps = {
   slot: AugmentableSlot
 }
 
 export function GrindDropdown({ slot }: GrindDropdownProps) {
-  const grindAtom = grindStateFamily(slot) as PrimitiveAtom<number>
+  const grindAtom = grindStateFamily(slot)
   const item = useAtomValue<Weapon | Unit>(equipStateFamily(slot))
   const availableLevels = GRIND_LEVELS.slice(
     0,
@@ -20,9 +26,9 @@ export function GrindDropdown({ slot }: GrindDropdownProps) {
   return (
     <ListDropdown
       label="Grind +"
-      options={availableLevels as number[]}
+      options={availableLevels}
       atom={grindAtom}
-      handleUpdate={Number}
+      handleUpdate={(s) => Number(s) as GrindLevel}
     />
   )
 }
