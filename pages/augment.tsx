@@ -19,15 +19,10 @@ import { useTotalBp } from "augmenting/hooks"
 import Container from "Layout"
 import { AugmentDiscordPreview } from "augmenting/AugumentDiscordPreview"
 import { rangeToLine } from "augmenting/info"
-import { GetServerSidePropsContext } from "next"
+import { NextPage } from "next"
 import { encode } from "querystring"
 import { useHydrateAtoms } from "jotai/utils"
 import { queryParamString } from "atomTools"
-
-export function getServerSideProps({ query }: GetServerSidePropsContext) {
-  const result = encode(query)
-  return { props: { query: result } }
-}
 
 function WeaponRangeLine() {
   const weapon = useAtomValue(weaponStateAtom)
@@ -72,8 +67,9 @@ const augmentableDisplayGrid: SxProps<Theme> = (theme) => ({
   },
 })
 
-export default function AugmentPanel(props: { query: string }) {
-  useHydrateAtoms([[queryParamString, props.query]])
+type AugmentPanelProps = { query: string }
+const AugmentPanel: NextPage<AugmentPanelProps> = ({ query }) => {
+  useHydrateAtoms([[queryParamString, query]])
   const { clearAllAugments, randomizeAllAugments } = useAllAugments()
   const bp = useTotalBp()
   const stats = useAtomValue(allAugmentableSlotStatSum)
@@ -125,3 +121,11 @@ export default function AugmentPanel(props: { query: string }) {
     </Container>
   )
 }
+
+AugmentPanel.getInitialProps = ({ query }) => {
+  return {
+    query: encode(query),
+  }
+}
+
+export default AugmentPanel
