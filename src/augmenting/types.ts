@@ -1,10 +1,10 @@
-import { AugmentImageType } from "./images/augment"
+import { uniq } from "lodash"
 import { BigNumber } from "mathjs"
 import { allAugments } from "./data/augments"
-import { uniq } from "lodash"
+import { AugmentImageType } from "./images/augment"
 
 export const augmentSlots = ["weapon", "unit1", "unit2", "unit3"] as const
-export type AugmentableSlot = typeof augmentSlots[number]
+export type AugmentableSlot = (typeof augmentSlots)[number]
 
 export type UnitSlot = Exclude<AugmentableSlot, "weapon">
 export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
@@ -19,7 +19,7 @@ export const GRIND_LEVELS = [
   60, // 70, 80, 90, 100,
 ] as const
 
-export type GrindLevel = typeof GRIND_LEVELS[number]
+export type GrindLevel = (typeof GRIND_LEVELS)[number]
 
 export const GRIND_KEYS = GRIND_LEVELS.map(
   (id) => `Grind${id}`,
@@ -102,7 +102,6 @@ export type AugmentDisplayInfo = {
   name: string
   shortName?: string
   percent?: boolean
-  Glyph?: React.ElementType
 }
 
 export type Unit = {
@@ -145,7 +144,7 @@ export const allClasses = [
   "Wa",
 ] as const
 
-export type ClassAbbreviation = typeof allClasses[number]
+export type ClassAbbreviation = (typeof allClasses)[number]
 
 export type ClassLevel = {
   hp?: number

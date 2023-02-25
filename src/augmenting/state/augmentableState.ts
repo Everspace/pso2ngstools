@@ -1,6 +1,7 @@
-import { sumAugmentStats, augmentifyUnit } from "augmenting/tools"
-import { atom } from "jotai"
-import { atomFamily } from "jotai/utils"
+import { atomWithQuery } from "atomTools"
+import { augmentifyUnit, sumAugmentStats } from "augmenting/tools"
+import { atom } from "jotai/vanilla"
+import { atomFamily } from "jotai/vanilla/utils"
 import { allAugments } from "../data/augments"
 import {
   Augment,
@@ -11,7 +12,6 @@ import {
   Weapon,
 } from "../types"
 import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
-import { atomWithQuery } from "atomTools"
 
 const revivify = (names: string[]): Augment[] => {
   return names

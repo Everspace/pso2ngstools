@@ -7,3 +7,8 @@ interface IStringable {
 }
 
 type Stringable = number | string | IStringable
+
+type NextAppdirPageProps = {
+  params: { slug: string }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}

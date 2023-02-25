@@ -1,9 +1,10 @@
+import { AugmentStat } from "augmenting/types"
+import { Icon, ImageIcon } from "components/Icon"
+import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
+import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
 import RATKIconRaw from "./NGSUIStatRATK.png"
 import SATKIconRaw from "./NGSUIStatSATK.png"
 import TATKIconRaw from "./NGSUIStatTATK.png"
-import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
-import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
-import { ImageIcon, Icon } from "components/Icon"
 
 export const MeleeIcon: Icon = (props) => {
   return <ImageIcon {...props} alt="MATK" src={SATKIconRaw} />
@@ -32,3 +33,14 @@ export const ATKOutlineIcon: Icon = (props) => (
 export const DEFOutlineIcon: Icon = (props) => (
   <ImageIcon {...props} alt="" src={DEFOutlineIconRaw} />
 )
+
+export const augmentStatToGlyphInfo: Partial<
+  Record<keyof AugmentStat, React.ElementType>
+> = {
+  potency: AllAttackIcons,
+  floorPotency: ATKOutlineIcon,
+  damageResist: DEFOutlineIcon,
+  meleePotency: MeleeIcon,
+  techPotency: TechIcon,
+  rangedPotency: RangeIcon,
+}

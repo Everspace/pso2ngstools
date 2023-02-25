@@ -1,14 +1,6 @@
 import { one, zero } from "MathConstants"
-import {
-  AllAttackIcons,
-  ATKOutlineIcon,
-  DEFOutlineIcon,
-  MeleeIcon,
-  RangeIcon,
-  TechIcon,
-} from "./images/icon"
 import { WeaponRange } from "./tools"
-import { AugmentStat, AugmentDisplayInfo, AugmentableSlot } from "./types"
+import { AugmentableSlot, AugmentDisplayInfo, AugmentStat } from "./types"
 
 export const augmentStatToDisplayInfo: Record<
   keyof AugmentStat,
@@ -34,35 +26,29 @@ export const augmentStatToDisplayInfo: Record<
   potency: {
     name: "Potency",
     percent: true,
-    Glyph: AllAttackIcons,
   },
   floorPotency: {
     name: "Potency Floor Increase",
     percent: true,
-    Glyph: ATKOutlineIcon,
   },
   damageResist: {
     name: "Damage Resistance",
     percent: true,
-    Glyph: DEFOutlineIcon,
   },
   meleePotency: {
     name: "Melee Potency",
     shortName: "MATK",
     percent: true,
-    Glyph: MeleeIcon,
   },
   rangedPotency: {
     name: "Ranged Potency",
     shortName: "RATK",
     percent: true,
-    Glyph: RangeIcon,
   },
   techPotency: {
     name: "Technique Potency",
     shortName: "TATK",
     percent: true,
-    Glyph: TechIcon,
   },
 }
 

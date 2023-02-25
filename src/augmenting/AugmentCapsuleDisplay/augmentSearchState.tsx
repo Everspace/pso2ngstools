@@ -10,7 +10,7 @@ import {
 import { atom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
 import { groupBy } from "lodash"
-import { isNaN, bignumber } from "mathjs"
+import { bignumber, isNaN } from "mathjs"
 
 export type SearchAugmentCategory = string
 export const augmentSearchCategories = [

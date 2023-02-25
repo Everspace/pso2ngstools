@@ -1,9 +1,10 @@
 import { List, ListItem } from "@mui/material"
 import { zero } from "MathConstants"
 import { BigNumber } from "mathjs"
+import { augmentStatToGlyphInfo } from "./images/icon"
 import { augmentStatToDisplayInfo, augmentValueToString } from "./info"
-import { sumAugmentStats, simplifyAugmentStat } from "./tools"
-import { AugmentStat, Augment } from "./types"
+import { simplifyAugmentStat, sumAugmentStats } from "./tools"
+import { Augment, AugmentStat } from "./types"
 
 export interface AugmentStatDisplayProps {
   stat: AugmentStat | Augment[]
@@ -27,8 +28,9 @@ function StatItem({ statName, value }: StatItemProps) {
   if (value.eq(0)) {
     return null
   }
-  const { Glyph, name } = augmentStatToDisplayInfo[statName]
+  const { name } = augmentStatToDisplayInfo[statName]
   const valueString = augmentValueToString(statName, value)
+  const Glyph = augmentStatToGlyphInfo[statName]
   return (
     <ListItem disableGutters>
       {Glyph ? <Glyph /> : null}

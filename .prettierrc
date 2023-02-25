@@ -1,4 +1,8 @@
 {
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "semi": false,
   "trailingComma": "all"
 }

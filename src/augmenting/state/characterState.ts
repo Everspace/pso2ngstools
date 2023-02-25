@@ -1,7 +1,7 @@
 import { atomWithQuery } from "atomTools"
 import { allClassData } from "augmenting/data/classes"
 import { ClassAbbreviation } from "augmenting/types"
-import { atom } from "jotai"
+import { atom } from "jotai/vanilla"
 import { MAX_LEVEL, MAX_SKILLPOINTS } from "../data/consts"
 
 export const classNameAtom = atomWithQuery<ClassAbbreviation>("cls", "Hu")

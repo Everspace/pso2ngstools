@@ -7,6 +7,9 @@ const nextConfig = {
   /* config options here */
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    appDir: true,
+  },
 }
 
 module.exports = nextConfig

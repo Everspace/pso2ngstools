@@ -1,5 +1,5 @@
-import { atom } from "jotai"
-import { RESET } from "jotai/utils"
+import { atom } from "jotai/vanilla"
+import { RESET } from "jotai/vanilla/utils"
 // import { Router } from "next/router"
 
 type QuerySetAction = {

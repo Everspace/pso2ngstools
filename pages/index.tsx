@@ -1,14 +1,14 @@
-import { NextPage } from "next/types"
 import {
-  Typography,
   Card,
   CardActionArea,
   CardContent,
   Grid,
+  Typography,
 } from "@mui/material"
-import { PropsWithChildren, ReactFragment, useCallback } from "react"
-import { useRouter } from "next/router"
 import Container from "Layout"
+import { useRouter } from "next/router"
+import { NextPage } from "next/types"
+import { PropsWithChildren, ReactFragment, useCallback } from "react"
 
 type LinkProps = PropsWithChildren<{
   to: string
@@ -55,6 +55,9 @@ const HomePage: NextPage = () => {
         </Grid>
         <DisplayLink to="/augment" title="Augment Calculator">
           Figure out your BP, and stats
+        </DisplayLink>
+        <DisplayLink to="/home" title="App world">
+          Version 2 here we go
         </DisplayLink>
       </Grid>
     </Container>

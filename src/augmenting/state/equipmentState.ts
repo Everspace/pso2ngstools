@@ -1,23 +1,23 @@
-import { atom } from "jotai"
-import { atomFamily } from "jotai/utils"
+import { atomWithQuery } from "atomTools"
+import { atom } from "jotai/vanilla"
+import { atomFamily } from "jotai/vanilla/utils"
 import { allUnits } from "../data/armours"
-import { allWeapons } from "../data/weapons"
-import {
-  AugmentableSlot,
-  augmentSlots,
-  Unit,
-  UnitSlot,
-  Weapon,
-  unitSlots,
-} from "../types"
-import { augmentableFamily } from "./augmentableState"
 import {
   DEFAULT_AUGMENTS_PER_SLOT,
   DEFAULT_UNIT,
   DEFAULT_WEAPON,
   MAX_GRIND,
 } from "../data/consts"
-import { atomWithQuery } from "atomTools"
+import { allWeapons } from "../data/weapons"
+import {
+  AugmentableSlot,
+  augmentSlots,
+  Unit,
+  UnitSlot,
+  unitSlots,
+  Weapon,
+} from "../types"
+import { augmentableFamily } from "./augmentableState"
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1",
