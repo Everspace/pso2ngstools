@@ -1,5 +1,5 @@
 import { AugmentStat } from "augmenting/types"
-import { Icon, ImageIcon } from "components/Icon"
+import { Icon, ImageIcon } from "components/server/Icon"
 import ATKOutlineIconRaw from "./NGSUIStatATKOutline.png"
 import DEFOutlineIconRaw from "./NGSUIStatDEFOutline.png"
 import RATKIconRaw from "./NGSUIStatRATK.png"
