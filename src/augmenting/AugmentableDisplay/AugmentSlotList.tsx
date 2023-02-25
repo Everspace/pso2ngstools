@@ -15,10 +15,9 @@ import {
 } from "augmenting/state/augmentableState"
 import { augmentsPerSlotAtom } from "augmenting/state/equipmentState"
 import { Augment, AugmentableSlot } from "augmenting/types"
-import useTransitionedAtom from "hooks/useTransitionedAtom"
 import { atom } from "jotai"
 import { atomFamily } from "jotai/utils"
-import { useAtomValue } from "jotai/react"
+import { useAtomValue, useSetAtom } from "jotai/react"
 import { compare } from "mathjs"
 
 type AugmentLineProps = {
@@ -76,9 +75,7 @@ const updateAugmentAtom = atomFamily((params: AugmentLineProps) => {
 })
 
 function AugmentLine({ augment, number, slot }: AugmentLineProps) {
-  const [, handleChange] = useTransitionedAtom(
-    updateAugmentAtom({ number, slot }),
-  )
+  const handleChange = useSetAtom(updateAugmentAtom({ number, slot }))
 
   return (
     <Autocomplete

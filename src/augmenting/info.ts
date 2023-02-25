@@ -1,13 +1,6 @@
 import { one, zero } from "MathConstants"
-import {
-  AllAttackIcons,
-  ATKOutlineIcon,
-  DEFOutlineIcon,
-  MeleeIcon,
-  RangeIcon,
-  TechIcon,
-} from "./images/icon"
-import { AugmentStat, AugmentDisplayInfo, AugmentableSlot } from "./types"
+import { WeaponRange } from "./tools"
+import { AugmentableSlot, AugmentDisplayInfo, AugmentStat } from "./types"
 
 export const augmentStatToDisplayInfo: Record<
   keyof AugmentStat,
@@ -33,35 +26,29 @@ export const augmentStatToDisplayInfo: Record<
   potency: {
     name: "Potency",
     percent: true,
-    Glyph: AllAttackIcons,
   },
   floorPotency: {
     name: "Potency Floor Increase",
     percent: true,
-    Glyph: ATKOutlineIcon,
   },
   damageResist: {
     name: "Damage Resistance",
     percent: true,
-    Glyph: DEFOutlineIcon,
   },
   meleePotency: {
     name: "Melee Potency",
     shortName: "MATK",
     percent: true,
-    Glyph: MeleeIcon,
   },
   rangedPotency: {
     name: "Ranged Potency",
     shortName: "RATK",
     percent: true,
-    Glyph: RangeIcon,
   },
   techPotency: {
     name: "Technique Potency",
     shortName: "TATK",
     percent: true,
-    Glyph: TechIcon,
   },
 }
 
@@ -101,4 +88,8 @@ export function augmentValueToString(
     transformValue = one.minus(value)
   }
   return `${symbol}${transformValue.mul(100).toFixed(2)}%`
+}
+
+export function rangeToLine({ min, max }: WeaponRange): string {
+  return `${min.mul(100).toFixed(1)}% - ${max.mul(100).toFixed(1)}%`
 }

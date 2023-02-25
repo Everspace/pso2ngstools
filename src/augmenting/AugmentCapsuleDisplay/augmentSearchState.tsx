@@ -10,18 +10,20 @@ import {
 import { atom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
 import { groupBy } from "lodash"
-import { isNaN, bignumber } from "mathjs"
+import { bignumber, isNaN } from "mathjs"
 
 export type SearchAugmentCategory = string
 export const augmentSearchCategories = [
   ...allAugmentCategories,
 ] as SearchAugmentCategory[]
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const augmentCategoryStateFamilyAtom = atomFamily((category: string) =>
   atom(false),
 )
 
-export const searchStatFamilyAtom = atomFamily((key: keyof AugmentStat) =>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const searchStatFamilyAtom = atomFamily((stat: keyof AugmentStat) =>
   atomWithReset(""),
 )
 
@@ -59,7 +61,10 @@ export const searchStatAtom = atom(
     Object.keys(update).forEach((s) => {
       const key = s as keyof AugmentStat
       const a = searchStatFamilyAtom(key)
-      set(a, update[key]!.toString())
+      const target = update[key] // Thanks eslint
+      if (target) {
+        set(a, target.toString())
+      }
     })
   },
 )

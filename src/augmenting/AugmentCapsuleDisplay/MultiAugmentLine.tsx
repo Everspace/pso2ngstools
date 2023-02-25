@@ -4,6 +4,7 @@ import { augmentImageFromType } from "../images/augment"
 import { useState, useEffect } from "react"
 import { Augment } from "augmenting/types"
 import { augmentTierToRoman } from "augmenting/tools"
+import Image from "next/image"
 
 interface MultiAugmentDisplayProps {
   augments: [Augment, ...Augment[]]
@@ -17,7 +18,7 @@ export function AugmentCapsuleImage({ augment }: AugmentCapsuleImageProps) {
   const icon = augmentImageFromType[augment.icon]
 
   return (
-    <img
+    <Image
       alt={`${augment.icon} icon`}
       style={{ display: "block", width: "100%", height: "auto" }}
       src={icon}
@@ -53,7 +54,7 @@ export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
     setSelected(augments.length - 1)
   }, [setSelected, augments.length])
 
-  const group = augments[0].baseName!
+  const group = augments[0].baseName
   let augment = augments[selectedAugment]
 
   // When augments changes length
@@ -78,7 +79,7 @@ export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
             <SelectTiers
               selected={selectedAugment}
               onClick={setSelected}
-              tiers={augments.map((v) => v.tier!)}
+              tiers={augments.map((v) => v.tier ?? NaN)}
             />
           </Grid>
           <Grid item>{augment.stat.bp?.toNumber() ?? "??"} BP</Grid>

@@ -3,13 +3,13 @@ import {
   copyAugmentAtom,
   CopyAugmentAtomOptions,
 } from "augmenting/state/equipmentState"
-import useTransitionedAtom from "hooks/useTransitionedAtom"
+import { useSetAtom } from "jotai"
 import { capitalize } from "lodash"
 
 type CopyAugmentButtonProps = CopyAugmentAtomOptions
 
 export function CopyAugmentButton({ from, to }: CopyAugmentButtonProps) {
-  const [, set] = useTransitionedAtom(copyAugmentAtom)
+  const set = useSetAtom(copyAugmentAtom)
   return (
     <Button
       size="small"

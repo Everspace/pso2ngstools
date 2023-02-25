@@ -5,7 +5,7 @@ import {
   Grid,
   TextField,
 } from "@mui/material"
-import { useAtomValue } from "jotai"
+import { useAtomValue, useSetAtom } from "jotai"
 import {
   weaponPotentialAtom,
   weaponStateAtom,
@@ -18,7 +18,6 @@ import { range } from "lodash"
 import { GrindDropdown } from "./GrindDropdown"
 import { ListDropdown } from "components/ListDropdown"
 import { MAX_POTENTIAL } from "augmenting/data/consts"
-import useTransitionedAtom from "hooks/useTransitionedAtom"
 
 const weaponSelections = Object.keys(allWeapons)
   .sort((a, b) => allWeapons[a].stars - allWeapons[b].stars)
@@ -35,9 +34,9 @@ const filteropts = createFilterOptions<Weapon>({
 
 function WeaponAutocomplete() {
   const weapon = useAtomValue(weaponStateAtom)
-  const [, setWeaponState] = useTransitionedAtom(weaponStateAtom)
+  const setWeaponState = useSetAtom(weaponStateAtom)
   const handleAutocompleteChange = useCallback(
-    (_: any, v: Weapon | null) => {
+    (_: unknown, v: Weapon | null) => {
       const weapon = v ?? allWeapons["None"]
       setWeaponState(weapon)
     },

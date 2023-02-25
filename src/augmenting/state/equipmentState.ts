@@ -1,23 +1,23 @@
-import { atom } from "jotai"
-import { atomFamily } from "jotai/utils"
+import { atomWithQuery } from "atomTools"
+import { atom } from "jotai/vanilla"
+import { atomFamily } from "jotai/vanilla/utils"
 import { allUnits } from "../data/armours"
-import { allWeapons } from "../data/weapons"
-import {
-  AugmentableSlot,
-  augmentSlots,
-  Unit,
-  UnitSlot,
-  Weapon,
-  unitSlots,
-} from "../types"
-import { augmentableFamily } from "./augmentableState"
 import {
   DEFAULT_AUGMENTS_PER_SLOT,
   DEFAULT_UNIT,
   DEFAULT_WEAPON,
   MAX_GRIND,
 } from "../data/consts"
-import { atomWithHash } from "jotai-location"
+import { allWeapons } from "../data/weapons"
+import {
+  AugmentableSlot,
+  augmentSlots,
+  Unit,
+  UnitSlot,
+  unitSlots,
+  Weapon,
+} from "../types"
+import { augmentableFamily } from "./augmentableState"
 
 const slotToHash: Record<AugmentableSlot, string> = {
   unit1: "u1",
@@ -33,13 +33,7 @@ const grindStateSlotToHash: Record<AugmentableSlot, string> = {
   weapon: "wg",
 }
 
-const augmentsPerSlotRawAtom = atomWithHash(
-  "slots",
-  DEFAULT_AUGMENTS_PER_SLOT,
-  {
-    setHash: "replaceState",
-  },
-)
+const augmentsPerSlotRawAtom = atomWithQuery("slots", DEFAULT_AUGMENTS_PER_SLOT)
 
 export const augmentsPerSlotAtom = atom(
   (get) => get(augmentsPerSlotRawAtom),
@@ -53,15 +47,12 @@ export const augmentsPerSlotAtom = atom(
 )
 
 export const grindStateFamily = atomFamily((slot: AugmentableSlot) =>
-  atomWithHash(grindStateSlotToHash[slot], MAX_GRIND, {
-    setHash: "replaceState",
-  }),
+  atomWithQuery(grindStateSlotToHash[slot], MAX_GRIND),
 )
 
 export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   const id = slotToHash[slot]
-  return atomWithHash<Unit>(id, DEFAULT_UNIT, {
-    setHash: "replaceState",
+  return atomWithQuery<Unit>(id, DEFAULT_UNIT, {
     serialize(unit) {
       return unit.name
     },
@@ -71,11 +62,10 @@ export const unitStateFamily = atomFamily((slot: UnitSlot) => {
   })
 })
 
-export const weaponStateAtom = atomWithHash<Weapon>(
+export const weaponStateAtom = atomWithQuery<Weapon>(
   slotToHash["weapon"],
   DEFAULT_WEAPON,
   {
-    setHash: "replaceState",
     serialize(weapon) {
       return weapon.name
     },
@@ -85,9 +75,7 @@ export const weaponStateAtom = atomWithHash<Weapon>(
   },
 )
 
-export const weaponPotentialAtom = atomWithHash("wp", 3, {
-  setHash: "replaceState",
-})
+export const weaponPotentialAtom = atomWithQuery("wp", 3)
 
 export const equipStateFamily = atomFamily((slot: AugmentableSlot) => {
   if (slot === "weapon") return weaponStateAtom
@@ -120,7 +108,7 @@ export const copyAugmentAtom = atom(
   null,
   (get, set, { from, to }: CopyAugmentAtomOptions) => {
     const fromAugments = get(augmentableFamily(from))
-    let targetSlots: AugmentableSlot[] = []
+    const targetSlots: AugmentableSlot[] = []
     switch (to) {
       case "units":
         targetSlots.push(...unitSlots)

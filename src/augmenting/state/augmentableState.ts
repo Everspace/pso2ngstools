@@ -1,6 +1,7 @@
-import { sumAugmentStats, augmentifyUnit } from "augmenting/tools"
-import { atom } from "jotai"
-import { atomFamily } from "jotai/utils"
+import { atomWithQuery } from "atomTools"
+import { augmentifyUnit, sumAugmentStats } from "augmenting/tools"
+import { atom } from "jotai/vanilla"
+import { atomFamily } from "jotai/vanilla/utils"
 import { allAugments } from "../data/augments"
 import {
   Augment,
@@ -11,7 +12,6 @@ import {
   Weapon,
 } from "../types"
 import { augmentsPerSlotAtom, unitStateFamily } from "./equipmentState"
-import { atomWithHash } from "jotai-location"
 
 const revivify = (names: string[]): Augment[] => {
   return names
@@ -28,8 +28,7 @@ const augmentSlotToHash: Record<AugmentableSlot, string> = {
 
 export const augmentableFamily = atomFamily((slot: AugmentableSlot) => {
   const id = augmentSlotToHash[slot]
-  return atomWithHash<Augment[]>(id, [], {
-    setHash: "replaceState",
+  return atomWithQuery<Augment[]>(id, [], {
     serialize(val) {
       return JSON.stringify(val.map((a) => a.name))
     },
@@ -68,8 +67,11 @@ export const addAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
 
 export const removeAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
-  return atom(null, (_, set, augment: Augment) => {
-    set(targetAtom, (prior) => prior.filter((c) => c.name !== augment.name))
+  return atom(null, (get, set, augment: Augment) => {
+    set(
+      targetAtom,
+      get(targetAtom).filter((c) => c.name !== augment.name),
+    )
     return
   })
 })
@@ -77,7 +79,7 @@ export const removeAugmentAtomFamily = atomFamily((slot: AugmentableSlot) => {
 export const clearAugmentFamily = atomFamily((slot: AugmentableSlot) => {
   const targetAtom = augmentableFamily(slot)
   return atom(null, (_, set) => {
-    set(targetAtom, () => [])
+    set(targetAtom, [])
     return
   })
 })
@@ -95,7 +97,7 @@ export function sumEquipStats(equip: Weapon | Unit, augments: Augment[]) {
   return sumAugmentStats(toSum)
 }
 
-export const allAugmentableSlotStatSum = atom(async (get) => {
+export const allAugmentableSlotStatSum = atom((get) => {
   const augments = get(allAugmentsAtom)
   const unitAugs = unitSlots
     .map(unitStateFamily)
@@ -105,6 +107,6 @@ export const allAugmentableSlotStatSum = atom(async (get) => {
 })
 
 // TODO: handle displaying that there is missing bp from the calculation
-export const hasUnknownBpAug = atom(async (get) =>
+export const hasUnknownBpAug = atom((get) =>
   get(allAugmentsAtom).every((v) => v.stat.bp !== undefined),
 )

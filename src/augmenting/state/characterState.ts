@@ -1,16 +1,12 @@
+import { atomWithQuery } from "atomTools"
 import { allClassData } from "augmenting/data/classes"
 import { ClassAbbreviation } from "augmenting/types"
-import { atom } from "jotai"
-import { atomWithHash } from "jotai-location"
+import { atom } from "jotai/vanilla"
 import { MAX_LEVEL, MAX_SKILLPOINTS } from "../data/consts"
 
-export const classNameAtom = atomWithHash<ClassAbbreviation>("cls", "Hu", {
-  setHash: "replaceState",
-})
+export const classNameAtom = atomWithQuery<ClassAbbreviation>("cls", "Hu")
 
-const levelAtomRaw = atomWithHash("lv", MAX_LEVEL, {
-  setHash: "replaceState",
-})
+const levelAtomRaw = atomWithQuery("lv", MAX_LEVEL)
 
 export const levelAtom = atom(
   (get) => get(levelAtomRaw),
@@ -29,6 +25,4 @@ export const classInfoAtom = atom((get) => {
   return allClassData[className][classLevel]
 })
 
-export const skillpointAtom = atomWithHash("sp", MAX_SKILLPOINTS, {
-  setHash: "replaceState",
-})
+export const skillpointAtom = atomWithQuery("sp", MAX_SKILLPOINTS)

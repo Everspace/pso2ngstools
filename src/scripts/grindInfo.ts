@@ -53,11 +53,11 @@ for (const entry of await getSheetRows("LimitBreak")) {
 }
 
 for (const entry of await getSheetRows("ArmourGrindGrowth")) {
-  ArmourGrind[entry["Stars"]] = doRow(entry as any)
+  ArmourGrind[entry["Stars"]] = doRow(entry as unknown as HasGrindLevels)
 }
 
 for (const entry of await getSheetRows("WeaponGrindGrowth")) {
-  WeaponGrind[entry["Stars"]] = doRow(entry as any)
+  WeaponGrind[entry["Stars"]] = doRow(entry as unknown as HasGrindLevels)
 }
 
 export { WeaponGrind, ArmourGrind, GrindLimit, GrindBase, MaxGrind }

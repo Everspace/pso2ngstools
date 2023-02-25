@@ -1,5 +1,4 @@
-import useTransitionedAtom from "hooks/useTransitionedAtom"
-import { atom } from "jotai"
+import { atom, useSetAtom } from "jotai"
 import { RESET } from "jotai/utils"
 import { sample, sampleSize } from "lodash"
 import { augmentByCategory } from "./data/augments"
@@ -21,15 +20,14 @@ const randomizeAllAugmentsAtom = atom(null, (_get, set) => {
     MAX_AUGMENTS_PER_SLOT,
   ) as string[]
   const augments = categories.map(
-    (category) => sample(augmentByCategory[category]!)!,
+    (category) => sample(augmentByCategory[category]) as Augment,
   )
   set(setAllUnitsAtom, augments)
 })
 
 export function useAllAugments() {
-  const [, randomizeAllAugments] = useTransitionedAtom(randomizeAllAugmentsAtom)
-
-  const [, clearAllAugments] = useTransitionedAtom(clearAllAugmentsAtom)
+  const randomizeAllAugments = useSetAtom(randomizeAllAugmentsAtom)
+  const clearAllAugments = useSetAtom(clearAllAugmentsAtom)
 
   return {
     randomizeAllAugments,

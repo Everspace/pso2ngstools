@@ -1,8 +1,10 @@
-export const fromId = (val: string): any => {
+import { ValueOf } from "next/dist/shared/lib/constants"
+
+export const fromId = <T>(val: string): T => {
   return JSON.parse(window.atob(val))
 }
 
-export const toId = (object: any) => {
+export const toId = <T>(object: T) => {
   return window.btoa(JSON.stringify(object))
 }
 
@@ -24,13 +26,17 @@ export const translateKeys = <Source extends FlippableRecord>(
 /**
  * Use `transform` to change every value in an object
  */
-export function transformValues<Source, Target>(
-  obj: Record<ValidKey, Source>,
-  transform: (entry: Source) => Target,
-): Record<ValidKey, Target> {
+export function transformValues<
+  K extends string | number | symbol,
+  Source extends Record<K, unknown>,
+  Target,
+>(
+  obj: Source,
+  transform: (entry: ValueOf<Source>) => Target,
+): Record<K, ReturnType<typeof transform>> {
   return Object.fromEntries(
-    Object.entries(obj).map(([k, v]) => [k, transform(v)]),
-  )
+    Object.entries(obj).map(([k, v]) => [k, transform(v as ValueOf<Source>)]),
+  ) as Record<K, Target>
 }
 
 /**

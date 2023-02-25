@@ -1,3 +1,4 @@
+import { Replay } from "@mui/icons-material"
 import {
   Button,
   ButtonGroup,
@@ -7,7 +8,13 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material"
+import { augmentStatToGlyphInfo } from "augmenting/images/icon"
+import { augmentStatToDisplayInfo } from "augmenting/info"
+import { allAugmentCategories, AugmentStat } from "augmenting/types"
 import { SearchInput } from "components/SearchInput"
+import { atom, useAtom, useSetAtom } from "jotai"
+import { RESET } from "jotai/utils"
+import { useCallback } from "react"
 import {
   augmentCategoryStateFamilyAtom,
   augmentSearchCategories,
@@ -16,19 +23,14 @@ import {
   searchStatAtom,
   searchStatFamilyAtom,
 } from "./augmentSearchState"
-import { atom, useAtom, useSetAtom } from "jotai"
-import { useCallback } from "react"
-import { augmentStatToDisplayInfo } from "augmenting/info"
-import { allAugmentCategories, AugmentStat } from "augmenting/types"
-import { Replay } from "@mui/icons-material"
-import { RESET } from "jotai/utils"
 
 type AugmentStatFieldSearchProps = {
   stat: keyof AugmentStat
 }
 
 function AugmentStatFieldSearch({ stat }: AugmentStatFieldSearchProps) {
-  const { Glyph, name, shortName } = augmentStatToDisplayInfo[stat]
+  const { name, shortName } = augmentStatToDisplayInfo[stat]
+  const Glyph = augmentStatToGlyphInfo[stat]
   const [value, setSearch] = useAtom(searchStatFamilyAtom(stat))
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {

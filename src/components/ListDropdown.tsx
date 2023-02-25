@@ -5,34 +5,33 @@ import {
   Select,
   MenuItem,
 } from "@mui/material"
-import { WritableAtom, useAtom, PrimitiveAtom, SetStateAction } from "jotai"
+import { useAtomValue, useSetAtom, WritableAtom } from "jotai"
+import { RESET } from "jotai/utils"
 import { Stringable } from "pureTypes"
 
-type ListDropdownProps<
-  OptionType extends Stringable,
-  AtomType extends Stringable,
-> = {
+type ListDropdownProps<Value extends Stringable> = {
   label: string
-  atom:
-    | PrimitiveAtom<AtomType>
-    | WritableAtom<AtomType, [SetStateAction<AtomType>], void>
-  options: OptionType[]
-  handleUpdate: (value: string, prior: AtomType) => AtomType
+  atom: WritableAtom<Value, [val: Value | typeof RESET], void>
+  options: Value[]
+  handleUpdate: (value: string, prior: Value) => Value
 }
 
-export function ListDropdown<
-  OptionType extends Stringable,
-  AtomType extends Stringable,
->({
+export function ListDropdown<Value extends Stringable>({
   label,
-  atom,
   options,
+  atom,
   handleUpdate,
-}: ListDropdownProps<OptionType, AtomType>) {
-  const [choice, setChoice] = useAtom(atom)
+}: ListDropdownProps<Value>) {
+  const choice = useAtomValue(atom)
+  const setChoice = useSetAtom(atom) as (
+    val: Value | typeof RESET | ((prior: Value) => Value),
+  ) => void
   const handleChange = (e: SelectChangeEvent) => {
     const val = e.target.value
-    setChoice((prior: AtomType) => handleUpdate(val, prior))
+    setChoice((prior: Value) => handleUpdate(val, prior))
+  }
+  const handleReset = () => {
+    setChoice(RESET)
   }
 
   return (
@@ -43,8 +42,9 @@ export function ListDropdown<
         label={label}
         onChange={handleChange}
         value={choice.toString()}
+        onReset={handleReset}
       >
-        {options.map((item) => (
+        {(options as Stringable[]).map((item) => (
           <MenuItem key={item.toString()} value={item.toString()}>
             {item.toString()}
           </MenuItem>

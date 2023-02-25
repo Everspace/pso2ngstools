@@ -5,7 +5,7 @@ import { useSetAtom } from "jotai"
 /**
  * useUpdate
  */
-export default function useTransitionedAtom<T extends PrimitiveAtom<any>>(
+export default function useTransitionedAtom<T extends PrimitiveAtom<unknown>>(
   atom: T,
 ): [
   boolean,
