@@ -7,8 +7,8 @@ import {
   Augment,
   AugmentStat,
 } from "augmenting/types"
-import { atom } from "jotai"
 import { atomFamily, atomWithReset, RESET } from "jotai/utils"
+import { atom } from "jotai/vanilla"
 import { groupBy } from "lodash"
 import { bignumber, isNaN } from "mathjs"
 
