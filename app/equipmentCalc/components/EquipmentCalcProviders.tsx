@@ -1,10 +1,15 @@
 "use client"
 
-import { Provider } from "jotai/react"
+import { Provider as JotaiProvider } from "jotai/react"
+import { SSRProvider } from "react-aria"
 import { equipmentCalcStore } from "../state/store"
 
 export default function EquipmentCalcProviders({
   children,
 }: React.PropsWithChildren) {
-  return <Provider store={equipmentCalcStore}>{children}</Provider>
+  return (
+    <JotaiProvider store={equipmentCalcStore}>
+      <SSRProvider>{children}</SSRProvider>
+    </JotaiProvider>
+  )
 }
