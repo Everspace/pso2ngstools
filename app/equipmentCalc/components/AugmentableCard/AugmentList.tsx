@@ -16,14 +16,14 @@ export default function AugmentList({ slot }: AugmentSlotListProps) {
   const displayEmpty = augments.length < max
 
   return (
-    <div>
+    <div className="grid auto-rows-auto grid-cols-1 gap-1.5">
       {augments.map((aug, index) => (
         <div key={`${slot}aug${index}`}>
           <AugmentSearch slot={slot} number={index} augment={aug} />
         </div>
       ))}
       {displayEmpty ? (
-        <div>
+        <div key="emptyOption">
           <AugmentSearch
             slot={slot}
             number={augments.length}

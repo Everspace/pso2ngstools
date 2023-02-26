@@ -10,7 +10,9 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/NGSUIMSTIcon.png" />
       </head>
-      <body>{children}</body>
+      <body className="h-screen">
+        <div className="mx-auto max-w-screen-2xl px-4">{children}</div>
+      </body>
     </html>
   )
 }
