@@ -68,8 +68,7 @@ export function AugmentSearch({ augment, number, slot }: AugmentLineProps) {
       {({ active }) => (
         <li
           className={clsx(
-            "bg-white text-black",
-            active && "bg-blue-400 text-white",
+            active ? "bg-blue-400 text-white" : "bg-white text-black",
           )}
         >
           {augmentToName(aug)}
