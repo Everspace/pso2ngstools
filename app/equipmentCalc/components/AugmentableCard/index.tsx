@@ -3,8 +3,8 @@ import AugmentList from "./AugmentList"
 
 export default function AugmentableCard({ slot }: { slot: AugmentableSlot }) {
   return (
-    <div className="border px-4 py-2">
-      <div>{slot}</div>
+    <div className="rounded border px-3 py-2 shadow">
+      <h3 className="mb-1 text-lg capitalize">{slot}</h3>
       <AugmentList slot={slot} />
     </div>
   )

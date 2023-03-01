@@ -11,10 +11,9 @@ import { equipmentCalcStore } from "./state/store"
 export default function EquipmentCalc({ searchParams }: NextAppdirPageProps) {
   return (
     <>
-      <div>Equipment Calc Hello World</div>
       <div>
         <Hydrate query={encode(searchParams)}>
-          <div className="grid grid-cols-1 gap-1 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-4">
             {augmentSlots.map((s) => (
               <AugmentableCard slot={s} key={s} />
             ))}

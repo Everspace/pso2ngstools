@@ -8,6 +8,7 @@
     "@emotion/styled": "11.10.6",
     "@headlessui/react": "1.7.12",
     "@headlessui/tailwindcss": "0.1.2",
+    "@heroicons/react": "2.0.16",
     "@mui/icons-material": "5.11.9",
     "@mui/material": "5.11.10",
     "autoprefixer": "10.4.13",

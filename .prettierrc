@@ -4,5 +4,6 @@
     "prettier-plugin-tailwindcss"
   ],
   "semi": false,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "pluginSearchDirs": false
 }

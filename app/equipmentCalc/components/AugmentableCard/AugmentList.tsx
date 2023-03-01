@@ -6,11 +6,11 @@ import { AugmentableSlot } from "augmenting/types"
 import { useAtomValue } from "jotai"
 import { AugmentSearch } from "./AugmentSearch"
 
-type AugmentSlotListProps = {
+type AugmentListProps = {
   slot: AugmentableSlot
 }
 
-export default function AugmentList({ slot }: AugmentSlotListProps) {
+export default function AugmentList({ slot }: AugmentListProps) {
   const augments = useAtomValue(augmentableFamily(slot))
   const max = useAtomValue(augmentsPerSlotAtom)
   const displayEmpty = augments.length < max

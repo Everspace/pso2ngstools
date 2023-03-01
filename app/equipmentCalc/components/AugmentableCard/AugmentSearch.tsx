@@ -14,7 +14,7 @@ import { useSetAtom } from "jotai/react"
 import { atom } from "jotai/vanilla"
 import { atomFamily } from "jotai/vanilla/utils"
 import { compare } from "mathjs"
-import { Fragment, useState } from "react"
+import { Fragment, PropsWithChildren, useState } from "react"
 
 function augmentToName(augment: Augment) {
   return `${augment.name} - ${augment.stat.bp?.toNumber() ?? "??"} BP`
@@ -38,7 +38,8 @@ type AugmentUpdateAtomProps = {
   number: number
   slot: AugmentableSlot
 }
-export const updateAugmentAtom = atomFamily(
+
+const updateAugmentAtom = atomFamily(
   ({ number, slot }: AugmentUpdateAtomProps) => {
     const augmentsAtom = augmentableFamily(slot)
     const removeAtom = removeAugmentAtomFamily(slot)
@@ -50,6 +51,20 @@ export const updateAugmentAtom = atomFamily(
       set(removeAtom, augment)
     })
   },
+)
+
+const ListItem = ({
+  active = false,
+  children,
+}: PropsWithChildren<{ active?: boolean }>) => (
+  <li
+    className={clsx(
+      "px-3 py-1",
+      active ? "bg-blue-400 text-white" : "bg-white text-black",
+    )}
+  >
+    {children}
+  </li>
 )
 
 export type AugmentLineProps = {
@@ -66,13 +81,7 @@ export function AugmentSearch({ augment, number, slot }: AugmentLineProps) {
   const options = filteredAugments.map((aug) => (
     <Combobox.Option key={aug.name} value={aug} as={Fragment}>
       {({ active }) => (
-        <li
-          className={clsx(
-            active ? "bg-blue-400 text-white" : "bg-white text-black",
-          )}
-        >
-          {augmentToName(aug)}
-        </li>
+        <ListItem active={active}>{augmentToName(aug)}</ListItem>
       )}
     </Combobox.Option>
   ))
@@ -88,9 +97,10 @@ export function AugmentSearch({ augment, number, slot }: AugmentLineProps) {
       >
         <div className="flex">
           <Combobox.Input
-            className="flex-auto rounded-none border p-1"
+            className="flex-auto border-y p-3 first:rounded-l first:border-l last:rounded-r last:border-r hover:border-blue-400"
             spellCheck={false}
             onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search"
             displayValue={(aug: Augment | null) =>
               aug
                 ? `${aug.name} (${aug.stat.bp?.toNumber() ?? "??"} BP) - ${
@@ -100,14 +110,14 @@ export function AugmentSearch({ augment, number, slot }: AugmentLineProps) {
             }
           />
           {augment ? (
-            <div className="flex items-center border-t border-r border-b">
-              <button onClick={() => handleChange(null)}>
-                <XMarkIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
-            </div>
+            <button
+              className="flex items-center border-y border-r border-red-900 bg-red-700 text-white first:rounded-l last:rounded-r hover:bg-red-600"
+              onClick={() => handleChange(null)}
+            >
+              <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+            </button>
           ) : null}
         </div>
-
         <Transition
           enter="transition duration-100 ease-out"
           enterFrom="transform scale-95 opacity-0"
@@ -116,8 +126,8 @@ export function AugmentSearch({ augment, number, slot }: AugmentLineProps) {
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Combobox.Options className="absolute z-30 max-h-60 w-full overflow-auto border bg-white">
-            {options}
+          <Combobox.Options className="absolute z-30 mt-1 max-h-60 w-full overflow-auto rounded border border-gray-300 bg-white shadow-lg">
+            {options.length > 0 ? options : <ListItem>Nothing found</ListItem>}
           </Combobox.Options>
         </Transition>
       </Combobox>
