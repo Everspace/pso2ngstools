@@ -1,15 +1,16 @@
+import { ClassAbbreviation } from "augmenting/types"
 import { Icon, ImageIcon } from "components/Icon"
 import NMesetaIconRaw from "./NGSUIMSTIcon.png"
-import UINGSClassHu from "./UINGSClassHu.png"
-import UINGSClassFi from "./UINGSClassFi.png"
-import UINGSClassRa from "./UINGSClassRa.png"
-import UINGSClassGu from "./UINGSClassGu.png"
-import UINGSClassFo from "./UINGSClassFo.png"
-import UINGSClassTe from "./UINGSClassTe.png"
-import UINGSClassBr from "./UINGSClassBr.png"
 import UINGSClassBo from "./UINGSClassBo.png"
+import UINGSClassBr from "./UINGSClassBr.png"
+import UINGSClassFi from "./UINGSClassFi.png"
+import UINGSClassFo from "./UINGSClassFo.png"
+import UINGSClassGu from "./UINGSClassGu.png"
+import UINGSClassHu from "./UINGSClassHu.png"
+import UINGSClassRa from "./UINGSClassRa.png"
+import UINGSClassSl from "./UINGSClassSl.png"
+import UINGSClassTe from "./UINGSClassTe.png"
 import UINGSClassWa from "./UINGSClassWa.png"
-import { ClassAbbreviation } from "augmenting/types"
 
 export const MesetaIcon: Icon = (props) => (
   <ImageIcon src={NMesetaIconRaw} {...props} />
@@ -25,6 +26,7 @@ const classIconTable: Record<ClassAbbreviation, string> = {
   Br: UINGSClassBr,
   Bo: UINGSClassBo,
   Wa: UINGSClassWa,
+  Sl: UINGSClassSl,
 }
 
 type ClassIconProps = JSX.IntrinsicElements["img"] & {
