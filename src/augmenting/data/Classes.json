@@ -3130,5 +3130,289 @@
       "attack": 1678,
       "defense": 870
     }
+  ],
+  "Sl": [
+    {
+      "attack": 0,
+      "defense": 0
+    },
+    {
+      "attack": 455,
+      "defense": 296,
+      "hp": 220
+    },
+    {
+      "attack": 464,
+      "defense": 301
+    },
+    {
+      "attack": 472,
+      "defense": 305
+    },
+    {
+      "attack": 481,
+      "defense": 310
+    },
+    {
+      "attack": 491,
+      "defense": 315
+    },
+    {
+      "attack": 500,
+      "defense": 320
+    },
+    {
+      "attack": 510,
+      "defense": 325
+    },
+    {
+      "attack": 519,
+      "defense": 330
+    },
+    {
+      "attack": 529,
+      "defense": 335
+    },
+    {
+      "attack": 539,
+      "defense": 341
+    },
+    {
+      "attack": 550,
+      "defense": 346
+    },
+    {
+      "attack": 560,
+      "defense": 351
+    },
+    {
+      "attack": 571,
+      "defense": 357
+    },
+    {
+      "attack": 582,
+      "defense": 362
+    },
+    {
+      "attack": 593,
+      "defense": 368
+    },
+    {
+      "attack": 604,
+      "defense": 374
+    },
+    {
+      "attack": 615,
+      "defense": 380
+    },
+    {
+      "attack": 627,
+      "defense": 386
+    },
+    {
+      "attack": 639,
+      "defense": 392
+    },
+    {
+      "attack": 651,
+      "defense": 398
+    },
+    {
+      "attack": 664,
+      "defense": 404
+    },
+    {
+      "attack": 677,
+      "defense": 410
+    },
+    {
+      "attack": 689,
+      "defense": 417
+    },
+    {
+      "attack": 703,
+      "defense": 423
+    },
+    {
+      "attack": 716,
+      "defense": 430
+    },
+    {
+      "attack": 730,
+      "defense": 437
+    },
+    {
+      "attack": 744,
+      "defense": 444
+    },
+    {
+      "attack": 758,
+      "defense": 451
+    },
+    {
+      "attack": 772,
+      "defense": 458
+    },
+    {
+      "attack": 787,
+      "defense": 465
+    },
+    {
+      "attack": 802,
+      "defense": 472
+    },
+    {
+      "attack": 818,
+      "defense": 479
+    },
+    {
+      "attack": 833,
+      "defense": 487
+    },
+    {
+      "attack": 849,
+      "defense": 495
+    },
+    {
+      "attack": 865,
+      "defense": 502
+    },
+    {
+      "attack": 882,
+      "defense": 510
+    },
+    {
+      "attack": 899,
+      "defense": 518
+    },
+    {
+      "attack": 916,
+      "defense": 526
+    },
+    {
+      "attack": 934,
+      "defense": 534
+    },
+    {
+      "attack": 951,
+      "defense": 543
+    },
+    {
+      "attack": 970,
+      "defense": 551
+    },
+    {
+      "attack": 988,
+      "defense": 560
+    },
+    {
+      "attack": 1007,
+      "defense": 569
+    },
+    {
+      "attack": 1026,
+      "defense": 578
+    },
+    {
+      "attack": 1046,
+      "defense": 587
+    },
+    {
+      "attack": 1066,
+      "defense": 596
+    },
+    {
+      "attack": 1086,
+      "defense": 605
+    },
+    {
+      "attack": 1107,
+      "defense": 614
+    },
+    {
+      "attack": 1129,
+      "defense": 624
+    },
+    {
+      "attack": 1150,
+      "defense": 634
+    },
+    {
+      "attack": 1172,
+      "defense": 644
+    },
+    {
+      "attack": 1195,
+      "defense": 654
+    },
+    {
+      "attack": 1218,
+      "defense": 664
+    },
+    {
+      "attack": 1241,
+      "defense": 674
+    },
+    {
+      "attack": 1265,
+      "defense": 685
+    },
+    {
+      "attack": 1289,
+      "defense": 695
+    },
+    {
+      "attack": 1314,
+      "defense": 706
+    },
+    {
+      "attack": 1339,
+      "defense": 717
+    },
+    {
+      "attack": 1364,
+      "defense": 729
+    },
+    {
+      "attack": 1391,
+      "defense": 740
+    },
+    {
+      "attack": 1417,
+      "defense": 751
+    },
+    {
+      "attack": 1444,
+      "defense": 763
+    },
+    {
+      "attack": 1472,
+      "defense": 775
+    },
+    {
+      "attack": 1500,
+      "defense": 787
+    },
+    {
+      "attack": 1529,
+      "defense": 799
+    },
+    null,
+    {
+      "attack": 1588,
+      "defense": 825
+    },
+    {
+      "attack": 1619,
+      "defense": 837
+    },
+    {
+      "attack": 1650,
+      "defense": 850
+    },
+    {
+      "attack": 1682,
+      "defense": 864
+    }
   ]
 }

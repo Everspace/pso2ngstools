@@ -796,5 +796,23 @@
     "varianceLow": 50,
     "varianceHigh": null,
     "element": "Light"
+  },
+  "Trunkul": {
+    "name": "Trunkul",
+    "level": 62,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "grindValues": {
+      "0": 500,
+      "10": 530,
+      "20": 560,
+      "30": 590,
+      "40": 625,
+      "50": 665,
+      "60": 726
+    },
+    "varianceLow": 50,
+    "varianceHigh": null
   }
 }

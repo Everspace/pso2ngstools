@@ -1089,8 +1089,8 @@
     }
   },
   {
-    "name": "Dustyl Soul I",
-    "baseName": "Dustyl Soul",
+    "name": "Dust Soul I",
+    "baseName": "Dust Soul",
     "category": "soul",
     "icon": "might",
     "tier": 1,
@@ -1102,8 +1102,8 @@
     }
   },
   {
-    "name": "Dustyl Soul II",
-    "baseName": "Dustyl Soul",
+    "name": "Dust Soul II",
+    "baseName": "Dust Soul",
     "category": "soul",
     "icon": "might",
     "tier": 2,
@@ -1115,8 +1115,8 @@
     }
   },
   {
-    "name": "Dustyl Soul III",
-    "baseName": "Dustyl Soul",
+    "name": "Dust Soul III",
+    "baseName": "Dust Soul",
     "category": "soul",
     "icon": "might",
     "tier": 3,
@@ -2734,8 +2734,8 @@
     }
   },
   {
-    "name": "Dustyl Soul IV",
-    "baseName": "Dustyl Soul",
+    "name": "Dust Soul IV",
+    "baseName": "Dust Soul",
     "category": "soul",
     "icon": "might",
     "tier": 4,
