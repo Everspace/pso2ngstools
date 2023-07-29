@@ -3087,7 +3087,7 @@
   {
     "name": "Addi Stameltech",
     "baseName": "Addi Stameltech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3101,7 +3101,7 @@
   {
     "name": "Addi Starratech",
     "baseName": "Addi Starratech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3115,7 +3115,7 @@
   {
     "name": "Addi Staspimelra",
     "baseName": "Addi Staspimelra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3130,7 +3130,7 @@
   {
     "name": "Addi Staspimeltech",
     "baseName": "Addi Staspimeltech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3145,7 +3145,7 @@
   {
     "name": "Addi Staspiratech",
     "baseName": "Addi Staspiratech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3160,7 +3160,7 @@
   {
     "name": "Addi Spimelra",
     "baseName": "Addi Spimelra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3174,7 +3174,7 @@
   {
     "name": "Addi Spimeltech",
     "baseName": "Addi Spimeltech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3188,7 +3188,7 @@
   {
     "name": "Addi Spiratech",
     "baseName": "Addi Spiratech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3202,7 +3202,7 @@
   {
     "name": "Addi Deftmelra",
     "baseName": "Addi Deftmelra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3215,7 +3215,7 @@
   {
     "name": "Addi Deftmeltech",
     "baseName": "Addi Deftmeltech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3228,7 +3228,7 @@
   {
     "name": "Addi Deftratech",
     "baseName": "Addi Deftratech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3241,7 +3241,7 @@
   {
     "name": "Addi Guamelra",
     "baseName": "Addi Guamelra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3255,7 +3255,7 @@
   {
     "name": "Addi Guameltech",
     "baseName": "Addi Guameltech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3269,7 +3269,7 @@
   {
     "name": "Addi Guaratech",
     "baseName": "Addi Guaratech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3283,7 +3283,7 @@
   {
     "name": "Addi Wardmelra",
     "baseName": "Addi Wardmelra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3297,7 +3297,7 @@
   {
     "name": "Addi Wardmeltech",
     "baseName": "Addi Wardmeltech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3311,7 +3311,7 @@
   {
     "name": "Addi Wardratech",
     "baseName": "Addi Wardratech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
