@@ -1625,8 +1625,8 @@
     }
   },
   {
-    "name": "Gloom Exploit I",
-    "baseName": "Gloom Exploit",
+    "name": "Dark Exploit I",
+    "baseName": "Dark Exploit",
     "category": "element",
     "icon": "special",
     "tier": 1,
@@ -1637,9 +1637,21 @@
     }
   },
   {
+    "name": "Dark Exploit II",
+    "baseName": "Dark Exploit",
+    "category": "element",
+    "icon": "special",
+    "tier": 2,
+    "rate": 8,
+    "stat": {
+      "bp": 11,
+      "conditionalPotency": 4.5
+    }
+  },
+  {
     "name": "Addi Stamel",
     "baseName": "Addi Stamel",
-    "category": "addi",
+    "category": "cashi",
     "icon": "might",
     "rate": 10,
     "stat": {
@@ -1651,7 +1663,7 @@
   {
     "name": "Addi Stara",
     "baseName": "Addi Stara",
-    "category": "addi",
+    "category": "cashi",
     "icon": "precision",
     "rate": 10,
     "stat": {
@@ -1663,7 +1675,7 @@
   {
     "name": "Addi Statech",
     "baseName": "Addi Statech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "technique",
     "rate": 10,
     "stat": {
@@ -1675,7 +1687,7 @@
   {
     "name": "Addi Spimel",
     "baseName": "Addi Spimel",
-    "category": "addi",
+    "category": "cashi",
     "icon": "might",
     "rate": 10,
     "stat": {
@@ -1687,7 +1699,7 @@
   {
     "name": "Addi Spira",
     "baseName": "Addi Spira",
-    "category": "addi",
+    "category": "cashi",
     "icon": "precision",
     "rate": 10,
     "stat": {
@@ -1699,7 +1711,7 @@
   {
     "name": "Addi Spitech",
     "baseName": "Addi Spitech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "technique",
     "rate": 10,
     "stat": {
@@ -1711,7 +1723,7 @@
   {
     "name": "Addi Staspimel",
     "baseName": "Addi Staspimel",
-    "category": "addi",
+    "category": "cashi",
     "icon": "might",
     "rate": 10,
     "stat": {
@@ -1724,7 +1736,7 @@
   {
     "name": "Addi Staspira",
     "baseName": "Addi Staspira",
-    "category": "addi",
+    "category": "cashi",
     "icon": "precision",
     "rate": 10,
     "stat": {
@@ -1737,7 +1749,7 @@
   {
     "name": "Addi Staspitech",
     "baseName": "Addi Staspitech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "technique",
     "rate": 10,
     "stat": {
@@ -1750,7 +1762,7 @@
   {
     "name": "Addi Deftmel",
     "baseName": "Addi Deftmel",
-    "category": "addi",
+    "category": "cashi",
     "icon": "might",
     "rate": 10,
     "stat": {
@@ -1762,7 +1774,7 @@
   {
     "name": "Addi Deftra",
     "baseName": "Addi Deftra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "precision",
     "rate": 10,
     "stat": {
@@ -1774,7 +1786,7 @@
   {
     "name": "Addi Defttech",
     "baseName": "Addi Defttech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "technique",
     "rate": 10,
     "stat": {
@@ -1786,7 +1798,7 @@
   {
     "name": "Addi Guamel",
     "baseName": "Addi Guamel",
-    "category": "addi",
+    "category": "cashi",
     "icon": "might",
     "rate": 10,
     "stat": {
@@ -1798,7 +1810,7 @@
   {
     "name": "Addi Guara",
     "baseName": "Addi Guara",
-    "category": "addi",
+    "category": "cashi",
     "icon": "precision",
     "rate": 10,
     "stat": {
@@ -1810,7 +1822,7 @@
   {
     "name": "Addi Guatech",
     "baseName": "Addi Guatech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "technique",
     "rate": 10,
     "stat": {
@@ -1822,7 +1834,7 @@
   {
     "name": "Addi Wardmel",
     "baseName": "Addi Wardmel",
-    "category": "addi",
+    "category": "cashi",
     "icon": "might",
     "rate": 10,
     "stat": {
@@ -1834,7 +1846,7 @@
   {
     "name": "Addi Wardra",
     "baseName": "Addi Wardra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "precision",
     "rate": 10,
     "stat": {
@@ -1846,7 +1858,7 @@
   {
     "name": "Addi Wardtech",
     "baseName": "Addi Wardtech",
-    "category": "addi",
+    "category": "cashi",
     "icon": "technique",
     "rate": 10,
     "stat": {
@@ -2546,10 +2558,11 @@
     }
   },
   {
-    "name": "Triplble",
+    "name": "Triplble I",
     "baseName": "Triplble",
     "category": "dualble",
     "icon": "special",
+    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 8,
@@ -3060,7 +3073,7 @@
   {
     "name": "Addi Stamelra",
     "baseName": "Addi Stamelra",
-    "category": "addi",
+    "category": "cashi",
     "icon": "special",
     "rate": 10,
     "stat": {
@@ -3595,6 +3608,462 @@
       "hp": 5,
       "pp": 2,
       "potency": 3
+    }
+  },
+  {
+    "name": "Triplble II",
+    "baseName": "Triplble",
+    "category": "dualble",
+    "icon": "special",
+    "tier": 2,
+    "rate": 10,
+    "stat": {
+      "hp": 3
+    }
+  },
+  {
+    "name": "Sta Triplble",
+    "baseName": "Sta Triplble",
+    "category": "dualble",
+    "icon": "special",
+    "rate": 8,
+    "stat": {
+      "bp": 7,
+      "hp": 15,
+      "potency": 3
+    }
+  },
+  {
+    "name": "Spi Triplble",
+    "baseName": "Spi Triplble",
+    "category": "dualble",
+    "icon": "special",
+    "rate": 8,
+    "stat": {
+      "bp": 7,
+      "pp": 5,
+      "potency": 3
+    }
+  },
+  {
+    "name": "Deft Triplble",
+    "baseName": "Deft Triplble",
+    "category": "dualble",
+    "icon": "special",
+    "rate": 8,
+    "stat": {
+      "bp": 7,
+      "potency": 3,
+      "floorPotency": 2.5
+    }
+  },
+  {
+    "name": "Gua Triplble",
+    "baseName": "Gua Triplble",
+    "category": "dualble",
+    "icon": "special",
+    "rate": 8,
+    "stat": {
+      "bp": 7,
+      "potency": 3,
+      "damageResist": 3
+    }
+  },
+  {
+    "name": "Formido Fusia",
+    "baseName": "Formido Fusia",
+    "category": "fusia",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 4
+    }
+  },
+  {
+    "name": "Starl Soul",
+    "baseName": "Starl Soul",
+    "category": "soul",
+    "icon": "special",
+    "rate": 8,
+    "stat": {
+      "bp": 7
+    }
+  },
+  {
+    "name": "Ael Sovern",
+    "baseName": "Ael Sovern",
+    "category": "sovern",
+    "icon": "special",
+    "rate": 9,
+    "stat": {
+      "bp": 5,
+      "potency": 1
+    }
+  },
+  {
+    "name": "Highael Domina",
+    "baseName": "Highael Domina",
+    "category": "domina",
+    "icon": "special",
+    "rate": 7,
+    "stat": {
+      "hp": 10,
+      "pp": 4,
+      "potency": 3,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Gigas Maste",
+    "baseName": "Gigas Maste",
+    "category": "gigas",
+    "icon": "special",
+    "rate": 7,
+    "stat": {
+      "hp": 20,
+      "potency": 3.5
+    }
+  },
+  {
+    "name": "Gladia Soul",
+    "baseName": "Gladia Soul",
+    "category": "soul",
+    "icon": "special",
+    "rate": 7,
+    "stat": {
+      "hp": 20,
+      "pp": 6,
+      "potency": 3.75
+    }
+  },
+  {
+    "name": "Exdi Deft Parfait",
+    "baseName": "Exdi Deft Parfait",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "potency": 4,
+      "floorPotency": 3
+    }
+  },
+  {
+    "name": "Exdi Deftmelra",
+    "baseName": "Exdi Deftmelra",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "floorPotency": 3
+    }
+  },
+  {
+    "name": "Exdi Deftmeltech",
+    "baseName": "Exdi Deftmeltech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "meleePotency": 4,
+      "techPotency": 4,
+      "floorPotency": 3
+    }
+  },
+  {
+    "name": "Exdi Deftratech",
+    "baseName": "Exdi Deftratech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "floorPotency": 3
+    }
+  },
+  {
+    "name": "Exdi Spi Parfait",
+    "baseName": "Exdi Spi Parfait",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "pp": 6,
+      "potency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Spimelra",
+    "baseName": "Exdi Spimelra",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "pp": 6,
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Spimeltech",
+    "baseName": "Exdi Spimeltech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "pp": 6,
+      "meleePotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Spiratech",
+    "baseName": "Exdi Spiratech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "pp": 6,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Sta Parfait",
+    "baseName": "Exdi Sta Parfait",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 20,
+      "potency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Stamelra",
+    "baseName": "Exdi Stamelra",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 20,
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Stameltech",
+    "baseName": "Exdi Stameltech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 20,
+      "meleePotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Staratech",
+    "baseName": "Exdi Staratech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 20,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Staspi Parfait",
+    "baseName": "Exdi Staspi Parfait",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 10,
+      "pp": 3,
+      "potency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Staspimelra",
+    "baseName": "Exdi Staspimelra",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Staspimeltech",
+    "baseName": "Exdi Staspimeltech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 10,
+      "pp": 3,
+      "meleePotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Staspiratech",
+    "baseName": "Exdi Staspiratech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "hp": 10,
+      "pp": 3,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5
+    }
+  },
+  {
+    "name": "Exdi Gua Parfait",
+    "baseName": "Exdi Gua Parfait",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "potency": 4,
+      "floorPotency": 1.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Exdi Guamelra",
+    "baseName": "Exdi Guamelra",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "floorPotency": 1.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Exdi Guameltech",
+    "baseName": "Exdi Guameltech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "meleePotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Exdi Guaratech",
+    "baseName": "Exdi Guaratech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5,
+      "damageResist": 2.5
+    }
+  },
+  {
+    "name": "Exdi Ward Parfait",
+    "baseName": "Exdi Ward Parfait",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "potency": 4,
+      "floorPotency": 1.5,
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Exdi Wardmelra",
+    "baseName": "Exdi Wardmelra",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "meleePotency": 4,
+      "rangedPotency": 4,
+      "floorPotency": 1.5,
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Exdi Wardmeltech",
+    "baseName": "Exdi Wardmeltech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "meleePotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5,
+      "statusResist": 20
+    }
+  },
+  {
+    "name": "Exdi Wardratech",
+    "baseName": "Exdi Wardratech",
+    "category": "cashi",
+    "icon": "special",
+    "rate": 10,
+    "stat": {
+      "bp": 10,
+      "rangedPotency": 4,
+      "techPotency": 4,
+      "floorPotency": 1.5,
+      "statusResist": 20
     }
   }
 ]

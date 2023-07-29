@@ -3,8 +3,8 @@
     "name": "None",
     "level": 1,
     "stars": 0,
-    "limit": 50,
-    "limit_max": 60,
+    "limit": 60,
+    "limit_max": 70,
     "grindValues": {
       "0": 0,
       "10": 0,
@@ -13,7 +13,8 @@
       "40": 0,
       "50": 0,
       "60": 0
-    }
+    },
+    "varianceLow": 70
   },
   "Primm": {
     "name": "Primm",
@@ -29,7 +30,8 @@
       "40": 259,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "Tzvia": {
     "name": "Tzvia",
@@ -45,7 +47,8 @@
       "40": 264,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "Silver Primm": {
     "name": "Silver Primm",
@@ -61,7 +64,8 @@
       "40": 264,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "N-EXP Weapon": {
     "name": "N-EXP Weapon",
@@ -77,7 +81,8 @@
       "40": 264,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "Gold Primm": {
     "name": "Gold Primm",
@@ -93,7 +98,8 @@
       "40": 270,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "Theseus": {
     "name": "Theseus",
@@ -109,7 +115,8 @@
       "40": 270,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "Trois De": {
     "name": "Trois De",
@@ -125,7 +132,8 @@
       "40": 270,
       "50": 338,
       "60": 524
-    }
+    },
+    "varianceLow": 70
   },
   "Frostel": {
     "name": "Frostel",
@@ -142,6 +150,7 @@
       "50": 340,
       "60": 526
     },
+    "varianceLow": 70,
     "element": "Ice"
   },
   "Glissen": {
@@ -159,6 +168,7 @@
       "50": 340,
       "60": 526
     },
+    "varianceLow": 70,
     "element": "Lightning"
   },
   "Renaissa": {
@@ -295,6 +305,7 @@
       "50": 348,
       "60": 507
     },
+    "varianceLow": 70,
     "element": "Fire"
   },
   "Gothica": {
@@ -593,8 +604,8 @@
     "name": "Rugged",
     "level": 57,
     "stars": 7,
-    "limit": 60,
-    "limit_max": 60,
+    "limit": 70,
+    "limit_max": 70,
     "grindValues": {
       "0": 490,
       "10": 520,
@@ -610,8 +621,8 @@
     "name": "Kaisaar",
     "level": 60,
     "stars": 7,
-    "limit": 60,
-    "limit_max": 60,
+    "limit": 70,
+    "limit_max": 70,
     "grindValues": {
       "0": 485,
       "10": 515,
@@ -627,8 +638,8 @@
     "name": "Kaisaar Mk. 1",
     "level": 60,
     "stars": 7,
-    "limit": 60,
-    "limit_max": 60,
+    "limit": 70,
+    "limit_max": 70,
     "grindValues": {
       "0": 465,
       "10": 495,
@@ -644,8 +655,8 @@
     "name": "Obsidia",
     "level": 61,
     "stars": 7,
-    "limit": 60,
-    "limit_max": 60,
+    "limit": 70,
+    "limit_max": 70,
     "grindValues": {
       "0": 488,
       "10": 518,
@@ -661,8 +672,8 @@
     "name": "Crystia",
     "level": 55,
     "stars": 7,
-    "limit": 60,
-    "limit_max": 60,
+    "limit": 70,
+    "limit_max": 70,
     "grindValues": {
       "0": 473,
       "10": 503,
@@ -724,7 +735,8 @@
       "40": 645,
       "50": 685,
       "60": 746
-    }
+    },
+    "varianceLow": 70
   },
   "Gunblaze": {
     "name": "Gunblaze",
@@ -740,7 +752,8 @@
       "40": 651,
       "50": 691,
       "60": 752
-    }
+    },
+    "varianceLow": 70
   },
   "Tenebrous": {
     "name": "Tenebrous",
@@ -814,5 +827,59 @@
     },
     "varianceLow": 50,
     "varianceHigh": null
+  },
+  "Revita": {
+    "name": "Revita",
+    "level": 63,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "grindValues": {
+      "0": 466,
+      "10": 496,
+      "20": 526,
+      "30": 556,
+      "40": 591,
+      "50": 631,
+      "60": 692
+    },
+    "varianceLow": 50,
+    "varianceHigh": null,
+    "element": "Dark"
+  },
+  "Revolcoat": {
+    "name": "Revolcoat",
+    "level": 67,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "grindValues": {
+      "0": 524,
+      "10": 554,
+      "20": 584,
+      "30": 614,
+      "40": 649,
+      "50": 689,
+      "60": 750
+    },
+    "varianceLow": 50,
+    "varianceHigh": null
+  },
+  "Tisah": {
+    "name": "Tisah",
+    "level": 71,
+    "stars": 9,
+    "limit": 70,
+    "limit_max": 70,
+    "grindValues": {
+      "0": 637,
+      "10": 667,
+      "20": 697,
+      "30": 727,
+      "40": 762,
+      "50": 802,
+      "60": 907
+    },
+    "varianceLow": 50
   }
 }
