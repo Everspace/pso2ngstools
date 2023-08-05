@@ -99,7 +99,7 @@ function AllAugmentCategoryButton() {
   )
 }
 
-const p2w = ["addi"]
+const p2w = ["cashi"]
 const p2wlessCategories = allAugmentCategories
   .filter((c) => p2w.indexOf(c) === -1)
   .map(augmentCategoryStateFamilyAtom)
