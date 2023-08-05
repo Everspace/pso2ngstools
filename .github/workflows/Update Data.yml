@@ -16,8 +16,8 @@ jobs:
       - run: yarn data:build
       - run: yarn data
         env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           GOOGLE_SPREADSHEET: ${{ secrets.GOOGLE_SPREADSHEET }}
+          GOOGLE_SPREADSHEET_API_KEY: ${{ secrets.GOOGLE_SPREADSHEET_API_KEY }}
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
