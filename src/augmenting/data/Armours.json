@@ -892,5 +892,27 @@
       "50": 92,
       "60": 102
     }
+  },
+  "Octo": {
+    "name": "Octo",
+    "level": 72,
+    "stars": 8,
+    "limit": 50,
+    "limit_max": 60,
+    "stat": {
+      "hp": 20,
+      "meleePotency": 4.5,
+      "rangedPotency": 4.5,
+      "techPotency": 4.5
+    },
+    "grindValues": {
+      "0": 42,
+      "10": 42,
+      "20": 42,
+      "30": 42,
+      "40": 42,
+      "50": 42,
+      "60": 42
+    }
   }
 }

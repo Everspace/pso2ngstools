@@ -881,5 +881,23 @@
       "60": 907
     },
     "varianceLow": 50
+  },
+  "Verschmelz": {
+    "name": "Verschmelz",
+    "level": 71,
+    "stars": 9,
+    "limit": 70,
+    "limit_max": 70,
+    "grindValues": {
+      "0": 637,
+      "10": 667,
+      "20": 697,
+      "30": 727,
+      "40": 762,
+      "50": 802,
+      "60": 907
+    },
+    "varianceLow": 50,
+    "varianceHigh": null
   }
 }
