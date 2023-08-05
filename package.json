@@ -41,7 +41,7 @@
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "data:build": "node buildData.mjs",
-    "data": "yarn data:build ; node --experimental-modules build/convertAll.mjs"
+    "data": "node --experimental-modules build/convertAll.mjs"
   },
   "eslintConfig": {
     "extends": [

@@ -86,10 +86,13 @@ export function handleAugmentRow(rawRow: any): Augment {
   }
 
   let name: string = baseName
-  let tierNumber: undefined | number
-  if (tier !== "") {
+  let tierNumber: undefined | number | string
+  if (/\d+/.test(tier.trim())) {
     tierNumber = Number(tier)
     name = `${baseName} ${augmentTierToRoman[tierNumber - 1]}`
+  } else if (tier !== "") {
+    tierNumber = tier
+    name = `${baseName} ${tier}`
   }
 
   const data: Augment = {

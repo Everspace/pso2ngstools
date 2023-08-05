@@ -26,22 +26,53 @@ export function AugmentCapsuleImage({ augment }: AugmentCapsuleImageProps) {
 }
 
 interface SelectTiersProps {
-  tiers: number[]
+  tiers: (number | string | undefined)[]
   selected: number
   onClick: (n: number) => void
+}
+
+interface TierButtonProps {
+  tier: number | string | undefined
+  isSelected: boolean
+  onClick: () => void
+}
+
+const Blank = () => <span>"&nbsp;&nbsp;&nbsp;"</span>
+
+function TierButton({ tier, isSelected, onClick }: TierButtonProps) {
+  let buttonText: string | undefined
+
+  switch (typeof tier) {
+    case "number": {
+      buttonText = augmentTierToRoman[tier - 1]
+      break
+    }
+    case "string": {
+      buttonText = tier
+      break
+    }
+  }
+  return (
+    <Button
+      key={tier}
+      variant={isSelected ? "contained" : "outlined"}
+      onClick={onClick}
+    >
+      {buttonText ?? <Blank />}
+    </Button>
+  )
 }
 
 function SelectTiers({ tiers, onClick, selected }: SelectTiersProps) {
   return (
     <ButtonGroup size="small">
       {tiers.map((tier, index) => (
-        <Button
+        <TierButton
           key={tier}
-          variant={selected === index ? "contained" : "outlined"}
+          tier={tier}
+          isSelected={selected === index}
           onClick={() => onClick(index)}
-        >
-          {augmentTierToRoman[tier - 1]}
-        </Button>
+        />
       ))}
     </ButtonGroup>
   )

@@ -10,13 +10,7 @@ export type UnitSlot = Exclude<AugmentableSlot, "weapon">
 export const unitSlots: UnitSlot[] = ["unit1", "unit2", "unit3"]
 
 export const GRIND_LEVELS = [
-  0,
-  10,
-  20,
-  30,
-  40,
-  50,
-  60, // 70, 80, 90, 100,
+  0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100,
 ] as const
 
 export type GrindLevel = (typeof GRIND_LEVELS)[number]
@@ -81,7 +75,7 @@ export interface Augment {
   name: string
   category: string
   icon: AugmentImageType
-  tier?: number
+  tier?: number | string
   baseName?: string
   location?: string
   rate: number

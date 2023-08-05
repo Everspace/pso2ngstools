@@ -4065,5 +4065,70 @@
       "floorPotency": 1.5,
       "statusResist": 20
     }
+  },
+  {
+    "name": "Gigas Maste LC",
+    "baseName": "Gigas Maste",
+    "category": "gigas",
+    "icon": "special",
+    "tier": "LC",
+    "rate": 10,
+    "stat": {
+      "hp": 20,
+      "potency": 3.25
+    }
+  },
+  {
+    "name": "Gladia Soul LC",
+    "baseName": "Gladia Soul",
+    "category": "soul",
+    "icon": "special",
+    "tier": "LC",
+    "rate": 10,
+    "stat": {
+      "hp": 20,
+      "pp": 6,
+      "potency": 3.5
+    }
+  },
+  {
+    "name": "Halphinale LC",
+    "baseName": "Halphinale",
+    "category": "unknown",
+    "icon": "special",
+    "tier": "LC",
+    "rate": 10,
+    "stat": {
+      "hp": 15,
+      "pp": 5,
+      "potency": 3.75
+    }
+  },
+  {
+    "name": "Highael Domina LC",
+    "baseName": "Highael Domina",
+    "category": "domina",
+    "icon": "special",
+    "tier": "LC",
+    "rate": 10,
+    "stat": {
+      "hp": 10,
+      "pp": 4,
+      "potency": 2.75,
+      "floorPotency": 2
+    }
+  },
+  {
+    "name": "Mastery LC",
+    "baseName": "Mastery",
+    "category": "unknown",
+    "icon": "special",
+    "tier": "LC",
+    "rate": 10,
+    "stat": {
+      "potency": 2.25,
+      "floorPotency": 2.5,
+      "damageResist": 2.5
+    }
   }
 ]
