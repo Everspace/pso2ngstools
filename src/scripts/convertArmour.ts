@@ -1,8 +1,9 @@
+import { GrindLevel } from "augmenting/types"
 import { AugmentStat, GRIND_LEVELS, Unit } from "augmenting/types"
 import { BigNumber } from "mathjs"
 import { RecordSheet, Replace, writeFileJson } from "./common"
 import { getSheetRows } from "./google"
-import { GrindBase, GrindLimit, ArmourGrind } from "./grindInfo"
+import { ArmourGrind } from "./grindInfo"
 import { MiscData } from "./miscSheet"
 
 type DataSheetKeys =
@@ -53,8 +54,8 @@ export function handleArmorRow(row: RecordSheet<DataSheetKeys>): UnitData {
     name: Series,
     level: Number(Lv),
     stars,
-    limit: GrindBase[stars] ?? MiscData.MAX_GRIND,
-    limit_max: GrindLimit[stars] ?? MiscData.MAX_GRIND,
+    limit: (MiscData.MAX_GRIND - 10) as GrindLevel,
+    limit_max: MiscData.MAX_GRIND,
     stat: {},
   }
 

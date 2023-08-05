@@ -52,7 +52,8 @@ export function getWeaponBp({
   const { varianceHigh, varianceLow, grindValues } = weapon
   const weaponAtt = grindValues[grind]
 
-  const medianDamage = varianceLow.add(varianceHigh).div(2)
+  // varianceHigh is sometimes coming in as null instead of undefinted, so AAAAAAA a default is added
+  const medianDamage = varianceLow.add(varianceHigh ?? 100).div(2)
   const attBp = weaponAtt.mul(medianDamage).floor()
   const potentialBp = potential * 10
 

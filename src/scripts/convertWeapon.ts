@@ -1,8 +1,9 @@
+import { GrindLevel } from "augmenting/types"
 import { GRIND_LEVELS, Weapon } from "augmenting/types"
 import { BigNumber } from "mathjs"
 import { HasGrindLevels, RecordSheet, Replace, writeFileJson } from "./common"
 import { getSheetRows } from "./google"
-import { GrindBase, GrindLimit, WeaponGrind } from "./grindInfo"
+import { WeaponGrind } from "./grindInfo"
 import { MiscData } from "./miscSheet"
 
 type DataSheetKeys =
@@ -27,8 +28,8 @@ function handleWeaponRow(row: DataSheetRow): WeaponData {
     name: Series,
     level: Number(Lv),
     stars,
-    limit: GrindBase[stars] ?? MiscData.MAX_GRIND,
-    limit_max: GrindLimit[stars] ?? MiscData.MAX_GRIND,
+    limit: (MiscData.MAX_GRIND - 10) as GrindLevel,
+    limit_max: MiscData.MAX_GRIND,
   }
 
   const grinds: Partial<Record<string, number>> = {}
