@@ -4,7 +4,7 @@ build({
   entryPoints: ["src/scripts/convertAll.ts"],
   outdir: "build",
   bundle: true,
-  minify: true,
+  minify: false,
   format: "esm",
   target: "esnext",
   platform: "node",

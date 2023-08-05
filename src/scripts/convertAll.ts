@@ -30,7 +30,7 @@ async function doBP() {
 }
 
 async function main() {
-  await Promise.allSettled([
+  await Promise.all([
     doClasses(),
     doWeapons(),
     doAffixes(),
