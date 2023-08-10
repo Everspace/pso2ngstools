@@ -14,9 +14,10 @@
   },
   {
     "name": "Ael Note A",
-    "baseName": "Ael Note A",
+    "baseName": "Ael Note",
     "category": "note",
     "icon": "hp",
+    "tier": "A",
     "rate": 9,
     "stat": {
       "bp": 5,
@@ -26,9 +27,10 @@
   },
   {
     "name": "Ael Note B",
-    "baseName": "Ael Note B",
+    "baseName": "Ael Note",
     "category": "note",
     "icon": "special",
+    "tier": "B",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -38,9 +40,10 @@
   },
   {
     "name": "Ael Note C",
-    "baseName": "Ael Note C",
+    "baseName": "Ael Note",
     "category": "note",
     "icon": "special",
+    "tier": "C",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -50,9 +53,10 @@
   },
   {
     "name": "Ael Note D",
-    "baseName": "Ael Note D",
+    "baseName": "Ael Note",
     "category": "note",
     "icon": "special",
+    "tier": "D",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -666,7 +670,7 @@
   {
     "name": "Melra Dualble I",
     "baseName": "Melra Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 1,
     "rate": 10,
@@ -679,7 +683,7 @@
   {
     "name": "Melra Dualble II",
     "baseName": "Melra Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 2,
     "rate": 10,
@@ -692,7 +696,7 @@
   {
     "name": "Melra Dualble III",
     "baseName": "Melra Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 3,
     "rate": 9,
@@ -705,7 +709,7 @@
   {
     "name": "Meltech Dualble I",
     "baseName": "Meltech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 1,
     "rate": 10,
@@ -718,7 +722,7 @@
   {
     "name": "Meltech Dualble II",
     "baseName": "Meltech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 2,
     "rate": 10,
@@ -731,7 +735,7 @@
   {
     "name": "Meltech Dualble III",
     "baseName": "Meltech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 3,
     "rate": 9,
@@ -933,7 +937,7 @@
   {
     "name": "Ratech Dualble I",
     "baseName": "Ratech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 1,
     "rate": 10,
@@ -946,7 +950,7 @@
   {
     "name": "Ratech Dualble II",
     "baseName": "Ratech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 2,
     "rate": 10,
@@ -959,7 +963,7 @@
   {
     "name": "Ratech Dualble III",
     "baseName": "Ratech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 3,
     "rate": 9,
@@ -1192,9 +1196,10 @@
   },
   {
     "name": "Ret Note A",
-    "baseName": "Ret Note A",
+    "baseName": "Ret Note",
     "category": "note",
     "icon": "hp",
+    "tier": "A",
     "rate": 9,
     "stat": {
       "bp": 5,
@@ -1203,9 +1208,10 @@
   },
   {
     "name": "Ret Note B",
-    "baseName": "Ret Note B",
+    "baseName": "Ret Note",
     "category": "note",
     "icon": "special",
+    "tier": "B",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -1216,9 +1222,10 @@
   },
   {
     "name": "Ret Note C",
-    "baseName": "Ret Note C",
+    "baseName": "Ret Note",
     "category": "note",
     "icon": "special",
+    "tier": "C",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -1229,9 +1236,10 @@
   },
   {
     "name": "Ret Note D",
-    "baseName": "Ret Note D",
+    "baseName": "Ret Note",
     "category": "note",
     "icon": "special",
+    "tier": "D",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -1650,9 +1658,10 @@
   },
   {
     "name": "Addi Stamel",
-    "baseName": "Addi Stamel",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "might",
+    "tier": "Stamel",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1662,9 +1671,10 @@
   },
   {
     "name": "Addi Stara",
-    "baseName": "Addi Stara",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "precision",
+    "tier": "Stara",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1674,9 +1684,10 @@
   },
   {
     "name": "Addi Statech",
-    "baseName": "Addi Statech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "technique",
+    "tier": "Statech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1686,9 +1697,10 @@
   },
   {
     "name": "Addi Spimel",
-    "baseName": "Addi Spimel",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "might",
+    "tier": "Spimel",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1698,9 +1710,10 @@
   },
   {
     "name": "Addi Spira",
-    "baseName": "Addi Spira",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "precision",
+    "tier": "Spira",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1710,9 +1723,10 @@
   },
   {
     "name": "Addi Spitech",
-    "baseName": "Addi Spitech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "technique",
+    "tier": "Spitech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1722,9 +1736,10 @@
   },
   {
     "name": "Addi Staspimel",
-    "baseName": "Addi Staspimel",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "might",
+    "tier": "Staspimel",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1735,9 +1750,10 @@
   },
   {
     "name": "Addi Staspira",
-    "baseName": "Addi Staspira",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "precision",
+    "tier": "Staspira",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1748,9 +1764,10 @@
   },
   {
     "name": "Addi Staspitech",
-    "baseName": "Addi Staspitech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "technique",
+    "tier": "Staspitech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1761,9 +1778,10 @@
   },
   {
     "name": "Addi Deftmel",
-    "baseName": "Addi Deftmel",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "might",
+    "tier": "Deftmel",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1773,9 +1791,10 @@
   },
   {
     "name": "Addi Deftra",
-    "baseName": "Addi Deftra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "precision",
+    "tier": "Deftra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1785,9 +1804,10 @@
   },
   {
     "name": "Addi Defttech",
-    "baseName": "Addi Defttech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "technique",
+    "tier": "Defttech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1797,9 +1817,10 @@
   },
   {
     "name": "Addi Guamel",
-    "baseName": "Addi Guamel",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "might",
+    "tier": "Guamel",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1809,9 +1830,10 @@
   },
   {
     "name": "Addi Guara",
-    "baseName": "Addi Guara",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "precision",
+    "tier": "Guara",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1821,9 +1843,10 @@
   },
   {
     "name": "Addi Guatech",
-    "baseName": "Addi Guatech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "technique",
+    "tier": "Guatech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1833,9 +1856,10 @@
   },
   {
     "name": "Addi Wardmel",
-    "baseName": "Addi Wardmel",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "might",
+    "tier": "Wardmel",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1845,9 +1869,10 @@
   },
   {
     "name": "Addi Wardra",
-    "baseName": "Addi Wardra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "precision",
+    "tier": "Wardra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -1857,9 +1882,10 @@
   },
   {
     "name": "Addi Wardtech",
-    "baseName": "Addi Wardtech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "technique",
+    "tier": "Wardtech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -2336,9 +2362,10 @@
   },
   {
     "name": "Kvar Note A",
-    "baseName": "Kvar Note A",
+    "baseName": "Kvar Note",
     "category": "note",
     "icon": "hp",
+    "tier": "A",
     "rate": 9,
     "stat": {
       "bp": 5,
@@ -2348,9 +2375,10 @@
   },
   {
     "name": "Kvar Note B",
-    "baseName": "Kvar Note B",
+    "baseName": "Kvar Note",
     "category": "note",
     "icon": "special",
+    "tier": "B",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -2361,9 +2389,10 @@
   },
   {
     "name": "Kvar Note C",
-    "baseName": "Kvar Note C",
+    "baseName": "Kvar Note",
     "category": "note",
     "icon": "special",
+    "tier": "C",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -2374,9 +2403,10 @@
   },
   {
     "name": "Kvar Note D",
-    "baseName": "Kvar Note D",
+    "baseName": "Kvar Note",
     "category": "note",
     "icon": "special",
+    "tier": "D",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -2439,9 +2469,10 @@
   },
   {
     "name": "Aglai Soul H",
-    "baseName": "Aglai Soul H",
+    "baseName": "Aglai Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "H",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2452,9 +2483,10 @@
   },
   {
     "name": "Euphroy Soul H",
-    "baseName": "Euphroy Soul H",
+    "baseName": "Euphroy Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "H",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2465,9 +2497,10 @@
   },
   {
     "name": "Thali Soul H",
-    "baseName": "Thali Soul H",
+    "baseName": "Thali Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "H",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2478,9 +2511,10 @@
   },
   {
     "name": "Aglai Soul P",
-    "baseName": "Aglai Soul P",
+    "baseName": "Aglai Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "P",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2491,9 +2525,10 @@
   },
   {
     "name": "Euphroy Soul P",
-    "baseName": "Euphroy Soul P",
+    "baseName": "Euphroy Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "P",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2504,9 +2539,10 @@
   },
   {
     "name": "Thali Soul P",
-    "baseName": "Thali Soul P",
+    "baseName": "Thali Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "P",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2517,9 +2553,10 @@
   },
   {
     "name": "Aglai Soul X",
-    "baseName": "Aglai Soul X",
+    "baseName": "Aglai Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "X",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2531,9 +2568,10 @@
   },
   {
     "name": "Euphroy Soul X",
-    "baseName": "Euphroy Soul X",
+    "baseName": "Euphroy Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "X",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2545,9 +2583,10 @@
   },
   {
     "name": "Thali Soul X",
-    "baseName": "Thali Soul X",
+    "baseName": "Thali Soul",
     "category": "soul",
     "icon": "special",
+    "tier": "X",
     "rate": 9,
     "stat": {
       "bp": 11,
@@ -2560,7 +2599,7 @@
   {
     "name": "Triplble I",
     "baseName": "Triplble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 1,
     "rate": 9,
@@ -3072,9 +3111,10 @@
   },
   {
     "name": "Addi Stamelra",
-    "baseName": "Addi Stamelra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Stamelra",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3086,9 +3126,10 @@
   },
   {
     "name": "Addi Stameltech",
-    "baseName": "Addi Stameltech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Stameltech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3100,9 +3141,10 @@
   },
   {
     "name": "Addi Starratech",
-    "baseName": "Addi Starratech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Starratech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3114,9 +3156,10 @@
   },
   {
     "name": "Addi Staspimelra",
-    "baseName": "Addi Staspimelra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspimelra",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3129,9 +3172,10 @@
   },
   {
     "name": "Addi Staspimeltech",
-    "baseName": "Addi Staspimeltech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspimeltech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3144,9 +3188,10 @@
   },
   {
     "name": "Addi Staspiratech",
-    "baseName": "Addi Staspiratech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspiratech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3159,9 +3204,10 @@
   },
   {
     "name": "Addi Spimelra",
-    "baseName": "Addi Spimelra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spimelra",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3173,9 +3219,10 @@
   },
   {
     "name": "Addi Spimeltech",
-    "baseName": "Addi Spimeltech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spimeltech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3187,9 +3234,10 @@
   },
   {
     "name": "Addi Spiratech",
-    "baseName": "Addi Spiratech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spiratech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3201,9 +3249,10 @@
   },
   {
     "name": "Addi Deftmelra",
-    "baseName": "Addi Deftmelra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deftmelra",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3214,9 +3263,10 @@
   },
   {
     "name": "Addi Deftmeltech",
-    "baseName": "Addi Deftmeltech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deftmeltech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3227,9 +3277,10 @@
   },
   {
     "name": "Addi Deftratech",
-    "baseName": "Addi Deftratech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deftratech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3240,9 +3291,10 @@
   },
   {
     "name": "Addi Guamelra",
-    "baseName": "Addi Guamelra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Guamelra",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3254,9 +3306,10 @@
   },
   {
     "name": "Addi Guameltech",
-    "baseName": "Addi Guameltech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Guameltech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3268,9 +3321,10 @@
   },
   {
     "name": "Addi Guaratech",
-    "baseName": "Addi Guaratech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Guaratech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3282,9 +3336,10 @@
   },
   {
     "name": "Addi Wardmelra",
-    "baseName": "Addi Wardmelra",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Wardmelra",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3296,9 +3351,10 @@
   },
   {
     "name": "Addi Wardmeltech",
-    "baseName": "Addi Wardmeltech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Wardmeltech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3310,9 +3366,10 @@
   },
   {
     "name": "Addi Wardratech",
-    "baseName": "Addi Wardratech",
-    "category": "cashi",
+    "baseName": "Addi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Wardratech",
     "rate": 10,
     "stat": {
       "bp": 13,
@@ -3414,9 +3471,10 @@
   },
   {
     "name": "Stira Note A",
-    "baseName": "Stira Note A",
+    "baseName": "Stira Note",
     "category": "note",
     "icon": "special",
+    "tier": "A",
     "rate": 9,
     "stat": {
       "bp": 5,
@@ -3426,9 +3484,10 @@
   },
   {
     "name": "Stira Note B",
-    "baseName": "Stira Note B",
+    "baseName": "Stira Note",
     "category": "note",
     "icon": "special",
+    "tier": "B",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -3439,9 +3498,10 @@
   },
   {
     "name": "Stira Note C",
-    "baseName": "Stira Note C",
+    "baseName": "Stira Note",
     "category": "note",
     "icon": "special",
+    "tier": "C",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -3452,9 +3512,10 @@
   },
   {
     "name": "Stira Note D",
-    "baseName": "Stira Note D",
+    "baseName": "Stira Note",
     "category": "note",
     "icon": "special",
+    "tier": "D",
     "rate": 9,
     "stat": {
       "bp": 4,
@@ -3478,7 +3539,7 @@
   {
     "name": "Ratech Dualble IV",
     "baseName": "Ratech Dualble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 4,
     "rate": 8,
@@ -3489,9 +3550,9 @@
     }
   },
   {
-    "name": "Meltech Duable IV",
-    "baseName": "Meltech Duable",
-    "category": "dualble",
+    "name": "Meltech Dualble IV",
+    "baseName": "Meltech Dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 4,
     "rate": 8,
@@ -3502,9 +3563,9 @@
     }
   },
   {
-    "name": "Melra Duable IV",
-    "baseName": "Melra Duable",
-    "category": "dualble",
+    "name": "Melra Dualble IV",
+    "baseName": "Melra Dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 4,
     "rate": 8,
@@ -3613,7 +3674,7 @@
   {
     "name": "Triplble II",
     "baseName": "Triplble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "tier": 2,
     "rate": 10,
@@ -3624,7 +3685,7 @@
   {
     "name": "Sta Triplble",
     "baseName": "Sta Triplble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "rate": 8,
     "stat": {
@@ -3636,7 +3697,7 @@
   {
     "name": "Spi Triplble",
     "baseName": "Spi Triplble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "rate": 8,
     "stat": {
@@ -3648,7 +3709,7 @@
   {
     "name": "Deft Triplble",
     "baseName": "Deft Triplble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "rate": 8,
     "stat": {
@@ -3660,7 +3721,7 @@
   {
     "name": "Gua Triplble",
     "baseName": "Gua Triplble",
-    "category": "dualble",
+    "category": "lble",
     "icon": "special",
     "rate": 8,
     "stat": {
@@ -3738,9 +3799,10 @@
   },
   {
     "name": "Exdi Deft Parfait",
-    "baseName": "Exdi Deft Parfait",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deft Parfait",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3750,9 +3812,10 @@
   },
   {
     "name": "Exdi Deftmelra",
-    "baseName": "Exdi Deftmelra",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deftmelra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3763,9 +3826,10 @@
   },
   {
     "name": "Exdi Deftmeltech",
-    "baseName": "Exdi Deftmeltech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deftmeltech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3776,9 +3840,10 @@
   },
   {
     "name": "Exdi Deftratech",
-    "baseName": "Exdi Deftratech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Deftratech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3789,9 +3854,10 @@
   },
   {
     "name": "Exdi Spi Parfait",
-    "baseName": "Exdi Spi Parfait",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spi Parfait",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3802,9 +3868,10 @@
   },
   {
     "name": "Exdi Spimelra",
-    "baseName": "Exdi Spimelra",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spimelra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3816,9 +3883,10 @@
   },
   {
     "name": "Exdi Spimeltech",
-    "baseName": "Exdi Spimeltech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spimeltech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3830,9 +3898,10 @@
   },
   {
     "name": "Exdi Spiratech",
-    "baseName": "Exdi Spiratech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Spiratech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3844,9 +3913,10 @@
   },
   {
     "name": "Exdi Sta Parfait",
-    "baseName": "Exdi Sta Parfait",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Sta Parfait",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3857,9 +3927,10 @@
   },
   {
     "name": "Exdi Stamelra",
-    "baseName": "Exdi Stamelra",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Stamelra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3871,9 +3942,10 @@
   },
   {
     "name": "Exdi Stameltech",
-    "baseName": "Exdi Stameltech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Stameltech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3885,9 +3957,10 @@
   },
   {
     "name": "Exdi Staratech",
-    "baseName": "Exdi Staratech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staratech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3899,9 +3972,10 @@
   },
   {
     "name": "Exdi Staspi Parfait",
-    "baseName": "Exdi Staspi Parfait",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspi Parfait",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3913,9 +3987,10 @@
   },
   {
     "name": "Exdi Staspimelra",
-    "baseName": "Exdi Staspimelra",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspimelra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3928,9 +4003,10 @@
   },
   {
     "name": "Exdi Staspimeltech",
-    "baseName": "Exdi Staspimeltech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspimeltech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3943,9 +4019,10 @@
   },
   {
     "name": "Exdi Staspiratech",
-    "baseName": "Exdi Staspiratech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Staspiratech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3958,9 +4035,10 @@
   },
   {
     "name": "Exdi Gua Parfait",
-    "baseName": "Exdi Gua Parfait",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Gua Parfait",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3971,9 +4049,10 @@
   },
   {
     "name": "Exdi Guamelra",
-    "baseName": "Exdi Guamelra",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Guamelra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3985,9 +4064,10 @@
   },
   {
     "name": "Exdi Guameltech",
-    "baseName": "Exdi Guameltech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Guameltech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -3999,9 +4079,10 @@
   },
   {
     "name": "Exdi Guaratech",
-    "baseName": "Exdi Guaratech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Guaratech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -4013,9 +4094,10 @@
   },
   {
     "name": "Exdi Ward Parfait",
-    "baseName": "Exdi Ward Parfait",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Ward Parfait",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -4026,9 +4108,10 @@
   },
   {
     "name": "Exdi Wardmelra",
-    "baseName": "Exdi Wardmelra",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Wardmelra",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -4040,9 +4123,10 @@
   },
   {
     "name": "Exdi Wardmeltech",
-    "baseName": "Exdi Wardmeltech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Wardmeltech",
     "rate": 10,
     "stat": {
       "bp": 10,
@@ -4054,9 +4138,10 @@
   },
   {
     "name": "Exdi Wardratech",
-    "baseName": "Exdi Wardratech",
-    "category": "cashi",
+    "baseName": "Exdi",
+    "category": "$$$",
     "icon": "special",
+    "tier": "Wardratech",
     "rate": 10,
     "stat": {
       "bp": 10,

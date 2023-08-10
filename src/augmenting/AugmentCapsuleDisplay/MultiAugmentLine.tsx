@@ -1,7 +1,8 @@
-import { Button, ButtonGroup, Grid } from "@mui/material"
+import { Button, Grid } from "@mui/material"
 import { AugmentLine, AugmentLineHeader } from "./AugmentLine"
 import { augmentImageFromType } from "../images/augment"
-import { useState, useEffect } from "react"
+import { chunk } from "lodash"
+import { useState } from "react"
 import { Augment } from "augmenting/types"
 import { augmentTierToRoman } from "augmenting/tools"
 
@@ -26,35 +27,37 @@ export function AugmentCapsuleImage({ augment }: AugmentCapsuleImageProps) {
 }
 
 interface SelectTiersProps {
-  tiers: (number | string | undefined)[]
-  selected: number
-  onClick: (n: number) => void
+  augments: Augment[]
+  selected: Augment
+  onClick: (a: Augment) => void
 }
 
 interface TierButtonProps {
-  tier: number | string | undefined
+  augment: Augment
   isSelected: boolean
   onClick: () => void
 }
 
 const Blank = () => <span>"&nbsp;&nbsp;&nbsp;"</span>
 
-function TierButton({ tier, isSelected, onClick }: TierButtonProps) {
+function TierButton({ augment, isSelected, onClick }: TierButtonProps) {
   let buttonText: string | undefined
 
-  switch (typeof tier) {
+  switch (typeof augment.tier) {
     case "number": {
-      buttonText = augmentTierToRoman[tier - 1]
+      buttonText = augmentTierToRoman[augment.tier - 1]
       break
     }
     case "string": {
-      buttonText = tier
+      buttonText = augment.tier
       break
     }
   }
   return (
     <Button
-      key={tier}
+      key={augment.name}
+      size="small"
+      sx={{ minWidth: 32 }}
       variant={isSelected ? "contained" : "outlined"}
       onClick={onClick}
     >
@@ -63,26 +66,55 @@ function TierButton({ tier, isSelected, onClick }: TierButtonProps) {
   )
 }
 
-function SelectTiers({ tiers, onClick, selected }: SelectTiersProps) {
+const extractTier = (a: Augment) => a.tier?.toString() ?? ""
+const compareTier = (a: Augment, b: Augment) => {
+  if (typeof a.tier === "number" && typeof b.tier === "number")
+    return a.tier - b.tier
+  if (typeof a.tier === "number") return -1
+  if (typeof b.tier === "number") return 1
+  return extractTier(a).localeCompare(extractTier(b))
+}
+
+function SelectTiers({ augments, onClick, selected }: SelectTiersProps) {
+  const augmentSorted = augments.sort(compareTier)
+
+  const TierRow = (row: Augment[]) => {
+    return (
+      <Grid item container spacing={0.5}>
+        {row.map((agument) => (
+          <Grid item key={agument.name} xs="auto">
+            <TierButton
+              augment={agument}
+              isSelected={selected.name === agument.name}
+              onClick={() => onClick(agument)}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    )
+  }
   return (
-    <ButtonGroup size="small">
-      {tiers.map((tier, index) => (
-        <TierButton
-          key={tier}
-          tier={tier}
-          isSelected={selected === index}
-          onClick={() => onClick(index)}
-        />
-      ))}
-    </ButtonGroup>
+    <Grid
+      container
+      direction="row"
+      justifyItems="flex-start"
+      alignItems="center"
+      spacing={0.5}
+    >
+      {chunk(augmentSorted, 7).map(TierRow)}
+    </Grid>
   )
 }
 
 export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
   const [selectedAugment, setSelected] = useState(augments.length - 1)
-  useEffect(() => {
-    setSelected(augments.length - 1)
-  }, [setSelected, augments.length])
+
+  const setSelectedNew = (incoming: Augment) => {
+    setSelected(augments.findIndex((aug) => aug.name === incoming.name))
+  }
+  // useEffect(() => {
+  //   setSelected(augments.length - 1)
+  // }, [setSelected, augments.length])
 
   const group = augments[0].baseName!
   let augment = augments[selectedAugment]
@@ -107,9 +139,9 @@ export function MultiAugmentDisplay({ augments }: MultiAugmentDisplayProps) {
           <Grid item>{group}</Grid>
           <Grid item>
             <SelectTiers
-              selected={selectedAugment}
-              onClick={setSelected}
-              tiers={augments.map((v) => v.tier!)}
+              selected={augment}
+              onClick={setSelectedNew}
+              augments={augments}
             />
           </Grid>
           <Grid item>{augment.stat.bp?.toNumber() ?? "??"} BP</Grid>
