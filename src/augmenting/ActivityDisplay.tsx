@@ -90,7 +90,12 @@ function CombatActivityGroup({ activities }: { activities: CombatActivity[] }) {
 function RegionActivities({ region }: { region: string }) {
   const activities = activityNameByRegion[region]
   return (
-    <Grid container spacing={1} mb={1}>
+    <Grid
+      container
+      spacing={1}
+      my={1}
+      sx={{ borderTop: 1, borderColor: "text.disabled" }}
+    >
       <Grid item xs={12}>
         <Typography variant="h5">{region}</Typography>
       </Grid>
@@ -107,15 +112,17 @@ export function ActivityDisplay() {
   return (
     <Accordion TransitionProps={{ unmountOnExit: true }}>
       <AccordionSummary expandIcon={<ExpandMore />}>
-        <Grid container spacing={1}>
+        <Grid container>
           <Grid item xs={2}>
             BP Requirements
           </Grid>
-          {DEFAULT_ACTIVITIES.map((activity) => (
-            <Grid item key={`${activity.name}${activity.rank}`}>
-              <CombatActivityGroup activities={[activity]} />
-            </Grid>
-          ))}
+          <Grid item container xs={10} spacing={1}>
+            {DEFAULT_ACTIVITIES.map((activity) => (
+              <Grid item key={`${activity.name}${activity.rank}`}>
+                <CombatActivityGroup activities={[activity]} />
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
       </AccordionSummary>
       <AccordionDetails>

@@ -1,19 +1,5 @@
 [
   {
-    "name": "Aelio Mining Rig",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 1,
-    "bp": 1243
-  },
-  {
-    "name": "Aelio Mining Rig",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 2,
-    "bp": 1898
-  },
-  {
     "name": "Aelio Purple",
     "region": "Aelio",
     "type": "Trigger",
@@ -26,6 +12,13 @@
     "type": "Trigger",
     "rank": 2,
     "bp": 1957
+  },
+  {
+    "name": "Aelio Purple",
+    "region": "Aelio",
+    "type": "Trigger",
+    "rank": 3,
+    "bp": 2972
   },
   {
     "name": "Aelio Yellow",
@@ -105,20 +98,6 @@
     "bp": 2972
   },
   {
-    "name": "DOLLS Suppression",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 1,
-    "bp": 1184
-  },
-  {
-    "name": "DOLLS Suppression",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 2,
-    "bp": 1898
-  },
-  {
     "name": "Dustyl Vera",
     "region": "Retem",
     "type": "UQ",
@@ -131,6 +110,13 @@
     "type": "UQ",
     "rank": 2,
     "bp": 2049
+  },
+  {
+    "name": "Halpha Environment Zone",
+    "region": "Quest",
+    "type": "Leciel",
+    "rank": 1,
+    "bp": 3615
   },
   {
     "name": "Kvaris Mining Rig",
@@ -231,18 +217,11 @@
     "bp": 1759
   },
   {
-    "name": "Nex Vera",
+    "name": "Mt. Magnus",
     "region": "Aelio",
-    "type": "UQ",
-    "rank": 1,
-    "bp": 1184
-  },
-  {
-    "name": "Nex Vera",
-    "region": "Aelio",
-    "type": "UQ",
-    "rank": 2,
-    "bp": 1898
+    "type": "Battle Zone",
+    "rank": 4,
+    "bp": 3119
   },
   {
     "name": "Nils Vera",
@@ -250,6 +229,27 @@
     "type": "UQ",
     "rank": 1,
     "bp": 2972
+  },
+  {
+    "name": "Phase",
+    "region": "Quest",
+    "type": "Duel",
+    "rank": 1,
+    "bp": 3119
+  },
+  {
+    "name": "Phase",
+    "region": "Quest",
+    "type": "Duel",
+    "rank": 2,
+    "bp": 3413
+  },
+  {
+    "name": "Remnants of Ambition",
+    "region": "Kvaris",
+    "type": "UQ",
+    "rank": 1,
+    "bp": 3413
   },
   {
     "name": "Renus Vera",
@@ -278,6 +278,13 @@
     "type": "Battle Zone",
     "rank": 2,
     "bp": 1759
+  },
+  {
+    "name": "Resol Forest",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 4,
+    "bp": 3119
   },
   {
     "name": "Retem Alnothe",
@@ -333,6 +340,13 @@
     "region": "Retem",
     "type": "Trigger",
     "rank": 2,
+    "bp": 2114
+  },
+  {
+    "name": "Retem Purple",
+    "region": "Retem",
+    "type": "Trigger",
+    "rank": 3,
     "bp": 2972
   },
   {
@@ -348,6 +362,13 @@
     "type": "Trigger",
     "rank": 2,
     "bp": 2049
+  },
+  {
+    "name": "Sign of the Planetbreaker",
+    "region": "Quest",
+    "type": "Portal",
+    "rank": 1,
+    "bp": 3750
   },
   {
     "name": "Stia Yellow",
@@ -376,5 +397,12 @@
     "type": "Battle Zone",
     "rank": 3,
     "bp": 1759
+  },
+  {
+    "name": "Vanford Laboratory Ruins",
+    "region": "Aelio",
+    "type": "Battle Zone",
+    "rank": 4,
+    "bp": 3119
   }
 ]

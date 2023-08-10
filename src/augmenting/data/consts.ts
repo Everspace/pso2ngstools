@@ -43,6 +43,6 @@ const highestForType = mapValues(
   (activities) => activities.sort((a, b) => a.bp - b.bp).reverse()[0],
 )
 
-export const DEFAULT_ACTIVITIES = Object.keys(highestForType).map(
-  (k) => highestForType[k],
-)
+export const DEFAULT_ACTIVITIES = Object.keys(highestForType)
+  .sort()
+  .map((k) => highestForType[k])
