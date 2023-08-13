@@ -2597,11 +2597,10 @@
     }
   },
   {
-    "name": "Triplble I",
+    "name": "Triplble",
     "baseName": "Triplble",
     "category": "lble",
     "icon": "special",
-    "tier": 1,
     "rate": 9,
     "stat": {
       "bp": 8,

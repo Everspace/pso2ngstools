@@ -992,6 +992,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 34,
       "meleePotency": 4,
       "rangedPotency": 4,
       "techPotency": 4,
@@ -1074,6 +1075,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 36.5,
       "hp": 20,
       "meleePotency": 4.5,
       "rangedPotency": 4.5,
