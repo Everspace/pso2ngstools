@@ -884,6 +884,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 32,
       "hp": 30,
       "pp": 4,
       "meleePotency": 3,
@@ -910,6 +911,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 32,
       "hp": 30,
       "pp": 4,
       "rangedPotency": 3,
@@ -936,6 +938,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 32,
       "hp": 30,
       "pp": 4,
       "meleePotency": 3,
@@ -962,6 +965,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 32,
       "hp": 55,
       "meleePotency": 3,
       "rangedPotency": 3,
@@ -1014,6 +1018,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 32,
       "pp": 10,
       "meleePotency": 3,
       "rangedPotency": 3,
@@ -1040,6 +1045,7 @@
     "limit": 60,
     "limit_max": 70,
     "stat": {
+      "bp": 35,
       "hp": 30,
       "pp": 5,
       "meleePotency": 3.5,

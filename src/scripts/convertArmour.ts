@@ -11,6 +11,7 @@ type DataSheetKeys =
   | "Lv"
   | "Stars"
   | "Defense"
+  | "BP"
   | "hp"
   | "pp"
   | "MEL"
@@ -27,6 +28,7 @@ const translationTable: TranslationTable = {
   RNG: "rangedPotency",
   TEC: "techPotency",
   Status: "statusResist",
+  BP: "bp",
   hp: "hp",
   pp: "pp",
 }
@@ -38,6 +40,7 @@ export function handleArmorRow(row: RecordSheet<DataSheetKeys>): UnitData {
     Lv,
     Stars,
     Defense,
+    BP,
     hp,
     pp,
     MEL,
@@ -46,7 +49,7 @@ export function handleArmorRow(row: RecordSheet<DataSheetKeys>): UnitData {
     DmgResist,
     Status,
   } = row
-  const stats = { hp, pp, MEL, RNG, TEC, DmgResist, Status }
+  const stats = { BP, hp, pp, MEL, RNG, TEC, DmgResist, Status }
   const stars = Number(Stars)
 
   const defenseBase = Number(Defense)

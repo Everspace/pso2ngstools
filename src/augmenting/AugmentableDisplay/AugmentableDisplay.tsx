@@ -27,26 +27,27 @@ import {
   grindStateFamily,
   weaponPotentialAtom,
 } from "augmenting/state/equipmentState"
-import { zero } from "MathConstants"
 import { getAugmentBp, getUnitBp, getWeaponBp } from "augmenting/bpCalc"
+import { sum } from "mathjs"
 
 type BpHeaderProps = {
   slot: AugmentableSlot
 }
 
 function BpHeader({ slot }: BpHeaderProps) {
-  const augments = useAtomValue(augmentableFamily(slot))
-
   const equip = useAtomValue(equipStateFamily(slot))
   const grind = useAtomValue(grindStateFamily(slot))
   const potential = useAtomValue(weaponPotentialAtom)
-  let bp = zero.add(getAugmentBp(augments))
 
-  if (slot === "weapon") {
-    bp = bp.add(getWeaponBp({ weapon: equip as Weapon, grind, potential }))
-  } else {
-    bp = bp.add(getUnitBp({ unit: equip as Unit, grind }))
-  }
+  const augments = useAtomValue(augmentableFamily(slot))
+  const augmentBp = getAugmentBp(augments)
+
+  let equipBP =
+    slot === "weapon"
+      ? getWeaponBp({ weapon: equip as Weapon, grind, potential })
+      : getUnitBp({ unit: equip as Unit, grind })
+
+  const bp = sum(augmentBp, equipBP)
 
   return (
     <Typography>

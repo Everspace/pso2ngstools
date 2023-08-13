@@ -17,14 +17,20 @@ type UnitBpOptions = {
 
 export function getUnitBp({ unit, grind }: UnitBpOptions) {
   const {
-    stat: { hp, pp },
+    stat: { bp, hp, pp },
   } = unit
-  const def = unit.grindValues[grind]
-  const hpBp = (hp ?? zero).div(10)
-  const ppBp = pp ?? 0
-  const defBp = getDefenseBp(def)
+  let totalBp = bp ?? zero
+  if (bp === undefined) {
+    const defBp = getDefenseBp(unit.grindValues[grind])
+    const hpBp = (hp ?? zero).div(10)
+    const ppBp = pp ?? 0
+    totalBp = totalBp.add(defBp).add(hpBp).add(ppBp)
+  } else {
+    const nonBaseDef = unit.grindValues[grind].sub(unit.grindValues[0])
+    totalBp = totalBp.add(getDefenseBp(nonBaseDef))
+  }
 
-  return zero.add(defBp).add(hpBp).add(ppBp)
+  return totalBp
 }
 
 type ClassBpOptions = {
@@ -61,7 +67,7 @@ export function getWeaponBp({
 }
 
 export function getAugmentBp(augments: Augment[]): BigNumber {
-  return sum(augments.map((aug) => aug.stat.bp ?? zero))
+  return sum(augments.map((aug) => aug.stat?.bp ?? zero))
 }
 
 export function getSkillpointBp(skillpoints: number): BigNumber {
